@@ -88,7 +88,10 @@ CACHED_COMPANIES = {}
 def _country_tag(hq: str) -> str:
     """Derive country tag from headquarters string."""
     hq_lower = hq.lower()
-    if any(x in hq_lower for x in ["brazil", "sp", "sc", "rj", "mg", "sao paulo", "jaragua"]):
+    # Use word boundaries: ", SP" / ", SC" etc. to avoid matching "San Francisco"
+    br_keywords = ["brazil", "brasil", "sao paulo", "jaragua"]
+    br_states = [", sp", ", sc", ", rj", ", mg", ", pr", ", rs", ", ba", ", ce", ", pe"]
+    if any(x in hq_lower for x in br_keywords) or any(hq_lower.endswith(x) or (x + ",") in hq_lower or (x + " ") in hq_lower for x in br_states):
         return "BR"
     if any(x in hq_lower for x in ["france", "paris", "bezons", "roubaix", "velizy"]):
         return "FR"
@@ -853,10 +856,6 @@ st.markdown("""
 # ── Header ──
 st.markdown(f"""
 <div class="header-container">
-    <div class="header-badge">
-        <div class="pulse-dot"></div>
-        Powered by AI
-    </div>
     <h1>{_t("header_title")}</h1>
     <p>{_t("header_subtitle")}</p>
 </div>
