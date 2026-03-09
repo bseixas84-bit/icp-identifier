@@ -79,11 +79,26 @@ def _validate_csv(uploaded_file) -> bool:
 # ── Load cached companies ──
 CACHE_DIR = Path("data/cache")
 CACHED_COMPANIES = {}
+
+def _country_tag(hq: str) -> str:
+    """Derive country tag from headquarters string."""
+    hq_lower = hq.lower()
+    if any(x in hq_lower for x in ["brazil", "sp", "sc", "rj", "mg", "sao paulo", "jaragua"]):
+        return "BR"
+    if any(x in hq_lower for x in ["france", "paris", "bezons", "roubaix", "velizy"]):
+        return "FR"
+    if any(x in hq_lower for x in ["canada", "ontario", "ottawa", "toronto"]):
+        return "CA"
+    return "US"
+
 if CACHE_DIR.exists():
     for f in sorted(CACHE_DIR.glob("*.json")):
         with open(f) as fh:
             data = json.load(fh)
-        label = data.get("dna", {}).get("company_name", f.stem.title())
+        name = data.get("dna", {}).get("company_name", f.stem.title())
+        hq = data.get("dna", {}).get("headquarters", "")
+        tag = _country_tag(hq)
+        label = f"{name} ({tag})"
         CACHED_COMPANIES[label] = data
 
 # ── Neuromorphic CSS ──
@@ -803,37 +818,56 @@ B3_OPTIONS = {f"{c['name']} ({c['ticker']})": c for c in B3_COMPANIES}
 api_key = os.getenv("GROQ_API_KEY", "")
 
 with st.sidebar:
-    # Language toggle
-    lang_toggle = st.radio(
-        _t("language"),
-        options=["Português", "English"],
-        index=0 if L == "pt" else 1,
-        key="lang_toggle",
-        horizontal=True,
-    )
-    new_lang = "pt" if lang_toggle == "Português" else "en"
-    if new_lang != L:
-        st.session_state["_lang"] = new_lang
-        st.query_params["lang"] = new_lang
-        st.rerun()
+    # ── Language toggle ──
+    lc1, lc2 = st.columns(2)
+    with lc1:
+        if st.button("PT-BR", use_container_width=True, key="lang_pt", type="primary" if L == "pt" else "secondary"):
+            if L != "pt":
+                st.session_state["_lang"] = "pt"
+                st.query_params["lang"] = "pt"
+                st.rerun()
+    with lc2:
+        if st.button("EN", use_container_width=True, key="lang_en", type="primary" if L == "en" else "secondary"):
+            if L != "en":
+                st.session_state["_lang"] = "en"
+                st.query_params["lang"] = "en"
+                st.rerun()
 
     st.markdown(f"### {_t('data_source')}")
 
-    # Radio options use keys for internal logic, labels for display
-    _radio_options = {
-        "preloaded": _t("preloaded_company"),
-        "research": _t("research_new"),
-        "csv": _t("upload_csv"),
-    }
-    data_source_label = st.radio(
-        _t("choose_option"),
-        options=list(_radio_options.values()),
-        key="data_source",
-        horizontal=False,
-    )
-    # Map back to key
-    _label_to_key = {v: k for k, v in _radio_options.items()}
-    data_source_key = _label_to_key.get(data_source_label, "preloaded")
+    # ── Data source toggle (styled buttons) ──
+    if "_data_source" not in st.session_state:
+        st.session_state["_data_source"] = "preloaded"
+
+    ds_col1, ds_col2, ds_col3 = st.columns(3)
+    with ds_col1:
+        if st.button("📦", use_container_width=True, key="ds_pre",
+                      help=_t("preloaded_company"),
+                      type="primary" if st.session_state["_data_source"] == "preloaded" else "secondary"):
+            st.session_state["_data_source"] = "preloaded"
+            st.rerun()
+    with ds_col2:
+        if st.button("🔍", use_container_width=True, key="ds_res",
+                      help=_t("research_new"),
+                      type="primary" if st.session_state["_data_source"] == "research" else "secondary"):
+            st.session_state["_data_source"] = "research"
+            st.rerun()
+    with ds_col3:
+        if st.button("📄", use_container_width=True, key="ds_csv",
+                      help=_t("upload_csv"),
+                      type="primary" if st.session_state["_data_source"] == "csv" else "secondary"):
+            st.session_state["_data_source"] = "csv"
+            st.rerun()
+
+    # Show label of active source
+    _ds_labels = {"preloaded": _t("preloaded_company"), "research": _t("research_new"), "csv": _t("upload_csv")}
+    data_source_key = st.session_state["_data_source"]
+    st.markdown(f"""
+    <div style="text-align:center;font-size:0.65rem;font-weight:600;color:var(--primary);
+        text-transform:uppercase;letter-spacing:0.08em;margin:-8px 0 12px 0;">
+        {_ds_labels[data_source_key]}
+    </div>
+    """, unsafe_allow_html=True)
 
     # ── Option 1: Pre-loaded cache ──
     selected_cached = "Selecionar..."
