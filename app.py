@@ -8,7 +8,6 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -25,27 +24,14 @@ MAX_CSV_BYTES = 5 * 1024 * 1024  # 5 MB
 
 st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide")
 
-# ── Language auto-detection ──
-# Detect browser language via JS and store in query params
+# ── Language detection ──
+# Check query params first, then default to PT
 if "_lang" not in st.session_state:
     lang_param = st.query_params.get("lang", None)
     if lang_param and lang_param in ("pt", "en"):
         st.session_state["_lang"] = lang_param
     else:
-        # Inject JS to detect browser language and redirect once
-        components.html("""
-        <script>
-            const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-            const isPt = lang.startsWith('pt');
-            const params = new URLSearchParams(window.location.search);
-            if (!params.has('lang')) {
-                params.set('lang', isPt ? 'pt' : 'en');
-                window.location.search = params.toString();
-            }
-        </script>
-        """, height=0)
-        st.session_state["_lang"] = "pt"  # default until redirect
-        st.stop()
+        st.session_state["_lang"] = "pt"
 
 L = get_lang(st.session_state)
 
