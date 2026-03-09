@@ -383,6 +383,34 @@ TRANSLATIONS = {
     "fit": {"pt": "Fit", "en": "Fit"},
     "risks": {"pt": "Riscos", "en": "Risks"},
 
+    # ── Security ──
+    "security_title": {"pt": "Seus dados estão seguros", "en": "Your data is safe"},
+    "security_badge": {"pt": "Segurança", "en": "Security"},
+    "security_no_storage": {
+        "pt": "Nenhum dado é armazenado no servidor. Uploads de CSV são processados em memória e descartados ao fechar a sessão.",
+        "en": "No data is stored on the server. CSV uploads are processed in memory and discarded when the session ends.",
+    },
+    "security_no_logs": {
+        "pt": "Sem logs ou rastreamento. Não registramos consultas, resultados ou dados de empresas analisadas.",
+        "en": "No logs or tracking. We don't record queries, results, or analyzed company data.",
+    },
+    "security_ssrf": {
+        "pt": "Proteção contra SSRF. URLs são validadas — IPs privados, localhost e esquemas não-HTTP são bloqueados.",
+        "en": "SSRF protection. URLs are validated — private IPs, localhost, and non-HTTP schemes are blocked.",
+    },
+    "security_xss": {
+        "pt": "Proteção contra XSS. Todos os dados de entrada são sanitizados antes de renderização.",
+        "en": "XSS protection. All input data is sanitized before rendering.",
+    },
+    "security_csv_limit": {
+        "pt": "Limite de upload: 5 MB. Arquivos maiores são rejeitados para prevenir abuso.",
+        "en": "Upload limit: 5 MB. Larger files are rejected to prevent abuse.",
+    },
+    "security_session": {
+        "pt": "Sessões isoladas. Cada usuário tem sessão independente — sem vazamento entre usuários.",
+        "en": "Isolated sessions. Each user has an independent session — no cross-user leakage.",
+    },
+
     # ── Empty State ──
     "empty_title": {
         "pt": "Selecione uma empresa pré-carregada ou faça upload de um CSV",

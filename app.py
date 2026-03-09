@@ -25,13 +25,18 @@ MAX_CSV_BYTES = 5 * 1024 * 1024  # 5 MB
 st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide")
 
 # ── Language detection ──
-# Check query params first, then default to PT
+# Priority: query param > Accept-Language header > default EN
 if "_lang" not in st.session_state:
     lang_param = st.query_params.get("lang", None)
     if lang_param and lang_param in ("pt", "en"):
         st.session_state["_lang"] = lang_param
     else:
-        st.session_state["_lang"] = "pt"
+        # Auto-detect from browser Accept-Language header
+        try:
+            accept_lang = st.context.headers.get("Accept-Language", "")
+            st.session_state["_lang"] = "pt" if accept_lang.lower().startswith("pt") else "en"
+        except Exception:
+            st.session_state["_lang"] = "en"
 
 L = get_lang(st.session_state)
 
@@ -95,8 +100,14 @@ if CACHE_DIR.exists():
     for f in sorted(CACHE_DIR.glob("*.json")):
         with open(f) as fh:
             data = json.load(fh)
-        name = data.get("dna", {}).get("company_name", f.stem.title())
-        hq = data.get("dna", {}).get("headquarters", "")
+        raw_dna = data.get("dna", {})
+        # Handle bilingual cache: dna can be {"pt":{...},"en":{...}} or flat dict
+        if "pt" in raw_dna and "en" in raw_dna:
+            flat_dna = raw_dna.get("en", {})  # use EN for label (company names are the same)
+        else:
+            flat_dna = raw_dna
+        name = flat_dna.get("company_name", f.stem.title())
+        hq = flat_dna.get("headquarters", "")
         tag = _country_tag(hq)
         label = f"{name} ({tag})"
         CACHED_COMPANIES[label] = data
@@ -514,6 +525,39 @@ st.markdown("""
     .sr-badge.cold { background: linear-gradient(135deg, #9ca3af, #6b7280); }
     .sr-badge.avoid { background: linear-gradient(135deg, #ef4444, #dc2626); }
 
+    /* ── Pills (sidebar selectors) ── */
+    [data-testid="stSidebar"] [data-testid="stPills"] [role="tablist"] {
+        gap: 6px !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"] {
+        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2)) !important;
+        box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        font-size: 0.72rem !important;
+        font-weight: 500 !important;
+        color: #6b7280 !important;
+        padding: 8px 14px !important;
+        transition: all 0.15s ease !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"]:hover {
+        transform: translateY(-1px) !important;
+        color: #374151 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"][aria-selected="true"] {
+        background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+        color: white !important;
+        font-weight: 600 !important;
+        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.15), inset -1px -1px 2px rgba(255,255,255,0.1) !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stPills"] label {
+        font-size: 0.65rem !important;
+        font-weight: 600 !important;
+        color: var(--primary) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+    }
+
     /* ── Button Override ── */
     .stButton > button[kind="primary"] {
         background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
@@ -809,69 +853,49 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ── Load B3 companies ──
-with open("data/companies_b3.json", "r") as f:
-    B3_COMPANIES = json.load(f)
-B3_OPTIONS = {f"{c['name']} ({c['ticker']})": c for c in B3_COMPANIES}
-
 # ── Sidebar ──
 api_key = os.getenv("GROQ_API_KEY", "")
 
 with st.sidebar:
-    # ── Language toggle ──
-    lc1, lc2 = st.columns(2)
-    with lc1:
-        if st.button("PT-BR", use_container_width=True, key="lang_pt", type="primary" if L == "pt" else "secondary"):
-            if L != "pt":
-                st.session_state["_lang"] = "pt"
-                st.query_params["lang"] = "pt"
-                st.rerun()
-    with lc2:
-        if st.button("EN", use_container_width=True, key="lang_en", type="primary" if L == "en" else "secondary"):
-            if L != "en":
-                st.session_state["_lang"] = "en"
-                st.query_params["lang"] = "en"
-                st.rerun()
+    # ── Language toggle (pills) ──
+    _lang_map = {"🇧🇷 PT-BR": "pt", "🇺🇸 EN": "en"}
+    _lang_default = "🇧🇷 PT-BR" if L == "pt" else "🇺🇸 EN"
+    _lang_pick = st.pills(
+        _t("language"), options=list(_lang_map.keys()),
+        default=_lang_default, key="lang_pills",
+    )
+    if _lang_pick and _lang_map[_lang_pick] != L:
+        st.session_state["_lang"] = _lang_map[_lang_pick]
+        st.query_params["lang"] = _lang_map[_lang_pick]
+        st.rerun()
 
     st.markdown(f"### {_t('data_source')}")
 
-    # ── Data source toggle (styled buttons) ──
+    # ── Data source toggle (pills) ──
     if "_data_source" not in st.session_state:
         st.session_state["_data_source"] = "preloaded"
 
-    ds_col1, ds_col2, ds_col3 = st.columns(3)
-    with ds_col1:
-        if st.button("📦", use_container_width=True, key="ds_pre",
-                      help=_t("preloaded_company"),
-                      type="primary" if st.session_state["_data_source"] == "preloaded" else "secondary"):
-            st.session_state["_data_source"] = "preloaded"
-            st.rerun()
-    with ds_col2:
-        if st.button("🔍", use_container_width=True, key="ds_res",
-                      help=_t("research_new"),
-                      type="primary" if st.session_state["_data_source"] == "research" else "secondary"):
-            st.session_state["_data_source"] = "research"
-            st.rerun()
-    with ds_col3:
-        if st.button("📄", use_container_width=True, key="ds_csv",
-                      help=_t("upload_csv"),
-                      type="primary" if st.session_state["_data_source"] == "csv" else "secondary"):
-            st.session_state["_data_source"] = "csv"
+    _ds_map = {
+        f"📦 {_t('preloaded_company')}": "preloaded",
+        f"🔍 {_t('research_new')}": "research",
+        f"📄 {_t('upload_csv')}": "csv",
+    }
+    _ds_reverse = {v: k for k, v in _ds_map.items()}
+    _ds_default = _ds_reverse[st.session_state["_data_source"]]
+    _ds_pick = st.pills(
+        "", options=list(_ds_map.keys()),
+        default=_ds_default, key="ds_pills",
+    )
+    if _ds_pick:
+        new_ds = _ds_map[_ds_pick]
+        if new_ds != st.session_state["_data_source"]:
+            st.session_state["_data_source"] = new_ds
             st.rerun()
 
-    # Show label of active source
-    _ds_labels = {"preloaded": _t("preloaded_company"), "research": _t("research_new"), "csv": _t("upload_csv")}
     data_source_key = st.session_state["_data_source"]
-    st.markdown(f"""
-    <div style="text-align:center;font-size:0.65rem;font-weight:600;color:var(--primary);
-        text-transform:uppercase;letter-spacing:0.08em;margin:-8px 0 12px 0;">
-        {_ds_labels[data_source_key]}
-    </div>
-    """, unsafe_allow_html=True)
 
     # ── Option 1: Pre-loaded cache ──
-    selected_cached = "Selecionar..."
-    selected_company = "Selecionar..."
+    selected_cached = _t("select_placeholder")
     company_url = ""
     research_btn = False
     customers_file = None
@@ -889,11 +913,14 @@ with st.sidebar:
 
         if selected_cached != _t("select_placeholder"):
             cache_data = CACHED_COMPANIES[selected_cached]
-            if st.session_state.get("_loaded_cache") != selected_cached:
+            if st.session_state.get("_loaded_cache") != selected_cached or st.session_state.get("_loaded_lang") != L:
                 for key in ["icp", "scored"]:
                     st.session_state.pop(key, None)
-                st.session_state["intel_dna"] = cache_data["dna"]
-                st.session_state["intel_market"] = cache_data["market"]
+                # Support bilingual cache: dna/market can be {"pt":{...},"en":{...}} or flat dict
+                raw_dna = cache_data["dna"]
+                raw_market = cache_data["market"]
+                st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if "pt" in raw_dna and "en" in raw_dna else raw_dna
+                st.session_state["intel_market"] = raw_market.get(L, raw_market) if "pt" in raw_market and "en" in raw_market else raw_market
                 clients_df = pd.DataFrame(cache_data["clients"])
                 clients_df["churned"] = clients_df["churned"].apply(
                     lambda x: str(x).strip().lower() in ("true", "1", "yes")
@@ -903,6 +930,7 @@ with st.sidebar:
                 st.session_state["intel_dossier_path"] = ""
                 st.session_state["company_source"] = None
                 st.session_state["_loaded_cache"] = selected_cached
+                st.session_state["_loaded_lang"] = L
 
             st.markdown(f"""
             <div class="instant-badge">{_t("preloaded_data")}</div>
@@ -918,17 +946,7 @@ with st.sidebar:
 
     # ── Option 2: Research new company ──
     elif data_source_key == "research":
-        selected_company = st.selectbox(
-            _t("b3_companies"),
-            options=[_t("select_placeholder")] + list(B3_OPTIONS.keys()),
-            key="b3_select",
-        )
-        company_url_raw = st.text_input(_t("type_url"), placeholder=_t("url_placeholder"))
-
-        if selected_company != _t("select_placeholder") and not company_url_raw:
-            company_url = B3_OPTIONS[selected_company]["url"]
-        else:
-            company_url = company_url_raw
+        company_url = st.text_input(_t("type_url"), placeholder=_t("url_placeholder"))
 
         # Validate URL for SSRF
         if company_url:
@@ -940,21 +958,6 @@ with st.sidebar:
                 company_url = validated
 
         research_btn = st.button(_t("research_btn"), type="primary", use_container_width=True, key="research")
-
-        if selected_company != _t("select_placeholder"):
-            c = B3_OPTIONS[selected_company]
-            rev_brl = c["annual_revenue_brl"] / 1e9
-            st.markdown(f"""
-            <div style="padding:10px 12px; margin-top:8px; border-radius:12px;
-                background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-                box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
-                font-size:0.75rem; color:#374151; line-height:1.6;">
-                <strong style="color:#7c3aed;">{c['name']}</strong> — {c['industry']}<br>
-                {c['employee_count']:,} {_t("employees_label")} · R$ {rev_brl:.1f}B {_t("revenue_label")}<br>
-                {_t("founded_in")} {c['founding_year']} · {c['hq']}<br>
-                <span style="color:#9ca3af; font-size:0.65rem;">{_t("source_label")}: {c['source']}</span>
-            </div>
-            """, unsafe_allow_html=True)
 
     # ── Option 3: Upload CSV ──
     elif data_source_key == "csv":
@@ -970,6 +973,39 @@ with st.sidebar:
     if prospects_file_raw and not _validate_csv(prospects_file_raw):
         prospects_file_raw = None
     prospects_file = prospects_file_raw
+
+    # ── Security info ──
+    st.markdown("---")
+    with st.expander(f"🔒 {_t('security_badge')}", expanded=False):
+        st.markdown(f"""
+        <div style="font-size:0.78rem;color:#374151;line-height:1.7;">
+            <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_no_storage")}</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_no_logs")}</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_ssrf")}</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_xss")}</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_csv_limit")}</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                <span>{_t("security_session")}</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ── Company Research ──
 # ── Intelligence Pipeline ──
@@ -1030,8 +1066,7 @@ if research_btn and company_url:
             st.session_state["generated_clients"] = gen_df
             st.session_state["intel_dossier"] = dossier_md
             st.session_state["intel_dossier_path"] = dossier_path
-            b3_match = next((c for c in B3_COMPANIES if c["url"] == company_url), None)
-            st.session_state["company_source"] = b3_match
+            st.session_state["company_source"] = None
 
         except Exception as e:
             st.error(_t("pipeline_error", e=e))
