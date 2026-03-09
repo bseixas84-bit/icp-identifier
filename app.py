@@ -586,6 +586,15 @@ st.markdown("""
         font-size: 0.85rem !important;
         border-radius: 16px !important;
     }
+    [data-testid="stSidebar"] .streamlit-expanderHeader {
+        font-size: 0.75rem !important;
+        overflow: visible !important;
+        white-space: nowrap !important;
+    }
+    [data-testid="stSidebar"] .streamlit-expanderHeader p {
+        font-size: 0.75rem !important;
+        overflow: visible !important;
+    }
 
     /* Empty state */
     .empty-state {
@@ -976,7 +985,7 @@ with st.sidebar:
 
     # ── Security info ──
     st.markdown("---")
-    with st.expander(f"🔒 {_t('security_badge')}", expanded=False):
+    with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
         st.markdown(f"""
         <div style="font-size:0.78rem;color:#374151;line-height:1.7;">
             <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
