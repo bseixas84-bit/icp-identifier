@@ -130,7 +130,9 @@ st.markdown("""
         --primary-dark: #6d28d9;
     }
 
-    * { font-family: 'Inter', system-ui, sans-serif !important; }
+    *:not([class*="material"]):not([class*="icon"]):not([data-testid="stIconMaterial"]) {
+        font-family: 'Inter', system-ui, sans-serif !important;
+    }
 
     /* Global background */
     .stApp {
