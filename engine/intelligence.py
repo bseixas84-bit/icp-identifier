@@ -6,13 +6,35 @@ Deep research → Dossier → Client Generation → Pre-ICP
 import json
 import io
 import os
+import re
+import socket
+import ipaddress
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 
 import httpx
 from bs4 import BeautifulSoup
 from openai import OpenAI
 import pandas as pd
+
+
+def _is_safe_url(url: str) -> bool:
+    """Block SSRF: reject private/loopback/link-local IPs and non-http schemes."""
+    parsed = urlparse(url)
+    if parsed.scheme not in ("http", "https"):
+        return False
+    hostname = parsed.hostname
+    if not hostname:
+        return False
+    try:
+        ip = socket.gethostbyname(hostname)
+        addr = ipaddress.ip_address(ip)
+        if addr.is_private or addr.is_loopback or addr.is_reserved or addr.is_link_local:
+            return False
+    except (socket.gaierror, ValueError):
+        return False
+    return True
 
 
 def _llm(api_key: str, prompt: str, max_tokens: int = 3000, temp: float = 0.4) -> str:
@@ -30,6 +52,8 @@ def _scrape(url: str, paths: list[str] | None = None) -> dict[str, str]:
     """Scrape multiple pages from a domain. Returns {url: text}."""
     if not url.startswith("http"):
         url = "https://" + url
+    if not _is_safe_url(url):
+        return {}
     base = url.rstrip("/")
 
     default_paths = [
@@ -49,6 +73,8 @@ def _scrape(url: str, paths: list[str] | None = None) -> dict[str, str]:
     with httpx.Client(follow_redirects=True, timeout=12, headers=headers) as c:
         for path in targets:
             page_url = base + path
+            if not _is_safe_url(page_url):
+                continue
             try:
                 resp = c.get(page_url)
                 if resp.status_code == 200 and "text/html" in resp.headers.get("content-type", ""):
@@ -405,12 +431,6 @@ def run_intelligence_pipeline(url: str, api_key: str, progress_callback=None):
     update(5, "Dossier", "Compilando relatorio...")
     dossier_md = build_dossier(url, discovery, dna, market, df)
 
-    # Save dossier
-    reports_dir = Path("data/reports")
-    reports_dir.mkdir(parents=True, exist_ok=True)
-    safe_name = dna.get("company_name", "company").replace(" ", "_").replace("/", "_")[:30]
-    dossier_path = reports_dir / f"{safe_name}_dossier.md"
-    dossier_path.write_text(dossier_md, encoding="utf-8")
-    update(5, "Dossier", f"Salvo em {dossier_path}")
+    update(5, "Dossier", "Relatorio pronto")
 
-    return dna, market, df, str(dossier_path), dossier_md
+    return dna, market, df, "", dossier_md

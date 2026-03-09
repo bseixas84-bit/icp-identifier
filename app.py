@@ -1,12 +1,56 @@
 import os
+import re
+import html
 import json
+import socket
+import ipaddress
 from pathlib import Path
+from urllib.parse import urlparse
 
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from dotenv import load_dotenv
+
+MAX_CSV_BYTES = 5 * 1024 * 1024  # 5 MB
+
+
+def _safe(val) -> str:
+    """HTML-escape any value before injecting into unsafe_allow_html markup."""
+    return html.escape(str(val))
+
+
+def _validate_url(url: str) -> str | None:
+    """Validate URL: must be http(s), no private/loopback IPs (SSRF protection)."""
+    if not url:
+        return None
+    if not url.startswith("http"):
+        url = "https://" + url
+    parsed = urlparse(url)
+    if parsed.scheme not in ("http", "https"):
+        return None
+    hostname = parsed.hostname
+    if not hostname:
+        return None
+    try:
+        ip = socket.gethostbyname(hostname)
+        addr = ipaddress.ip_address(ip)
+        if addr.is_private or addr.is_loopback or addr.is_reserved or addr.is_link_local:
+            return None
+    except (socket.gaierror, ValueError):
+        return None
+    return url
+
+
+def _validate_csv(uploaded_file) -> bool:
+    """Validate CSV file size."""
+    if uploaded_file is None:
+        return False
+    if uploaded_file.size > MAX_CSV_BYTES:
+        st.error(f"Arquivo muito grande ({uploaded_file.size / 1024 / 1024:.1f} MB). Limite: 5 MB.")
+        return False
+    return True
 
 from engine.analyzer import analyze_customers
 from engine.scorer import score_prospects
@@ -806,10 +850,21 @@ with st.sidebar:
             options=["Selecionar..."] + list(B3_OPTIONS.keys()),
             key="b3_select",
         )
-        company_url = st.text_input("Ou digite uma URL", placeholder="exemplo.com.br")
+        company_url_raw = st.text_input("Ou digite uma URL", placeholder="exemplo.com.br")
 
-        if selected_company != "Selecionar..." and not company_url:
+        if selected_company != "Selecionar..." and not company_url_raw:
             company_url = B3_OPTIONS[selected_company]["url"]
+        else:
+            company_url = company_url_raw
+
+        # Validate URL for SSRF
+        if company_url:
+            validated = _validate_url(company_url)
+            if not validated:
+                st.warning("URL invalida ou bloqueada (IPs privados/locais nao sao permitidos).")
+                company_url = ""
+            else:
+                company_url = validated
 
         research_btn = st.button("Pesquisar", type="primary", use_container_width=True, key="research")
 
@@ -830,12 +885,18 @@ with st.sidebar:
 
     # ── Option 3: Upload CSV ──
     elif data_source == "Upload CSV":
-        customers_file = st.file_uploader("Upload CSV de clientes", type=["csv"], key="customers")
+        customers_file_raw = st.file_uploader("Upload CSV de clientes", type=["csv"], key="customers")
+        if customers_file_raw and not _validate_csv(customers_file_raw):
+            customers_file_raw = None
+        customers_file = customers_file_raw
         use_sample = st.checkbox("Usar dados de exemplo", value=False)
 
     st.markdown("---")
     st.markdown("### Prospects")
-    prospects_file = st.file_uploader("Upload CSV de prospects", type=["csv"], key="prospects")
+    prospects_file_raw = st.file_uploader("Upload CSV de prospects", type=["csv"], key="prospects")
+    if prospects_file_raw and not _validate_csv(prospects_file_raw):
+        prospects_file_raw = None
+    prospects_file = prospects_file_raw
 
 # ── Company Research ──
 # ── Intelligence Pipeline ──
@@ -1016,7 +1077,7 @@ if "intel_dna" in st.session_state:
             <div class="dossier-icon">D</div>
             <div class="dossier-info">
                 <div class="dossier-name">{name} — Intelligence Dossier</div>
-                <div class="dossier-meta">Relatorio completo salvo em {dossier_path}</div>
+                <div class="dossier-meta">Relatorio disponivel para download</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1407,8 +1468,8 @@ if df is not None:
                         f'background:linear-gradient(145deg,var(--neu-bg),var(--neu-bg2));'
                         f'box-shadow:3px 3px 6px var(--neu-dark),-3px -3px 6px var(--neu-light);'
                         f'border-radius:14px;border-left:3px solid {color};">'
-                        f'<div style="flex:1;"><div style="font-weight:600;color:#1f2937;font-size:0.85rem;">{row["company_name"]}</div>'
-                        f'<div style="font-size:0.7rem;color:#9ca3af;">{row["industry"]} · {row["employee_count"]:,} func · {row["tech_class"]}</div></div>'
+                        f'<div style="flex:1;"><div style="font-weight:600;color:#1f2937;font-size:0.85rem;">{_safe(row["company_name"])}</div>'
+                        f'<div style="font-size:0.7rem;color:#9ca3af;">{_safe(row["industry"])} · {row["employee_count"]:,} func · {_safe(row["tech_class"])}</div></div>'
                         f'<div style="text-align:right;font-size:0.75rem;color:#6b7280;line-height:1.5;">'
                         f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span> · NPS {row["nps_score"]} · {row["sales_cycle_days"]}d<br>'
                         f'LTV ${row["ltv_usd"]:,.0f} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
@@ -1690,11 +1751,11 @@ if df is not None:
             <div class="cc-section-title">Descobertas Principais</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>Melhor industria: {best_industry} — maior LTV medio entre ativos</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>Industria de maior risco: {worst_churn_industry} — maior taxa de churn</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Cliente mais satisfeito: {best_nps_company} (NPS {df['nps_score'].max()})</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>Cliente mais satisfeito: {_safe(best_nps_company)} (NPS {df['nps_score'].max()})</div>
         """, unsafe_allow_html=True)
 
         st.markdown(f"""
-            <div class="cc-list-item"><div class="cc-bullet"></div>Maior LTV: {top_ltv_company} (${top_ltv_val:,.0f})</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>Maior LTV: {_safe(top_ltv_company)} (${top_ltv_val:,.0f})</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>Tech stack e preditor: Cloud tem {legacy_churn - cloud_churn:.0f}pp menos churn que Legacy</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>ROI medio: Ativos geram {avg_roi_active:.1f}x o contrato vs {avg_roi_churned:.1f}x dos churned</div>
         """, unsafe_allow_html=True)
@@ -1810,9 +1871,9 @@ if df is not None:
                 rec = row["recommendation"]
                 st.markdown(f"""
                 <div class="score-row">
-                    <div class="sr-name">{row['company_name']}</div>
-                    <div class="sr-score {rec}">{row['score']}</div>
-                    <div class="sr-badge {rec}">{rec}</div>
+                    <div class="sr-name">{_safe(row['company_name'])}</div>
+                    <div class="sr-score {_safe(rec)}">{row['score']}</div>
+                    <div class="sr-badge {_safe(rec)}">{_safe(rec)}</div>
                 </div>
                 """, unsafe_allow_html=True)
 
