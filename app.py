@@ -783,7 +783,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Header ──
-st.markdown("""
+st.markdown(f"""
 <div class="header-container">
     <div class="header-badge">
         <div class="pulse-dot"></div>
