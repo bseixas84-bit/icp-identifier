@@ -31,10 +31,12 @@ if "_lang" not in st.session_state:
     if lang_param and lang_param in ("pt", "en"):
         st.session_state["_lang"] = lang_param
     else:
-        # Auto-detect from browser Accept-Language header
+        # Auto-detect: only PT if Portuguese is the PRIMARY browser language
         try:
             accept_lang = st.context.headers.get("Accept-Language", "")
-            st.session_state["_lang"] = "pt" if accept_lang.lower().startswith("pt") else "en"
+            # Accept-Language format: "pt-BR,pt;q=0.9,en;q=0.8" — first entry is primary
+            primary = accept_lang.split(",")[0].strip().lower() if accept_lang else ""
+            st.session_state["_lang"] = "pt" if primary.startswith("pt") else "en"
         except Exception:
             st.session_state["_lang"] = "en"
 
