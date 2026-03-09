@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icp-identifier"
+version = "1.0.0"
+description = "AI-powered Ideal Customer Profile identifier with company intelligence pipeline"
+requires-python = ">=3.10,<3.14"
+license = {text = "MIT"}
+authors = [{name = "Bruno Seixas", email = "bruno@brunoseixas.com"}]
+
+dependencies = [
+    "streamlit>=1.41",
+    "fastapi>=0.115",
+    "uvicorn>=0.34",
+    "openai>=1.58",
+    "pandas>=2.2",
+    "plotly>=5.24",
+    "pydantic>=2.10",
+    "python-dotenv>=1.0",
+    "httpx>=0.28",
+    "python-multipart>=0.0.20",
+    "beautifulsoup4>=4.12",
+]
+
+[project.scripts]
+icp-app = "icp_identifier.cli:run_app"
+icp-api = "icp_identifier.cli:run_api"
+
+[tool.setuptools.packages.find]
+include = ["engine*", "data*"]
+
+[tool.setuptools.package-data]
+data = ["*.json", "*.csv", "cache/*.json"]

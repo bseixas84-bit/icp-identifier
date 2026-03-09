@@ -1,0 +1,122 @@
+[
+    {
+        "name": "TOTVS",
+        "ticker": "TOTS3",
+        "url": "totvs.com",
+        "industry": "Tecnologia / ERP",
+        "employee_count": 9000,
+        "annual_revenue_brl": 4600000000,
+        "founding_year": 1983,
+        "hq": "Sao Paulo, SP",
+        "description": "Maior empresa de tecnologia do Brasil. Desenvolve sistemas de gestao (ERP), plataformas de business performance e techfin.",
+        "source": "RI TOTVS - Relatorio Anual 2024 (ri.totvs.com)"
+    },
+    {
+        "name": "Magazine Luiza",
+        "ticker": "MGLU3",
+        "url": "magazineluiza.com.br",
+        "industry": "Varejo / E-commerce",
+        "employee_count": 38000,
+        "annual_revenue_brl": 36500000000,
+        "founding_year": 1957,
+        "hq": "Franca, SP",
+        "description": "Uma das maiores varejistas do Brasil, com forte presenca online (marketplace) e rede de lojas fisicas. Referencia em transformacao digital no varejo.",
+        "source": "RI Magazine Luiza - DFP 2024 (ri.magazineluiza.com.br)"
+    },
+    {
+        "name": "Natura &Co",
+        "ticker": "NTCO3",
+        "url": "natura.com.br",
+        "industry": "Cosmeticos / Beleza",
+        "employee_count": 32000,
+        "annual_revenue_brl": 26400000000,
+        "founding_year": 1969,
+        "hq": "Sao Paulo, SP",
+        "description": "Grupo de cosmeticos dono das marcas Natura, Avon e The Body Shop. Lider em venda direta na America Latina com forte posicionamento em sustentabilidade.",
+        "source": "RI Natura - Relatorio Anual 2024 (ri.naturaeco.com)"
+    },
+    {
+        "name": "WEG",
+        "ticker": "WEGE3",
+        "url": "weg.net",
+        "industry": "Industrial / Motores Eletricos",
+        "employee_count": 44000,
+        "annual_revenue_brl": 36000000000,
+        "founding_year": 1961,
+        "hq": "Jaragua do Sul, SC",
+        "description": "Multinacional brasileira fabricante de motores eletricos, transformadores, geradores e tintas. Presente em mais de 135 paises.",
+        "source": "RI WEG - Release de Resultados 4T24 (ri.weg.net)"
+    },
+    {
+        "name": "Localiza",
+        "ticker": "RENT3",
+        "url": "localiza.com",
+        "industry": "Aluguel de Veiculos / Mobilidade",
+        "employee_count": 18000,
+        "annual_revenue_brl": 32000000000,
+        "founding_year": 1973,
+        "hq": "Belo Horizonte, MG",
+        "description": "Maior empresa de aluguel de carros e gestao de frotas da America Latina. Opera tambem no segmento de seminovos e assinatura de veiculos.",
+        "source": "RI Localiza - DFP 2024 (ri.localiza.com)"
+    },
+    {
+        "name": "Nubank",
+        "ticker": "ROXO34 (BDR)",
+        "url": "nubank.com.br",
+        "industry": "Fintech / Banco Digital",
+        "employee_count": 8000,
+        "annual_revenue_brl": 36000000000,
+        "founding_year": 2013,
+        "hq": "Sao Paulo, SP",
+        "description": "Maior banco digital do mundo fora da Asia com mais de 100 milhoes de clientes. Oferece conta digital, cartao de credito, investimentos, seguros e emprestimos.",
+        "source": "RI Nubank - Earnings Release Q4 2024 (investors.nu)"
+    },
+    {
+        "name": "Ambev",
+        "ticker": "ABEV3",
+        "url": "ambev.com.br",
+        "industry": "Bebidas / Alimentos",
+        "employee_count": 35000,
+        "annual_revenue_brl": 79900000000,
+        "founding_year": 1999,
+        "hq": "Sao Paulo, SP",
+        "description": "Maior cervejaria da America Latina e parte do grupo AB InBev. Dona das marcas Skol, Brahma, Antarctica, Guarana Antarctica e Stella Artois.",
+        "source": "RI Ambev - Relatorio Anual 2024 (ri.ambev.com.br)"
+    },
+    {
+        "name": "Stone",
+        "ticker": "STNE (Nasdaq)",
+        "url": "stone.com.br",
+        "industry": "Fintech / Meios de Pagamento",
+        "employee_count": 15000,
+        "annual_revenue_brl": 13000000000,
+        "founding_year": 2012,
+        "hq": "Sao Paulo, SP",
+        "description": "Empresa de tecnologia financeira focada em solucoes de pagamento para PMEs. Oferece maquininhas, software de gestao (Linx) e credito para lojistas.",
+        "source": "RI Stone - Earnings Release Q4 2024 (investors.stone.co)"
+    },
+    {
+        "name": "Grupo Fleury",
+        "ticker": "FLRY3",
+        "url": "fleury.com.br",
+        "industry": "Saude / Diagnosticos",
+        "employee_count": 12000,
+        "annual_revenue_brl": 8000000000,
+        "founding_year": 1926,
+        "hq": "Sao Paulo, SP",
+        "description": "Maior empresa de medicina diagnostica do Brasil. Opera marcas como Fleury, a+, Labs e Campana. Referencia em inovacao na saude.",
+        "source": "RI Fleury - Release de Resultados 4T24 (ri.fleury.com.br)"
+    },
+    {
+        "name": "Intelbras",
+        "ticker": "INTB3",
+        "url": "intelbras.com",
+        "industry": "Tecnologia / Seguranca Eletronica",
+        "employee_count": 5500,
+        "annual_revenue_brl": 4200000000,
+        "founding_year": 1976,
+        "hq": "Sao Jose, SC",
+        "description": "Lider brasileira em seguranca eletronica, redes, comunicacao e energia solar. Forte presenca no mercado B2B com rede de mais de 90 mil revendas.",
+        "source": "RI Intelbras - DFP 2024 (ri.intelbras.com.br)"
+    }
+]

@@ -1,0 +1,17 @@
+company_name,industry,employee_count,annual_revenue_usd,deal_size_usd,sales_cycle_days,churned,ltv_usd,nps_score,tech_stack,country,founding_year
+Magazine Luiza,Varejo,38000,7300000000,480000,25,false,2400000,9,Cloud;AWS;Salesforce,Brazil,1957
+Localiza,Mobilidade,18000,6400000000,360000,30,false,1800000,9,Cloud;Azure;SAP,Brazil,1973
+Natura,Cosmeticos,32000,5280000000,420000,28,false,2100000,10,Cloud;AWS;Salesforce,Brazil,1969
+WEG,Industrial,44000,7200000000,280000,40,false,1400000,8,Cloud;Azure;SAP,Brazil,1961
+Ambev,Bebidas,35000,15980000000,500000,22,false,2500000,9,Cloud;Azure;SAP,Brazil,1999
+Nubank,Fintech,8000,7200000000,600000,20,false,3000000,10,Cloud;AWS;HubSpot,Brazil,2013
+Stone,Fintech,15000,2600000000,320000,25,false,1600000,9,Cloud;AWS;Salesforce,Brazil,2012
+Grupo Fleury,Saude,12000,1600000000,300000,35,false,1500000,8,Cloud;Azure;Salesforce,Brazil,1926
+Intelbras,Tecnologia,5500,840000000,200000,33,false,1000000,8,Cloud;AWS;SAP,Brazil,1976
+Arezzo,Moda,14000,1200000000,260000,30,false,1300000,9,Cloud;Azure;Salesforce,Brazil,1972
+Hapvida,Saude,65000,5500000000,180000,55,true,180000,4,Legacy;On-premise;Proprio,Brazil,1979
+MRV Engenharia,Construcao Civil,25000,1800000000,95000,80,true,95000,3,Legacy;On-premise;Excel,Brazil,1979
+Gol Linhas Aereas,Aviacao,14000,2800000000,75000,90,true,75000,3,Legacy;On-premise;Proprio,Brazil,2001
+Lojas Quero-Quero,Varejo Regional,4500,350000000,55000,75,true,55000,4,Legacy;On-premise;Excel,Brazil,1967
+CVC Corp,Turismo,4000,1100000000,60000,95,true,60000,2,Legacy;On-premise;Proprio,Brazil,1972
+Multilaser,Eletronica,3500,400000000,45000,85,true,45000,3,Legacy;On-premise;Excel,Brazil,1987
