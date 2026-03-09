@@ -1110,14 +1110,33 @@ if "intel_dna" in st.session_state:
     social_html = bullets(dna.get('social_proof', [])[:5])
     partners_html = bullets(dna.get('partnerships', [])[:5])
 
+    hq = dna.get('headquarters', '')
+    size_signals = dna.get('company_size_signals', '')
+    founded = dna.get('founded_year', '')
+
+    # Build meta line: HQ · Founded · Size signals
+    meta_parts = []
+    if hq:
+        meta_parts.append(f"📍 {_safe(hq)}")
+    if founded and str(founded) != "unknown":
+        meta_parts.append(f"{_t('founded')} {_safe(founded)}")
+    meta_line = " · ".join(meta_parts)
+
     st.markdown(f"""
     <div class="company-card">
         <div class="cc-header">
             <div class="cc-icon">{initial}</div>
-            <div>
+            <div style="flex:1;">
                 <div class="cc-name">{name}</div>
                 <div class="cc-industry">{dna.get('industry', '')} · {dna.get('business_model', '')}</div>
+                <div style="font-size:0.75rem;color:#6b7280;margin-top:4px;">{meta_line}</div>
             </div>
+        </div>
+        <div style="padding:10px 16px;margin:12px 0;background:linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
+            box-shadow:inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+            border-radius:12px;font-size:0.78rem;color:#374151;line-height:1.6;">
+            <span style="font-weight:600;color:var(--primary);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;">{_t('company_size')}</span><br>
+            {_safe(size_signals)}
         </div>
         <div class="cc-desc">{dna.get('description', '')}</div>
     """, unsafe_allow_html=True)

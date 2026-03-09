@@ -411,6 +411,10 @@ TRANSLATIONS = {
         "en": "Isolated sessions. Each user has an independent session — no cross-user leakage.",
     },
 
+    # ── Company Card Meta ──
+    "founded": {"pt": "Fundada em", "en": "Founded"},
+    "company_size": {"pt": "Porte da Empresa", "en": "Company Size"},
+
     # ── Empty State ──
     "empty_title": {
         "pt": "Selecione uma empresa pré-carregada ou faça upload de um CSV",
