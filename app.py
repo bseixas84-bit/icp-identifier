@@ -8,12 +8,50 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from dotenv import load_dotenv
 
+from i18n import t, get_lang
+from engine.analyzer import analyze_customers
+from engine.scorer import score_prospects
+from engine.intelligence import run_intelligence_pipeline
+
+load_dotenv()
+
 MAX_CSV_BYTES = 5 * 1024 * 1024  # 5 MB
+
+st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide")
+
+# ── Language auto-detection ──
+# Detect browser language via JS and store in query params
+if "_lang" not in st.session_state:
+    lang_param = st.query_params.get("lang", None)
+    if lang_param and lang_param in ("pt", "en"):
+        st.session_state["_lang"] = lang_param
+    else:
+        # Inject JS to detect browser language and redirect once
+        components.html("""
+        <script>
+            const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            const isPt = lang.startsWith('pt');
+            const params = new URLSearchParams(window.location.search);
+            if (!params.has('lang')) {
+                params.set('lang', isPt ? 'pt' : 'en');
+                window.location.search = params.toString();
+            }
+        </script>
+        """, height=0)
+        st.session_state["_lang"] = "pt"  # default until redirect
+        st.stop()
+
+L = get_lang(st.session_state)
+
+
+def _t(key, **kwargs):
+    return t(key, L, **kwargs)
 
 
 def _safe(val) -> str:
@@ -48,17 +86,9 @@ def _validate_csv(uploaded_file) -> bool:
     if uploaded_file is None:
         return False
     if uploaded_file.size > MAX_CSV_BYTES:
-        st.error(f"Arquivo muito grande ({uploaded_file.size / 1024 / 1024:.1f} MB). Limite: 5 MB.")
+        st.error(_t("file_too_large", size=f"{uploaded_file.size / 1024 / 1024:.1f}"))
         return False
     return True
-
-from engine.analyzer import analyze_customers
-from engine.scorer import score_prospects
-from engine.intelligence import run_intelligence_pipeline
-
-load_dotenv()
-
-st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide")
 
 # ── Load cached companies ──
 CACHE_DIR = Path("data/cache")
@@ -773,8 +803,8 @@ st.markdown("""
         <div class="pulse-dot"></div>
         Powered by AI
     </div>
-    <h1>ICP Identifier</h1>
-    <p>Descubra seu cliente ideal a partir dos seus dados</p>
+    <h1>{_t("header_title")}</h1>
+    <p>{_t("header_subtitle")}</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -787,14 +817,37 @@ B3_OPTIONS = {f"{c['name']} ({c['ticker']})": c for c in B3_COMPANIES}
 api_key = os.getenv("GROQ_API_KEY", "")
 
 with st.sidebar:
-    st.markdown("### Fonte de Dados")
+    # Language toggle
+    lang_toggle = st.radio(
+        _t("language"),
+        options=["Português", "English"],
+        index=0 if L == "pt" else 1,
+        key="lang_toggle",
+        horizontal=True,
+    )
+    new_lang = "pt" if lang_toggle == "Português" else "en"
+    if new_lang != L:
+        st.session_state["_lang"] = new_lang
+        st.query_params["lang"] = new_lang
+        st.rerun()
 
-    data_source = st.radio(
-        "Escolha uma opcao",
-        options=["Empresa pre-carregada", "Pesquisar nova empresa", "Upload CSV"],
+    st.markdown(f"### {_t('data_source')}")
+
+    # Radio options use keys for internal logic, labels for display
+    _radio_options = {
+        "preloaded": _t("preloaded_company"),
+        "research": _t("research_new"),
+        "csv": _t("upload_csv"),
+    }
+    data_source_label = st.radio(
+        _t("choose_option"),
+        options=list(_radio_options.values()),
         key="data_source",
         horizontal=False,
     )
+    # Map back to key
+    _label_to_key = {v: k for k, v in _radio_options.items()}
+    data_source_key = _label_to_key.get(data_source_label, "preloaded")
 
     # ── Option 1: Pre-loaded cache ──
     selected_cached = "Selecionar..."
@@ -805,16 +858,16 @@ with st.sidebar:
     use_sample = False
     prospects_file = None
 
-    if data_source == "Empresa pre-carregada":
+    if data_source_key == "preloaded":
         cached_labels = list(CACHED_COMPANIES.keys())
         selected_cached = st.selectbox(
-            "Carregamento instantaneo",
-            options=["Selecionar..."] + cached_labels,
+            _t("instant_loading"),
+            options=[_t("select_placeholder")] + cached_labels,
             key="cached_select",
-            help="Dados completos pre-analisados. Carregamento imediato."
+            help=_t("instant_help"),
         )
 
-        if selected_cached != "Selecionar...":
+        if selected_cached != _t("select_placeholder"):
             cache_data = CACHED_COMPANIES[selected_cached]
             if st.session_state.get("_loaded_cache") != selected_cached:
                 for key in ["icp", "scored"]:
@@ -832,27 +885,27 @@ with st.sidebar:
                 st.session_state["_loaded_cache"] = selected_cached
 
             st.markdown(f"""
-            <div class="instant-badge">Dados pre-carregados</div>
+            <div class="instant-badge">{_t("preloaded_data")}</div>
             <div style="padding:10px 12px; border-radius:12px;
                 background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
                 box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
                 font-size:0.75rem; color:#374151; line-height:1.6;">
                 <strong style="color:#7c3aed;">{selected_cached}</strong><br>
-                DNA + Mercado + {len(cache_data['clients'])} clientes<br>
-                <span style="color:#9ca3af; font-size:0.65rem;">Fonte: Cache local + IA (Llama 3.3 70B)</span>
+                DNA + {'Mercado' if L == 'pt' else 'Market'} + {len(cache_data['clients'])} {_t("customers").lower()}<br>
+                <span style="color:#9ca3af; font-size:0.65rem;">{_t("source_cache")}</span>
             </div>
             """, unsafe_allow_html=True)
 
     # ── Option 2: Research new company ──
-    elif data_source == "Pesquisar nova empresa":
+    elif data_source_key == "research":
         selected_company = st.selectbox(
-            "Empresas B3 (exemplos)",
-            options=["Selecionar..."] + list(B3_OPTIONS.keys()),
+            _t("b3_companies"),
+            options=[_t("select_placeholder")] + list(B3_OPTIONS.keys()),
             key="b3_select",
         )
-        company_url_raw = st.text_input("Ou digite uma URL", placeholder="exemplo.com.br")
+        company_url_raw = st.text_input(_t("type_url"), placeholder=_t("url_placeholder"))
 
-        if selected_company != "Selecionar..." and not company_url_raw:
+        if selected_company != _t("select_placeholder") and not company_url_raw:
             company_url = B3_OPTIONS[selected_company]["url"]
         else:
             company_url = company_url_raw
@@ -861,14 +914,14 @@ with st.sidebar:
         if company_url:
             validated = _validate_url(company_url)
             if not validated:
-                st.warning("URL invalida ou bloqueada (IPs privados/locais nao sao permitidos).")
+                st.warning(_t("url_invalid"))
                 company_url = ""
             else:
                 company_url = validated
 
-        research_btn = st.button("Pesquisar", type="primary", use_container_width=True, key="research")
+        research_btn = st.button(_t("research_btn"), type="primary", use_container_width=True, key="research")
 
-        if selected_company != "Selecionar...":
+        if selected_company != _t("select_placeholder"):
             c = B3_OPTIONS[selected_company]
             rev_brl = c["annual_revenue_brl"] / 1e9
             st.markdown(f"""
@@ -877,23 +930,23 @@ with st.sidebar:
                 box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
                 font-size:0.75rem; color:#374151; line-height:1.6;">
                 <strong style="color:#7c3aed;">{c['name']}</strong> — {c['industry']}<br>
-                {c['employee_count']:,} funcionarios · R$ {rev_brl:.1f}B receita<br>
-                Fundada em {c['founding_year']} · {c['hq']}<br>
-                <span style="color:#9ca3af; font-size:0.65rem;">Fonte: {c['source']}</span>
+                {c['employee_count']:,} {_t("employees_label")} · R$ {rev_brl:.1f}B {_t("revenue_label")}<br>
+                {_t("founded_in")} {c['founding_year']} · {c['hq']}<br>
+                <span style="color:#9ca3af; font-size:0.65rem;">{_t("source_label")}: {c['source']}</span>
             </div>
             """, unsafe_allow_html=True)
 
     # ── Option 3: Upload CSV ──
-    elif data_source == "Upload CSV":
-        customers_file_raw = st.file_uploader("Upload CSV de clientes", type=["csv"], key="customers")
+    elif data_source_key == "csv":
+        customers_file_raw = st.file_uploader(_t("upload_customers"), type=["csv"], key="customers")
         if customers_file_raw and not _validate_csv(customers_file_raw):
             customers_file_raw = None
         customers_file = customers_file_raw
-        use_sample = st.checkbox("Usar dados de exemplo", value=False)
+        use_sample = st.checkbox(_t("use_sample"), value=False)
 
     st.markdown("---")
-    st.markdown("### Prospects")
-    prospects_file_raw = st.file_uploader("Upload CSV de prospects", type=["csv"], key="prospects")
+    st.markdown(f"### {_t('prospects_label')}")
+    prospects_file_raw = st.file_uploader(_t("upload_prospects"), type=["csv"], key="prospects")
     if prospects_file_raw and not _validate_csv(prospects_file_raw):
         prospects_file_raw = None
     prospects_file = prospects_file_raw
@@ -901,16 +954,16 @@ with st.sidebar:
 # ── Company Research ──
 # ── Intelligence Pipeline ──
 PHASE_NAMES = {
-    1: "Discovery",
-    2: "Company DNA",
-    3: "Market Intel",
-    4: "Client Generation",
-    5: "Dossier",
+    1: _t("phase_1"),
+    2: _t("phase_2"),
+    3: _t("phase_3"),
+    4: _t("phase_4"),
+    5: _t("phase_5"),
 }
 
 if research_btn and company_url:
     if not api_key:
-        st.error("Configure GROQ_API_KEY no arquivo .env")
+        st.error(_t("configure_api"))
     else:
         # Clear previous state
         for key in ["icp", "scored", "generated_clients", "intel_dna", "intel_market", "intel_dossier", "intel_dossier_path", "_loaded_cache"]:
@@ -932,7 +985,7 @@ if research_btn and company_url:
                         <div class="phase-status {state}">{msg}</div>
                     </div>
                 </div>"""
-            return f'<div class="pipeline-container"><div class="pipeline-title">Intelligence Pipeline</div>{rows}</div>'
+            return f'<div class="pipeline-container"><div class="pipeline-title">{_t("pipeline_title")}</div>{rows}</div>'
 
         def on_progress(phase, name, status):
             # Mark previous phases as done
@@ -961,7 +1014,7 @@ if research_btn and company_url:
             st.session_state["company_source"] = b3_match
 
         except Exception as e:
-            st.error(f"Erro no pipeline: {e}")
+            st.error(_t("pipeline_error", e=e))
 
 # ── Show Results ──
 if "intel_dna" in st.session_state:
@@ -978,7 +1031,7 @@ if "intel_dna" in st.session_state:
     if source_obj and source_obj.get("source"):
         source_text = source_obj["source"]
     else:
-        source_text = "Scraping do site oficial + analise por IA (Llama 3.3 70B via Groq)"
+        source_text = _t("scrape_source")
 
     # Build tag helpers
     def tags(items, cls="cc-tag"):
@@ -1009,11 +1062,11 @@ if "intel_dna" in st.session_state:
     st.markdown(f"""
         <div class="cc-grid">
             <div>
-                <div class="cc-section-title">Produtos & Servicos</div>
+                <div class="cc-section-title">{_t("products_services")}</div>
                 {products_html}
             </div>
             <div>
-                <div class="cc-section-title">Tecnologias</div>
+                <div class="cc-section-title">{_t("technologies")}</div>
                 {tech_html}
             </div>
         </div>
@@ -1021,7 +1074,7 @@ if "intel_dna" in st.session_state:
 
     st.markdown(f"""
         <div style="margin-top: 1rem;">
-            <div class="cc-section-title">Segmentos-alvo</div>
+            <div class="cc-section-title">{_t("target_segments")}</div>
             {segments_html}
         </div>
     """, unsafe_allow_html=True)
@@ -1029,11 +1082,11 @@ if "intel_dna" in st.session_state:
     st.markdown(f"""
         <div class="cc-grid" style="margin-top: 1rem;">
             <div>
-                <div class="cc-section-title">Prova Social</div>
+                <div class="cc-section-title">{_t("social_proof")}</div>
                 {social_html}
             </div>
             <div>
-                <div class="cc-section-title">Parcerias</div>
+                <div class="cc-section-title">{_t("partnerships")}</div>
                 {partners_html}
             </div>
         </div>
@@ -1044,18 +1097,18 @@ if "intel_dna" in st.session_state:
     """, unsafe_allow_html=True)
 
     # ── Market Intel Card ──
-    st.markdown('<div class="s-header"><div class="s-icon"></div>Inteligencia de Mercado</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("market_intel_title")}</div>', unsafe_allow_html=True)
 
     col_market1, col_market2 = st.columns(2)
 
     with col_market1:
         st.markdown(f"""
         <div class="company-card">
-            <div class="cc-section-title">Competidores Mapeados</div>
+            <div class="cc-section-title">{_t("competitors_mapped")}</div>
             {bullets(market.get('likely_competitors', [])[:6])}
-            <div class="cc-section-title" style="margin-top:1rem;">Gatilhos de Compra</div>
+            <div class="cc-section-title" style="margin-top:1rem;">{_t("buying_triggers")}</div>
             {bullets(market.get('buying_triggers', [])[:5])}
-            <div class="cc-section-title" style="margin-top:1rem;">Decisores Tipicos</div>
+            <div class="cc-section-title" style="margin-top:1rem;">{_t("typical_decision_makers")}</div>
             {tags(market.get('decision_makers', [])[:6])}
         </div>
         """, unsafe_allow_html=True)
@@ -1063,9 +1116,9 @@ if "intel_dna" in st.session_state:
     with col_market2:
         st.markdown(f"""
         <div class="company-card">
-            <div class="cc-section-title">Caracteristicas do Cliente Ideal</div>
+            <div class="cc-section-title">{_t("ideal_customer_chars")}</div>
             {bullets(market.get('ideal_customer_characteristics', [])[:7])}
-            <div class="cc-section-title" style="margin-top:1rem;">Sinais de Anti-ICP</div>
+            <div class="cc-section-title" style="margin-top:1rem;">{_t("anti_icp_signals_title")}</div>
             {bullets(market.get('anti_icp_signals', [])[:5])}
         </div>
         """, unsafe_allow_html=True)
@@ -1076,14 +1129,14 @@ if "intel_dna" in st.session_state:
         <div class="dossier-card">
             <div class="dossier-icon">D</div>
             <div class="dossier-info">
-                <div class="dossier-name">{name} — Intelligence Dossier</div>
-                <div class="dossier-meta">Relatorio disponivel para download</div>
+                <div class="dossier-name">{_t("dossier_title", name=name)}</div>
+                <div class="dossier-meta">{_t("dossier_available")}</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
         st.download_button(
-            label="Baixar Dossier (.md)",
+            label=_t("download_dossier"),
             data=dossier_md,
             file_name=f"{name.replace(' ', '_')}_dossier.md",
             mime="text/markdown",
@@ -1113,19 +1166,19 @@ if df is not None:
     st.markdown(f"""
     <div class="metrics-grid">
         <div class="m-card">
-            <div class="m-label">Clientes</div>
+            <div class="m-label">{_t("customers")}</div>
             <div class="m-value">{len(df)}</div>
         </div>
         <div class="m-card">
-            <div class="m-label">Ativos</div>
+            <div class="m-label">{_t("active")}</div>
             <div class="m-value purple">{active}</div>
         </div>
         <div class="m-card">
-            <div class="m-label">Churn Rate</div>
+            <div class="m-label">{_t("churn_rate")}</div>
             <div class="m-value">{churn_rate:.0f}%</div>
         </div>
         <div class="m-card">
-            <div class="m-label">LTV Medio</div>
+            <div class="m-label">{_t("avg_ltv")}</div>
             <div class="m-value">${avg_ltv:,.0f}</div>
         </div>
         <div class="m-card">
@@ -1133,7 +1186,7 @@ if df is not None:
             <div class="m-value purple">{avg_nps:.1f}</div>
         </div>
         <div class="m-card">
-            <div class="m-label">Ciclo Medio</div>
+            <div class="m-label">{_t("avg_cycle")}</div>
             <div class="m-value">{avg_cycle:.0f}d</div>
         </div>
     </div>
@@ -1238,10 +1291,10 @@ if df is not None:
         "Tier 4": "#ef4444",
     }
     TIER_LABELS = {
-        "Tier 1": "Ideal",
-        "Tier 2": "Bom",
-        "Tier 3": "Arriscado",
-        "Tier 4": "Evitar",
+        "Tier 1": _t("tier_ideal"),
+        "Tier 2": _t("tier_good"),
+        "Tier 3": _t("tier_risky"),
+        "Tier 4": _t("tier_avoid"),
     }
 
     active_ltv = df[~df["churned"]]["ltv_usd"].mean()
@@ -1276,15 +1329,15 @@ if df is not None:
     # ══════════════════════════════════════════════════════
     # TABBED CHART NAVIGATION
     # ══════════════════════════════════════════════════════
-    st.markdown('<div class="s-header"><div class="s-icon"></div>Analise Visual</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("visual_analysis")}</div>', unsafe_allow_html=True)
 
     tab_tiers, tab_health, tab_finance, tab_segment, tab_risk, tab_summary = st.tabs([
-        "ICP Tiers",
-        "Saude do Cliente",
-        "Analise Financeira",
-        "Segmentacao & Tech",
-        "Risco & Cohort",
-        "Resumo Executivo",
+        _t("tab_tiers"),
+        _t("tab_health"),
+        _t("tab_finance"),
+        _t("tab_segment"),
+        _t("tab_risk"),
+        _t("tab_summary"),
     ])
 
     # ── TAB 0: ICP TIERS ──
@@ -1319,7 +1372,7 @@ if df is not None:
                         <span style="font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:{color};">{tier} — {label}</span>
                     </div>
                     <div class="m-value" style="color:{color};">{int(t['count'])}</div>
-                    <div class="m-label">{pct:.0f}% da base</div>
+                    <div class="m-label">{pct:.0f}% {_t("of_base")}</div>
                     <div style="margin-top:8px; font-size:0.7rem; color:#6b7280; line-height:1.6;">
                         Score: {t['avg_score']:.0f}/100<br>
                         LTV: ${t['avg_ltv']:,.0f}<br>
@@ -1343,26 +1396,26 @@ if df is not None:
                 textfont=dict(size=11),
             ))
             fig_tier_donut.update_layout(
-                title="Distribuicao por Tier",
+                title=_t("tier_distribution"),
                 height=420,
                 showlegend=False,
                 **neu_chart_layout,
             )
             fig_tier_donut.add_annotation(
-                text=f"<b>{len(df)}</b><br>clientes",
+                text=f"<b>{len(df)}</b><br>{_t('customers').lower()}",
                 x=0.5, y=0.5, showarrow=False,
                 font=dict(size=14, color="#374151", family="Inter"),
             )
             st.plotly_chart(fig_tier_donut, use_container_width=True)
 
-            st.markdown("""
+            st.markdown(f"""
             <div class="chart-explain">
-                <strong>Como os Tiers sao calculados?</strong> Score composto de 0-100 baseado em 5 dimensoes:
-                <div class="insight"><div class="insight-dot"></div>NPS (30%) — satisfacao do cliente</div>
-                <div class="insight"><div class="insight-dot"></div>Retencao (25%) — se o cliente deu churn ou nao</div>
-                <div class="insight"><div class="insight-dot"></div>Tech Stack (15%) — maturidade tecnologica (Cloud vs Legacy)</div>
-                <div class="insight"><div class="insight-dot"></div>Ciclo de Vendas (15%) — eficiencia de aquisicao</div>
-                <div class="insight"><div class="insight-dot"></div>ROI (15%) — LTV em relacao ao deal size</div>
+                {_t("tier_how_calculated")}
+                <div class="insight"><div class="insight-dot"></div>{_t("tier_dim_nps")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tier_dim_retention")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tier_dim_tech")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tier_dim_cycle")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tier_dim_roi")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1375,7 +1428,7 @@ if df is not None:
             max_rev = tier_radar_data["avg_revenue"].max() or 1
 
             fig_radar = go.Figure()
-            categories = ["NPS", "Retencao %", "LTV (norm)", "Deal Size (norm)", "Velocidade Ciclo"]
+            categories = ["NPS", _t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
 
             for _, t in tier_radar_data.iterrows():
                 tier = t["icp_tier"]
@@ -1398,7 +1451,7 @@ if df is not None:
                 ))
 
             fig_radar.update_layout(
-                title="Comparacao entre Tiers (Radar)",
+                title=_t("tier_comparison_radar"),
                 height=420,
                 polar=dict(
                     radialaxis=dict(visible=True, range=[0, 10], gridcolor="rgba(0,0,0,0.05)"),
@@ -1413,11 +1466,11 @@ if df is not None:
             )
             st.plotly_chart(fig_radar, use_container_width=True)
 
-            st.markdown("""
+            st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Comparacao multi-dimensional entre tiers. Quanto maior a area, melhor o perfil.
-                <div class="insight"><div class="insight-dot"></div>Tier 1 deve dominar em todas as dimensoes — e o formato ideal de cliente.</div>
-                <div class="insight"><div class="insight-dot"></div>Gaps entre tiers revelam onde clientes de menor tier falham (ex: tech legado, ciclo longo).</div>
+                {_t("radar_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("radar_insight_1")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("radar_insight_2")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1428,8 +1481,8 @@ if df is not None:
             fig_tier_ltv = px.bar(
                 tier_summary, x="icp_tier", y="avg_ltv",
                 color="icp_tier", color_discrete_map=TIER_COLORS,
-                title="LTV Medio por Tier",
-                labels={"icp_tier": "Tier", "avg_ltv": "LTV Medio (USD)"},
+                title=_t("avg_ltv_per_tier"),
+                labels={"icp_tier": _t("tier_label"), "avg_ltv": _t("avg_ltv_usd")},
                 text=tier_summary["avg_ltv"].apply(lambda x: f"${x:,.0f}"),
             )
             fig_tier_ltv.update_layout(height=350, showlegend=False, **neu_chart_layout)
@@ -1440,8 +1493,8 @@ if df is not None:
             fig_tier_cycle = px.bar(
                 tier_summary, x="icp_tier", y="avg_cycle",
                 color="icp_tier", color_discrete_map=TIER_COLORS,
-                title="Ciclo Medio por Tier (dias)",
-                labels={"icp_tier": "Tier", "avg_cycle": "Ciclo (dias)"},
+                title=_t("avg_cycle_per_tier"),
+                labels={"icp_tier": _t("tier_label"), "avg_cycle": _t("cycle_days")},
                 text=tier_summary["avg_cycle"].apply(lambda x: f"{x:.0f}d"),
             )
             fig_tier_cycle.update_layout(height=350, showlegend=False, **neu_chart_layout)
@@ -1449,7 +1502,7 @@ if df is not None:
             st.plotly_chart(fig_tier_cycle, use_container_width=True)
 
         # Client list by tier
-        st.markdown('<div class="s-header"><div class="s-icon"></div>Clientes por Tier</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("clients_by_tier")}</div>', unsafe_allow_html=True)
 
         for tier in ["Tier 1", "Tier 2", "Tier 3", "Tier 4"]:
             tier_df = df[df["icp_tier"] == tier].sort_values("icp_score", ascending=False)
@@ -1458,10 +1511,10 @@ if df is not None:
             color = TIER_COLORS[tier]
             label = TIER_LABELS[tier]
 
-            with st.expander(f"{tier} — {label} ({len(tier_df)} clientes)", expanded=(tier == "Tier 1")):
+            with st.expander(f"{tier} — {label} ({len(tier_df)} {_t('customers').lower()})", expanded=(tier == "Tier 1")):
                 for _, row in tier_df.iterrows():
                     roi = row["ltv_usd"] / row["deal_size_usd"] if row["deal_size_usd"] > 0 else 0
-                    status_text = "CHURNED" if row["churned"] else "ATIVO"
+                    status_text = _t("CHURNED") if row["churned"] else _t("ATIVO")
                     status_color = "#ef4444" if row["churned"] else "#22c55e"
                     st.markdown(
                         f'<div style="display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:6px;'
@@ -1469,7 +1522,7 @@ if df is not None:
                         f'box-shadow:3px 3px 6px var(--neu-dark),-3px -3px 6px var(--neu-light);'
                         f'border-radius:14px;border-left:3px solid {color};">'
                         f'<div style="flex:1;"><div style="font-weight:600;color:#1f2937;font-size:0.85rem;">{_safe(row["company_name"])}</div>'
-                        f'<div style="font-size:0.7rem;color:#9ca3af;">{_safe(row["industry"])} · {row["employee_count"]:,} func · {_safe(row["tech_class"])}</div></div>'
+                        f'<div style="font-size:0.7rem;color:#9ca3af;">{_safe(row["industry"])} · {row["employee_count"]:,} {_t("func")} · {_safe(row["tech_class"])}</div></div>'
                         f'<div style="text-align:right;font-size:0.75rem;color:#6b7280;line-height:1.5;">'
                         f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span> · NPS {row["nps_score"]} · {row["sales_cycle_days"]}d<br>'
                         f'LTV ${row["ltv_usd"]:,.0f} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
@@ -1478,13 +1531,13 @@ if df is not None:
                     )
 
         # Tier methodology note
-        st.markdown("""
+        st.markdown(f"""
         <div class="chart-explain" style="margin-top:1rem;">
-            <strong>Metodologia de Tiering</strong> — Baseada nos frameworks de Gartner, Inverta (4 Levels of ICP Segmentation) e DataBees (Account Tiering).
-            <div class="insight"><div class="insight-dot"></div>Tier 1 (85+): Top 10-15% — clientes ideais que merecem tratamento high-touch e ABM personalizado.</div>
-            <div class="insight"><div class="insight-dot"></div>Tier 2 (65-84): Clientes bons com campanhas semi-personalizadas e processos padronizados.</div>
-            <div class="insight"><div class="insight-dot"></div>Tier 3 (40-64): Sinais mistos — nurture ate amadurecerem ou descarte se nao evoluirem.</div>
-            <div class="insight"><div class="insight-dot"></div>Tier 4 (&lt;40): Anti-ICP — evitar investimento, redirecionar recursos para tiers superiores.</div>
+            {_t("tier_methodology_title")} — {_t("tier_methodology_intro")}
+            <div class="insight"><div class="insight-dot"></div>{_t("tier_1_desc")}</div>
+            <div class="insight"><div class="insight-dot"></div>{_t("tier_2_desc")}</div>
+            <div class="insight"><div class="insight-dot"></div>{_t("tier_3_desc")}</div>
+            <div class="insight"><div class="insight-dot"></div>{_t("tier_4_desc")}</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1503,64 +1556,64 @@ if df is not None:
                 color_discrete_map=colors_churn,
                 hover_name="company_name",
                 hover_data={"ltv_usd": ":$,.0f", "ltv_display": False},
-                title="Matriz de Saude do Cliente",
-                labels={"sales_cycle_days": "Ciclo de Vendas (dias)", "nps_score": "NPS Score", "churned": "Churned"},
+                title=_t("health_matrix"),
+                labels={"sales_cycle_days": _t("sales_cycle_days"), "nps_score": _t("nps_score_label"), "churned": _t("churned_label")},
                 size_max=40,
             )
             fig_health.update_traces(marker=dict(sizemin=10))
             fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(0,0,0,0.15)")
             fig_health.add_vline(x=50, line_dash="dot", line_color="rgba(0,0,0,0.15)")
-            fig_health.add_annotation(x=25, y=9.5, text="Ideal", showarrow=False,
+            fig_health.add_annotation(x=25, y=9.5, text=_t("ideal_quadrant"), showarrow=False,
                                       font=dict(size=10, color="#7c3aed", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=80, y=9.5, text="Lento mas leal", showarrow=False,
+            fig_health.add_annotation(x=80, y=9.5, text=_t("slow_loyal"), showarrow=False,
                                       font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=25, y=2.5, text="Rapido mas insatisfeito", showarrow=False,
+            fig_health.add_annotation(x=25, y=2.5, text=_t("fast_unhappy"), showarrow=False,
                                       font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=80, y=2.5, text="Zona de Perigo", showarrow=False,
+            fig_health.add_annotation(x=80, y=2.5, text=_t("danger_zone"), showarrow=False,
                                       font=dict(size=10, color="#ef4444", family="Inter"), opacity=0.6)
             fig_health.update_layout(height=480, **neu_chart_layout)
             st.plotly_chart(fig_health, use_container_width=True)
 
-            st.markdown("""
+            st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Cada bolha e um cliente. Eixo X = ciclo de vendas, Y = NPS, tamanho = LTV.
-                <div class="insight"><div class="insight-dot"></div>Quadrante superior esquerdo = perfil ideal (ciclo curto + NPS alto).</div>
-                <div class="insight"><div class="insight-dot"></div>Quadrante inferior direito = zona de perigo (ciclo longo + NPS baixo).</div>
-                <div class="insight"><div class="insight-dot"></div>Bolhas vermelhas sao churned — note a concentracao na zona de perigo.</div>
+                {_t("health_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("health_insight_1")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("health_insight_2")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("health_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
         with th_col2:
             fig_nps = go.Figure()
             fig_nps.add_trace(go.Histogram(
-                x=df[~df["churned"]]["nps_score"], name="Ativos", marker_color="#7c3aed",
+                x=df[~df["churned"]]["nps_score"], name=_t("active_label"), marker_color="#7c3aed",
                 opacity=0.8, xbins=dict(start=0, end=11, size=1)
             ))
             fig_nps.add_trace(go.Histogram(
-                x=df[df["churned"]]["nps_score"], name="Churned", marker_color="#ef4444",
+                x=df[df["churned"]]["nps_score"], name=_t("churned_status"), marker_color="#ef4444",
                 opacity=0.8, xbins=dict(start=0, end=11, size=1)
             ))
             fig_nps.add_vrect(x0=0, x1=6.5, fillcolor="rgba(239,68,68,0.05)", line_width=0)
             fig_nps.add_vrect(x0=6.5, x1=8.5, fillcolor="rgba(245,158,11,0.05)", line_width=0)
             fig_nps.add_vrect(x0=8.5, x1=11, fillcolor="rgba(124,58,237,0.05)", line_width=0)
-            fig_nps.add_annotation(x=3, y=1, yref="paper", yanchor="top", text="Detratores",
+            fig_nps.add_annotation(x=3, y=1, yref="paper", yanchor="top", text=_t("detractors"),
                                    showarrow=False, font=dict(size=9, color="#ef4444"))
-            fig_nps.add_annotation(x=7.5, y=1, yref="paper", yanchor="top", text="Neutros",
+            fig_nps.add_annotation(x=7.5, y=1, yref="paper", yanchor="top", text=_t("neutrals"),
                                    showarrow=False, font=dict(size=9, color="#f59e0b"))
-            fig_nps.add_annotation(x=9.5, y=1, yref="paper", yanchor="top", text="Promotores",
+            fig_nps.add_annotation(x=9.5, y=1, yref="paper", yanchor="top", text=_t("promoters"),
                                    showarrow=False, font=dict(size=9, color="#7c3aed"))
             fig_nps.update_layout(
-                title="Distribuicao de NPS", barmode="overlay", height=480,
-                xaxis_title="NPS Score", yaxis_title="Quantidade", **neu_chart_layout,
+                title=_t("nps_distribution"), barmode="overlay", height=480,
+                xaxis_title=_t("nps_score_label"), yaxis_title=_t("quantity"), **neu_chart_layout,
             )
             st.plotly_chart(fig_nps, use_container_width=True)
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Distribuicao NPS separada por status (ativo vs churned).
-                <div class="insight"><div class="insight-dot"></div>NPS Net Score: {nps_net} — % Promotores (9-10) menos % Detratores (0-6).</div>
-                <div class="insight"><div class="insight-dot"></div>{promoters} promotores e {detractors} detratores na base.</div>
-                <div class="insight"><div class="insight-dot"></div>Clientes churned se concentram na faixa de detratores — NPS baixo e forte preditor de churn.</div>
+                {_t("nps_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_1", nps_net=nps_net)}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_2", promoters=promoters, detractors=detractors)}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1573,8 +1626,8 @@ if df is not None:
                 df.sort_values("ltv_usd", ascending=True),
                 x="ltv_usd", y="company_name", orientation="h",
                 color="churned", color_discrete_map=colors_churn,
-                title="LTV por Cliente",
-                labels={"ltv_usd": "LTV (USD)", "company_name": "", "churned": "Churned"},
+                title=_t("ltv_per_customer"),
+                labels={"ltv_usd": _t("ltv_usd"), "company_name": "", "churned": _t("churned_label")},
             )
             fig_ltv.update_layout(height=520, **neu_chart_layout)
             fig_ltv.update_traces(marker_line_width=0)
@@ -1582,10 +1635,10 @@ if df is not None:
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> LTV de cada cliente, ordenado de menor para maior.
-                <div class="insight"><div class="insight-dot"></div>LTV medio ativos: ${active_ltv:,.0f} vs churned: ${churned_ltv:,.0f} — diferenca de {ltv_ratio:.0f}x.</div>
-                <div class="insight"><div class="insight-dot"></div>Churned = LTV igual ao deal (1x). Ativos alcancam 3-6x o contrato.</div>
-                <div class="insight"><div class="insight-dot"></div>Reter clientes bons gera muito mais valor que adquirir perfis errados.</div>
+                {_t("ltv_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_1", active_ltv=f"{active_ltv:,.0f}", churned_ltv=f"{churned_ltv:,.0f}", ratio=f"{ltv_ratio:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_2")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1594,8 +1647,8 @@ if df is not None:
                 df, x="deal_size_usd", y="ltv_usd",
                 color="churned", color_discrete_map=colors_churn,
                 hover_name="company_name", size="employee_count",
-                title="Deal Size vs LTV (Retorno do Cliente)",
-                labels={"deal_size_usd": "Deal Size (USD)", "ltv_usd": "LTV (USD)", "churned": "Churned"},
+                title=_t("deal_vs_ltv"),
+                labels={"deal_size_usd": _t("deal_size_usd"), "ltv_usd": _t("ltv_usd"), "churned": _t("churned_label")},
             )
             max_deal = df["deal_size_usd"].max()
             for mult, label in [(1, "1x"), (3, "3x"), (5, "5x")]:
@@ -1605,17 +1658,17 @@ if df is not None:
                     showlegend=False, hoverinfo="skip"
                 ))
                 fig_roi.add_annotation(x=max_deal * 0.95, y=max_deal * mult * 0.95,
-                                       text=f"{label} ROI", showarrow=False,
+                                       text=f"{label} {_t('roi_label')}", showarrow=False,
                                        font=dict(size=9, color="#9ca3af"))
             fig_roi.update_layout(height=520, **neu_chart_layout)
             st.plotly_chart(fig_roi, use_container_width=True)
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Deal inicial vs LTV total. Linhas tracejadas = multiplos de ROI.
-                <div class="insight"><div class="insight-dot"></div>Ativos geram {avg_roi_active:.1f}x o contrato. Churned ficam em {avg_roi_churned:.1f}x.</div>
-                <div class="insight"><div class="insight-dot"></div>Acima da linha 1x = lucro. Clientes bons ficam entre 3x e 6x.</div>
-                <div class="insight"><div class="insight-dot"></div>Tamanho das bolhas = porte (funcionarios).</div>
+                {_t("roi_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("roi_insight_1", active_roi=f"{avg_roi_active:.1f}", churned_roi=f"{avg_roi_churned:.1f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("roi_insight_2")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("roi_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1625,12 +1678,12 @@ if df is not None:
 
         with ts_col1:
             industry_data = df.groupby(["industry", "churned"]).size().reset_index(name="count")
-            industry_data["status"] = industry_data["churned"].map({True: "Churned", False: "Ativo"})
+            industry_data["status"] = industry_data["churned"].map({True: _t("churned_status"), False: _t("active_status")})
 
             fig_industry = px.sunburst(
                 industry_data, path=["status", "industry"], values="count",
-                color="status", color_discrete_map={"Ativo": "#7c3aed", "Churned": "#ef4444"},
-                title="Distribuicao por Status e Industria",
+                color="status", color_discrete_map={_t("active_status"): "#7c3aed", _t("churned_status"): "#ef4444"},
+                title=_t("status_industry_dist"),
             )
             fig_industry.update_layout(height=480, **neu_chart_layout)
             fig_industry.update_traces(
@@ -1651,10 +1704,10 @@ if df is not None:
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Anel interno: Ativo/Churned. Anel externo: industrias. Clique para expandir.
-                <div class="insight"><div class="insight-dot"></div>Top 3 industrias por LTV (ativos):</div>
+                {_t("sunburst_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("top3_industries")}</div>
                 {top3_items}
-                <div class="insight"><div class="insight-dot"></div>Industrias concentradas no vermelho sao segmentos problematicos.</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("problematic_segments")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1662,24 +1715,24 @@ if df is not None:
             tech_summary = df.groupby(["tech_class", "churned"]).agg(
                 count=("company_name", "count"),
             ).reset_index()
-            tech_summary["status"] = tech_summary["churned"].map({True: "Churned", False: "Ativo"})
+            tech_summary["status"] = tech_summary["churned"].map({True: _t("churned_status"), False: _t("active_status")})
 
             fig_tech = px.bar(
                 tech_summary, x="tech_class", y="count",
                 color="status", barmode="group",
-                color_discrete_map={"Ativo": "#7c3aed", "Churned": "#ef4444"},
-                title="Maturidade Tecnologica vs Retencao",
-                labels={"tech_class": "Tech Stack", "count": "Clientes", "status": "Status"},
+                color_discrete_map={_t("active_status"): "#7c3aed", _t("churned_status"): "#ef4444"},
+                title=_t("tech_maturity_title"),
+                labels={"tech_class": _t("tech_stack"), "count": _t("customers"), "status": _t("status_label")},
             )
             fig_tech.update_layout(height=480, **neu_chart_layout)
             st.plotly_chart(fig_tech, use_container_width=True)
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Clientes Cloud vs Legacy e impacto na retencao.
-                <div class="insight"><div class="insight-dot"></div>Churn: Cloud {cloud_churn:.0f}% vs Legacy {legacy_churn:.0f}%.</div>
-                <div class="insight"><div class="insight-dot"></div>NPS: Cloud {cloud_nps:.1f} vs Legacy {legacy_nps:.1f}.</div>
-                <div class="insight"><div class="insight-dot"></div>Empresas com stack moderno sao muito melhores clientes — sinal forte de ICP.</div>
+                {_t("tech_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_1", cloud=f"{cloud_churn:.0f}", legacy=f"{legacy_churn:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_2", cloud_nps=f"{cloud_nps:.1f}", legacy_nps=f"{legacy_nps:.1f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1691,18 +1744,18 @@ if df is not None:
             fig_cohort = go.Figure()
             fig_cohort.add_trace(go.Bar(
                 x=cohort["revenue_band"], y=cohort["avg_ltv"],
-                name="LTV Medio", marker_color="#7c3aed", yaxis="y",
+                name=_t("avg_ltv"), marker_color="#7c3aed", yaxis="y",
             ))
             fig_cohort.add_trace(go.Scatter(
                 x=cohort["revenue_band"], y=cohort["retention_rate"],
-                name="Retencao %", mode="lines+markers",
+                name=_t("retention_pct"), mode="lines+markers",
                 line=dict(color="#22c55e", width=3), marker=dict(size=8), yaxis="y2",
             ))
             fig_cohort.update_layout(
-                title="Cohort por Faixa de Receita", height=480,
-                yaxis=dict(title="LTV Medio (USD)", gridcolor="rgba(0,0,0,0.05)"),
-                yaxis2=dict(title="Retencao %", overlaying="y", side="right", range=[0, 110], gridcolor="rgba(0,0,0,0)"),
-                xaxis=dict(title="Faixa de Receita Anual", gridcolor="rgba(0,0,0,0.05)"),
+                title=_t("cohort_revenue"), height=480,
+                yaxis=dict(title=_t("avg_ltv_chart"), gridcolor="rgba(0,0,0,0.05)"),
+                yaxis2=dict(title=_t("retention_chart"), overlaying="y", side="right", range=[0, 110], gridcolor="rgba(0,0,0,0)"),
+                xaxis=dict(title=_t("annual_revenue_band"), gridcolor="rgba(0,0,0,0.05)"),
                 template="plotly_white", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 font=dict(family="Inter", color="#6b7280", size=11),
                 title_font=dict(size=13, color="#374151", family="Inter"),
@@ -1713,10 +1766,10 @@ if df is not None:
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> LTV medio (barras) e retencao (linha verde) por faixa de receita.
-                <div class="insight"><div class="insight-dot"></div>Melhor faixa: {best_cohort['revenue_band']} — LTV ${best_cohort['avg_ltv']:,.0f}, retencao {best_cohort['retention_rate']:.0f}%.</div>
-                <div class="insight"><div class="insight-dot"></div>Revela o "sweet spot" de porte do cliente ideal.</div>
-                <div class="insight"><div class="insight-dot"></div>Retencao abaixo de 70% = sinal de anti-ICP naquela faixa.</div>
+                {_t("cohort_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_1", band=best_cohort['revenue_band'], ltv=f"{best_cohort['avg_ltv']:,.0f}", retention=f"{best_cohort['retention_rate']:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_2")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1725,18 +1778,18 @@ if df is not None:
                 df, x="company_age", y="employee_count",
                 color="churned", color_discrete_map=colors_churn,
                 size="deal_size_usd", hover_name="company_name",
-                title="Idade vs Porte da Empresa",
-                labels={"company_age": "Idade (anos)", "employee_count": "Funcionarios", "churned": "Churned"},
+                title=_t("age_vs_size"),
+                labels={"company_age": _t("age_years"), "employee_count": _t("employees"), "churned": _t("churned_label")},
             )
             fig_age.update_layout(height=480, **neu_chart_layout)
             st.plotly_chart(fig_age, use_container_width=True)
 
             st.markdown(f"""
             <div class="chart-explain">
-                <strong>O que estou vendo?</strong> Idade e porte dos clientes. Tamanho = deal size.
-                <div class="insight"><div class="insight-dot"></div>Ativos: media {active_age:.0f} anos, {active_size:.0f} funcionarios.</div>
-                <div class="insight"><div class="insight-dot"></div>Churned: media {churned_age:.0f} anos, {churned_size:.0f} funcionarios.</div>
-                <div class="insight"><div class="insight-dot"></div>Empresas muito jovens ou pequenas tendem a dar mais churn.</div>
+                {_t("age_explain")}
+                <div class="insight"><div class="insight-dot"></div>{_t("age_insight_1", age=f"{active_age:.0f}", size=f"{active_size:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("age_insight_2", age=f"{churned_age:.0f}", size=f"{churned_size:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("age_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)
 
@@ -1748,35 +1801,35 @@ if df is not None:
 
         st.markdown(f"""
         <div class="company-card">
-            <div class="cc-section-title">Descobertas Principais</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Melhor industria: {best_industry} — maior LTV medio entre ativos</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Industria de maior risco: {worst_churn_industry} — maior taxa de churn</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Cliente mais satisfeito: {_safe(best_nps_company)} (NPS {df['nps_score'].max()})</div>
+            <div class="cc-section-title">{_t("key_findings")}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_industry", industry=best_industry)}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("worst_industry", industry=worst_churn_industry)}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_nps_customer", name=_safe(best_nps_company), nps=df['nps_score'].max())}</div>
         """, unsafe_allow_html=True)
 
         st.markdown(f"""
-            <div class="cc-list-item"><div class="cc-bullet"></div>Maior LTV: {_safe(top_ltv_company)} (${top_ltv_val:,.0f})</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Tech stack e preditor: Cloud tem {legacy_churn - cloud_churn:.0f}pp menos churn que Legacy</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>ROI medio: Ativos geram {avg_roi_active:.1f}x o contrato vs {avg_roi_churned:.1f}x dos churned</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("top_ltv_customer", name=_safe(top_ltv_company), ltv=f"{top_ltv_val:,.0f}")}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("tech_predictor", diff=f"{legacy_churn - cloud_churn:.0f}")}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("roi_comparison", active=f"{avg_roi_active:.1f}", churned=f"{avg_roi_churned:.1f}")}</div>
         """, unsafe_allow_html=True)
 
         st.markdown(f"""
-            <div class="cc-section-title" style="margin-top:1.25rem;">Recomendacoes</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Priorize prospects da industria {best_industry} com stack Cloud/Moderno</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Evite empresas com menos de {int(churned_size)} funcionarios e stack legado</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Foco na faixa de receita {best_cohort['revenue_band']} — melhor retencao e LTV</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>Investir em onboarding rapido — ciclos acima de 50 dias correlacionam com churn</div>
+            <div class="cc-section-title" style="margin-top:1.25rem;">{_t("recommendations")}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("rec_1", industry=best_industry)}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("rec_2", size=int(churned_size))}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("rec_3", band=best_cohort['revenue_band'])}</div>
+            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("rec_4")}</div>
         </div>
         """, unsafe_allow_html=True)
 
     # ── ICP Button ──
-    st.markdown('<div class="s-header"><div class="s-icon"></div>Gerar Perfil de Cliente Ideal</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("generate_icp")}</div>', unsafe_allow_html=True)
 
-    if st.button("Gerar ICP com IA", type="primary", use_container_width=True):
+    if st.button(_t("generate_icp_btn"), type="primary", use_container_width=True):
         if not api_key:
-            st.error("Configure GROQ_API_KEY no arquivo .env")
+            st.error(_t("configure_api"))
         else:
-            with st.spinner("Analisando padroes..."):
+            with st.spinner(_t("analyzing_patterns")):
                 icp = analyze_customers(df, api_key)
                 st.session_state["icp"] = icp
 
@@ -1788,13 +1841,13 @@ if df is not None:
             st.markdown(f"""
             <div class="icp-card positive">
                 <div class="card-badge">Ideal Customer Profile</div>
-                <h2>Cliente Ideal</h2>
+                <h2>{_t("ideal_customer")}</h2>
                 <p>{icp.summary}</p>
             </div>
             """, unsafe_allow_html=True)
 
             # Industries
-            st.markdown('<div class="detail-group"><div class="dg-title">Industrias Ideais</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("ideal_industries")}</div>', unsafe_allow_html=True)
             for ind in icp.ideal_industries:
                 st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{ind}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
@@ -1802,21 +1855,21 @@ if df is not None:
             # Profile
             st.markdown(f"""
             <div class="detail-group">
-                <div class="dg-title">Perfil</div>
-                <div class="detail-item"><div class="di-dot"></div>Funcionarios: {icp.ideal_employee_range}</div>
-                <div class="detail-item"><div class="di-dot"></div>Receita: {icp.ideal_revenue_range}</div>
-                <div class="detail-item"><div class="di-dot"></div>Idade: {icp.ideal_company_age}</div>
+                <div class="dg-title">{_t("profile")}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("employees")}: {icp.ideal_employee_range}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("revenue_label").title()}: {icp.ideal_revenue_range}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("age_years")}: {icp.ideal_company_age}</div>
             </div>
             """, unsafe_allow_html=True)
 
             # Tech
-            st.markdown('<div class="detail-group"><div class="dg-title">Sinais Tecnologicos</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("tech_signals")}</div>', unsafe_allow_html=True)
             for sig in icp.ideal_tech_signals:
                 st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{sig}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
             # Key patterns
-            st.markdown('<div class="detail-group"><div class="dg-title">Padroes-chave</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("key_patterns")}</div>', unsafe_allow_html=True)
             pills = "".join(f'<span class="pattern-pill">{p}</span>' for p in icp.key_patterns)
             st.markdown(pills, unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
@@ -1825,27 +1878,27 @@ if df is not None:
             st.markdown(f"""
             <div class="icp-card negative">
                 <div class="card-badge">Anti-ICP</div>
-                <h2>Perfil a Evitar</h2>
+                <h2>{_t("profile_to_avoid")}</h2>
                 <p>{icp.anti_icp_summary}</p>
             </div>
             """, unsafe_allow_html=True)
 
-            st.markdown('<div class="detail-group"><div class="dg-title" style="color:#ef4444;">Sinais de Alerta</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-group"><div class="dg-title" style="color:#ef4444;">{_t("warning_signals")}</div>', unsafe_allow_html=True)
             for sig in icp.anti_icp_signals:
                 st.markdown(f'<div class="alert-item"><div class="alert-dot"></div>{sig}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
         # ── Scoring ──
-        st.markdown('<div class="s-header"><div class="s-icon"></div>Scoring de Prospects</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("prospect_scoring")}</div>', unsafe_allow_html=True)
 
         if prospects_file:
             prospects_df = pd.read_csv(prospects_file)
         else:
-            st.info("Nenhum CSV de prospects enviado. Usando clientes atuais para demonstracao.")
+            st.info(_t("no_prospects"))
             prospects_df = df.copy()
 
-        if st.button("Pontuar Prospects", type="primary", use_container_width=True):
-            with st.spinner("Pontuando prospects..."):
+        if st.button(_t("score_prospects_btn"), type="primary", use_container_width=True):
+            with st.spinner(_t("scoring_prospects")):
                 scored = score_prospects(icp, prospects_df, api_key)
                 st.session_state["scored"] = scored
 
@@ -1859,7 +1912,7 @@ if df is not None:
             fig_scores = px.bar(
                 scored_df, x="company_name", y="score",
                 color="recommendation", color_discrete_map=colors_rec,
-                title="Ranking de Prospects",
+                title=_t("prospect_ranking"),
                 labels={"company_name": "", "score": "Score", "recommendation": "Status"},
             )
             fig_scores.update_layout(height=400, xaxis_tickangle=-45, **neu_chart_layout)
@@ -1879,26 +1932,26 @@ if df is not None:
 
             st.markdown("<br>", unsafe_allow_html=True)
             for _, row in scored_df.iterrows():
-                with st.expander(f"{row['company_name']} — Detalhes"):
+                with st.expander(f"{row['company_name']} — {_t('details')}"):
                     fit_col, risk_col = st.columns(2)
                     with fit_col:
-                        st.markdown("**Fit**")
+                        st.markdown(f"**{_t('fit')}**")
                         for r in row["fit_reasons"]:
                             st.markdown(f"- {r}")
                     with risk_col:
                         if row["risk_flags"]:
-                            st.markdown("**Riscos**")
+                            st.markdown(f"**{_t('risks')}**")
                             for r in row["risk_flags"]:
                                 st.markdown(f"- {r}")
 else:
-    st.markdown("""
+    st.markdown(f"""
     <div class="empty-state">
         <div class="empty-icon">&#127919;</div>
         <div style="font-size: 1.15rem; color: #374151; font-weight: 600; margin-bottom: 0.5rem;">
-            Selecione uma empresa pre-carregada ou faca upload de um CSV
+            {_t("empty_title")}
         </div>
         <div style="color: #9ca3af; font-size: 0.9rem;">
-            Use o menu lateral para escolher uma das 5 empresas com dados completos
+            {_t("empty_subtitle")}
         </div>
     </div>
     """, unsafe_allow_html=True)
