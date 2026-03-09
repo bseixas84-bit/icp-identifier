@@ -1441,11 +1441,11 @@ if df is not None:
 
         # Tier cards row — one st.markdown per card to avoid truncation
         tier_cols = st.columns(len(tier_summary))
-        for idx, (_, t) in enumerate(tier_summary.iterrows()):
-            tier = t["icp_tier"]
+        for idx, (_, trow) in enumerate(tier_summary.iterrows()):
+            tier = trow["icp_tier"]
             color = TIER_COLORS[tier]
             label = TIER_LABELS[tier]
-            pct = t["count"] / len(df) * 100
+            pct = trow["count"] / len(df) * 100
             with tier_cols[idx]:
                 st.markdown(f"""
                 <div class="m-card" style="border-left: 4px solid {color};">
@@ -1453,12 +1453,12 @@ if df is not None:
                         <div style="width:10px; height:10px; border-radius:50%; background:{color};"></div>
                         <span style="font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:{color};">{tier} — {label}</span>
                     </div>
-                    <div class="m-value" style="color:{color};">{int(t['count'])}</div>
+                    <div class="m-value" style="color:{color};">{int(trow['count'])}</div>
                     <div class="m-label">{pct:.0f}% {_t("of_base")}</div>
                     <div style="margin-top:8px; font-size:0.7rem; color:#6b7280; line-height:1.6;">
-                        Score: {t['avg_score']:.0f}/100<br>
-                        LTV: ${t['avg_ltv']:,.0f}<br>
-                        NPS: {t['avg_nps']:.1f} · Churn: {t['churn_rate']:.0f}%
+                        Score: {trow['avg_score']:.0f}/100<br>
+                        LTV: ${trow['avg_ltv']:,.0f}<br>
+                        NPS: {trow['avg_nps']:.1f} · Churn: {trow['churn_rate']:.0f}%
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1512,15 +1512,15 @@ if df is not None:
             fig_radar = go.Figure()
             categories = ["NPS", _t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
 
-            for _, t in tier_radar_data.iterrows():
-                tier = t["icp_tier"]
-                retention = 100 - t["churn_rate"]
-                cycle_speed = max(0, 10 - (t["avg_cycle"] / 10))  # invert: faster = higher
+            for _, trow in tier_radar_data.iterrows():
+                tier = trow["icp_tier"]
+                retention = 100 - trow["churn_rate"]
+                cycle_speed = max(0, 10 - (trow["avg_cycle"] / 10))  # invert: faster = higher
                 values = [
-                    t["avg_nps"],
+                    trow["avg_nps"],
                     retention / 10,
-                    t["avg_ltv"] / max_ltv * 10,
-                    t["avg_deal"] / max_deal * 10,
+                    trow["avg_ltv"] / max_ltv * 10,
+                    trow["avg_deal"] / max_deal * 10,
                     cycle_speed,
                 ]
                 fig_radar.add_trace(go.Scatterpolar(
