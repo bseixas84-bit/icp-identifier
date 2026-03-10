@@ -130,8 +130,8 @@ TRANSLATIONS = {
     # ── Tier Methodology ──
     "tier_methodology_title": {"pt": "<strong>Metodologia de Tiering</strong>", "en": "<strong>Tiering Methodology</strong>"},
     "tier_methodology_intro": {
-        "pt": "Baseada nos frameworks de Gartner, Inverta (4 Levels of ICP Segmentation) e DataBees (Account Tiering).",
-        "en": "Based on Gartner, Inverta (4 Levels of ICP Segmentation) and DataBees (Account Tiering) frameworks.",
+        "pt": "Baseada na metodologia CXL B2B ICP: Retenção (35%) + Eficiência de Valor/LTV (25%) + Eficiência de Venda (20%) + Maturidade Tech (20%). NPS como sinal bônus (+10 pts, cap 100).",
+        "en": "Based on the CXL B2B ICP methodology: Retention (35%) + Value/LTV Efficiency (25%) + Sales Efficiency (20%) + Tech Maturity (20%). NPS as a confirmatory bonus signal (+10 pts, capped at 100).",
     },
     "tier_1_desc": {
         "pt": "Tier 1 (85+): Top 10-15% — clientes ideais que merecem tratamento high-touch e ABM personalizado.",
@@ -153,6 +153,7 @@ TRANSLATIONS = {
     # ── Health Tab ──
     "health_matrix": {"pt": "Matriz de Saúde do Cliente", "en": "Customer Health Matrix"},
     "sales_cycle_days": {"pt": "Ciclo de Vendas (dias)", "en": "Sales Cycle (days)"},
+    "employee_count": {"pt": "Funcionários", "en": "Employees"},
     "nps_score_label": {"pt": "NPS Score", "en": "NPS Score"},
     "churned_label": {"pt": "Churned", "en": "Churned"},
     "ideal_quadrant": {"pt": "Ideal", "en": "Ideal"},
@@ -160,20 +161,20 @@ TRANSLATIONS = {
     "fast_unhappy": {"pt": "Rápido mas insatisfeito", "en": "Fast but unhappy"},
     "danger_zone": {"pt": "Zona de Perigo", "en": "Danger Zone"},
     "health_explain": {
-        "pt": "<strong>O que estou vendo?</strong> Cada bolha é um cliente. Eixo X = ciclo de vendas, Y = NPS, tamanho = LTV.",
-        "en": "<strong>What am I seeing?</strong> Each bubble is a customer. X axis = sales cycle, Y = NPS, size = LTV.",
+        "pt": "<strong>O que estou vendo?</strong> Cada bolha é um cliente. X = esforço (ciclo de vendas), Y = valor (LTV ou NPS), tamanho = porte da empresa.",
+        "en": "<strong>What am I seeing?</strong> Each bubble is a customer. X = effort (sales cycle), Y = value (LTV or NPS), size = company size.",
     },
     "health_insight_1": {
-        "pt": "Quadrante superior esquerdo = perfil ideal (ciclo curto + NPS alto).",
-        "en": "Upper left quadrant = ideal profile (short cycle + high NPS).",
+        "pt": "Quadrante superior esquerdo = perfil ideal: alto valor, baixo esforço de venda.",
+        "en": "Upper left quadrant = ideal profile: high value, low sales effort.",
     },
     "health_insight_2": {
-        "pt": "Quadrante inferior direito = zona de perigo (ciclo longo + NPS baixo).",
-        "en": "Lower right quadrant = danger zone (long cycle + low NPS).",
+        "pt": "Quadrante inferior direito = zona de perigo: baixo valor, alto custo de aquisição.",
+        "en": "Lower right quadrant = danger zone: low value, high acquisition cost.",
     },
     "health_insight_3": {
-        "pt": "Bolhas vermelhas são churned — note a concentração na zona de perigo.",
-        "en": "Red bubbles are churned — note the concentration in the danger zone.",
+        "pt": "Bolhas vermelhas (churned) concentradas na zona de perigo confirmam o Anti-ICP.",
+        "en": "Red bubbles (churned) concentrated in the danger zone confirm the Anti-ICP.",
     },
     "nps_distribution": {"pt": "Distribuição de NPS", "en": "NPS Distribution"},
     "active_label": {"pt": "Ativos", "en": "Active"},

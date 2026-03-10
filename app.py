@@ -195,7 +195,6 @@ st.markdown("""
     [data-testid="stElementToolbar"],
     [data-testid="stElementToolbarButton"],
     [data-testid="stCopyButton"],
-    [data-testid="stFullScreenFrame"],
     [class*="ElementToolbar"],
     [class*="element-toolbar"] { display: none !important; }
 
@@ -1442,7 +1441,10 @@ if df is not None:
     _csv_uploaded = bool(customers_file)
 
     # ── Detect optional columns ──
+    # has_nps: show NPS metric in header (conservative — only trusted CSV data)
     has_nps = _csv_uploaded and "nps_score" in df.columns and df["nps_score"].notna().any()
+    # has_nps_chart: use NPS in charts & scoring (any data that actually has NPS values)
+    has_nps_chart = "nps_score" in df.columns and df["nps_score"].notna().any()
 
     # ── Metrics ──
     churn_rate = df["churned"].mean() * 100
@@ -1531,31 +1533,28 @@ if df is not None:
     df["company_age"] = 2025 - df["founding_year"]
 
     # ── ICP TIER SCORING ──
-    # When NPS is available: NPS(30%) + Churn(25%) + Tech(15%) + Cycle(15%) + ROI(15%) = 100
-    # Without NPS: Churn(36%) + Tech(21%) + Cycle(21%) + ROI(21%) = 100 (proportionally rescaled)
-    # Based on Gartner/Inverta ICP Segmentation frameworks
+    # CXL methodology: best customers = high retention + high value efficiency + fast close + modern tech
+    # Retention (35) + ROI/LTV (25) + Sales efficiency (20) + Tech maturity (20) = 100 base
+    # NPS bonus up to +10 when available (capped at 100)
     def compute_icp_score(row):
-        nps_pts = 0
-        if has_nps and pd.notna(row.get("nps_score")):
-            nps_pts = min(row["nps_score"] / 10 * 30, 30)
-        # Churn (0-25 pts)
-        churn_pts = 0 if row["churned"] else 25
-        # Tech maturity (0-15 pts)
-        tc = row.get("tech_class", "Hibrido")
-        tech_pts = 15 if tc == "Cloud/Moderno" else (7 if tc == "Hibrido" else 0)
-        # Sales cycle efficiency (0-15 pts) — shorter = better
-        cycle = row["sales_cycle_days"]
-        cycle_pts = 15 if cycle <= 30 else (10 if cycle <= 50 else (5 if cycle <= 70 else 0))
-        # ROI / LTV-to-deal ratio (0-15 pts)
+        # Retention signal — CXL's #1 best-customer indicator
+        churn_pts = 35 if not row["churned"] else 0
+        # Value efficiency — LTV-to-deal ratio (how much value the customer expands to)
         roi = row["ltv_usd"] / row["deal_size_usd"] if row["deal_size_usd"] > 0 else 0
-        roi_pts = 15 if roi >= 5 else (10 if roi >= 3 else (5 if roi >= 1.5 else 0))
+        roi_pts = 25 if roi >= 5 else (18 if roi >= 3 else (10 if roi >= 1.5 else 0))
+        # Sales cycle efficiency — shorter = less friction = better fit
+        cycle = row["sales_cycle_days"]
+        cycle_pts = 20 if cycle <= 30 else (14 if cycle <= 50 else (7 if cycle <= 70 else 0))
+        # Technographic signal — cloud/modern stack correlates with faster onboarding & expansion
+        tc = row.get("tech_class", "Hibrido")
+        tech_pts = 20 if tc == "Cloud/Moderno" else (10 if tc == "Hibrido" else 0)
 
-        if has_nps:
-            return round(nps_pts + churn_pts + tech_pts + cycle_pts + roi_pts, 1)
-        else:
-            # Normalize to 100 without NPS (max possible = 70)
-            raw = churn_pts + tech_pts + cycle_pts + roi_pts
-            return round(raw / 70 * 100, 1)
+        base = churn_pts + roi_pts + cycle_pts + tech_pts  # 0-100, no NPS needed
+        # NPS bonus: confirmatory signal when available (max +10, capped at 100)
+        if has_nps_chart and pd.notna(row.get("nps_score")):
+            nps_bonus = row["nps_score"] / 10 * 10
+            return min(round(base + nps_bonus, 1), 100)
+        return round(base, 1)
 
     df["icp_score"] = df.apply(compute_icp_score, axis=1)
 
@@ -1592,24 +1591,24 @@ if df is not None:
     avg_roi_churned = (df[df["churned"]]["ltv_usd"] / df[df["churned"]]["deal_size_usd"]).mean()
     cloud_churn = df[df["tech_class"] == "Cloud/Moderno"]["churned"].mean() * 100
     legacy_churn = df[df["tech_class"] == "Legacy/Manual"]["churned"].mean() * 100
-    cloud_nps = df[df["tech_class"] == "Cloud/Moderno"]["nps_score"].mean() if has_nps else None
-    legacy_nps = df[df["tech_class"] == "Legacy/Manual"]["nps_score"].mean() if has_nps else None
+    cloud_nps = df[df["tech_class"] == "Cloud/Moderno"]["nps_score"].mean() if has_nps_chart else None
+    legacy_nps = df[df["tech_class"] == "Legacy/Manual"]["nps_score"].mean() if has_nps_chart else None
     active_age = df[~df["churned"]]["company_age"].mean()
     churned_age = df[df["churned"]]["company_age"].mean()
     active_size = df[~df["churned"]]["employee_count"].mean()
     churned_size = df[df["churned"]]["employee_count"].mean()
     best_industry = df[~df["churned"]].groupby("industry")["ltv_usd"].mean().idxmax()
     worst_churn_industry = df.groupby("industry")["churned"].mean().idxmax()
-    promoters = len(df[df["nps_score"] >= 9]) if has_nps else 0
-    detractors = len(df[df["nps_score"] <= 6]) if has_nps else 0
-    nps_net = int(((promoters - detractors) / len(df)) * 100) if has_nps else None
+    promoters = len(df[df["nps_score"] >= 9]) if has_nps_chart else 0
+    detractors = len(df[df["nps_score"] <= 6]) if has_nps_chart else 0
+    nps_net = int(((promoters - detractors) / len(df)) * 100) if has_nps_chart else None
 
     _cohort_agg = {"total": ("company_name", "count"), "churned_count": ("churned", "sum"),
                    "avg_ltv": ("ltv_usd", "mean"), "avg_deal": ("deal_size_usd", "mean")}
-    if has_nps:
+    if has_nps_chart:
         _cohort_agg["avg_nps"] = ("nps_score", "mean")
     cohort = df.groupby("revenue_band", observed=True).agg(**_cohort_agg).reset_index()
-    if not has_nps:
+    if not has_nps_chart:
         cohort["avg_nps"] = None
     cohort["retention_rate"] = ((cohort["total"] - cohort["churned_count"]) / cohort["total"] * 100)
     best_cohort = cohort.loc[cohort["avg_ltv"].idxmax()]
@@ -1635,10 +1634,10 @@ if df is not None:
                      "avg_deal": ("deal_size_usd", "mean"), "avg_cycle": ("sales_cycle_days", "mean"),
                      "avg_score": ("icp_score", "mean"), "churn_rate": ("churned", "mean"),
                      "avg_revenue": ("annual_revenue_usd", "mean"), "avg_employees": ("employee_count", "mean")}
-        if has_nps:
+        if has_nps_chart:
             _tier_agg["avg_nps"] = ("nps_score", "mean")
         tier_summary = df.groupby("icp_tier").agg(**_tier_agg).reset_index()
-        if not has_nps:
+        if not has_nps_chart:
             tier_summary["avg_nps"] = None
         tier_summary["churn_rate"] = tier_summary["churn_rate"] * 100
         tier_summary = tier_summary.sort_values("avg_score", ascending=False)
@@ -1662,7 +1661,7 @@ if df is not None:
                     <div style="margin-top:8px; font-size:0.7rem; color:#8892a4; line-height:1.6;">
                         Score: {trow['avg_score']:.0f}/100<br>
                         LTV: {_fmt(trow['avg_ltv'], "$")}<br>
-                        {f"NPS: {trow['avg_nps']:.1f} · " if has_nps and trow['avg_nps'] is not None else ""}Churn: {trow['churn_rate']:.0f}%
+                        {f"NPS: {trow['avg_nps']:.1f} · " if has_nps_chart and trow['avg_nps'] is not None else ""}Churn: {trow['churn_rate']:.0f}%
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1714,7 +1713,7 @@ if df is not None:
             max_rev = tier_radar_data["avg_revenue"].max() or 1
 
             fig_radar = go.Figure()
-            if has_nps:
+            if has_nps_chart:
                 categories = ["NPS", _t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
             else:
                 categories = [_t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
@@ -1723,7 +1722,7 @@ if df is not None:
                 tier = trow["icp_tier"]
                 retention = 100 - trow["churn_rate"]
                 cycle_speed = max(0, 10 - (trow["avg_cycle"] / 10))  # invert: faster = higher
-                if has_nps:
+                if has_nps_chart:
                     values = [trow["avg_nps"], retention / 10, trow["avg_ltv"] / max_ltv * 10,
                               trow["avg_deal"] / max_deal * 10, cycle_speed]
                 else:
@@ -1813,7 +1812,7 @@ if df is not None:
                         f'<div style="font-size:0.7rem;color:#64748b;">{_safe(row["industry"])} · {row["employee_count"]:,} {_t("func")} · {_safe(row["tech_class"])}</div></div>'
                         f'<div style="text-align:right;font-size:0.75rem;color:#8892a4;line-height:1.5;">'
                         f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span>'
-                        + (f' · NPS {int(row["nps_score"])}' if has_nps and pd.notna(row.get("nps_score")) else "")
+                        + (f' · NPS {int(row["nps_score"])}' if has_nps_chart and pd.notna(row.get("nps_score")) else "")
                         + f' · {row["sales_cycle_days"]}d<br>'
                         f'LTV {_fmt(row["ltv_usd"], "$")} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
                         f'</div></div>',
@@ -1836,29 +1835,32 @@ if df is not None:
         th_col1, th_col2 = st.columns(2)
 
         with th_col1:
-            df_health = df.copy()
-            ltv_min_display = df["ltv_usd"].max() * 0.06
-            df_health["ltv_display"] = df_health["ltv_usd"].clip(lower=ltv_min_display)
-
-            if has_nps:
-                _y_col = "nps_score"
-                _y_label = _t("nps_score_label")
+            # Use employee_count as bubble size — clean integer, no NaN risk, meaningful firmographic signal
+            _hc = ["company_name", "sales_cycle_days", "ltv_usd", "employee_count", "churned"]
+            if has_nps_chart:
+                _hc.append("nps_score")
+                _y_col, _y_label = "nps_score", _t("nps_score_label")
             else:
-                _y_col = "ltv_usd"
-                _y_label = _t("ltv_usd")
+                _y_col, _y_label = "ltv_usd", _t("ltv_usd")
+
+            df_health = df[_hc].dropna()
+
+            _hover_data = {"employee_count": ":,d"}
+            if _y_col != "ltv_usd":
+                _hover_data["ltv_usd"] = ":$,.0f"
 
             fig_health = px.scatter(
                 df_health, x="sales_cycle_days", y=_y_col,
-                size="ltv_display", color="churned",
+                size="employee_count", color="churned",
                 color_discrete_map=colors_churn,
                 hover_name="company_name",
-                hover_data={"ltv_usd": ":$,.0f", "ltv_display": False},
+                hover_data=_hover_data,
                 title=_t("health_matrix"),
-                labels={"sales_cycle_days": _t("sales_cycle_days"), _y_col: _y_label, "churned": _t("churned_label")},
+                labels={"sales_cycle_days": _t("sales_cycle_days"), _y_col: _y_label, "churned": _t("churned_label"), "employee_count": _t("employee_count")},
                 size_max=40,
             )
             fig_health.update_traces(marker=dict(sizemin=10))
-            if has_nps:
+            if has_nps_chart:
                 fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(0,0,0,0.15)")
                 fig_health.add_annotation(x=25, y=9.5, text=_t("ideal_quadrant"), showarrow=False,
                                           font=dict(size=10, color="#0000FF", family="Inter"), opacity=0.6)
@@ -1882,7 +1884,7 @@ if df is not None:
             """, unsafe_allow_html=True)
 
         with th_col2:
-            if has_nps:
+            if has_nps_chart:
                 fig_nps = go.Figure()
                 fig_nps.add_trace(go.Histogram(
                     x=df[~df["churned"]]["nps_score"], name=_t("active_label"), marker_color="#0000FF",
@@ -2122,7 +2124,7 @@ if df is not None:
         top_ltv_val = df["ltv_usd"].max()
 
         _nps_line = ""
-        if has_nps:
+        if has_nps_chart:
             best_nps_company = df.loc[df["nps_score"].idxmax(), "company_name"]
             _nps_line = f'<div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_nps_customer", name=_safe(best_nps_company), nps=df["nps_score"].max())}</div>'
 
