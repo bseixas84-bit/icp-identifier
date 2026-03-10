@@ -840,14 +840,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Navbar (brunoseixas.com style) ──
-st.markdown("""
-<div class="bs-navbar">
-    <a href="https://brunoseixas.com" class="bs-logo" target="_blank"><span class="plus">+</span>Bruno Seixas</a>
-    <a href="https://brunoseixas.com/#contact" target="_blank" class="bs-cta">Get in Touch</a>
-</div>
-<div class="navbar-spacer"></div>
-""", unsafe_allow_html=True)
 
 # ── Header ──
 st.markdown(f"""
