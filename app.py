@@ -166,7 +166,9 @@ st.markdown("""
     /* Hide streamlit chrome */
     #MainMenu, footer, header { visibility: hidden; }
     .stDeployButton { display: none; }
-    [data-testid="stElementToolbar"] { display: none !important; }
+    [data-testid="stElementToolbar"],
+    [data-testid="stElementToolbarButton"],
+    [data-testid="stCopyButton"] { display: none !important; }
 
     /* ── Top Navbar (brunoseixas.com style) ── */
     .bs-navbar {
@@ -1020,14 +1022,20 @@ with st.sidebar:
 
             if selected_cached != _t("select_placeholder"):
                 cache_data = CACHED_COMPANIES[selected_cached]
-                if st.session_state.get("_loaded_cache") != selected_cached or st.session_state.get("_loaded_lang") != L:
+                raw_dna = cache_data["dna"]
+                raw_market = cache_data["market"]
+
+                # Always sync dna/market with current language on every render
+                st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if ("pt" in raw_dna and "en" in raw_dna) else raw_dna
+                st.session_state["intel_market"] = raw_market.get(L, raw_market) if ("pt" in raw_market and "en" in raw_market) else raw_market
+
+                company_changed = st.session_state.get("_loaded_cache") != selected_cached
+                lang_changed = st.session_state.get("_loaded_lang") != L
+
+                if company_changed:
+                    # Full reset when company switches
                     for key in ["icp", "scored"]:
                         st.session_state.pop(key, None)
-                    # Support bilingual cache: dna/market can be {"pt":{...},"en":{...}} or flat dict
-                    raw_dna = cache_data["dna"]
-                    raw_market = cache_data["market"]
-                    st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if "pt" in raw_dna and "en" in raw_dna else raw_dna
-                    st.session_state["intel_market"] = raw_market.get(L, raw_market) if "pt" in raw_market and "en" in raw_market else raw_market
                     clients_df = pd.DataFrame(cache_data["clients"])
                     clients_df["churned"] = clients_df["churned"].apply(
                         lambda x: str(x).strip().lower() in ("true", "1", "yes")
@@ -1037,7 +1045,12 @@ with st.sidebar:
                     st.session_state["intel_dossier_path"] = ""
                     st.session_state["company_source"] = None
                     st.session_state["_loaded_cache"] = selected_cached
-                    st.session_state["_loaded_lang"] = L
+                elif lang_changed:
+                    # Clear AI results so they regenerate in the new language
+                    for key in ["icp", "scored"]:
+                        st.session_state.pop(key, None)
+
+                st.session_state["_loaded_lang"] = L
 
                 st.markdown(f"""
                 <div class="instant-badge">{_t("preloaded_data")}</div>
