@@ -446,7 +446,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 1680000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Klaviyo;Gorgias;Snowflake",
       "country": "United Kingdom",
       "founding_year": 2012
@@ -460,7 +459,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 720000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;Recharge;Klaviyo;AWS",
       "country": "USA",
       "founding_year": 2015
@@ -474,7 +472,6 @@
       "sales_cycle_days": 28,
       "churned": false,
       "ltv_usd": 1170000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Stripe;Klaviyo;Gorgias",
       "country": "USA",
       "founding_year": 2019
@@ -488,7 +485,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;SAP;Salesforce;Klaviyo",
       "country": "Austria",
       "founding_year": 1987
@@ -502,7 +498,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 2700000,
-      "nps_score": 7,
       "tech_stack": "Shopify Plus;SAP;Salesforce;Magento (partial)",
       "country": "USA",
       "founding_year": 1869
@@ -516,7 +511,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 510000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Stripe;Klaviyo;Recharge",
       "country": "USA",
       "founding_year": 2015
@@ -530,7 +524,6 @@
       "sales_cycle_days": 22,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Recharge;Klaviyo;Loop Returns",
       "country": "USA",
       "founding_year": 2013
@@ -544,7 +537,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;Klaviyo;NetSuite;Stripe",
       "country": "USA",
       "founding_year": 2003
@@ -558,7 +550,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 270000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;Klaviyo;Recharge;Stripe",
       "country": "USA",
       "founding_year": 2013
@@ -572,7 +563,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 168000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Klaviyo;Stripe;Gorgias",
       "country": "United Kingdom",
       "founding_year": 1985
@@ -586,7 +576,6 @@
       "sales_cycle_days": 16,
       "churned": false,
       "ltv_usd": 108000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;Stripe;Klaviyo",
       "country": "France",
       "founding_year": 1985
@@ -600,7 +589,6 @@
       "sales_cycle_days": 75,
       "churned": true,
       "ltv_usd": 1860000,
-      "nps_score": 5,
       "tech_stack": "SAP Commerce;Salesforce;Magento (migrated from Shopify)",
       "country": "Switzerland",
       "founding_year": 1866
@@ -614,7 +602,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 900000,
-      "nps_score": 8,
       "tech_stack": "Shopify Plus;SAP;Klaviyo;Salesforce",
       "country": "Switzerland",
       "founding_year": 1845
@@ -628,7 +615,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 720000,
-      "nps_score": 7,
       "tech_stack": "Shopify Plus;Stripe;Salesforce;Klaviyo",
       "country": "United Kingdom",
       "founding_year": 1935
@@ -642,7 +628,6 @@
       "sales_cycle_days": 45,
       "churned": true,
       "ltv_usd": 840000,
-      "nps_score": 5,
       "tech_stack": "Magento (migrated);SAP;Oracle ATG",
       "country": "Australia",
       "founding_year": 1974
@@ -656,7 +641,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 528000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Recharge;Klaviyo;Gorgias",
       "country": "USA",
       "founding_year": 2016
@@ -670,7 +654,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 192000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Klaviyo;Recharge;Stripe",
       "country": "USA",
       "founding_year": 2010
@@ -684,7 +667,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 1320000,
-      "nps_score": 7,
       "tech_stack": "Shopify Plus;Salesforce;Klaviyo;NetSuite",
       "country": "USA",
       "founding_year": 1990
@@ -698,7 +680,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 132000,
-      "nps_score": 9,
       "tech_stack": "Shopify Plus;Stripe;Klaviyo;Gorgias",
       "country": "United Kingdom",
       "founding_year": 2019
@@ -712,7 +693,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 7,
       "tech_stack": "Shopify Plus;Salesforce;SAP;Klaviyo",
       "country": "Netherlands",
       "founding_year": 1864

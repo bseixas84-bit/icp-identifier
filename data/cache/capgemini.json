@@ -438,7 +438,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 270000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Salesforce;Microsoft Azure",
       "country": "United Kingdom",
       "founding_year": 1865
@@ -452,7 +451,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 228000000,
-      "nps_score": 8,
       "tech_stack": "Capgemini;SAP;3DEXPERIENCE;AWS",
       "country": "France",
       "founding_year": 1970
@@ -466,7 +464,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 168000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Microsoft Azure;Salesforce",
       "country": "USA",
       "founding_year": 1892
@@ -480,7 +477,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 210000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;Oracle;Salesforce;AWS",
       "country": "United Kingdom",
       "founding_year": 1736
@@ -494,7 +490,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini Odigo;SAP;Salesforce;AWS",
       "country": "France",
       "founding_year": 1933
@@ -508,7 +503,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;Microsoft;SAP;Oracle",
       "country": "France",
       "founding_year": 2008
@@ -522,7 +516,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 8,
       "tech_stack": "Capgemini Odigo;SAP;Salesforce;Microsoft",
       "country": "Switzerland",
       "founding_year": 1857
@@ -536,7 +529,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 192000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Oracle;Siemens",
       "country": "France",
       "founding_year": 1946
@@ -550,7 +542,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;Salesforce;AWS;Microsoft",
       "country": "USA",
       "founding_year": 2003
@@ -564,7 +555,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Oracle;Microsoft",
       "country": "Germany",
       "founding_year": 1996
@@ -578,7 +568,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 27000000,
-      "nps_score": 8,
       "tech_stack": "Capgemini;Salesforce;AWS;Microsoft Azure",
       "country": "USA",
       "founding_year": 1992
@@ -592,7 +581,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 51000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Salesforce;AWS",
       "country": "United Kingdom",
       "founding_year": 1960
@@ -606,7 +594,6 @@
       "sales_cycle_days": 130,
       "churned": true,
       "ltv_usd": 66000000,
-      "nps_score": 5,
       "tech_stack": "Accenture (migrated);SAP;Oracle;IBM",
       "country": "Italy",
       "founding_year": 1994
@@ -620,7 +607,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 168000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;Oracle;Salesforce;Microsoft",
       "country": "United Kingdom",
       "founding_year": 1727
@@ -634,7 +620,6 @@
       "sales_cycle_days": 140,
       "churned": false,
       "ltv_usd": 150000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;AVEVA;Microsoft Azure",
       "country": "France",
       "founding_year": 1924
@@ -648,7 +633,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 8,
       "tech_stack": "Capgemini;SAP;3DEXPERIENCE;AWS",
       "country": "France",
       "founding_year": 1889
@@ -662,7 +646,6 @@
       "sales_cycle_days": 120,
       "churned": true,
       "ltv_usd": 54000000,
-      "nps_score": 5,
       "tech_stack": "IBM Global Services (migrated);SAP;Microsoft",
       "country": "Finland",
       "founding_year": 1865
@@ -676,7 +659,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;Salesforce;AWS;Microsoft",
       "country": "USA",
       "founding_year": 1985
@@ -690,7 +672,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 120000000,
-      "nps_score": 8,
       "tech_stack": "Capgemini;SAP;Salesforce;AWS",
       "country": "France",
       "founding_year": 1836
@@ -704,7 +685,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 96000000,
-      "nps_score": 7,
       "tech_stack": "Capgemini;SAP;Salesforce;Oracle",
       "country": "Germany",
       "founding_year": 1994

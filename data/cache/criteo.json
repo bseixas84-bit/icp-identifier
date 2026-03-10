@@ -418,7 +418,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 27000000,
-      "nps_score": 8,
       "tech_stack": "Criteo;SAP;Salesforce;Google Ads",
       "country": "France",
       "founding_year": 1959
@@ -432,7 +431,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 13200000,
-      "nps_score": 8,
       "tech_stack": "Criteo;SAP;Adobe Marketing;Google Ads",
       "country": "France",
       "founding_year": 1954
@@ -446,7 +444,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 34800000,
-      "nps_score": 7,
       "tech_stack": "Criteo;Salesforce Marketing;Adobe;Google Ads",
       "country": "USA",
       "founding_year": 1966
@@ -460,7 +457,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 7,
       "tech_stack": "Criteo;Salesforce Marketing;Adobe Commerce;Google",
       "country": "USA",
       "founding_year": 1858
@@ -474,7 +470,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 15000000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Shopping;SAP;Hybris",
       "country": "France",
       "founding_year": 1976
@@ -488,7 +483,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 37200000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Ads;Salesforce;AWS",
       "country": "Netherlands",
       "founding_year": 1996
@@ -502,7 +496,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 19200000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Shopping;SAP;AWS",
       "country": "Germany",
       "founding_year": 2008
@@ -516,7 +509,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 7,
       "tech_stack": "Criteo;Google Ads;SAP;Adobe",
       "country": "France",
       "founding_year": 1998
@@ -530,7 +522,6 @@
       "sales_cycle_days": 60,
       "churned": true,
       "ltv_usd": 22500000,
-      "nps_score": 5,
       "tech_stack": "The Trade Desk (migrated);Google;Salesforce;AWS",
       "country": "USA",
       "founding_year": 1902
@@ -544,7 +535,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 2880000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Shopping;Shopify Plus;Klaviyo",
       "country": "Sweden",
       "founding_year": 1947
@@ -558,7 +548,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Ads;AWS;Snowflake",
       "country": "USA",
       "founding_year": 2005
@@ -572,7 +561,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 7,
       "tech_stack": "Criteo;SAP Hybris;Google Ads;Adobe",
       "country": "France",
       "founding_year": 1923
@@ -586,7 +574,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 7,
       "tech_stack": "Criteo;Google Shopping;SAP",
       "country": "Japan",
       "founding_year": 1997
@@ -600,7 +587,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 4320000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Ads;SAP;Salesforce Marketing",
       "country": "France",
       "founding_year": 1837
@@ -614,7 +600,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Shopping;SAP;Salesforce Marketing",
       "country": "Germany",
       "founding_year": 1986
@@ -628,7 +613,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Adobe Commerce;Salesforce;Google Ads",
       "country": "France",
       "founding_year": 1970
@@ -642,7 +626,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Ads;AWS;Salesforce",
       "country": "France",
       "founding_year": 2001
@@ -656,7 +639,6 @@
       "sales_cycle_days": 50,
       "churned": true,
       "ltv_usd": 9600000,
-      "nps_score": 4,
       "tech_stack": "The Trade Desk (migrated);Google DV360;Salesforce",
       "country": "USA",
       "founding_year": 1962
@@ -670,7 +652,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 7,
       "tech_stack": "Criteo;Google Shopping;Salesforce;Adobe",
       "country": "Sweden",
       "founding_year": 1947
@@ -684,7 +665,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 27000000,
-      "nps_score": 8,
       "tech_stack": "Criteo;Google Ads;Salesforce;Adobe Analytics",
       "country": "Netherlands",
       "founding_year": 1943

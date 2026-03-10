@@ -472,7 +472,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;Snowflake;Kotlin",
       "country": "USA",
       "founding_year": 1994
@@ -486,7 +485,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 19000000,
-      "nps_score": 8,
       "tech_stack": "Stripe Connect;AWS;Kotlin;Snowflake",
       "country": "USA",
       "founding_year": 2012
@@ -500,7 +498,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;Snowflake;Datadog",
       "country": "USA",
       "founding_year": 2012
@@ -514,7 +511,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 8,
       "tech_stack": "Stripe;Google Cloud;Datadog;Kubernetes",
       "country": "Sweden",
       "founding_year": 2006
@@ -528,7 +524,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;Snowflake;Datadog",
       "country": "USA",
       "founding_year": 2011
@@ -542,7 +537,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 7,
       "tech_stack": "Stripe;AWS;Google Cloud;Kubernetes",
       "country": "United Kingdom",
       "founding_year": 2013
@@ -556,7 +550,6 @@
       "sales_cycle_days": 90,
       "churned": true,
       "ltv_usd": 13500000,
-      "nps_score": 5,
       "tech_stack": "Adyen (migrated from Stripe);AWS;Kafka;Kubernetes",
       "country": "Netherlands",
       "founding_year": 1996
@@ -570,7 +563,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 9,
       "tech_stack": "Stripe;AWS;React;PostgreSQL",
       "country": "USA",
       "founding_year": 2017
@@ -584,7 +576,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 5100000,
-      "nps_score": 9,
       "tech_stack": "Stripe Issuing;AWS;Snowflake;Plaid",
       "country": "USA",
       "founding_year": 2019
@@ -598,7 +589,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;Kubernetes;Snowflake",
       "country": "USA",
       "founding_year": 2013
@@ -612,7 +602,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 31200000,
-      "nps_score": 9,
       "tech_stack": "Stripe Treasury;AWS;React;Google Cloud",
       "country": "Canada",
       "founding_year": 2006
@@ -626,7 +615,6 @@
       "sales_cycle_days": 60,
       "churned": true,
       "ltv_usd": 6300000,
-      "nps_score": 4,
       "tech_stack": "Braintree (migrated);AWS;Kafka;Scala",
       "country": "USA",
       "founding_year": 2006
@@ -640,7 +628,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 5700000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;Snowflake;Segment",
       "country": "USA",
       "founding_year": 2008
@@ -654,7 +641,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 9,
       "tech_stack": "Stripe;Shopify Plus;AWS;Klaviyo",
       "country": "USA",
       "founding_year": 2014
@@ -668,7 +654,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 7,
       "tech_stack": "Stripe;AWS;Google Cloud;Kafka",
       "country": "Sweden",
       "founding_year": 2005
@@ -682,7 +667,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 720000,
-      "nps_score": 9,
       "tech_stack": "Stripe;AWS;React;PostgreSQL",
       "country": "USA",
       "founding_year": 2013
@@ -696,7 +680,6 @@
       "sales_cycle_days": 22,
       "churned": false,
       "ltv_usd": 1260000,
-      "nps_score": 9,
       "tech_stack": "Stripe;AWS;Google Cloud;React",
       "country": "USA",
       "founding_year": 2012
@@ -710,7 +693,6 @@
       "sales_cycle_days": 40,
       "churned": true,
       "ltv_usd": 2040000,
-      "nps_score": 4,
       "tech_stack": "Adyen (migrated);AWS;Shopify;Snowflake",
       "country": "USA",
       "founding_year": 2012
@@ -724,7 +706,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 8,
       "tech_stack": "Stripe;AWS;React;PostgreSQL",
       "country": "USA",
       "founding_year": 2011
@@ -738,7 +719,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 8400000,
-      "nps_score": 8,
       "tech_stack": "Stripe;Shopify Plus;Salesforce;Snowflake",
       "country": "Canada",
       "founding_year": 1998

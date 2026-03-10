@@ -444,7 +444,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 9,
       "tech_stack": "Datadog;AWS;Terraform;Kubernetes",
       "country": "USA",
       "founding_year": 2012
@@ -458,7 +457,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 9,
       "tech_stack": "Datadog;AWS;Google Cloud;Kafka",
       "country": "Argentina",
       "founding_year": 1999
@@ -472,7 +470,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 11400000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Kafka;Splunk",
       "country": "USA",
       "founding_year": 1971
@@ -486,7 +483,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 8400000,
-      "nps_score": 8,
       "tech_stack": "Datadog;Google Cloud;Kubernetes;Kafka",
       "country": "USA",
       "founding_year": 2002
@@ -500,7 +496,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 25200000,
-      "nps_score": 7,
       "tech_stack": "Datadog;AWS;Kubernetes;Terraform",
       "country": "South Korea",
       "founding_year": 1969
@@ -514,7 +509,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 2520000,
-      "nps_score": 9,
       "tech_stack": "Datadog;Google Cloud;Kubernetes;Golang",
       "country": "Spain",
       "founding_year": 2015
@@ -528,7 +522,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 3480000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Kubernetes;Python",
       "country": "USA",
       "founding_year": 1994
@@ -542,7 +535,6 @@
       "sales_cycle_days": 95,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 7,
       "tech_stack": "Datadog;Microsoft Azure;Kubernetes;Terraform",
       "country": "Germany",
       "founding_year": 1926
@@ -556,7 +548,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 3900000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Kafka;Kubernetes",
       "country": "USA",
       "founding_year": 2012
@@ -570,7 +561,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 3120000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Kubernetes;Golang",
       "country": "USA",
       "founding_year": 2007
@@ -584,7 +574,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;React;WordPress",
       "country": "USA",
       "founding_year": 1917
@@ -598,7 +587,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 9,
       "tech_stack": "Datadog;Google Cloud;Kubernetes;Ruby on Rails",
       "country": "Canada",
       "founding_year": 2006
@@ -612,7 +600,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 4680000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Golang;Kubernetes",
       "country": "USA",
       "founding_year": 2008
@@ -626,7 +613,6 @@
       "sales_cycle_days": 35,
       "churned": true,
       "ltv_usd": 1260000,
-      "nps_score": 4,
       "tech_stack": "New Relic (self-monitoring);AWS;Kubernetes",
       "country": "USA",
       "founding_year": 2008
@@ -640,7 +626,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 5520000,
-      "nps_score": 9,
       "tech_stack": "Datadog;AWS;Kubernetes;Terraform",
       "country": "Australia",
       "founding_year": 2002
@@ -654,7 +639,6 @@
       "sales_cycle_days": 45,
       "churned": true,
       "ltv_usd": 1440000,
-      "nps_score": 5,
       "tech_stack": "Dynatrace (migrated);AWS;React;Python",
       "country": "USA",
       "founding_year": 1909
@@ -668,7 +652,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Golang;Kubernetes",
       "country": "Colombia",
       "founding_year": 2015
@@ -682,7 +665,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 9,
       "tech_stack": "Datadog;AWS;Clojure;Kubernetes",
       "country": "Brazil",
       "founding_year": 2013
@@ -696,7 +678,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 3120000,
-      "nps_score": 8,
       "tech_stack": "Datadog;AWS;Kotlin;Kubernetes",
       "country": "Brazil",
       "founding_year": 2011
@@ -710,7 +691,6 @@
       "sales_cycle_days": 35,
       "churned": true,
       "ltv_usd": 840000,
-      "nps_score": 4,
       "tech_stack": "New Relic (migrated);AWS;Python;Terraform",
       "country": "USA",
       "founding_year": 1999

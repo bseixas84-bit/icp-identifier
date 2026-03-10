@@ -199,6 +199,12 @@ TRANSLATIONS = {
         "en": "Churned customers concentrate in the detractor range — low NPS is a strong churn predictor.",
     },
 
+    "churn_by_cycle": {"pt": "Churn por Ciclo de Vendas", "en": "Churn Rate by Sales Cycle"},
+    "demo_data_disclaimer": {
+        "pt": "Dados demo — as métricas de clientes são estimativas ilustrativas. NPS não está incluído por questões de integridade metodológica.",
+        "en": "Demo data — client metrics are estimates for illustration only. NPS is excluded for methodological integrity.",
+    },
+
     # ── Finance Tab ──
     "ltv_per_customer": {"pt": "LTV por Cliente", "en": "LTV per Customer"},
     "ltv_usd": {"pt": "LTV (USD)", "en": "LTV (USD)"},
@@ -414,6 +420,21 @@ TRANSLATIONS = {
     # ── Company Card Meta ──
     "founded": {"pt": "Fundada em", "en": "Founded"},
     "company_size": {"pt": "Porte da Empresa", "en": "Company Size"},
+
+    # ── CSV Templates ──
+    "download_template_customers": {"pt": "⬇ Baixar template de clientes (CSV)", "en": "⬇ Download customer template (CSV)"},
+    "download_template_prospects": {"pt": "⬇ Baixar template de prospects (CSV)", "en": "⬇ Download prospect template (CSV)"},
+
+    # ── Beta / Suggestions ──
+    "beta_badge": {"pt": "Versão Beta — Protótipo", "en": "Beta Version — Prototype"},
+    "beta_disclaimer": {
+        "pt": "Esta ferramenta está em fase beta. Os resultados gerados por IA são indicativos e servem como ponto de partida para análise — não devem embasar decisões críticas sem validação adicional. O ICP Identifier está em evolução contínua.",
+        "en": "This tool is in beta. AI-generated results are directional and meant as a starting point for analysis — do not base critical decisions solely on this output without further validation. ICP Identifier is continuously improving.",
+    },
+    "suggestions_title": {"pt": "Sugestões & Feedback", "en": "Suggestions & Feedback"},
+    "suggestions_placeholder": {"pt": "O que você mudaria ou gostaria de ver nessa ferramenta?", "en": "What would you change or like to see in this tool?"},
+    "suggestions_send": {"pt": "Enviar sugestão", "en": "Send suggestion"},
+    "suggestions_hint": {"pt": "Escreva sua sugestão acima para habilitar o envio.", "en": "Write your suggestion above to enable sending."},
 
     # ── Empty State ──
     "empty_title": {

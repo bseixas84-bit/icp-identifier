@@ -434,7 +434,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 1900000,
-      "nps_score": 8,
       "tech_stack": "HubSpot CRM;Salesforce;Microsoft Azure;ServiceNow",
       "country": "USA",
       "founding_year": 1928
@@ -448,7 +447,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 510000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Shopify;SAP;Google Analytics",
       "country": "Japan",
       "founding_year": 1946
@@ -462,7 +460,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 168000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;AWS;Workday;Stripe",
       "country": "Israel",
       "founding_year": 2016
@@ -476,7 +473,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 1260000,
-      "nps_score": 7,
       "tech_stack": "HubSpot;SAP;Salesforce;Oracle",
       "country": "Japan",
       "founding_year": 1909
@@ -490,7 +486,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;AWS;Google Cloud;Segment",
       "country": "Australia",
       "founding_year": 2002
@@ -504,7 +499,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 192000,
-      "nps_score": 9,
       "tech_stack": "HubSpot CRM;Microsoft;AutoCAD;Salesforce",
       "country": "USA",
       "founding_year": 1970
@@ -518,7 +512,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Salesforce;Twilio;AWS",
       "country": "USA",
       "founding_year": 2013
@@ -532,7 +525,6 @@
       "sales_cycle_days": 14,
       "churned": false,
       "ltv_usd": 72000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;Stripe;AWS;Mailchimp",
       "country": "USA",
       "founding_year": 2017
@@ -546,7 +538,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 90000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;Stripe;AWS;Intercom",
       "country": "France",
       "founding_year": 2020
@@ -560,7 +551,6 @@
       "sales_cycle_days": 22,
       "churned": false,
       "ltv_usd": 330000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Salesforce;Zendesk;AWS",
       "country": "Israel",
       "founding_year": 2012
@@ -574,7 +564,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 228000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Microsoft Dynamics;Shopify;NetSuite",
       "country": "USA",
       "founding_year": 1931
@@ -588,7 +577,6 @@
       "sales_cycle_days": 25,
       "churned": true,
       "ltv_usd": 126000,
-      "nps_score": 5,
       "tech_stack": "Salesforce (migrated from HubSpot);AWS;Braze;Amplitude",
       "country": "USA",
       "founding_year": 2006
@@ -602,7 +590,6 @@
       "sales_cycle_days": 28,
       "churned": true,
       "ltv_usd": 204000,
-      "nps_score": 4,
       "tech_stack": "Salesforce CRM;Marketo;Gainsight;AWS",
       "country": "USA",
       "founding_year": 2002
@@ -616,7 +603,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 210000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;Stripe;Intercom;AWS",
       "country": "USA",
       "founding_year": 2012
@@ -630,7 +616,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 84000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;Stripe;Amplitude;Segment",
       "country": "USA",
       "founding_year": 2015
@@ -644,7 +629,6 @@
       "sales_cycle_days": 22,
       "churned": false,
       "ltv_usd": 270000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Shopify Plus;Klaviyo;Snowflake",
       "country": "United Kingdom",
       "founding_year": 2012
@@ -658,7 +642,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 540000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Salesforce;AWS;Snowflake",
       "country": "Brazil",
       "founding_year": 2013
@@ -672,7 +655,6 @@
       "sales_cycle_days": 28,
       "churned": true,
       "ltv_usd": 216000,
-      "nps_score": 4,
       "tech_stack": "Salesforce;Marketo;Gainsight;Google Cloud",
       "country": "USA",
       "founding_year": 2007
@@ -686,7 +668,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 150000,
-      "nps_score": 8,
       "tech_stack": "HubSpot;Stripe;AWS;Segment",
       "country": "USA",
       "founding_year": 2011
@@ -700,7 +681,6 @@
       "sales_cycle_days": 16,
       "churned": false,
       "ltv_usd": 132000,
-      "nps_score": 9,
       "tech_stack": "HubSpot;Stripe;Amplitude;Cloudflare",
       "country": "USA",
       "founding_year": 2013

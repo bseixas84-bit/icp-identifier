@@ -33,12 +33,13 @@ Classifications:
 - "avoid" (< 40): Anti-ICP signals, do not pursue
 
 IMPORTANT: Return ONLY the JSON array, no markdown formatting, no code blocks.
-Be specific. Reference actual data points. Answer in Portuguese (Brazil)."""
+Be specific. Reference actual data points. Answer in {language}."""
 
 
 def score_prospects(
-    icp: ICPProfile, prospects_df: pd.DataFrame, api_key: str
+    icp: ICPProfile, prospects_df: pd.DataFrame, api_key: str, lang: str = "en"
 ) -> list[ScoredProspect]:
+    language = "Portuguese (Brazil)" if lang == "pt" else "English"
     icp_dict = icp.model_dump()
     del icp_dict["raw_analysis"]
 
@@ -52,6 +53,7 @@ def score_prospects(
                 "content": SCORING_PROMPT.format(
                     icp_json=json.dumps(icp_dict, ensure_ascii=False, indent=2),
                     prospects_csv=prospects_df.to_csv(index=False),
+                    language=language,
                 ),
             }
         ],

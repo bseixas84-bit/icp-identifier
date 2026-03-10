@@ -5,7 +5,7 @@ import json
 import socket
 import ipaddress
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote
 
 import streamlit as st
 import pandas as pd
@@ -117,17 +117,17 @@ if CACHE_DIR.exists():
         label = f"{name} ({tag})"
         CACHED_COMPANIES[label] = data
 
-# ── Neuromorphic CSS ──
+# ── Dark Theme CSS ──
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
     :root {
-        --neu-bg: #e6e9ef;
-        --neu-bg2: #d1d5db;
-        --neu-dark: #b8bcc2;
-        --neu-light: #ffffff;
-        --primary: #7c3aed;
-        --primary-dark: #6d28d9;
+        --neu-bg: #0f1220;
+        --neu-bg2: #0c0f1a;
+        --neu-dark: #070910;
+        --neu-light: #1a2035;
+        --primary: #0000FF;
+        --primary-dark: #0033CC;
     }
 
     *:not([class*="material"]):not([class*="icon"]):not([data-testid="stIconMaterial"]) {
@@ -136,12 +136,12 @@ st.markdown("""
 
     /* Global background */
     .stApp {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2)) !important;
+        background: var(--neu-bg2) !important;
     }
 
     /* Sidebar */
     section[data-testid="stSidebar"] {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2)) !important;
+        background: var(--neu-bg2) !important;
     }
     section[data-testid="stSidebar"] .stMarkdown h3 {
         color: var(--primary) !important;
@@ -164,16 +164,16 @@ st.markdown("""
         align-items: center;
         justify-content: space-between;
         padding: 1.25rem 2.5rem;
-        background: rgba(230, 233, 239, 0.85);
+        background: rgba(7,9,15,0.92);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(0,0,0,0.06);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
         transition: all 0.35s ease;
     }
     .bs-navbar .bs-logo {
         font-size: 1rem;
         font-weight: 700;
-        color: #111827;
+        color: #ffffff;
         text-decoration: none;
         letter-spacing: -0.02em;
         display: flex;
@@ -193,13 +193,13 @@ st.markdown("""
     .bs-navbar nav a {
         font-size: 0.8rem;
         font-weight: 500;
-        color: #6b7280;
+        color: #8892a4;
         text-decoration: none;
         transition: color 0.2s ease;
         letter-spacing: 0.01em;
     }
     .bs-navbar nav a:hover {
-        color: #111827;
+        color: #ffffff;
     }
     .bs-navbar .bs-cta {
         display: inline-flex;
@@ -209,19 +209,17 @@ st.markdown("""
         font-size: 0.8rem;
         font-weight: 600;
         color: white !important;
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         border-radius: 50px;
         text-decoration: none;
-        box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
         transition: all 0.2s ease;
     }
     .bs-navbar .bs-cta:hover {
         transform: translateY(-1px);
-        box-shadow: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light);
     }
     .bs-navbar .bs-lang {
         font-size: 0.65rem;
-        color: #9ca3af;
+        color: #64748b;
         letter-spacing: 0.05em;
     }
     .bs-navbar .bs-lang span {
@@ -237,20 +235,20 @@ st.markdown("""
     /* Push content below fixed navbar */
     .navbar-spacer { height: 20px; }
 
-    /* ── Neuromorphic Surfaces ── */
+    /* ── Dark Surfaces (keep class names for compatibility) ── */
     .neu-raised {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 24px;
     }
     .neu-raised-sm {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
     }
     .neu-inset {
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
         border-radius: 12px;
     }
 
@@ -266,12 +264,12 @@ st.markdown("""
         gap: 8px;
         padding: 8px 16px;
         border-radius: 50px;
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         margin-bottom: 1.25rem;
         font-size: 0.7rem;
         font-weight: 500;
-        color: #6b7280;
+        color: #8892a4;
         text-transform: uppercase;
         letter-spacing: 0.08em;
     }
@@ -286,14 +284,15 @@ st.markdown("""
         50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
     }
     .header-container h1 {
-        font-size: 2.75rem;
-        font-weight: 700;
-        color: #1f2937;
-        letter-spacing: -0.03em;
+        font-size: 3rem;
+        font-weight: 800;
+        color: #ffffff;
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
         margin: 0;
     }
     .header-container p {
-        color: #6b7280;
+        color: #8892a4;
         font-size: 1rem;
         margin: 0.5rem 0 0 0;
     }
@@ -307,17 +306,16 @@ st.markdown("""
     }
     .m-card {
         padding: 1.5rem;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
-        border-radius: 20px;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        transition: transform 0.15s ease;
     }
     .m-card:hover {
         transform: translateY(-2px);
-        box-shadow: 10px 10px 20px var(--neu-dark), -10px -10px 20px var(--neu-light);
     }
     .m-card .m-label {
-        color: #9ca3af;
+        color: #8892a4;
         font-size: 0.65rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -325,7 +323,7 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
     .m-card .m-value {
-        color: #1f2937;
+        color: #e8edf8;
         font-size: 1.6rem;
         font-weight: 700;
         letter-spacing: -0.02em;
@@ -339,12 +337,12 @@ st.markdown("""
         gap: 10px;
         padding: 10px 20px;
         border-radius: 50px;
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         margin: 2rem 0 1.5rem 0;
         font-size: 0.7rem;
         font-weight: 600;
-        color: #6b7280;
+        color: #8892a4;
         text-transform: uppercase;
         letter-spacing: 0.08em;
     }
@@ -358,11 +356,11 @@ st.markdown("""
     .chart-explain {
         padding: 12px 16px;
         margin-top: 8px;
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.06);
         border-radius: 12px;
         font-size: 0.78rem;
-        color: #4b5563;
+        color: #8892a4;
         line-height: 1.6;
     }
     .chart-explain strong {
@@ -386,10 +384,15 @@ st.markdown("""
     /* ── ICP / Anti-ICP Cards ── */
     .icp-card {
         padding: 2rem;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
-        border-radius: 24px;
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
         margin-bottom: 1.5rem;
+    }
+    .icp-card.positive {
+        background: rgba(0,0,255,0.06);
+        border: 1px solid rgba(0,0,255,0.4);
+        box-shadow: 0 0 30px rgba(0,0,255,0.1);
     }
     .icp-card .card-badge {
         display: inline-flex;
@@ -404,7 +407,7 @@ st.markdown("""
         margin-bottom: 1rem;
     }
     .icp-card.positive .card-badge {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         color: white;
     }
     .icp-card.negative .card-badge {
@@ -412,14 +415,14 @@ st.markdown("""
         color: white;
     }
     .icp-card h2 {
-        color: #1f2937;
+        color: #e8edf8;
         font-size: 1.25rem;
         font-weight: 700;
         margin: 0 0 0.75rem 0;
         letter-spacing: -0.02em;
     }
     .icp-card p {
-        color: #6b7280;
+        color: #8892a4;
         font-size: 0.9rem;
         line-height: 1.6;
         margin: 0;
@@ -441,10 +444,10 @@ st.markdown("""
         gap: 10px;
         padding: 10px 14px;
         margin-bottom: 6px;
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
         border-radius: 12px;
-        color: #374151;
+        color: #cbd5e1;
         font-size: 0.85rem;
     }
     .detail-item .di-dot {
@@ -459,12 +462,11 @@ st.markdown("""
         display: inline-block;
         padding: 8px 14px;
         margin: 4px;
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         color: white;
         font-size: 0.75rem;
         font-weight: 500;
         border-radius: 50px;
-        box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
     }
 
     /* ── Alert Items (Anti-ICP) ── */
@@ -474,10 +476,10 @@ st.markdown("""
         gap: 10px;
         padding: 12px 14px;
         margin-bottom: 6px;
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
         border-radius: 12px;
-        color: #374151;
+        color: #cbd5e1;
         font-size: 0.85rem;
         line-height: 1.4;
     }
@@ -495,15 +497,15 @@ st.markdown("""
         align-items: center;
         padding: 14px 18px;
         margin-bottom: 8px;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         transition: transform 0.15s ease;
     }
     .score-row:hover { transform: translateY(-1px); }
     .score-row .sr-name {
         flex: 1;
-        color: #1f2937;
+        color: #e8edf8;
         font-size: 0.9rem;
         font-weight: 600;
     }
@@ -514,8 +516,8 @@ st.markdown("""
         font-variant-numeric: tabular-nums;
     }
     .sr-score.hot { color: var(--primary); }
-    .sr-score.warm { color: #6b7280; }
-    .sr-score.cold { color: #9ca3af; }
+    .sr-score.warm { color: #8892a4; }
+    .sr-score.cold { color: #64748b; }
     .sr-score.avoid { color: #ef4444; }
 
     .sr-badge {
@@ -527,7 +529,7 @@ st.markdown("""
         border-radius: 50px;
         color: white;
     }
-    .sr-badge.hot { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .sr-badge.hot { background: linear-gradient(135deg, #0000FF, #0033CC); }
     .sr-badge.warm { background: linear-gradient(135deg, #f59e0b, #d97706); }
     .sr-badge.cold { background: linear-gradient(135deg, #9ca3af, #6b7280); }
     .sr-badge.avoid { background: linear-gradient(135deg, #ef4444, #dc2626); }
@@ -537,25 +539,24 @@ st.markdown("""
         gap: 6px !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"] {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2)) !important;
-        box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light) !important;
-        border: none !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
         border-radius: 12px !important;
         font-size: 0.72rem !important;
         font-weight: 500 !important;
-        color: #6b7280 !important;
+        color: #8892a4 !important;
         padding: 8px 14px !important;
         transition: all 0.15s ease !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"]:hover {
         transform: translateY(-1px) !important;
-        color: #374151 !important;
+        color: #e8edf8 !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"][aria-selected="true"] {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+        background: #0000FF !important;
         color: white !important;
         font-weight: 600 !important;
-        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.15), inset -1px -1px 2px rgba(255,255,255,0.1) !important;
+        border: none !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] label {
         font-size: 0.65rem !important;
@@ -567,23 +568,20 @@ st.markdown("""
 
     /* ── Button Override ── */
     .stButton > button[kind="primary"] {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+        background: linear-gradient(135deg, #0000FF, #0033CC) !important;
         color: white !important;
         border: none !important;
         border-radius: 16px !important;
         font-weight: 600 !important;
         font-size: 0.85rem !important;
         padding: 0.75rem 2rem !important;
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light) !important;
         transition: all 0.15s ease !important;
     }
     .stButton > button[kind="primary"]:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light) !important;
     }
     .stButton > button[kind="primary"]:active {
         transform: translateY(1px) !important;
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light) !important;
     }
 
     /* Expander */
@@ -607,13 +605,14 @@ st.markdown("""
     .empty-state {
         text-align: center;
         padding: 4rem 2rem;
+        background: var(--neu-bg2);
     }
     .empty-icon {
         width: 64px; height: 64px;
         margin: 0 auto 1.5rem auto;
         border-radius: 20px;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -628,8 +627,8 @@ st.markdown("""
     /* ── Company Profile Card ── */
     .company-card {
         padding: 2rem;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 24px;
         margin-bottom: 1.5rem;
     }
@@ -642,7 +641,7 @@ st.markdown("""
     .company-card .cc-icon {
         width: 48px; height: 48px;
         border-radius: 16px;
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -654,7 +653,7 @@ st.markdown("""
     .company-card .cc-name {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #1f2937;
+        color: #e8edf8;
         letter-spacing: -0.02em;
     }
     .company-card .cc-industry {
@@ -665,7 +664,7 @@ st.markdown("""
         letter-spacing: 0.06em;
     }
     .company-card .cc-desc {
-        color: #6b7280;
+        color: #8892a4;
         font-size: 0.9rem;
         line-height: 1.6;
         margin-bottom: 1.25rem;
@@ -687,15 +686,15 @@ st.markdown("""
         display: inline-block;
         padding: 5px 12px;
         margin: 3px;
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 50px;
         font-size: 0.75rem;
-        color: #374151;
+        color: #cbd5e1;
     }
     .cc-tag.purple {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
-        box-shadow: 2px 2px 4px var(--neu-dark), -2px -2px 4px var(--neu-light);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
+        border: none;
         color: white;
     }
     .cc-list-item {
@@ -704,7 +703,7 @@ st.markdown("""
         gap: 8px;
         padding: 6px 0;
         font-size: 0.8rem;
-        color: #374151;
+        color: #cbd5e1;
         line-height: 1.4;
     }
     .cc-list-item .cc-bullet {
@@ -718,8 +717,8 @@ st.markdown("""
     /* ── Pipeline Progress ── */
     .pipeline-container {
         padding: 2rem;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 24px;
         margin-bottom: 1.5rem;
     }
@@ -736,7 +735,7 @@ st.markdown("""
         align-items: center;
         gap: 12px;
         padding: 10px 0;
-        border-bottom: 1px solid rgba(0,0,0,0.04);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .phase-row:last-child { border-bottom: none; }
     .phase-num {
@@ -747,33 +746,33 @@ st.markdown("""
         flex-shrink: 0;
     }
     .phase-num.done {
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         color: white;
     }
     .phase-num.active {
-        background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-        box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
-        color: var(--primary);
+        background: rgba(0,0,255,0.15);
+        border: 1px solid rgba(0,0,255,0.5);
+        color: #0000FF;
         animation: pulse-phase 1.5s ease-in-out infinite;
     }
     .phase-num.pending {
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 2px 2px 4px var(--neu-dark), -2px -2px 4px var(--neu-light);
-        color: #9ca3af;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: #4a5568;
     }
     @keyframes pulse-phase {
-        0%, 100% { box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light); }
-        50% { box-shadow: inset 1px 1px 2px var(--neu-dark), inset -1px -1px 2px var(--neu-light), 0 0 12px rgba(124,58,237,0.3); }
+        0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,255,0.2); }
+        50% { box-shadow: 0 0 12px rgba(0,0,255,0.4); }
     }
     .phase-info { flex: 1; }
     .phase-name {
         font-size: 0.8rem;
         font-weight: 600;
-        color: #374151;
+        color: #e8edf8;
     }
     .phase-status {
         font-size: 0.7rem;
-        color: #9ca3af;
+        color: #64748b;
         margin-top: 2px;
     }
     .phase-status.done { color: #22c55e; }
@@ -781,8 +780,8 @@ st.markdown("""
     /* ── Dossier Card ── */
     .dossier-card {
         padding: 1.25rem 1.5rem;
-        background: linear-gradient(145deg, var(--neu-bg), var(--neu-bg2));
-        box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+        background: #0f1220;
+        border: 1px solid rgba(255,255,255,0.08);
         border-radius: 16px;
         display: flex;
         align-items: center;
@@ -794,15 +793,15 @@ st.markdown("""
     .dossier-icon {
         width: 40px; height: 40px;
         border-radius: 12px;
-        background: linear-gradient(135deg, #7c3aed, #6d28d9);
+        background: linear-gradient(135deg, #0000FF, #0033CC);
         display: flex; align-items: center; justify-content: center;
         color: white; font-size: 1.1rem; flex-shrink: 0;
     }
     .dossier-info .dossier-name {
-        font-size: 0.85rem; font-weight: 600; color: #1f2937;
+        font-size: 0.85rem; font-weight: 600; color: #e8edf8;
     }
     .dossier-info .dossier-meta {
-        font-size: 0.7rem; color: #9ca3af; margin-top: 2px;
+        font-size: 0.7rem; color: #64748b; margin-top: 2px;
     }
 
     /* ── Instant Load Badge ── */
@@ -819,7 +818,6 @@ st.markdown("""
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin-bottom: 0.75rem;
-        box-shadow: 2px 2px 4px var(--neu-dark), -2px -2px 4px var(--neu-light);
     }
 
     /* ── Health Matrix ── */
@@ -832,8 +830,8 @@ st.markdown("""
         margin: 4px;
     }
     .health-good {
-        background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(124,58,237,0.05));
-        color: var(--primary);
+        background: rgba(0,0,255,0.12);
+        color: #6699ff;
     }
     .health-bad {
         background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
@@ -947,12 +945,17 @@ with st.sidebar:
             st.markdown(f"""
             <div class="instant-badge">{_t("preloaded_data")}</div>
             <div style="padding:10px 12px; border-radius:12px;
-                background: linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-                box-shadow: inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
-                font-size:0.75rem; color:#374151; line-height:1.6;">
-                <strong style="color:#7c3aed;">{selected_cached}</strong><br>
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(255,255,255,0.06);
+                font-size:0.75rem; color:#cbd5e1; line-height:1.6;">
+                <strong style="color:#0000FF;">{selected_cached}</strong><br>
                 DNA + {'Mercado' if L == 'pt' else 'Market'} + {len(cache_data['clients'])} {_t("customers").lower()}<br>
-                <span style="color:#9ca3af; font-size:0.65rem;">{_t("source_cache")}</span>
+                <span style="color:#64748b; font-size:0.65rem;">{_t("source_cache")}</span>
+            </div>
+            <div style="margin-top:8px;padding:8px 12px;border-radius:10px;
+                background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;
+                font-size:0.68rem;color:#92400e;line-height:1.5;">
+                ⚠️ {_t("demo_data_disclaimer")}
             </div>
             """, unsafe_allow_html=True)
 
@@ -973,6 +976,16 @@ with st.sidebar:
 
     # ── Option 3: Upload CSV ──
     elif data_source_key == "csv":
+        # Template download
+        _tpl_customers = Path("data/template_customers.csv")
+        if _tpl_customers.exists():
+            st.download_button(
+                label=_t("download_template_customers"),
+                data=_tpl_customers.read_bytes(),
+                file_name="icp_customers_template.csv",
+                mime="text/csv",
+                use_container_width=True,
+            )
         customers_file_raw = st.file_uploader(_t("upload_customers"), type=["csv"], key="customers")
         if customers_file_raw and not _validate_csv(customers_file_raw):
             customers_file_raw = None
@@ -981,6 +994,16 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(f"### {_t('prospects_label')}")
+    # Prospects template download
+    _tpl_prospects = Path("data/template_prospects.csv")
+    if _tpl_prospects.exists():
+        st.download_button(
+            label=_t("download_template_prospects"),
+            data=_tpl_prospects.read_bytes(),
+            file_name="icp_prospects_template.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
     prospects_file_raw = st.file_uploader(_t("upload_prospects"), type=["csv"], key="prospects")
     if prospects_file_raw and not _validate_csv(prospects_file_raw):
         prospects_file_raw = None
@@ -990,7 +1013,7 @@ with st.sidebar:
     st.markdown("---")
     with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
         st.markdown(f"""
-        <div style="font-size:0.78rem;color:#374151;line-height:1.7;">
+        <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.7;">
             <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
             <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
                 <span style="color:#22c55e;font-size:0.9rem;">✓</span>
@@ -1133,12 +1156,12 @@ if "intel_dna" in st.session_state:
             <div style="flex:1;">
                 <div class="cc-name">{name}</div>
                 <div class="cc-industry">{dna.get('industry', '')} · {dna.get('business_model', '')}</div>
-                <div style="font-size:0.75rem;color:#6b7280;margin-top:4px;">{meta_line}</div>
+                <div style="font-size:0.75rem;color:#8892a4;margin-top:4px;">{meta_line}</div>
             </div>
         </div>
-        <div style="padding:10px 16px;margin:12px 0;background:linear-gradient(145deg, var(--neu-bg2), var(--neu-bg));
-            box-shadow:inset 2px 2px 4px var(--neu-dark), inset -2px -2px 4px var(--neu-light);
-            border-radius:12px;font-size:0.78rem;color:#374151;line-height:1.6;">
+        <div style="padding:10px 16px;margin:12px 0;background:rgba(255,255,255,0.03);
+            border:1px solid rgba(255,255,255,0.06);
+            border-radius:12px;font-size:0.78rem;color:#cbd5e1;line-height:1.6;">
             <span style="font-weight:600;color:var(--primary);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;">{_t('company_size')}</span><br>
             {_safe(size_signals)}
         </div>
@@ -1176,8 +1199,8 @@ if "intel_dna" in st.session_state:
                 {partners_html}
             </div>
         </div>
-        <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid rgba(0,0,0,0.06);">
-            <div style="font-size:0.7rem; color:#9ca3af;">Fonte: {source_text}</div>
+        <div style="margin-top:1rem; padding-top:0.75rem; border-top:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:0.7rem; color:#64748b;">Fonte: {source_text}</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1240,10 +1263,13 @@ elif use_sample:
     df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
 
 if df is not None:
+    # ── Detect optional columns ──
+    has_nps = "nps_score" in df.columns and df["nps_score"].notna().any()
+
     # ── Metrics ──
     churn_rate = df["churned"].mean() * 100
     avg_ltv = df["ltv_usd"].mean()
-    avg_nps = df["nps_score"].mean()
+    avg_nps = df["nps_score"].mean() if has_nps else None
     avg_cycle = df["sales_cycle_days"].mean()
     active = len(df[~df["churned"]])
     total_revenue = df["annual_revenue_usd"].sum()
@@ -1267,10 +1293,7 @@ if df is not None:
             <div class="m-label">{_t("avg_ltv")}</div>
             <div class="m-value">${avg_ltv:,.0f}</div>
         </div>
-        <div class="m-card">
-            <div class="m-label">NPS</div>
-            <div class="m-value purple">{avg_nps:.1f}</div>
-        </div>
+        {f'<div class="m-card"><div class="m-label">NPS</div><div class="m-value purple">{avg_nps:.1f}</div></div>' if has_nps else ''}
         <div class="m-card">
             <div class="m-label">{_t("avg_cycle")}</div>
             <div class="m-value">{avg_cycle:.0f}d</div>
@@ -1280,18 +1303,27 @@ if df is not None:
 
     # ── Shared chart layout ──
     neu_chart_layout = dict(
-        template="plotly_white",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Inter", color="#6b7280", size=11),
-        title_font=dict(size=13, color="#374151", family="Inter"),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
-                    font=dict(size=11)),
-        margin=dict(l=0, r=10, t=40, b=0),
-        yaxis=dict(gridcolor="rgba(0,0,0,0.05)"),
-        xaxis=dict(gridcolor="rgba(0,0,0,0.05)"),
+        font=dict(family="Inter", color="#8892a4", size=11),
+        title_font=dict(family="Inter", color="#e8edf8", size=13),
+        xaxis=dict(
+            gridcolor="rgba(255,255,255,0.05)",
+            linecolor="rgba(255,255,255,0.08)",
+            tickcolor="rgba(255,255,255,0.08)",
+            zerolinecolor="rgba(255,255,255,0.05)",
+        ),
+        yaxis=dict(
+            gridcolor="rgba(255,255,255,0.05)",
+            linecolor="rgba(255,255,255,0.08)",
+            tickcolor="rgba(255,255,255,0.08)",
+            zerolinecolor="rgba(255,255,255,0.05)",
+        ),
+        legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color="#8892a4")),
+        margin=dict(l=20, r=20, t=40, b=20),
+        hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
     )
-    colors_churn = {True: "#ef4444", False: "#7c3aed"}
+    colors_churn = {True: "#ef4444", False: "#3366ff"}
 
     # ══════════════════════════════════════════════════════
     # PRE-COMPUTE shared data for all tabs
@@ -1323,37 +1355,31 @@ if df is not None:
     df["company_age"] = 2025 - df["founding_year"]
 
     # ── ICP TIER SCORING ──
-    # Multi-dimensional scoring: NPS (30%), Churn (25%), Tech (15%), Cycle (15%), ROI (15%)
+    # When NPS is available: NPS(30%) + Churn(25%) + Tech(15%) + Cycle(15%) + ROI(15%) = 100
+    # Without NPS: Churn(36%) + Tech(21%) + Cycle(21%) + ROI(21%) = 100 (proportionally rescaled)
     # Based on Gartner/Inverta ICP Segmentation frameworks
     def compute_icp_score(row):
-        score = 0
-        # NPS (0-30 pts)
-        score += min(row["nps_score"] / 10 * 30, 30)
+        nps_pts = 0
+        if has_nps and pd.notna(row.get("nps_score")):
+            nps_pts = min(row["nps_score"] / 10 * 30, 30)
         # Churn (0-25 pts)
-        score += 0 if row["churned"] else 25
+        churn_pts = 0 if row["churned"] else 25
         # Tech maturity (0-15 pts)
         tc = row.get("tech_class", "Hibrido")
-        if tc == "Cloud/Moderno":
-            score += 15
-        elif tc == "Hibrido":
-            score += 7
+        tech_pts = 15 if tc == "Cloud/Moderno" else (7 if tc == "Hibrido" else 0)
         # Sales cycle efficiency (0-15 pts) — shorter = better
         cycle = row["sales_cycle_days"]
-        if cycle <= 30:
-            score += 15
-        elif cycle <= 50:
-            score += 10
-        elif cycle <= 70:
-            score += 5
+        cycle_pts = 15 if cycle <= 30 else (10 if cycle <= 50 else (5 if cycle <= 70 else 0))
         # ROI / LTV-to-deal ratio (0-15 pts)
         roi = row["ltv_usd"] / row["deal_size_usd"] if row["deal_size_usd"] > 0 else 0
-        if roi >= 5:
-            score += 15
-        elif roi >= 3:
-            score += 10
-        elif roi >= 1.5:
-            score += 5
-        return round(score, 1)
+        roi_pts = 15 if roi >= 5 else (10 if roi >= 3 else (5 if roi >= 1.5 else 0))
+
+        if has_nps:
+            return round(nps_pts + churn_pts + tech_pts + cycle_pts + roi_pts, 1)
+        else:
+            # Normalize to 100 without NPS (max possible = 70)
+            raw = churn_pts + tech_pts + cycle_pts + roi_pts
+            return round(raw / 70 * 100, 1)
 
     df["icp_score"] = df.apply(compute_icp_score, axis=1)
 
@@ -1371,7 +1397,7 @@ if df is not None:
     df["icp_tier"] = df["icp_score"].apply(assign_tier)
 
     TIER_COLORS = {
-        "Tier 1": "#7c3aed",
+        "Tier 1": "#0000FF",
         "Tier 2": "#3b82f6",
         "Tier 3": "#f59e0b",
         "Tier 4": "#ef4444",
@@ -1390,25 +1416,25 @@ if df is not None:
     avg_roi_churned = (df[df["churned"]]["ltv_usd"] / df[df["churned"]]["deal_size_usd"]).mean()
     cloud_churn = df[df["tech_class"] == "Cloud/Moderno"]["churned"].mean() * 100
     legacy_churn = df[df["tech_class"] == "Legacy/Manual"]["churned"].mean() * 100
-    cloud_nps = df[df["tech_class"] == "Cloud/Moderno"]["nps_score"].mean()
-    legacy_nps = df[df["tech_class"] == "Legacy/Manual"]["nps_score"].mean()
+    cloud_nps = df[df["tech_class"] == "Cloud/Moderno"]["nps_score"].mean() if has_nps else None
+    legacy_nps = df[df["tech_class"] == "Legacy/Manual"]["nps_score"].mean() if has_nps else None
     active_age = df[~df["churned"]]["company_age"].mean()
     churned_age = df[df["churned"]]["company_age"].mean()
     active_size = df[~df["churned"]]["employee_count"].mean()
     churned_size = df[df["churned"]]["employee_count"].mean()
     best_industry = df[~df["churned"]].groupby("industry")["ltv_usd"].mean().idxmax()
     worst_churn_industry = df.groupby("industry")["churned"].mean().idxmax()
-    promoters = len(df[df["nps_score"] >= 9])
-    detractors = len(df[df["nps_score"] <= 6])
-    nps_net = int(((promoters - detractors) / len(df)) * 100)
+    promoters = len(df[df["nps_score"] >= 9]) if has_nps else 0
+    detractors = len(df[df["nps_score"] <= 6]) if has_nps else 0
+    nps_net = int(((promoters - detractors) / len(df)) * 100) if has_nps else None
 
-    cohort = df.groupby("revenue_band", observed=True).agg(
-        total=("company_name", "count"),
-        churned_count=("churned", "sum"),
-        avg_ltv=("ltv_usd", "mean"),
-        avg_nps=("nps_score", "mean"),
-        avg_deal=("deal_size_usd", "mean"),
-    ).reset_index()
+    _cohort_agg = {"total": ("company_name", "count"), "churned_count": ("churned", "sum"),
+                   "avg_ltv": ("ltv_usd", "mean"), "avg_deal": ("deal_size_usd", "mean")}
+    if has_nps:
+        _cohort_agg["avg_nps"] = ("nps_score", "mean")
+    cohort = df.groupby("revenue_band", observed=True).agg(**_cohort_agg).reset_index()
+    if not has_nps:
+        cohort["avg_nps"] = None
     cohort["retention_rate"] = ((cohort["total"] - cohort["churned_count"]) / cohort["total"] * 100)
     best_cohort = cohort.loc[cohort["avg_ltv"].idxmax()]
 
@@ -1429,17 +1455,15 @@ if df is not None:
     # ── TAB 0: ICP TIERS ──
     with tab_tiers:
         # Tier summary metrics
-        tier_summary = df.groupby("icp_tier").agg(
-            count=("company_name", "count"),
-            avg_ltv=("ltv_usd", "mean"),
-            avg_nps=("nps_score", "mean"),
-            avg_deal=("deal_size_usd", "mean"),
-            avg_cycle=("sales_cycle_days", "mean"),
-            avg_score=("icp_score", "mean"),
-            churn_rate=("churned", "mean"),
-            avg_revenue=("annual_revenue_usd", "mean"),
-            avg_employees=("employee_count", "mean"),
-        ).reset_index()
+        _tier_agg = {"count": ("company_name", "count"), "avg_ltv": ("ltv_usd", "mean"),
+                     "avg_deal": ("deal_size_usd", "mean"), "avg_cycle": ("sales_cycle_days", "mean"),
+                     "avg_score": ("icp_score", "mean"), "churn_rate": ("churned", "mean"),
+                     "avg_revenue": ("annual_revenue_usd", "mean"), "avg_employees": ("employee_count", "mean")}
+        if has_nps:
+            _tier_agg["avg_nps"] = ("nps_score", "mean")
+        tier_summary = df.groupby("icp_tier").agg(**_tier_agg).reset_index()
+        if not has_nps:
+            tier_summary["avg_nps"] = None
         tier_summary["churn_rate"] = tier_summary["churn_rate"] * 100
         tier_summary = tier_summary.sort_values("avg_score", ascending=False)
 
@@ -1459,10 +1483,10 @@ if df is not None:
                     </div>
                     <div class="m-value" style="color:{color};">{int(trow['count'])}</div>
                     <div class="m-label">{pct:.0f}% {_t("of_base")}</div>
-                    <div style="margin-top:8px; font-size:0.7rem; color:#6b7280; line-height:1.6;">
+                    <div style="margin-top:8px; font-size:0.7rem; color:#8892a4; line-height:1.6;">
                         Score: {trow['avg_score']:.0f}/100<br>
                         LTV: ${trow['avg_ltv']:,.0f}<br>
-                        NPS: {trow['avg_nps']:.1f} · Churn: {trow['churn_rate']:.0f}%
+                        {f"NPS: {trow['avg_nps']:.1f} · " if has_nps and trow['avg_nps'] is not None else ""}Churn: {trow['churn_rate']:.0f}%
                     </div>
                 </div>
                 """, unsafe_allow_html=True)
@@ -1490,7 +1514,7 @@ if df is not None:
             fig_tier_donut.add_annotation(
                 text=f"<b>{len(df)}</b><br>{_t('customers').lower()}",
                 x=0.5, y=0.5, showarrow=False,
-                font=dict(size=14, color="#374151", family="Inter"),
+                font=dict(size=14, color="#e8edf8", family="Inter"),
             )
             st.plotly_chart(fig_tier_donut, use_container_width=True)
 
@@ -1514,19 +1538,21 @@ if df is not None:
             max_rev = tier_radar_data["avg_revenue"].max() or 1
 
             fig_radar = go.Figure()
-            categories = ["NPS", _t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
+            if has_nps:
+                categories = ["NPS", _t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
+            else:
+                categories = [_t("retention_pct"), _t("ltv_norm"), _t("deal_size_norm"), _t("cycle_speed")]
 
             for _, trow in tier_radar_data.iterrows():
                 tier = trow["icp_tier"]
                 retention = 100 - trow["churn_rate"]
                 cycle_speed = max(0, 10 - (trow["avg_cycle"] / 10))  # invert: faster = higher
-                values = [
-                    trow["avg_nps"],
-                    retention / 10,
-                    trow["avg_ltv"] / max_ltv * 10,
-                    trow["avg_deal"] / max_deal * 10,
-                    cycle_speed,
-                ]
+                if has_nps:
+                    values = [trow["avg_nps"], retention / 10, trow["avg_ltv"] / max_ltv * 10,
+                              trow["avg_deal"] / max_deal * 10, cycle_speed]
+                else:
+                    values = [retention / 10, trow["avg_ltv"] / max_ltv * 10,
+                              trow["avg_deal"] / max_deal * 10, cycle_speed]
                 fig_radar.add_trace(go.Scatterpolar(
                     r=values + [values[0]],
                     theta=categories + [categories[0]],
@@ -1540,15 +1566,15 @@ if df is not None:
                 title=_t("tier_comparison_radar"),
                 height=420,
                 polar=dict(
-                    radialaxis=dict(visible=True, range=[0, 10], gridcolor="rgba(0,0,0,0.05)"),
+                    radialaxis=dict(visible=True, range=[0, 10], gridcolor="rgba(255,255,255,0.05)"),
                     bgcolor="rgba(0,0,0,0)",
                 ),
-                template="plotly_white",
                 paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                font=dict(family="Inter", color="#6b7280", size=11),
-                title_font=dict(size=13, color="#374151", family="Inter"),
-                legend=dict(orientation="h", yanchor="bottom", y=-0.15, xanchor="center", x=0.5, font=dict(size=10)),
+                font=dict(family="Inter", color="#8892a4", size=11),
+                title_font=dict(size=13, color="#e8edf8", family="Inter"),
+                legend=dict(orientation="h", yanchor="bottom", y=-0.15, xanchor="center", x=0.5, font=dict(size=10, color="#8892a4")),
                 margin=dict(l=40, r=40, t=60, b=40),
+                hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
             )
             st.plotly_chart(fig_radar, use_container_width=True)
 
@@ -1604,13 +1630,15 @@ if df is not None:
                     status_color = "#ef4444" if row["churned"] else "#22c55e"
                     st.markdown(
                         f'<div style="display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:6px;'
-                        f'background:linear-gradient(145deg,var(--neu-bg),var(--neu-bg2));'
-                        f'box-shadow:3px 3px 6px var(--neu-dark),-3px -3px 6px var(--neu-light);'
+                        f'background:#0f1220;'
+                        f'border:1px solid rgba(255,255,255,0.08);'
                         f'border-radius:14px;border-left:3px solid {color};">'
-                        f'<div style="flex:1;"><div style="font-weight:600;color:#1f2937;font-size:0.85rem;">{_safe(row["company_name"])}</div>'
-                        f'<div style="font-size:0.7rem;color:#9ca3af;">{_safe(row["industry"])} · {row["employee_count"]:,} {_t("func")} · {_safe(row["tech_class"])}</div></div>'
-                        f'<div style="text-align:right;font-size:0.75rem;color:#6b7280;line-height:1.5;">'
-                        f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span> · NPS {row["nps_score"]} · {row["sales_cycle_days"]}d<br>'
+                        f'<div style="flex:1;"><div style="font-weight:600;color:#e8edf8;font-size:0.85rem;">{_safe(row["company_name"])}</div>'
+                        f'<div style="font-size:0.7rem;color:#64748b;">{_safe(row["industry"])} · {row["employee_count"]:,} {_t("func")} · {_safe(row["tech_class"])}</div></div>'
+                        f'<div style="text-align:right;font-size:0.75rem;color:#8892a4;line-height:1.5;">'
+                        f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span>'
+                        + (f' · NPS {int(row["nps_score"])}' if has_nps and pd.notna(row.get("nps_score")) else "")
+                        + f' · {row["sales_cycle_days"]}d<br>'
                         f'LTV ${row["ltv_usd"]:,.0f} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
                         f'</div></div>',
                         unsafe_allow_html=True,
@@ -1636,27 +1664,35 @@ if df is not None:
             ltv_min_display = df["ltv_usd"].max() * 0.06
             df_health["ltv_display"] = df_health["ltv_usd"].clip(lower=ltv_min_display)
 
+            if has_nps:
+                _y_col = "nps_score"
+                _y_label = _t("nps_score_label")
+            else:
+                _y_col = "ltv_usd"
+                _y_label = _t("ltv_usd")
+
             fig_health = px.scatter(
-                df_health, x="sales_cycle_days", y="nps_score",
+                df_health, x="sales_cycle_days", y=_y_col,
                 size="ltv_display", color="churned",
                 color_discrete_map=colors_churn,
                 hover_name="company_name",
                 hover_data={"ltv_usd": ":$,.0f", "ltv_display": False},
                 title=_t("health_matrix"),
-                labels={"sales_cycle_days": _t("sales_cycle_days"), "nps_score": _t("nps_score_label"), "churned": _t("churned_label")},
+                labels={"sales_cycle_days": _t("sales_cycle_days"), _y_col: _y_label, "churned": _t("churned_label")},
                 size_max=40,
             )
             fig_health.update_traces(marker=dict(sizemin=10))
-            fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(0,0,0,0.15)")
+            if has_nps:
+                fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(0,0,0,0.15)")
+                fig_health.add_annotation(x=25, y=9.5, text=_t("ideal_quadrant"), showarrow=False,
+                                          font=dict(size=10, color="#0000FF", family="Inter"), opacity=0.6)
+                fig_health.add_annotation(x=80, y=9.5, text=_t("slow_loyal"), showarrow=False,
+                                          font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
+                fig_health.add_annotation(x=25, y=2.5, text=_t("fast_unhappy"), showarrow=False,
+                                          font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
+                fig_health.add_annotation(x=80, y=2.5, text=_t("danger_zone"), showarrow=False,
+                                          font=dict(size=10, color="#ef4444", family="Inter"), opacity=0.6)
             fig_health.add_vline(x=50, line_dash="dot", line_color="rgba(0,0,0,0.15)")
-            fig_health.add_annotation(x=25, y=9.5, text=_t("ideal_quadrant"), showarrow=False,
-                                      font=dict(size=10, color="#7c3aed", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=80, y=9.5, text=_t("slow_loyal"), showarrow=False,
-                                      font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=25, y=2.5, text=_t("fast_unhappy"), showarrow=False,
-                                      font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
-            fig_health.add_annotation(x=80, y=2.5, text=_t("danger_zone"), showarrow=False,
-                                      font=dict(size=10, color="#ef4444", family="Inter"), opacity=0.6)
             fig_health.update_layout(height=480, **neu_chart_layout)
             st.plotly_chart(fig_health, use_container_width=True)
 
@@ -1670,38 +1706,63 @@ if df is not None:
             """, unsafe_allow_html=True)
 
         with th_col2:
-            fig_nps = go.Figure()
-            fig_nps.add_trace(go.Histogram(
-                x=df[~df["churned"]]["nps_score"], name=_t("active_label"), marker_color="#7c3aed",
-                opacity=0.8, xbins=dict(start=0, end=11, size=1)
-            ))
-            fig_nps.add_trace(go.Histogram(
-                x=df[df["churned"]]["nps_score"], name=_t("churned_status"), marker_color="#ef4444",
-                opacity=0.8, xbins=dict(start=0, end=11, size=1)
-            ))
-            fig_nps.add_vrect(x0=0, x1=6.5, fillcolor="rgba(239,68,68,0.05)", line_width=0)
-            fig_nps.add_vrect(x0=6.5, x1=8.5, fillcolor="rgba(245,158,11,0.05)", line_width=0)
-            fig_nps.add_vrect(x0=8.5, x1=11, fillcolor="rgba(124,58,237,0.05)", line_width=0)
-            fig_nps.add_annotation(x=3, y=1, yref="paper", yanchor="top", text=_t("detractors"),
-                                   showarrow=False, font=dict(size=9, color="#ef4444"))
-            fig_nps.add_annotation(x=7.5, y=1, yref="paper", yanchor="top", text=_t("neutrals"),
-                                   showarrow=False, font=dict(size=9, color="#f59e0b"))
-            fig_nps.add_annotation(x=9.5, y=1, yref="paper", yanchor="top", text=_t("promoters"),
-                                   showarrow=False, font=dict(size=9, color="#7c3aed"))
-            fig_nps.update_layout(
-                title=_t("nps_distribution"), barmode="overlay", height=480,
-                xaxis_title=_t("nps_score_label"), yaxis_title=_t("quantity"), **neu_chart_layout,
-            )
-            st.plotly_chart(fig_nps, use_container_width=True)
+            if has_nps:
+                fig_nps = go.Figure()
+                fig_nps.add_trace(go.Histogram(
+                    x=df[~df["churned"]]["nps_score"], name=_t("active_label"), marker_color="#0000FF",
+                    opacity=0.8, xbins=dict(start=0, end=11, size=1)
+                ))
+                fig_nps.add_trace(go.Histogram(
+                    x=df[df["churned"]]["nps_score"], name=_t("churned_status"), marker_color="#ef4444",
+                    opacity=0.8, xbins=dict(start=0, end=11, size=1)
+                ))
+                fig_nps.add_vrect(x0=0, x1=6.5, fillcolor="rgba(239,68,68,0.05)", line_width=0)
+                fig_nps.add_vrect(x0=6.5, x1=8.5, fillcolor="rgba(245,158,11,0.05)", line_width=0)
+                fig_nps.add_vrect(x0=8.5, x1=11, fillcolor="rgba(124,58,237,0.05)", line_width=0)
+                fig_nps.add_annotation(x=3, y=1, yref="paper", yanchor="top", text=_t("detractors"),
+                                       showarrow=False, font=dict(size=9, color="#ef4444"))
+                fig_nps.add_annotation(x=7.5, y=1, yref="paper", yanchor="top", text=_t("neutrals"),
+                                       showarrow=False, font=dict(size=9, color="#f59e0b"))
+                fig_nps.add_annotation(x=9.5, y=1, yref="paper", yanchor="top", text=_t("promoters"),
+                                       showarrow=False, font=dict(size=9, color="#0000FF"))
+                fig_nps.update_layout(
+                    title=_t("nps_distribution"), barmode="overlay", height=480,
+                    xaxis_title=_t("nps_score_label"), yaxis_title=_t("quantity"), **neu_chart_layout,
+                )
+                st.plotly_chart(fig_nps, use_container_width=True)
 
-            st.markdown(f"""
-            <div class="chart-explain">
-                {_t("nps_explain")}
-                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_1", nps_net=nps_net)}</div>
-                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_2", promoters=promoters, detractors=detractors)}</div>
-                <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_3")}</div>
-            </div>
-            """, unsafe_allow_html=True)
+                st.markdown(f"""
+                <div class="chart-explain">
+                    {_t("nps_explain")}
+                    <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_1", nps_net=nps_net)}</div>
+                    <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_2", promoters=promoters, detractors=detractors)}</div>
+                    <div class="insight"><div class="insight-dot"></div>{_t("nps_insight_3")}</div>
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                # No NPS data — show churn rate by sales cycle bucket instead
+                df_churn_bucket = df.copy()
+                df_churn_bucket["cycle_bucket"] = pd.cut(
+                    df_churn_bucket["sales_cycle_days"],
+                    bins=[0, 30, 60, 90, 180, 9999],
+                    labels=["≤30d", "31–60d", "61–90d", "91–180d", "180d+"]
+                )
+                churn_by_bucket = df_churn_bucket.groupby("cycle_bucket", observed=True)["churned"].mean() * 100
+                fig_churn_cycle = go.Figure(go.Bar(
+                    x=churn_by_bucket.index.astype(str),
+                    y=churn_by_bucket.values,
+                    marker_color="#0000FF",
+                    text=[f"{v:.0f}%" for v in churn_by_bucket.values],
+                    textposition="outside",
+                ))
+                fig_churn_cycle.update_layout(
+                    title=_t("churn_by_cycle"),
+                    height=480,
+                    yaxis_title="%",
+                    xaxis_title=_t("sales_cycle_days"),
+                    **neu_chart_layout,
+                )
+                st.plotly_chart(fig_churn_cycle, use_container_width=True)
 
     # ── TAB 2: Financial Analysis ──
     with tab_finance:
@@ -1745,7 +1806,7 @@ if df is not None:
                 ))
                 fig_roi.add_annotation(x=max_deal * 0.95, y=max_deal * mult * 0.95,
                                        text=f"{label} {_t('roi_label')}", showarrow=False,
-                                       font=dict(size=9, color="#9ca3af"))
+                                       font=dict(size=9, color="#64748b"))
             fig_roi.update_layout(height=520, **neu_chart_layout)
             st.plotly_chart(fig_roi, use_container_width=True)
 
@@ -1768,14 +1829,14 @@ if df is not None:
 
             fig_industry = px.sunburst(
                 industry_data, path=["status", "industry"], values="count",
-                color="status", color_discrete_map={_t("active_status"): "#7c3aed", _t("churned_status"): "#ef4444"},
+                color="status", color_discrete_map={_t("active_status"): "#0000FF", _t("churned_status"): "#ef4444"},
                 title=_t("status_industry_dist"),
             )
             fig_industry.update_layout(height=480, **neu_chart_layout)
             fig_industry.update_traces(
                 textinfo="label+percent parent",
                 insidetextorientation="radial",
-                marker=dict(line=dict(color="#e6e9ef", width=2)),
+                marker=dict(line=dict(color="#0c0f1a", width=2)),
             )
             st.plotly_chart(fig_industry, use_container_width=True)
 
@@ -1806,7 +1867,7 @@ if df is not None:
             fig_tech = px.bar(
                 tech_summary, x="tech_class", y="count",
                 color="status", barmode="group",
-                color_discrete_map={_t("active_status"): "#7c3aed", _t("churned_status"): "#ef4444"},
+                color_discrete_map={_t("active_status"): "#0000FF", _t("churned_status"): "#ef4444"},
                 title=_t("tech_maturity_title"),
                 labels={"tech_class": _t("tech_stack"), "count": _t("customers"), "status": _t("status_label")},
             )
@@ -1830,7 +1891,7 @@ if df is not None:
             fig_cohort = go.Figure()
             fig_cohort.add_trace(go.Bar(
                 x=cohort["revenue_band"], y=cohort["avg_ltv"],
-                name=_t("avg_ltv"), marker_color="#7c3aed", yaxis="y",
+                name=_t("avg_ltv"), marker_color="#0000FF", yaxis="y",
             ))
             fig_cohort.add_trace(go.Scatter(
                 x=cohort["revenue_band"], y=cohort["retention_rate"],
@@ -1839,14 +1900,15 @@ if df is not None:
             ))
             fig_cohort.update_layout(
                 title=_t("cohort_revenue"), height=480,
-                yaxis=dict(title=_t("avg_ltv_chart"), gridcolor="rgba(0,0,0,0.05)"),
+                yaxis=dict(title=_t("avg_ltv_chart"), gridcolor="rgba(255,255,255,0.05)", linecolor="rgba(255,255,255,0.08)", tickcolor="rgba(255,255,255,0.08)"),
                 yaxis2=dict(title=_t("retention_chart"), overlaying="y", side="right", range=[0, 110], gridcolor="rgba(0,0,0,0)"),
-                xaxis=dict(title=_t("annual_revenue_band"), gridcolor="rgba(0,0,0,0.05)"),
-                template="plotly_white", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                font=dict(family="Inter", color="#6b7280", size=11),
-                title_font=dict(size=13, color="#374151", family="Inter"),
-                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=11)),
+                xaxis=dict(title=_t("annual_revenue_band"), gridcolor="rgba(255,255,255,0.05)", linecolor="rgba(255,255,255,0.08)", tickcolor="rgba(255,255,255,0.08)"),
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                font=dict(family="Inter", color="#8892a4", size=11),
+                title_font=dict(size=13, color="#e8edf8", family="Inter"),
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=11, color="#8892a4")),
                 margin=dict(l=0, r=40, t=40, b=0),
+                hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
             )
             st.plotly_chart(fig_cohort, use_container_width=True)
 
@@ -1881,16 +1943,20 @@ if df is not None:
 
     # ── TAB 5: Executive Summary ──
     with tab_summary:
-        best_nps_company = df.loc[df["nps_score"].idxmax(), "company_name"]
         top_ltv_company = df.loc[df["ltv_usd"].idxmax(), "company_name"]
         top_ltv_val = df["ltv_usd"].max()
+
+        _nps_line = ""
+        if has_nps:
+            best_nps_company = df.loc[df["nps_score"].idxmax(), "company_name"]
+            _nps_line = f'<div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_nps_customer", name=_safe(best_nps_company), nps=df["nps_score"].max())}</div>'
 
         st.markdown(f"""
         <div class="company-card">
             <div class="cc-section-title">{_t("key_findings")}</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_industry", industry=best_industry)}</div>
             <div class="cc-list-item"><div class="cc-bullet"></div>{_t("worst_industry", industry=worst_churn_industry)}</div>
-            <div class="cc-list-item"><div class="cc-bullet"></div>{_t("best_nps_customer", name=_safe(best_nps_company), nps=df['nps_score'].max())}</div>
+            {_nps_line}
         """, unsafe_allow_html=True)
 
         st.markdown(f"""
@@ -1916,7 +1982,7 @@ if df is not None:
             st.error(_t("configure_api"))
         else:
             with st.spinner(_t("analyzing_patterns")):
-                icp = analyze_customers(df, api_key)
+                icp = analyze_customers(df, api_key, lang=st.session_state.get("_lang", "en"))
                 st.session_state["icp"] = icp
 
     if "icp" in st.session_state:
@@ -1974,6 +2040,43 @@ if df is not None:
                 st.markdown(f'<div class="alert-item"><div class="alert-dot"></div>{sig}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
+        # ── Beta Disclaimer ──
+        st.markdown(f"""
+        <div style="
+            margin: 1.5rem 0 1rem 0;
+            padding: 1.25rem 1.5rem;
+            background: #0f1220;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            border-left: 4px solid #0000FF;
+            display: flex; align-items: flex-start; gap: 14px;
+        ">
+            <div style="font-size: 1.4rem; line-height: 1;">🧪</div>
+            <div>
+                <div style="font-weight: 700; font-size: 0.8rem; color: #0000FF; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">{_t("beta_badge")}</div>
+                <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.6;">{_t("beta_disclaimer")}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # ── Suggestions ──
+        st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("suggestions_title")}</div>', unsafe_allow_html=True)
+        _suggestion = st.text_area(_t("suggestions_placeholder"), height=100, key="suggestion_text", label_visibility="collapsed", placeholder=_t("suggestions_placeholder"))
+        if _suggestion and _suggestion.strip():
+            _mailto = f"mailto:bruno@brunoseixas.com?subject={quote('ICP Tool — Suggestion')}&body={quote(_suggestion.strip())}"
+            st.markdown(
+                f'<a href="{_mailto}" target="_blank" style="'
+                f'display:inline-flex;align-items:center;gap:8px;padding:10px 24px;'
+                f'background:linear-gradient(135deg,#0000FF,#0033CC);color:white;'
+                f'border-radius:50px;font-size:0.82rem;font-weight:600;text-decoration:none;'
+                f'box-shadow:0 4px 14px rgba(0,0,255,0.25);'
+                f'transition:all 0.2s ease;">'
+                f'✉️ {_t("suggestions_send")}</a>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.caption(_t("suggestions_hint"))
+
         # ── Scoring ──
         st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("prospect_scoring")}</div>', unsafe_allow_html=True)
 
@@ -1985,7 +2088,7 @@ if df is not None:
 
         if st.button(_t("score_prospects_btn"), type="primary", use_container_width=True):
             with st.spinner(_t("scoring_prospects")):
-                scored = score_prospects(icp, prospects_df, api_key)
+                scored = score_prospects(icp, prospects_df, api_key, lang=st.session_state.get("_lang", "en"))
                 st.session_state["scored"] = scored
 
         if "scored" in st.session_state:
@@ -1994,7 +2097,7 @@ if df is not None:
             scored_df = scored_df.sort_values("score", ascending=False)
 
             # Chart
-            colors_rec = {"hot": "#7c3aed", "warm": "#f59e0b", "cold": "#9ca3af", "avoid": "#ef4444"}
+            colors_rec = {"hot": "#0000FF", "warm": "#f59e0b", "cold": "#9ca3af", "avoid": "#ef4444"}
             fig_scores = px.bar(
                 scored_df, x="company_name", y="score",
                 color="recommendation", color_discrete_map=colors_rec,
@@ -2033,10 +2136,10 @@ else:
     st.markdown(f"""
     <div class="empty-state">
         <div class="empty-icon">&#127919;</div>
-        <div style="font-size: 1.15rem; color: #374151; font-weight: 600; margin-bottom: 0.5rem;">
+        <div style="font-size: 1.15rem; color: #e8edf8; font-weight: 600; margin-bottom: 0.5rem;">
             {_t("empty_title")}
         </div>
-        <div style="color: #9ca3af; font-size: 0.9rem;">
+        <div style="color: #8892a4; font-size: 0.9rem;">
             {_t("empty_subtitle")}
         </div>
     </div>

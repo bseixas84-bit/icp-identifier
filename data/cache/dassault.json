@@ -418,7 +418,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;ENOVIA;SolidWorks;3DEXPERIENCE",
       "country": "USA",
       "founding_year": 1916
@@ -432,7 +431,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 9,
       "tech_stack": "CATIA V5;3DEXPERIENCE;ENOVIA;SIMULIA",
       "country": "France",
       "founding_year": 1970
@@ -446,7 +444,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 150000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;ENOVIA;NX (partial)",
       "country": "Germany",
       "founding_year": 1937
@@ -460,7 +457,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;SIMULIA;ENOVIA",
       "country": "Germany",
       "founding_year": 1916
@@ -474,7 +470,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 51000000,
-      "nps_score": 7,
       "tech_stack": "3DEXPERIENCE;AVEVA;SAP;Aspen Tech",
       "country": "USA",
       "founding_year": 1870
@@ -488,7 +483,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;SIMULIA PowerFLOW;ENOVIA",
       "country": "France",
       "founding_year": 1810
@@ -502,7 +496,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 9,
       "tech_stack": "3DEXPERIENCE;CATIA;SIMULIA;ENOVIA",
       "country": "USA",
       "founding_year": 2009
@@ -516,7 +509,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 43200000,
-      "nps_score": 9,
       "tech_stack": "3DEXPERIENCE;CATIA;ENOVIA;Siemens NX",
       "country": "China",
       "founding_year": 2014
@@ -530,7 +522,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "3DEXPERIENCE;SolidWorks;Adobe;AWS",
       "country": "Japan",
       "founding_year": 1949
@@ -544,7 +535,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 39000000,
-      "nps_score": 7,
       "tech_stack": "3DEXPERIENCE;AVEVA;SAP;Aspen Tech",
       "country": "United Kingdom",
       "founding_year": 1909
@@ -558,7 +548,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 58800000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;SIMULIA;Siemens PLM",
       "country": "USA",
       "founding_year": 1892
@@ -572,7 +561,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 66000000,
-      "nps_score": 7,
       "tech_stack": "CATIA V5;3DEXPERIENCE;ENOVIA;Teamcenter",
       "country": "France",
       "founding_year": 1899
@@ -586,7 +574,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 33000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;ENOVIA;SIMULIA",
       "country": "Canada",
       "founding_year": 1942
@@ -600,7 +587,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 49200000,
-      "nps_score": 7,
       "tech_stack": "NX (Siemens PLM);Teamcenter;SAP;Ansys",
       "country": "Germany",
       "founding_year": 2020
@@ -614,7 +600,6 @@
       "sales_cycle_days": 180,
       "churned": true,
       "ltv_usd": 42000000,
-      "nps_score": 5,
       "tech_stack": "Siemens NX;Teamcenter;MATLAB;PTC Creo",
       "country": "USA",
       "founding_year": 1912
@@ -628,7 +613,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 52800000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;ENOVIA;SIMULIA",
       "country": "France",
       "founding_year": 2005
@@ -642,7 +626,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 45000000,
-      "nps_score": 8,
       "tech_stack": "CATIA;3DEXPERIENCE;ENOVIA;MBD",
       "country": "France",
       "founding_year": 1893
@@ -656,7 +639,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 40800000,
-      "nps_score": 7,
       "tech_stack": "CATIA;3DEXPERIENCE;SIMULIA;Ansys",
       "country": "United Kingdom",
       "founding_year": 1906
@@ -670,7 +652,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 31200000,
-      "nps_score": 9,
       "tech_stack": "CATIA;3DEXPERIENCE;ENOVIA;SIMULIA",
       "country": "Brazil",
       "founding_year": 1969
@@ -684,7 +665,6 @@
       "sales_cycle_days": 0,
       "churned": true,
       "ltv_usd": 0,
-      "nps_score": 4,
       "tech_stack": "Creo;Windchill;Ansys;PTC ThingWorx",
       "country": "USA",
       "founding_year": 1985

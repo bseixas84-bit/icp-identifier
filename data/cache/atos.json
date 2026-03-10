@@ -432,7 +432,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 168000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Microsoft;IBM",
       "country": "Germany",
       "founding_year": 1847
@@ -446,7 +445,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 210000000,
-      "nps_score": 7,
       "tech_stack": "Atos;Oracle;IBM;Microsoft Azure",
       "country": "Germany",
       "founding_year": 1870
@@ -460,7 +458,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Atos;Microsoft Azure;Oracle;SAP",
       "country": "USA",
       "founding_year": 1994
@@ -474,7 +471,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 7,
       "tech_stack": "Atos;IBM;Microsoft;Oracle",
       "country": "United Kingdom",
       "founding_year": 2005
@@ -488,7 +484,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 192000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Oracle;Microsoft",
       "country": "France",
       "founding_year": 1946
@@ -502,7 +497,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 150000000,
-      "nps_score": 8,
       "tech_stack": "Atos;SAP;3DEXPERIENCE;Microsoft Azure",
       "country": "France",
       "founding_year": 1970
@@ -516,7 +510,6 @@
       "sales_cycle_days": 180,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 8,
       "tech_stack": "Atos BullSequana;Linux;CUDA;InfiniBand",
       "country": "USA",
       "founding_year": 1958
@@ -530,7 +523,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;AVEVA;Microsoft",
       "country": "France",
       "founding_year": 1924
@@ -544,7 +536,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Microsoft Azure;Oracle",
       "country": "France",
       "founding_year": 1889
@@ -558,7 +549,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Atos;Oracle;IBM;Microsoft Azure",
       "country": "France",
       "founding_year": 1864
@@ -572,7 +562,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 84000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Microsoft;IBM",
       "country": "France",
       "founding_year": 1893
@@ -586,7 +575,6 @@
       "sales_cycle_days": 150,
       "churned": true,
       "ltv_usd": 75000000,
-      "nps_score": 5,
       "tech_stack": "T-Systems (in-house);IBM;Microsoft Azure;AWS",
       "country": "Germany",
       "founding_year": 1995
@@ -600,7 +588,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 168000000,
-      "nps_score": 7,
       "tech_stack": "Atos;Oracle;IBM;Salesforce",
       "country": "France",
       "founding_year": 1848
@@ -614,7 +601,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 120000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Microsoft;Siemens PLM",
       "country": "Germany",
       "founding_year": 1937
@@ -628,7 +614,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Atos;IBM;Oracle;Microsoft",
       "country": "France",
       "founding_year": 1938
@@ -642,7 +627,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 7,
       "tech_stack": "Atos;Microsoft Azure;Oracle;SAP",
       "country": "Netherlands",
       "founding_year": 1891
@@ -656,7 +640,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Microsoft Azure;Oracle",
       "country": "Switzerland",
       "founding_year": 1866
@@ -670,7 +653,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 108000000,
-      "nps_score": 7,
       "tech_stack": "Atos;SAP;Oracle;Microsoft",
       "country": "France",
       "founding_year": 1858
@@ -684,7 +666,6 @@
       "sales_cycle_days": 120,
       "churned": true,
       "ltv_usd": 45000000,
-      "nps_score": 5,
       "tech_stack": "Accenture (migrated);SAP;IBM;Microsoft Azure",
       "country": "Italy",
       "founding_year": 1953
@@ -698,7 +679,6 @@
       "sales_cycle_days": 150,
       "churned": false,
       "ltv_usd": 132000000,
-      "nps_score": 7,
       "tech_stack": "Atos;IBM;Oracle;Microsoft Azure",
       "country": "France",
       "founding_year": 1994

@@ -1,3 +1,5 @@
+from __future__ import annotations
+from typing import Optional
 from pydantic import BaseModel
 
 
@@ -10,7 +12,7 @@ class Company(BaseModel):
     sales_cycle_days: int
     churned: bool
     ltv_usd: float
-    nps_score: int
+    nps_score: Optional[int] = None
     tech_stack: str
     country: str
     founding_year: int

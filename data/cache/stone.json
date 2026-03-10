@@ -420,7 +420,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 9,
       "tech_stack": "Stone;SAP;TOTVS;AWS",
       "country": "Brazil",
       "founding_year": 1949
@@ -434,7 +433,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 13200000,
-      "nps_score": 8,
       "tech_stack": "Stone;SAP;Oracle;Boa Compra",
       "country": "Brazil",
       "founding_year": 1947
@@ -448,7 +446,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;SAP;AWS",
       "country": "Brazil",
       "founding_year": 1972
@@ -462,7 +459,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;SAP;Oracle",
       "country": "Brazil",
       "founding_year": 1992
@@ -476,7 +472,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 7,
       "tech_stack": "Stone;Cielo;SAP;Oracle",
       "country": "Brazil",
       "founding_year": 1975
@@ -490,7 +485,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 3480000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;AWS;Google Cloud",
       "country": "Brazil",
       "founding_year": 1981
@@ -504,7 +498,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 9,
       "tech_stack": "Stone;TOTVS;AWS",
       "country": "Brazil",
       "founding_year": 1997
@@ -518,7 +511,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 900000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;Microsoft",
       "country": "Brazil",
       "founding_year": 1996
@@ -532,7 +524,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 1680000,
-      "nps_score": 7,
       "tech_stack": "Stone;SAP;Oracle;TOTVS",
       "country": "Brazil",
       "founding_year": 1978
@@ -546,7 +537,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 3720000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;SAP;Microsoft",
       "country": "Brazil",
       "founding_year": 2006
@@ -560,7 +550,6 @@
       "sales_cycle_days": 22,
       "churned": false,
       "ltv_usd": 720000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;Oracle",
       "country": "Brazil",
       "founding_year": 1972
@@ -574,7 +563,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;SAP",
       "country": "Brazil",
       "founding_year": 1972
@@ -588,7 +576,6 @@
       "sales_cycle_days": 0,
       "churned": true,
       "ltv_usd": 0,
-      "nps_score": 3,
       "tech_stack": "Proprietary processing;Mastercard;Visa",
       "country": "Brazil",
       "founding_year": 1995
@@ -602,7 +589,6 @@
       "sales_cycle_days": 35,
       "churned": true,
       "ltv_usd": 5400000,
-      "nps_score": 5,
       "tech_stack": "Cielo (migrated);SAP;Oracle",
       "country": "Brazil",
       "founding_year": 1973
@@ -616,7 +602,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 19200000,
-      "nps_score": 7,
       "tech_stack": "Stone;Cielo;SAP;Oracle",
       "country": "Brazil",
       "founding_year": 1948
@@ -630,7 +615,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS;Microsoft",
       "country": "Brazil",
       "founding_year": 1987
@@ -644,7 +628,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 570000,
-      "nps_score": 8,
       "tech_stack": "Stone;Oracle Food & Beverage;TOTVS",
       "country": "Brazil",
       "founding_year": 2000
@@ -658,7 +641,6 @@
       "sales_cycle_days": 50,
       "churned": false,
       "ltv_usd": 15000000,
-      "nps_score": 7,
       "tech_stack": "Stone;SAP;Oracle;TOTVS",
       "country": "Brazil",
       "founding_year": 1971
@@ -672,7 +654,6 @@
       "sales_cycle_days": 28,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 8,
       "tech_stack": "Stone;TOTVS Saúde;Oracle",
       "country": "Brazil",
       "founding_year": 1984
@@ -686,7 +667,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 1110000,
-      "nps_score": 7,
       "tech_stack": "Stone;Oracle F&B;TOTVS",
       "country": "Brazil",
       "founding_year": 1952

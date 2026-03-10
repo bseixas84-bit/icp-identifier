@@ -434,7 +434,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 72000000,
-      "nps_score": 8,
       "tech_stack": "WEG Motors;Siemens;ABB;Emerson",
       "country": "Brazil",
       "founding_year": 1953
@@ -448,7 +447,6 @@
       "sales_cycle_days": 130,
       "churned": false,
       "ltv_usd": 90000000,
-      "nps_score": 8,
       "tech_stack": "WEG;ABB;Siemens;GE",
       "country": "Brazil",
       "founding_year": 1942
@@ -462,7 +460,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 51000000,
-      "nps_score": 7,
       "tech_stack": "WEG Marathon Motors;Rockwell;Siemens;ABB",
       "country": "USA",
       "founding_year": 1903
@@ -476,7 +473,6 @@
       "sales_cycle_days": 95,
       "churned": false,
       "ltv_usd": 55200000,
-      "nps_score": 7,
       "tech_stack": "WEG;ABB;Siemens;Rockwell Automation",
       "country": "USA",
       "founding_year": 1908
@@ -490,7 +486,6 @@
       "sales_cycle_days": 85,
       "churned": false,
       "ltv_usd": 34800000,
-      "nps_score": 8,
       "tech_stack": "WEG Marathon;ABB;GE;Siemens",
       "country": "USA",
       "founding_year": 1901
@@ -504,7 +499,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 38400000,
-      "nps_score": 8,
       "tech_stack": "WEG;Emerson;ABB;Honeywell",
       "country": "USA",
       "founding_year": 1897
@@ -518,7 +512,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 19200000,
-      "nps_score": 9,
       "tech_stack": "WEG;Liebherr;Honeywell;GE Aviation",
       "country": "Brazil",
       "founding_year": 1969
@@ -532,7 +525,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 28800000,
-      "nps_score": 7,
       "tech_stack": "WEG;Alfa Laval;ABB;Siemens",
       "country": "Brazil",
       "founding_year": 2009
@@ -546,7 +538,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 8,
       "tech_stack": "WEG;Valmet;Siemens;ABB",
       "country": "Brazil",
       "founding_year": 1899
@@ -560,7 +551,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 31200000,
-      "nps_score": 8,
       "tech_stack": "WEG;Valmet;ABB;Siemens",
       "country": "Brazil",
       "founding_year": 1924
@@ -574,7 +564,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "WEG Transformers;ABB;Siemens;GE",
       "country": "Brazil",
       "founding_year": 1999
@@ -588,7 +577,6 @@
       "sales_cycle_days": 95,
       "churned": false,
       "ltv_usd": 40800000,
-      "nps_score": 7,
       "tech_stack": "WEG;ABB;Siemens;Rockwell",
       "country": "Brazil",
       "founding_year": 2006
@@ -602,7 +590,6 @@
       "sales_cycle_days": 80,
       "churned": true,
       "ltv_usd": 6600000,
-      "nps_score": 5,
       "tech_stack": "ABB (migrated);Siemens;GE",
       "country": "Brazil",
       "founding_year": 1977
@@ -616,7 +603,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 45000000,
-      "nps_score": 8,
       "tech_stack": "WEG;ABB;Siemens;Emerson",
       "country": "Brazil",
       "founding_year": 2011
@@ -630,7 +616,6 @@
       "sales_cycle_days": 85,
       "churned": false,
       "ltv_usd": 37200000,
-      "nps_score": 8,
       "tech_stack": "WEG;ABB;Rockwell;Siemens",
       "country": "Brazil",
       "founding_year": 1901
@@ -644,7 +629,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 27000000,
-      "nps_score": 7,
       "tech_stack": "WEG;ABB;Alfa Laval;Tetra Pak",
       "country": "Brazil",
       "founding_year": 2000
@@ -658,7 +642,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 8,
       "tech_stack": "WEG Generators;GE;Siemens;ABB",
       "country": "Brazil",
       "founding_year": 2001
@@ -672,7 +655,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 7,
       "tech_stack": "WEG;ABB;Siemens;Fanuc",
       "country": "Brazil",
       "founding_year": 1918
@@ -686,7 +668,6 @@
       "sales_cycle_days": 85,
       "churned": true,
       "ltv_usd": 12600000,
-      "nps_score": 5,
       "tech_stack": "ABB (migrated);Siemens;Danfoss",
       "country": "Brazil",
       "founding_year": 1956
@@ -700,7 +681,6 @@
       "sales_cycle_days": 95,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 7,
       "tech_stack": "WEG;ABB;Siemens;Xylem",
       "country": "Brazil",
       "founding_year": 1973

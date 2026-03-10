@@ -11,8 +11,8 @@ Analyze this customer dataset and generate an Ideal Customer Profile (ICP) and A
 {csv_data}
 
 ## Your Task:
-1. Identify patterns among the BEST customers (high LTV, high NPS, not churned, short sales cycle)
-2. Identify patterns among the WORST customers (churned, low NPS, long sales cycle, low LTV)
+1. Identify patterns among the BEST customers (high LTV, not churned, short sales cycle)
+2. Identify patterns among the WORST customers (churned, long sales cycle, low LTV)
 3. Generate a detailed ICP and Anti-ICP
 
 Respond in valid JSON with this exact structure:
@@ -30,16 +30,17 @@ Respond in valid JSON with this exact structure:
 
 IMPORTANT: Return ONLY the JSON object, no markdown formatting, no code blocks.
 Be specific and data-driven. Reference actual numbers from the data.
-Answer in Portuguese (Brazil)."""
+Answer in {language}."""
 
 
-def analyze_customers(df: pd.DataFrame, api_key: str) -> ICPProfile:
+def analyze_customers(df: pd.DataFrame, api_key: str, lang: str = "en") -> ICPProfile:
+    language = "Portuguese (Brazil)" if lang == "pt" else "English"
     csv_data = df.to_csv(index=False)
     client = OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
 
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
-        messages=[{"role": "user", "content": ANALYSIS_PROMPT.format(csv_data=csv_data)}],
+        messages=[{"role": "user", "content": ANALYSIS_PROMPT.format(csv_data=csv_data, language=language)}],
         temperature=0.3,
         max_tokens=2000,
     )

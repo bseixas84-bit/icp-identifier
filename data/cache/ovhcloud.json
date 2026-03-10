@@ -426,7 +426,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 9,
       "tech_stack": "OVHcloud;Kubernetes;OpenStack;VMware",
       "country": "France",
       "founding_year": 2014
@@ -440,7 +439,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 27000000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;SAP;Oracle;Microsoft Azure (hybrid)",
       "country": "France",
       "founding_year": 1959
@@ -454,7 +452,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 13200000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;SAP;Salesforce;Adobe Commerce",
       "country": "France",
       "founding_year": 1946
@@ -468,7 +465,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 22800000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;SAP;Microsoft;IBM",
       "country": "France",
       "founding_year": 1899
@@ -482,7 +478,6 @@
       "sales_cycle_days": 110,
       "churned": false,
       "ltv_usd": 33000000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;SAP;Salesforce;Microsoft Azure (hybrid)",
       "country": "France",
       "founding_year": 1817
@@ -496,7 +491,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 5100000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;Kubernetes;Kafka;PostgreSQL",
       "country": "France",
       "founding_year": 2007
@@ -510,7 +504,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;AWS (hybrid);Kubernetes;Python",
       "country": "France",
       "founding_year": 2006
@@ -524,7 +517,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 1920000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;Kubernetes;WordPress;PostgreSQL",
       "country": "France",
       "founding_year": 1944
@@ -538,7 +530,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 2880000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;CDN;Kubernetes;React",
       "country": "France",
       "founding_year": 2005
@@ -552,7 +543,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;OpenStack;VMware;Cisco",
       "country": "France",
       "founding_year": 1994
@@ -566,7 +556,6 @@
       "sales_cycle_days": 110,
       "churned": true,
       "ltv_usd": 14400000,
-      "nps_score": 5,
       "tech_stack": "AWS (migrated);Microsoft Azure;IBM;Oracle",
       "country": "France",
       "founding_year": 1864
@@ -580,7 +569,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;SAP;Adobe;Criteo",
       "country": "France",
       "founding_year": 1954
@@ -594,7 +582,6 @@
       "sales_cycle_days": 95,
       "churned": false,
       "ltv_usd": 19200000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;SAP;Microsoft Azure (hybrid);IBM",
       "country": "France",
       "founding_year": 1853
@@ -608,7 +595,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 33000000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;IBM;Microsoft;Oracle",
       "country": "France",
       "founding_year": 1991
@@ -622,7 +608,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;AWS;Microsoft Azure;Google Cloud",
       "country": "France",
       "founding_year": 1967
@@ -636,7 +621,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 13200000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;IBM;Microsoft Azure;Google Cloud",
       "country": "France",
       "founding_year": 1997
@@ -650,7 +634,6 @@
       "sales_cycle_days": 90,
       "churned": true,
       "ltv_usd": 11400000,
-      "nps_score": 4,
       "tech_stack": "AWS (migrated);Microsoft Azure;Cisco;VMware",
       "country": "France",
       "founding_year": 1987
@@ -664,7 +647,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 16800000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;IBM;Microsoft;AWS (hybrid)",
       "country": "France",
       "founding_year": 1893
@@ -678,7 +660,6 @@
       "sales_cycle_days": 100,
       "churned": false,
       "ltv_usd": 25200000,
-      "nps_score": 7,
       "tech_stack": "OVHcloud;AWS (hybrid);SAP;Microsoft",
       "country": "France",
       "founding_year": 1924
@@ -692,7 +673,6 @@
       "sales_cycle_days": 120,
       "churned": false,
       "ltv_usd": 21000000,
-      "nps_score": 8,
       "tech_stack": "OVHcloud;IBM;Nasdaq Technology;Oracle",
       "country": "France",
       "founding_year": 2000

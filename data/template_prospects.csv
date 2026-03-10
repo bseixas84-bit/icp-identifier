@@ -1,3 +1,9 @@
 company_name,industry,employee_count,annual_revenue_usd,founding_year,tech_stack
-Delta Solutions,Technology,300,20000000,2015,"AWS, Kubernetes, React"
-Omega Health,Healthcare,150,8000000,2018,"Azure, Custom ERP"
+Nova Solutions,Technology,300,20000000,2015,"AWS, Kubernetes, React"
+Apex Health,Healthcare,150,8000000,2018,"Azure, Custom ERP, Slack"
+Pinnacle Finance,Financial Services,450,80000000,2005,"Bloomberg, Python, Snowflake"
+Summit Manufacturing,Manufacturing,700,55000000,1998,"SAP S/4HANA, Siemens PLM"
+Vertex Retail,Retail,180,15000000,2016,"Shopify Plus, Google Cloud, Klaviyo"
+Meridian Logistics,Transportation,250,30000000,2011,"Oracle WMS, Tableau, Python"
+Zenith Media,Media & Entertainment,60,4000000,2020,"AWS, Segment, HubSpot"
+Orbit Energy,Energy & Utilities,900,350000000,1978,"Legacy SCADA, Oracle, Excel"

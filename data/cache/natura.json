@@ -406,7 +406,6 @@
       "sales_cycle_days": 0,
       "churned": true,
       "ltv_usd": 0,
-      "nps_score": 3,
       "tech_stack": "SAP;Salesforce;AWS;Adobe",
       "country": "Brazil",
       "founding_year": 1977
@@ -420,7 +419,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 7,
       "tech_stack": "SAP;Oracle;AWS;Salesforce",
       "country": "Brazil",
       "founding_year": 1975
@@ -434,7 +432,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 7,
       "tech_stack": "SAP;Oracle;Microsoft",
       "country": "Brazil",
       "founding_year": 2018
@@ -448,7 +445,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 8,
       "tech_stack": "SAP;Oracle;Salesforce;AWS",
       "country": "Brazil",
       "founding_year": 1905
@@ -462,7 +458,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 7,
       "tech_stack": "SAP;Oracle;Microsoft",
       "country": "Brazil",
       "founding_year": 1943
@@ -476,7 +471,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 5700000,
-      "nps_score": 7,
       "tech_stack": "SAP;Salesforce;Magento;AWS",
       "country": "Brazil",
       "founding_year": 1976
@@ -490,7 +484,6 @@
       "sales_cycle_days": 38,
       "churned": false,
       "ltv_usd": 6600000,
-      "nps_score": 8,
       "tech_stack": "SAP;Oracle;Salesforce;AWS",
       "country": "Brazil",
       "founding_year": 1965
@@ -504,7 +497,6 @@
       "sales_cycle_days": 30,
       "churned": false,
       "ltv_usd": 2280000,
-      "nps_score": 8,
       "tech_stack": "SAP;Salesforce;Shopify;Magento",
       "country": "Brazil",
       "founding_year": 2010
@@ -518,7 +510,6 @@
       "sales_cycle_days": 45,
       "churned": false,
       "ltv_usd": 8400000,
-      "nps_score": 7,
       "tech_stack": "AWS;Salesforce;Oracle;SAP",
       "country": "Brazil",
       "founding_year": 2012
@@ -532,7 +523,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 6600000,
-      "nps_score": 6,
       "tech_stack": "SAP;Oracle;TOTVS;AWS",
       "country": "Brazil",
       "founding_year": 1952
@@ -546,7 +536,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 5100000,
-      "nps_score": 9,
       "tech_stack": "AWS;Google Cloud;Salesforce;Mulesoft",
       "country": "Brazil",
       "founding_year": 1995
@@ -560,7 +549,6 @@
       "sales_cycle_days": 0,
       "churned": false,
       "ltv_usd": 0,
-      "nps_score": 8,
       "tech_stack": "SAP;Salesforce;Oracle;AWS",
       "country": "USA",
       "founding_year": 1886
@@ -574,7 +562,6 @@
       "sales_cycle_days": 0,
       "churned": false,
       "ltv_usd": 0,
-      "nps_score": 8,
       "tech_stack": "SAP;Shopify;Salesforce",
       "country": "United Kingdom",
       "founding_year": 1976
@@ -588,7 +575,6 @@
       "sales_cycle_days": 0,
       "churned": true,
       "ltv_usd": 0,
-      "nps_score": 6,
       "tech_stack": "Shopify;SAP;Salesforce",
       "country": "Australia",
       "founding_year": 1987
@@ -602,7 +588,6 @@
       "sales_cycle_days": 40,
       "churned": false,
       "ltv_usd": 7800000,
-      "nps_score": 7,
       "tech_stack": "SAP;Oracle;Salesforce;AWS",
       "country": "Brazil",
       "founding_year": 1948
@@ -616,7 +601,6 @@
       "sales_cycle_days": 32,
       "churned": false,
       "ltv_usd": 3120000,
-      "nps_score": 8,
       "tech_stack": "SAP;AWS;Google Cloud;Salesforce",
       "country": "Brazil",
       "founding_year": 1981
@@ -630,7 +614,6 @@
       "sales_cycle_days": 0,
       "churned": false,
       "ltv_usd": 0,
-      "nps_score": 9,
       "tech_stack": "AWS;Salesforce;SAP",
       "country": "Brazil",
       "founding_year": 1969
@@ -644,7 +627,6 @@
       "sales_cycle_days": 35,
       "churned": false,
       "ltv_usd": 1680000,
-      "nps_score": 8,
       "tech_stack": "Salesforce;SAP;Shopify",
       "country": "France",
       "founding_year": 1976
@@ -658,7 +640,6 @@
       "sales_cycle_days": 25,
       "churned": false,
       "ltv_usd": 1080000,
-      "nps_score": 8,
       "tech_stack": "AWS;Salesforce;VTEX;Shopify",
       "country": "Brazil",
       "founding_year": 2012
@@ -672,7 +653,6 @@
       "sales_cycle_days": 35,
       "churned": true,
       "ltv_usd": 1050000,
-      "nps_score": 5,
       "tech_stack": "SAP;Oracle;TOTVS",
       "country": "Brazil",
       "founding_year": 1880

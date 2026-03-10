@@ -384,7 +384,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 10800000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Protheus;SAP BW;Microsoft Azure;Oracle",
       "country": "Brazil",
       "founding_year": 1918
@@ -398,7 +397,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 5700000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Protheus;IBM;Microsoft SQL Server",
       "country": "Brazil",
       "founding_year": 1953
@@ -412,7 +410,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 7200000,
-      "nps_score": 7,
       "tech_stack": "TOTVS SOUL MV;Microsoft Azure;Oracle",
       "country": "Brazil",
       "founding_year": 2004
@@ -426,7 +423,6 @@
       "sales_cycle_days": 85,
       "churned": false,
       "ltv_usd": 9000000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Agro;SAP;Microsoft;Oracle",
       "country": "Brazil",
       "founding_year": 1977
@@ -440,7 +436,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 13200000,
-      "nps_score": 8,
       "tech_stack": "TOTVS;AWS;Google Cloud;Salesforce",
       "country": "Brazil",
       "founding_year": 1957
@@ -454,7 +449,6 @@
       "sales_cycle_days": 75,
       "churned": false,
       "ltv_usd": 6600000,
-      "nps_score": 7,
       "tech_stack": "TOTVS Protheus;Oracle;Microsoft",
       "country": "Brazil",
       "founding_year": 1979
@@ -468,7 +462,6 @@
       "sales_cycle_days": 60,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Protheus;SAP BW;Microsoft BI",
       "country": "Brazil",
       "founding_year": 1971
@@ -482,7 +475,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 2880000,
-      "nps_score": 8,
       "tech_stack": "TOTVS SOUL MV;Oracle;Tasy",
       "country": "Brazil",
       "founding_year": 1976
@@ -496,7 +488,6 @@
       "sales_cycle_days": 80,
       "churned": false,
       "ltv_usd": 4680000,
-      "nps_score": 7,
       "tech_stack": "TOTVS Saúde;Oracle;IBM",
       "country": "Brazil",
       "founding_year": 1971
@@ -510,7 +501,6 @@
       "sales_cycle_days": 65,
       "churned": false,
       "ltv_usd": 3480000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Protheus;SAP;Microsoft SQL Server",
       "country": "Brazil",
       "founding_year": 1947
@@ -524,7 +514,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 4320000,
-      "nps_score": 7,
       "tech_stack": "TOTVS Protheus;SAP BI;Microsoft",
       "country": "Brazil",
       "founding_year": 1967
@@ -538,7 +527,6 @@
       "sales_cycle_days": 85,
       "churned": true,
       "ltv_usd": 4800000,
-      "nps_score": 5,
       "tech_stack": "SAP S/4HANA (migrated);Oracle;IBM",
       "country": "Brazil",
       "founding_year": 1936
@@ -552,7 +540,6 @@
       "sales_cycle_days": 90,
       "churned": true,
       "ltv_usd": 5700000,
-      "nps_score": 4,
       "tech_stack": "SAP Retail (migrated);Oracle;JDA",
       "country": "Brazil",
       "founding_year": 2018
@@ -566,7 +553,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 3120000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Varejo;AWS;Google Cloud",
       "country": "Brazil",
       "founding_year": 1981
@@ -580,7 +566,6 @@
       "sales_cycle_days": 55,
       "churned": false,
       "ltv_usd": 2880000,
-      "nps_score": 8,
       "tech_stack": "TOTVS Varejo;SAP;AWS",
       "country": "Brazil",
       "founding_year": 1997
@@ -594,7 +579,6 @@
       "sales_cycle_days": 70,
       "churned": false,
       "ltv_usd": 4080000,
-      "nps_score": 7,
       "tech_stack": "TOTVS Agro;SAP;Oracle",
       "country": "Brazil",
       "founding_year": 1937
@@ -608,7 +592,6 @@
       "sales_cycle_days": 85,
       "churned": false,
       "ltv_usd": 4920000,
-      "nps_score": 8,
       "tech_stack": "TOTVS SOUL MV;Epic;Oracle;Microsoft",
       "country": "Brazil",
       "founding_year": 1971
@@ -622,7 +605,6 @@
       "sales_cycle_days": 90,
       "churned": false,
       "ltv_usd": 8400000,
-      "nps_score": 7,
       "tech_stack": "TOTVS Saúde;Oracle;SAP",
       "country": "Brazil",
       "founding_year": 1977
@@ -636,7 +618,6 @@
       "sales_cycle_days": 65,
       "churned": false,
       "ltv_usd": 3480000,
-      "nps_score": 7,
       "tech_stack": "TOTVS;Microsoft SQL;Oracle",
       "country": "Brazil",
       "founding_year": 1989
@@ -650,7 +631,6 @@
       "sales_cycle_days": 80,
       "churned": true,
       "ltv_usd": 5400000,
-      "nps_score": 3,
       "tech_stack": "SAP (migrated);Oracle;AWS",
       "country": "Brazil",
       "founding_year": 1929

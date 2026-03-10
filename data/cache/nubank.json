@@ -416,7 +416,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 510000,
-      "nps_score": 9,
       "tech_stack": "Nubank Empresas;AWS;Datadog;Kotlin",
       "country": "Brazil",
       "founding_year": 2011
@@ -430,7 +429,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 270000,
-      "nps_score": 9,
       "tech_stack": "Nubank;AWS;Stripe;Salesforce",
       "country": "Brazil",
       "founding_year": 2018
@@ -444,7 +442,6 @@
       "sales_cycle_days": 10,
       "churned": false,
       "ltv_usd": 72000,
-      "nps_score": 8,
       "tech_stack": "Nubank PJ;AWS;Stripe",
       "country": "Brazil",
       "founding_year": 2012
@@ -458,7 +455,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 408000,
-      "nps_score": 9,
       "tech_stack": "Nubank;AWS;Salesforce;Segment",
       "country": "Brazil",
       "founding_year": 2013
@@ -472,7 +468,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 330000,
-      "nps_score": 8,
       "tech_stack": "Nubank Empresas;AWS;Datadog",
       "country": "Brazil",
       "founding_year": 2015
@@ -486,7 +481,6 @@
       "sales_cycle_days": 20,
       "churned": false,
       "ltv_usd": 432000,
-      "nps_score": 9,
       "tech_stack": "Nubank;AWS;Snowflake;Clojure",
       "country": "Brazil",
       "founding_year": 2012
@@ -500,7 +494,6 @@
       "sales_cycle_days": 10,
       "churned": false,
       "ltv_usd": 108000,
-      "nps_score": 9,
       "tech_stack": "Nubank;AWS;Stripe",
       "country": "Brazil",
       "founding_year": 2019
@@ -514,7 +507,6 @@
       "sales_cycle_days": 12,
       "churned": false,
       "ltv_usd": 168000,
-      "nps_score": 8,
       "tech_stack": "Nubank PJ;AWS;Google Cloud",
       "country": "Brazil",
       "founding_year": 2011
@@ -528,7 +520,6 @@
       "sales_cycle_days": 15,
       "churned": false,
       "ltv_usd": 252000,
-      "nps_score": 8,
       "tech_stack": "Nubank;AWS;Salesforce;Stripe",
       "country": "Brazil",
       "founding_year": 2012
@@ -542,7 +533,6 @@
       "sales_cycle_days": 14,
       "churned": false,
       "ltv_usd": 192000,
-      "nps_score": 7,
       "tech_stack": "Nubank PJ;AWS;Google Cloud",
       "country": "Brazil",
       "founding_year": 1996
@@ -556,7 +546,6 @@
       "sales_cycle_days": 14,
       "churned": false,
       "ltv_usd": 228000,
-      "nps_score": 8,
       "tech_stack": "Nubank;AWS;Datadog;Python",
       "country": "Brazil",
       "founding_year": 2013
@@ -570,7 +559,6 @@
       "sales_cycle_days": 12,
       "churned": true,
       "ltv_usd": 75000,
-      "nps_score": 5,
       "tech_stack": "Bradesco Banking API;AWS;Salesforce",
       "country": "Brazil",
       "founding_year": 2016
@@ -584,7 +572,6 @@
       "sales_cycle_days": 10,
       "churned": false,
       "ltv_usd": 132000,
-      "nps_score": 8,
       "tech_stack": "Nubank PJ;AWS;Stripe;Shopify",
       "country": "Brazil",
       "founding_year": 2015
@@ -598,7 +585,6 @@
       "sales_cycle_days": 12,
       "churned": false,
       "ltv_usd": 210000,
-      "nps_score": 8,
       "tech_stack": "Nubank;AWS;Stripe;Salesforce",
       "country": "Brazil",
       "founding_year": 2011
@@ -612,7 +598,6 @@
       "sales_cycle_days": 12,
       "churned": false,
       "ltv_usd": 168000,
-      "nps_score": 8,
       "tech_stack": "Nubank PJ;AWS;Google Cloud",
       "country": "Brazil",
       "founding_year": 2016
@@ -626,7 +611,6 @@
       "sales_cycle_days": 14,
       "churned": true,
       "ltv_usd": 96000,
-      "nps_score": 4,
       "tech_stack": "Itaú PJ (migrated);AWS;Stripe;Salesforce",
       "country": "Brazil",
       "founding_year": 2000
@@ -640,7 +624,6 @@
       "sales_cycle_days": 18,
       "churned": false,
       "ltv_usd": 330000,
-      "nps_score": 7,
       "tech_stack": "Nubank;Bradesco;SAP;Oracle",
       "country": "Brazil",
       "founding_year": 2006
@@ -654,7 +637,6 @@
       "sales_cycle_days": 16,
       "churned": false,
       "ltv_usd": 252000,
-      "nps_score": 8,
       "tech_stack": "Nubank PJ;AWS;Salesforce;VTEX",
       "country": "Brazil",
       "founding_year": 2002
@@ -668,7 +650,6 @@
       "sales_cycle_days": 10,
       "churned": false,
       "ltv_usd": 84000,
-      "nps_score": 8,
       "tech_stack": "Nubank;AWS;Stripe",
       "country": "Brazil",
       "founding_year": 2009
@@ -682,7 +663,6 @@
       "sales_cycle_days": 14,
       "churned": false,
       "ltv_usd": 168000,
-      "nps_score": 7,
       "tech_stack": "Nubank PJ;Bradesco;AWS;VTEX",
       "country": "Brazil",
       "founding_year": 2010
