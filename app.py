@@ -22,7 +22,7 @@ load_dotenv()
 
 MAX_CSV_BYTES = 5 * 1024 * 1024  # 5 MB
 
-st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide")
+st.set_page_config(page_title="ICP Identifier", page_icon="target", layout="wide", initial_sidebar_state="expanded")
 
 # ── Language detection ──
 # Priority: query param > Accept-Language header > default EN
@@ -531,27 +531,33 @@ st.markdown("""
 
     /* ── Pills (sidebar selectors) ── */
     [data-testid="stSidebar"] [data-testid="stPills"] [role="tablist"] {
+        display: flex !important;
+        flex-direction: column !important;
         gap: 6px !important;
+        width: 100% !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"] {
+        width: 100% !important;
         background: rgba(255,255,255,0.05) !important;
         border: 1px solid rgba(255,255,255,0.08) !important;
-        border-radius: 12px !important;
-        font-size: 0.72rem !important;
+        border-radius: 10px !important;
+        font-size: 0.78rem !important;
         font-weight: 500 !important;
         color: #8892a4 !important;
-        padding: 8px 14px !important;
+        padding: 10px 16px !important;
+        text-align: left !important;
         transition: all 0.15s ease !important;
+        justify-content: flex-start !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"]:hover {
-        transform: translateY(-1px) !important;
+        background: rgba(255,255,255,0.08) !important;
         color: #e8edf8 !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] button[role="tab"][aria-selected="true"] {
         background: #0000FF !important;
         color: white !important;
         font-weight: 600 !important;
-        border: none !important;
+        border: 1px solid #0000FF !important;
     }
     [data-testid="stSidebar"] [data-testid="stPills"] label {
         font-size: 0.65rem !important;
@@ -559,6 +565,13 @@ st.markdown("""
         color: var(--primary) !important;
         text-transform: uppercase !important;
         letter-spacing: 0.1em !important;
+    }
+
+    /* ── Always show sidebar toggle button ── */
+    [data-testid="collapsedControl"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     /* ── Button Override ── */
