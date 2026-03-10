@@ -849,7 +849,7 @@ st.markdown("""
         <a href="https://brunoseixas.com/#services" target="_blank">Services</a>
         <a href="https://brunoseixas.com/#case-studies" target="_blank">Case Studies</a>
         <a href="https://brunoseixas.com/#contact" target="_blank">Contact</a>
-        <a href="#" class="bs-cta">Get in Touch</a>
+        <a href="https://brunoseixas.com/#contact" target="_blank" class="bs-cta">Get in Touch</a>
     </nav>
 </div>
 <div class="navbar-spacer"></div>
