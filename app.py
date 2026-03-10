@@ -1255,7 +1255,8 @@ if research_btn and company_url:
 
         try:
             dna, market, gen_df, dossier_path, dossier_md = run_intelligence_pipeline(
-                company_url, api_key, progress_callback=on_progress
+                company_url, api_key, progress_callback=on_progress,
+                lang=st.session_state.get("_lang", "en")
             )
             # Mark all done
             for i in range(1, 6):
@@ -1305,7 +1306,8 @@ if "intel_dna" in st.session_state:
     partners_html = bullets(dna.get('partnerships', [])[:5])
 
     hq = dna.get('headquarters', '')
-    size_signals = dna.get('company_size_signals', '')
+    _raw_size = dna.get('company_size_signals', '')
+    size_signals = " · ".join(_raw_size) if isinstance(_raw_size, list) else str(_raw_size)
     founded = dna.get('founded_year', '')
 
     # Build meta line: HQ · Founded · Size signals

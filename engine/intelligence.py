@@ -103,7 +103,7 @@ def phase_discovery(url: str) -> dict:
 
 
 # ── PHASE 2: Company DNA ──
-def phase_company_dna(content: str, url: str, api_key: str) -> dict:
+def phase_company_dna(content: str, url: str, api_key: str, lang: str = "en") -> dict:
     prompt = f"""Analyze this company website content thoroughly and extract a complete company DNA profile.
 
 Website: {url}
@@ -136,7 +136,8 @@ Return a JSON object with:
     "tone_of_voice": "professional, casual, technical, enterprise, startup, etc."
 }}
 
-Be thorough. Infer from context when not explicit. Return ONLY valid JSON."""
+Be thorough. Infer from context when not explicit. Return ONLY valid JSON.
+Answer in {"Portuguese (Brazil)" if lang == "pt" else "English"}."""
 
     raw = _llm(api_key, prompt)
     start, end = raw.find("{"), raw.rfind("}") + 1
@@ -144,7 +145,7 @@ Be thorough. Infer from context when not explicit. Return ONLY valid JSON."""
 
 
 # ── PHASE 3: Market Intelligence ──
-def phase_market_intel(dna: dict, api_key: str) -> dict:
+def phase_market_intel(dna: dict, api_key: str, lang: str = "en") -> dict:
     prompt = f"""You are a senior market analyst. Based on this company profile, generate a comprehensive market intelligence report.
 
 Company: {dna.get('company_name', 'Unknown')}
@@ -174,7 +175,8 @@ Return JSON:
     "industry_trends": ["3-5 relevant trends affecting their market"]
 }}
 
-Be specific and data-driven. Use your knowledge of the Brazilian market. Return ONLY valid JSON."""
+Be specific and data-driven. Use your knowledge of the Brazilian market. Return ONLY valid JSON.
+Answer in {"Portuguese (Brazil)" if lang == "pt" else "English"}."""
 
     raw = _llm(api_key, prompt)
     start, end = raw.find("{"), raw.rfind("}") + 1
@@ -394,7 +396,7 @@ def build_dossier(url: str, discovery: dict, dna: dict, market: dict, df: pd.Dat
 
 
 # ── MAIN PIPELINE ──
-def run_intelligence_pipeline(url: str, api_key: str, progress_callback=None):
+def run_intelligence_pipeline(url: str, api_key: str, progress_callback=None, lang: str = "en"):
     """
     Run the full intelligence pipeline.
     progress_callback(phase_num, phase_name, status) for UI updates.
@@ -414,12 +416,12 @@ def run_intelligence_pipeline(url: str, api_key: str, progress_callback=None):
 
     # Phase 2
     update(2, "Company DNA", "Extraindo perfil da empresa...")
-    dna = phase_company_dna(discovery["content"], url, api_key)
+    dna = phase_company_dna(discovery["content"], url, api_key, lang=lang)
     update(2, "Company DNA", f"{dna.get('company_name', 'OK')}")
 
     # Phase 3
     update(3, "Market Intel", "Analisando mercado e competidores...")
-    market = phase_market_intel(dna, api_key)
+    market = phase_market_intel(dna, api_key, lang=lang)
     update(3, "Market Intel", f"{len(market.get('likely_competitors', []))} competidores mapeados")
 
     # Phase 4
