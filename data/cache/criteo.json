@@ -1,1105 +1,693 @@
 {
-    "url": "criteo.com",
-    "dna": {
-        "pt": {
-            "pt": {
-                "company_name": "Criteo",
-                "tagline": "A Companhia de Mídia de Comércio",
-                "description": "Criteo é uma companhia global de mídia de comércio que permite que anunciantes e proprietários de mídia obtenham melhores resultados de comércio por meio de sua Plataforma de Mídia de Comércio. Com tecnologia impulsionada por IA e o maior conjunto de dados de comércio aberto do mundo, Criteo oferece publicidade personalizada em toda a internet aberta, redes de mídia de varejo e canais de marketing de desempenho. A empresa atende a mais de 22.000 anunciantes em todo o mundo.",
-                "industry": "Tecnologia",
-                "sub_industry": "Publicidade Digital / Mídia de Comércio / AdTech",
-                "business_model": "B2B SaaS + Baseado em Desempenho (CPC/CPM)",
-                "products": [
-                    "Plataforma de Mídia de Comércio",
-                    "Criteo Retail Media (para varejistas)",
-                    "Criteo Marketing Solutions (para marcas)",
-                    "Crescimento de Comércio (aquisição de clientes)",
-                    "Commerce Max (DSP para mídia de varejo)",
-                    "Criteo AI Engine (licitação preditiva)",
-                    "Criteo Shopper Graph (resolução de identidade)",
-                    "Commerce Grid (SSP para editores)"
-                ],
-                "features": [
-                    "Recomendações de produtos impulsionadas por IA",
-                    "Resolução de identidade entre dispositivos",
-                    "Integração e ativação de dados de primeira parte",
-                    "Monetização de redes de mídia de varejo",
-                    "Otimização de criativos dinâmicos",
-                    "Licitación em tempo real e compra programática",
-                    "Medição de privacidade por design",
-                    "Capacidades de direcionamento sem cookies"
-                ],
-                "target_segments": [
-                    "Varejistas de comércio eletrônico e marketplaces",
-                    "Marcas de consumo direto",
-                    "Empresas de bens de consumo embalados",
-                    "Empresas de viagens e hospedagem",
-                    "Serviços financeiros (cartões de crédito, seguros)",
-                    "Concessionárias e fabricantes de automóveis",
-                    "Plataformas de classificados e marketplaces",
-                    "Grandes editores e proprietários de mídia"
-                ],
-                "use_cases": [
-                    "Retargeting e reengajamento de clientes",
-                    "Aquisição de novos clientes para comércio eletrônico",
-                    "Monetização de mídia de varejo para varejistas",
-                    "Marketing de desempenho e otimização de ROAS",
-                    "Ativação de dados de primeira parte em um mundo pós-cookies",
-                    "Publicidade de comércio omnichannel"
-                ],
-                "technologies": [
-                    "Hadoop/Spark (big data)",
-                    "Python",
-                    "Java",
-                    "Aprendizado de Máquina / Aprendizado Profundo",
-                    "Infraestrutura de licitação em tempo real",
-                    "Kubernetes",
-                    "Ceph",
-                    "Motor de recomendação de IA personalizado"
-                ],
-                "pricing_model": "Baseado em Desempenho (CPC/CPM) + taxas de plataforma de autoatendimento + engajamentos de serviço gerenciado + participação de receita de mídia de varejo",
-                "company_size_signals": "3.500+ funcionários, 22.000+ anunciantes, operações em 30+ países. Receita anual de aproximadamente USD 1,9 bilhão (2024). Listado na NASDAQ (CRTO).",
-                "founded_year": "2005",
-                "headquarters": "Paris, França",
-                "geographic_reach": [
-                    "França (sede)",
-                    "Estados Unidos",
-                    "Reino Unido",
-                    "Alemanha",
-                    "Japão",
-                    "Coreia do Sul",
-                    "Brasil",
-                    "Austrália",
-                    "Índia"
-                ],
-                "certifications": [
-                    "ISO 27001",
-                    "SOC 2 Tipo II",
-                    "Conformidade com o GDPR",
-                    "IAB TCF 2.0 Certificado",
-                    "TAG Certificado Contra Fraude"
-                ],
-                "partnerships": [
-                    "Meta",
-                    "Google",
-                    "Amazon",
-                    "The Trade Desk",
-                    "LiveRamp",
-                    "Shopify",
-                    "Magento/Adobe Commerce",
-                    "Salesforce Commerce Cloud"
-                ],
-                "social_proof": [
-                    "Fnac Darty",
-                    "Decathlon",
-                    "Macy's",
-                    "Best Buy",
-                    "Rakuten",
-                    "Sephora",
-                    "Carrefour"
-                ],
-                "hiring_signals": [
-                    "Engenheiros de aprendizado de máquina",
-                    "Cientistas de dados",
-                    "Engenheiros de pilha completa",
-                    "Gerentes de produto",
-                    "Especialistas em AdTech",
-                    "Executivos de vendas",
-                    "Engenheiros de privacidade"
-                ],
-                "content_themes": [
-                    "Mídia de comércio como a próxima onda de publicidade digital",
-                    "Soluções de publicidade pós-cookies",
-                    "Crescimento de redes de mídia de varejo",
-                    "Resultados de comércio impulsionados por IA",
-                    "Estratégias de dados de primeira parte"
-                ],
-                "tone_of_voice": "Baseado em dados, inovador, orientado a desempenho, transparente"
-            },
-            "en": {
-                "company_name": "Criteo",
-                "tagline": "The Commerce Media Company",
-                "description": "Criteo is a global commerce media company that enables marketers and media owners to drive better commerce outcomes through its Commerce Media Platform. Leveraging AI-powered technology and the world's largest open commerce dataset, Criteo delivers personalized advertising across the open internet, retail media networks, and performance marketing channels. The company serves over 22,000 advertisers globally.",
-                "industry": "Technology",
-                "sub_industry": "Digital Advertising / Commerce Media / AdTech",
-                "business_model": "B2B SaaS + Performance-based (CPC/CPM)",
-                "products": [
-                    "Commerce Media Platform",
-                    "Criteo Retail Media (for retailers)",
-                    "Criteo Marketing Solutions (for brands)",
-                    "Commerce Growth (customer acquisition)",
-                    "Commerce Max (DSP for retail media)",
-                    "Criteo AI Engine (predictive bidding)",
-                    "Criteo Shopper Graph (identity resolution)",
-                    "Commerce Grid (SSP for publishers)"
-                ],
-                "features": [
-                    "AI-powered product recommendations",
-                    "Cross-device identity resolution",
-                    "First-party data onboarding and activation",
-                    "Retail media network monetization",
-                    "Dynamic creative optimization",
-                    "Real-time bidding and programmatic buying",
-                    "Privacy-by-design measurement",
-                    "Cookieless targeting capabilities"
-                ],
-                "target_segments": [
-                    "E-commerce retailers and marketplaces",
-                    "Direct-to-consumer brands",
-                    "Consumer packaged goods companies",
-                    "Travel and hospitality companies",
-                    "Financial services (credit cards, insurance)",
-                    "Automotive dealerships and OEMs",
-                    "Classified and marketplace platforms",
-                    "Large publishers and media owners"
-                ],
-                "use_cases": [
-                    "Retargeting and customer re-engagement",
-                    "New customer acquisition for e-commerce",
-                    "Retail media monetization for retailers",
-                    "Performance marketing and ROAS optimization",
-                    "First-party data activation in post-cookie world",
-                    "Omnichannel commerce advertising"
-                ],
-                "technologies": [
-                    "Hadoop/Spark (big data)",
-                    "Python",
-                    "Java",
-                    "Machine Learning / Deep Learning",
-                    "Real-time bidding infrastructure",
-                    "Kubernetes",
-                    "Ceph",
-                    "Custom AI recommendation engine"
-                ],
-                "pricing_model": "Performance-based (CPC/CPM) + self-service platform fees + managed service engagements + retail media revenue share",
-                "company_size_signals": "3,500+ employees, 22,000+ advertisers, operations in 30+ countries. Annual revenue of approximately USD 1.9 billion (2024). Listed on NASDAQ (CRTO).",
-                "founded_year": "2005",
-                "headquarters": "Paris, France",
-                "geographic_reach": [
-                    "France (headquarters)",
-                    "United States",
-                    "United Kingdom",
-                    "Germany",
-                    "Japan",
-                    "South Korea",
-                    "Brazil",
-                    "Australia",
-                    "India"
-                ],
-                "certifications": [
-                    "ISO 27001",
-                    "SOC 2 Type II",
-                    "GDPR Compliance",
-                    "IAB TCF 2.0 Certified",
-                    "TAG Certified Against Fraud"
-                ],
-                "partnerships": [
-                    "Meta",
-                    "Google",
-                    "Amazon",
-                    "The Trade Desk",
-                    "LiveRamp",
-                    "Shopify",
-                    "Magento/Adobe Commerce",
-                    "Salesforce Commerce Cloud"
-                ],
-                "social_proof": [
-                    "Fnac Darty",
-                    "Decathlon",
-                    "Macy's",
-                    "Best Buy",
-                    "Rakuten",
-                    "Sephora",
-                    "Carrefour"
-                ],
-                "hiring_signals": [
-                    "Machine learning engineers",
-                    "Data scientists",
-                    "Full-stack engineers",
-                    "Product managers",
-                    "Ad tech specialists",
-                    "Sales executives",
-                    "Privacy engineers"
-                ],
-                "content_themes": [
-                    "Commerce media as the next wave of digital advertising",
-                    "Post-cookie advertising solutions",
-                    "Retail media network growth",
-                    "AI-driven commerce outcomes",
-                    "First-party data strategies"
-                ],
-                "tone_of_voice": "Data-driven, innovative, performance-oriented, transparent"
-            }
-        },
-        "en": {
-            "pt": {
-                "company_name": "Criteo",
-                "tagline": "A Companhia de Mídia de Comércio",
-                "description": "Criteo é uma companhia global de mídia de comércio que permite que anunciantes e proprietários de mídia obtenham melhores resultados de comércio por meio de sua Plataforma de Mídia de Comércio. Com tecnologia impulsionada por IA e o maior conjunto de dados de comércio aberto do mundo, Criteo oferece publicidade personalizada em toda a internet aberta, redes de mídia de varejo e canais de marketing de desempenho. A empresa atende a mais de 22.000 anunciantes em todo o mundo.",
-                "industry": "Tecnologia",
-                "sub_industry": "Publicidade Digital / Mídia de Comércio / AdTech",
-                "business_model": "B2B SaaS + Baseado em Desempenho (CPC/CPM)",
-                "products": [
-                    "Plataforma de Mídia de Comércio",
-                    "Criteo Retail Media (para varejistas)",
-                    "Criteo Marketing Solutions (para marcas)",
-                    "Crescimento de Comércio (aquisição de clientes)",
-                    "Commerce Max (DSP para mídia de varejo)",
-                    "Criteo AI Engine (licitação preditiva)",
-                    "Criteo Shopper Graph (resolução de identidade)",
-                    "Commerce Grid (SSP para editores)"
-                ],
-                "features": [
-                    "Recomendações de produtos impulsionadas por IA",
-                    "Resolução de identidade entre dispositivos",
-                    "Integração e ativação de dados de primeira parte",
-                    "Monetização de redes de mídia de varejo",
-                    "Otimização de criativos dinâmicos",
-                    "Licitación em tempo real e compra programática",
-                    "Medição de privacidade por design",
-                    "Capacidades de direcionamento sem cookies"
-                ],
-                "target_segments": [
-                    "Varejistas de comércio eletrônico e marketplaces",
-                    "Marcas de consumo direto",
-                    "Empresas de bens de consumo embalados",
-                    "Empresas de viagens e hospedagem",
-                    "Serviços financeiros (cartões de crédito, seguros)",
-                    "Concessionárias e fabricantes de automóveis",
-                    "Plataformas de classificados e marketplaces",
-                    "Grandes editores e proprietários de mídia"
-                ],
-                "use_cases": [
-                    "Retargeting e reengajamento de clientes",
-                    "Aquisição de novos clientes para comércio eletrônico",
-                    "Monetização de mídia de varejo para varejistas",
-                    "Marketing de desempenho e otimização de ROAS",
-                    "Ativação de dados de primeira parte em um mundo pós-cookies",
-                    "Publicidade de comércio omnichannel"
-                ],
-                "technologies": [
-                    "Hadoop/Spark (big data)",
-                    "Python",
-                    "Java",
-                    "Aprendizado de Máquina / Aprendizado Profundo",
-                    "Infraestrutura de licitação em tempo real",
-                    "Kubernetes",
-                    "Ceph",
-                    "Motor de recomendação de IA personalizado"
-                ],
-                "pricing_model": "Baseado em Desempenho (CPC/CPM) + taxas de plataforma de autoatendimento + engajamentos de serviço gerenciado + participação de receita de mídia de varejo",
-                "company_size_signals": "3.500+ funcionários, 22.000+ anunciantes, operações em 30+ países. Receita anual de aproximadamente USD 1,9 bilhão (2024). Listado na NASDAQ (CRTO).",
-                "founded_year": "2005",
-                "headquarters": "Paris, França",
-                "geographic_reach": [
-                    "França (sede)",
-                    "Estados Unidos",
-                    "Reino Unido",
-                    "Alemanha",
-                    "Japão",
-                    "Coreia do Sul",
-                    "Brasil",
-                    "Austrália",
-                    "Índia"
-                ],
-                "certifications": [
-                    "ISO 27001",
-                    "SOC 2 Tipo II",
-                    "Conformidade com o GDPR",
-                    "IAB TCF 2.0 Certificado",
-                    "TAG Certificado Contra Fraude"
-                ],
-                "partnerships": [
-                    "Meta",
-                    "Google",
-                    "Amazon",
-                    "The Trade Desk",
-                    "LiveRamp",
-                    "Shopify",
-                    "Magento/Adobe Commerce",
-                    "Salesforce Commerce Cloud"
-                ],
-                "social_proof": [
-                    "Fnac Darty",
-                    "Decathlon",
-                    "Macy's",
-                    "Best Buy",
-                    "Rakuten",
-                    "Sephora",
-                    "Carrefour"
-                ],
-                "hiring_signals": [
-                    "Engenheiros de aprendizado de máquina",
-                    "Cientistas de dados",
-                    "Engenheiros de pilha completa",
-                    "Gerentes de produto",
-                    "Especialistas em AdTech",
-                    "Executivos de vendas",
-                    "Engenheiros de privacidade"
-                ],
-                "content_themes": [
-                    "Mídia de comércio como a próxima onda de publicidade digital",
-                    "Soluções de publicidade pós-cookies",
-                    "Crescimento de redes de mídia de varejo",
-                    "Resultados de comércio impulsionados por IA",
-                    "Estratégias de dados de primeira parte"
-                ],
-                "tone_of_voice": "Baseado em dados, inovador, orientado a desempenho, transparente"
-            },
-            "en": {
-                "company_name": "Criteo",
-                "tagline": "The Commerce Media Company",
-                "description": "Criteo is a global commerce media company that enables marketers and media owners to drive better commerce outcomes through its Commerce Media Platform. Leveraging AI-powered technology and the world's largest open commerce dataset, Criteo delivers personalized advertising across the open internet, retail media networks, and performance marketing channels. The company serves over 22,000 advertisers globally.",
-                "industry": "Technology",
-                "sub_industry": "Digital Advertising / Commerce Media / AdTech",
-                "business_model": "B2B SaaS + Performance-based (CPC/CPM)",
-                "products": [
-                    "Commerce Media Platform",
-                    "Criteo Retail Media (for retailers)",
-                    "Criteo Marketing Solutions (for brands)",
-                    "Commerce Growth (customer acquisition)",
-                    "Commerce Max (DSP for retail media)",
-                    "Criteo AI Engine (predictive bidding)",
-                    "Criteo Shopper Graph (identity resolution)",
-                    "Commerce Grid (SSP for publishers)"
-                ],
-                "features": [
-                    "AI-powered product recommendations",
-                    "Cross-device identity resolution",
-                    "First-party data onboarding and activation",
-                    "Retail media network monetization",
-                    "Dynamic creative optimization",
-                    "Real-time bidding and programmatic buying",
-                    "Privacy-by-design measurement",
-                    "Cookieless targeting capabilities"
-                ],
-                "target_segments": [
-                    "E-commerce retailers and marketplaces",
-                    "Direct-to-consumer brands",
-                    "Consumer packaged goods companies",
-                    "Travel and hospitality companies",
-                    "Financial services (credit cards, insurance)",
-                    "Automotive dealerships and OEMs",
-                    "Classified and marketplace platforms",
-                    "Large publishers and media owners"
-                ],
-                "use_cases": [
-                    "Retargeting and customer re-engagement",
-                    "New customer acquisition for e-commerce",
-                    "Retail media monetization for retailers",
-                    "Performance marketing and ROAS optimization",
-                    "First-party data activation in post-cookie world",
-                    "Omnichannel commerce advertising"
-                ],
-                "technologies": [
-                    "Hadoop/Spark (big data)",
-                    "Python",
-                    "Java",
-                    "Machine Learning / Deep Learning",
-                    "Real-time bidding infrastructure",
-                    "Kubernetes",
-                    "Ceph",
-                    "Custom AI recommendation engine"
-                ],
-                "pricing_model": "Performance-based (CPC/CPM) + self-service platform fees + managed service engagements + retail media revenue share",
-                "company_size_signals": "3,500+ employees, 22,000+ advertisers, operations in 30+ countries. Annual revenue of approximately USD 1.9 billion (2024). Listed on NASDAQ (CRTO).",
-                "founded_year": "2005",
-                "headquarters": "Paris, France",
-                "geographic_reach": [
-                    "France (headquarters)",
-                    "United States",
-                    "United Kingdom",
-                    "Germany",
-                    "Japan",
-                    "South Korea",
-                    "Brazil",
-                    "Australia",
-                    "India"
-                ],
-                "certifications": [
-                    "ISO 27001",
-                    "SOC 2 Type II",
-                    "GDPR Compliance",
-                    "IAB TCF 2.0 Certified",
-                    "TAG Certified Against Fraud"
-                ],
-                "partnerships": [
-                    "Meta",
-                    "Google",
-                    "Amazon",
-                    "The Trade Desk",
-                    "LiveRamp",
-                    "Shopify",
-                    "Magento/Adobe Commerce",
-                    "Salesforce Commerce Cloud"
-                ],
-                "social_proof": [
-                    "Fnac Darty",
-                    "Decathlon",
-                    "Macy's",
-                    "Best Buy",
-                    "Rakuten",
-                    "Sephora",
-                    "Carrefour"
-                ],
-                "hiring_signals": [
-                    "Machine learning engineers",
-                    "Data scientists",
-                    "Full-stack engineers",
-                    "Product managers",
-                    "Ad tech specialists",
-                    "Sales executives",
-                    "Privacy engineers"
-                ],
-                "content_themes": [
-                    "Commerce media as the next wave of digital advertising",
-                    "Post-cookie advertising solutions",
-                    "Retail media network growth",
-                    "AI-driven commerce outcomes",
-                    "First-party data strategies"
-                ],
-                "tone_of_voice": "Data-driven, innovative, performance-oriented, transparent"
-            }
-        }
+  "url": "criteo.com",
+  "dna": {
+    "pt": {
+      "company_name": "Criteo",
+      "tagline": "A Companhia de Mídia de Comércio",
+      "description": "Criteo é uma companhia global de mídia de comércio que permite que anunciantes e proprietários de mídia obtenham melhores resultados de comércio por meio de sua Plataforma de Mídia de Comércio. Com tecnologia impulsionada por IA e o maior conjunto de dados de comércio aberto do mundo, Criteo oferece publicidade personalizada em toda a internet aberta, redes de mídia de varejo e canais de marketing de desempenho. A empresa atende a mais de 22.000 anunciantes em todo o mundo.",
+      "industry": "Tecnologia",
+      "sub_industry": "Publicidade Digital / Mídia de Comércio / AdTech",
+      "business_model": "B2B SaaS + Baseado em Desempenho (CPC/CPM)",
+      "products": [
+        "Plataforma de Mídia de Comércio",
+        "Criteo Retail Media (para varejistas)",
+        "Criteo Marketing Solutions (para marcas)",
+        "Crescimento de Comércio (aquisição de clientes)",
+        "Commerce Max (DSP para mídia de varejo)",
+        "Criteo AI Engine (licitação preditiva)",
+        "Criteo Shopper Graph (resolução de identidade)",
+        "Commerce Grid (SSP para editores)"
+      ],
+      "features": [
+        "Recomendações de produtos impulsionadas por IA",
+        "Resolução de identidade entre dispositivos",
+        "Integração e ativação de dados de primeira parte",
+        "Monetização de redes de mídia de varejo",
+        "Otimização de criativos dinâmicos",
+        "Licitación em tempo real e compra programática",
+        "Medição de privacidade por design",
+        "Capacidades de direcionamento sem cookies"
+      ],
+      "target_segments": [
+        "Varejistas de comércio eletrônico e marketplaces",
+        "Marcas de consumo direto",
+        "Empresas de bens de consumo embalados",
+        "Empresas de viagens e hospedagem",
+        "Serviços financeiros (cartões de crédito, seguros)",
+        "Concessionárias e fabricantes de automóveis",
+        "Plataformas de classificados e marketplaces",
+        "Grandes editores e proprietários de mídia"
+      ],
+      "use_cases": [
+        "Retargeting e reengajamento de clientes",
+        "Aquisição de novos clientes para comércio eletrônico",
+        "Monetização de mídia de varejo para varejistas",
+        "Marketing de desempenho e otimização de ROAS",
+        "Ativação de dados de primeira parte em um mundo pós-cookies",
+        "Publicidade de comércio omnichannel"
+      ],
+      "technologies": [
+        "Hadoop/Spark (big data)",
+        "Python",
+        "Java",
+        "Aprendizado de Máquina / Aprendizado Profundo",
+        "Infraestrutura de licitação em tempo real",
+        "Kubernetes",
+        "Ceph",
+        "Motor de recomendação de IA personalizado"
+      ],
+      "pricing_model": "Baseado em Desempenho (CPC/CPM) + taxas de plataforma de autoatendimento + engajamentos de serviço gerenciado + participação de receita de mídia de varejo",
+      "company_size_signals": "3.500+ funcionários, 22.000+ anunciantes, operações em 30+ países. Receita anual de aproximadamente USD 1,9 bilhão (2024). Listado na NASDAQ (CRTO).",
+      "founded_year": "2005",
+      "headquarters": "Paris, França",
+      "geographic_reach": [
+        "França (sede)",
+        "Estados Unidos",
+        "Reino Unido",
+        "Alemanha",
+        "Japão",
+        "Coreia do Sul",
+        "Brasil",
+        "Austrália",
+        "Índia"
+      ],
+      "certifications": [
+        "ISO 27001",
+        "SOC 2 Tipo II",
+        "Conformidade com o GDPR",
+        "IAB TCF 2.0 Certificado",
+        "TAG Certificado Contra Fraude"
+      ],
+      "partnerships": [
+        "Meta",
+        "Google",
+        "Amazon",
+        "The Trade Desk",
+        "LiveRamp",
+        "Shopify",
+        "Magento/Adobe Commerce",
+        "Salesforce Commerce Cloud"
+      ],
+      "social_proof": [
+        "Fnac Darty",
+        "Decathlon",
+        "Macy's",
+        "Best Buy",
+        "Rakuten",
+        "Sephora",
+        "Carrefour"
+      ],
+      "hiring_signals": [
+        "Engenheiros de aprendizado de máquina",
+        "Cientistas de dados",
+        "Engenheiros de pilha completa",
+        "Gerentes de produto",
+        "Especialistas em AdTech",
+        "Executivos de vendas",
+        "Engenheiros de privacidade"
+      ],
+      "content_themes": [
+        "Mídia de comércio como a próxima onda de publicidade digital",
+        "Soluções de publicidade pós-cookies",
+        "Crescimento de redes de mídia de varejo",
+        "Resultados de comércio impulsionados por IA",
+        "Estratégias de dados de primeira parte"
+      ],
+      "tone_of_voice": "Baseado em dados, inovador, orientado a desempenho, transparente"
     },
-    "market": {
-        "pt": {
-            "pt": {
-                "market_size_estimate": "Mercado de publicidade digital global: aproximadamente USD 680 bilhões (2024). Mercado de mídia de varejo: aproximadamente USD 140 bilhões. Mercado abordável de mídia de comércio: aproximadamente USD 200 bilhões.",
-                "growth_trend": "Mídia de varejo crescendo a 20-25% anualmente, impulsionada pela monetização de dados de primeira parte dos varejistas, a depreciação de cookies impulsionando as marcas para direcionamento baseado no comércio e a penetração crescente do comércio eletrônico globalmente",
-                "likely_competitors": [
-                    "The Trade Desk - principal DSP independente para publicidade programática",
-                    "Google Ads / DV360 - jardim murado dominante com alcance maciço",
-                    "Meta Ads - maior plataforma de publicidade de comércio social",
-                    "Amazon Advertising - maior rede de mídia de varejo globalmente",
-                    "CitrusAd (Epsilon) - tecnologia de mídia de varejo para varejistas",
-                    "PromoteIQ (Microsoft) - plataforma de mídia de varejo",
-                    "Moloco - publicidade de desempenho alimentada por IA"
-                ],
-                "competitive_advantages": [
-                    "Maior conjunto de dados de comércio aberto do mundo (4 bilhões de SKUs de produtos)",
-                    "Herança profunda de IA e aprendizado de máquina desde 2005",
-                    "Presença forte em mídia de varejo para varejistas de mercado médio",
-                    "Raízes europeias fornecendo abordagem GDPR-first",
-                    "Plataforma de mídia de comércio multi-canal (internet aberta + mídia de varejo)",
-                    "Soluções de dados de primeira parte para a era pós-cookie"
-                ],
-                "market_challenges": [
-                    "Depreciação de cookies e regulamentação de privacidade reduzindo a eficácia do retargeting",
-                    "Concorrência de jardins murados (Google, Meta, Amazon)",
-                    "Internalização de capacidades de ad tech pelos varejistas",
-                    "Percepção do mercado ainda ligada ao negócio de retargeting legado",
-                    "Pressão sobre margens devido ao aumento dos custos de dados e infraestrutura"
-                ],
-                "customer_pain_points": [
-                    "ROAS em declínio em canais de retargeting tradicionais",
-                    "Dificuldade em medir resultados de comércio multi-canal",
-                    "Paisagem de mídia de varejo fragmentada, exigindo múltiplas plataformas",
-                    "Complexidade da regulamentação de privacidade em diferentes mercados (GDPR, CCPA)",
-                    "Depreciação de cookies ameaçando estratégias de direcionamento existentes",
-                    "Necessidade de ativar dados de primeira parte sem complexidade técnica"
-                ],
-                "buying_triggers": [
-                    "Lançamento de canal de comércio eletrônico ou DTC que necessita de aquisição de clientes",
-                    "Depreciação de cookies forçando a mudança para novas abordagens de direcionamento",
-                    "Varejista lançando rede de mídia de varejo para monetizar dados de primeira parte",
-                    "Realocação do orçamento de marketing de desempenho de mídia social para internet aberta",
-                    "Picos de comércio sazonal (Sexta-feira Negra, temporada de festas)",
-                    "Expansão para novos mercados geográficos"
-                ],
-                "decision_makers": [
-                    "CMO / VP Marketing",
-                    "Chefe de Marketing Digital",
-                    "Chefe de Comércio Eletrônico",
-                    "Chefe de Marketing de Desempenho",
-                    "VP de Mídia de Varejo (para varejistas)",
-                    "Diretor de Receita"
-                ],
-                "sales_cycle_estimate": "15-30 dias para integração de auto-serviço, 30-90 dias para acordos de serviço gerenciado de empresa",
-                "ideal_customer_characteristics": [
-                    "Negócio de comércio eletrônico com receita online de USD 50 milhões+",
-                    "Varejista com tráfego online significativo buscando monetizar via mídia de varejo",
-                    "Marca com orçamento de marketing digital ativo de USD 500K+ anualmente",
-                    "Empresa que opera em vários mercados europeus ou globais",
-                    "Organização madura em dados com ativos de dados de primeira parte",
-                    "Equipe de marketing focada em desempenho que mede ROAS",
-                    "Varejista ou marketplace com 1 milhão+ de visitantes mensais",
-                    "Marca buscando diversificar além dos jardins murados do Google e Meta",
-                    "Organização pronta para investir em mídia de comércio como estratégia",
-                    "Empresa com catálogo de produtos de 1.000+ SKUs"
-                ],
-                "anti_icp_signals": [
-                    "Pequena empresa com receita online inferior a USD 5 milhões (escala insuficiente)",
-                    "Empresa sem presença de comércio eletrônico ou loja digital",
-                    "Marca que anuncia exclusivamente em mídia social sem interesse em internet aberta",
-                    "Organização sem infraestrutura de rastreamento ou medição",
-                    "Empresa em indústria altamente regulamentada que proíbe publicidade personalizada",
-                    "Negócio com catálogo de produtos muito pequeno (menos de 50 SKUs)",
-                    "Organização que não está disposta a compartilhar dados de primeira parte para direcionamento"
-                ],
-                "expansion_opportunities": [
-                    "Expansão da rede de mídia de varejo para varejistas de mercado médio globalmente",
-                    "Mídia de comércio para TV conectada e streaming",
-                    "Otimização de criativos alimentada por IA",
-                    "Expansão para atribuição offline-para-online",
-                    "Parcerias de sala limpa de privacidade"
-                ],
-                "industry_trends": [
-                    "Mídia de varejo como terceira onda de publicidade digital",
-                    "Depreciação de cookies acelerando estratégias de dados de primeira parte",
-                    "Convergência de mídia de comércio (on-site + off-site)",
-                    "Otimização de criativos e licitação alimentada por IA",
-                    "Tecnologias de privacidade (salas limpas, aprendizado federado)"
-                ]
-            },
-            "en": {
-                "market_size_estimate": "Global digital advertising market: approximately USD 680 billion (2024). Retail media market: approximately USD 140 billion. Commerce media addressable market: approximately USD 200 billion.",
-                "growth_trend": "Retail media growing at 20-25% annually, driven by retailer first-party data monetization, cookie deprecation pushing brands to commerce-based targeting, and increasing e-commerce penetration globally",
-                "likely_competitors": [
-                    "The Trade Desk - leading independent DSP for programmatic advertising",
-                    "Google Ads / DV360 - dominant walled garden with massive reach",
-                    "Meta Ads - largest social commerce advertising platform",
-                    "Amazon Advertising - largest retail media network globally",
-                    "CitrusAd (Epsilon) - retail media technology for retailers",
-                    "PromoteIQ (Microsoft) - retail media platform",
-                    "Moloco - AI-powered performance advertising"
-                ],
-                "competitive_advantages": [
-                    "World's largest open commerce dataset (4 billion product SKUs)",
-                    "Deep AI and machine learning heritage since 2005",
-                    "Strong presence in retail media for mid-market retailers",
-                    "European roots providing GDPR-first approach",
-                    "Cross-channel commerce media platform (open internet + retail media)",
-                    "First-party data solutions for post-cookie era"
-                ],
-                "market_challenges": [
-                    "Cookie deprecation and privacy regulation reducing retargeting effectiveness",
-                    "Competition from walled gardens (Google, Meta, Amazon)",
-                    "Retailer in-housing of ad tech capabilities",
-                    "Market perception still tied to legacy retargeting business",
-                    "Margin pressure from increasing data and infrastructure costs"
-                ],
-                "customer_pain_points": [
-                    "Declining ROAS on traditional retargeting channels",
-                    "Difficulty measuring cross-channel commerce outcomes",
-                    "Fragmented retail media landscape requiring multiple platforms",
-                    "Privacy regulation complexity across markets (GDPR, CCPA)",
-                    "Cookie deprecation threatening existing targeting strategies",
-                    "Need to activate first-party data without technical complexity"
-                ],
-                "buying_triggers": [
-                    "Launch of e-commerce or DTC channel needing customer acquisition",
-                    "Cookie deprecation forcing shift to new targeting approaches",
-                    "Retailer launching retail media network to monetize first-party data",
-                    "Performance marketing budget reallocation from social to open internet",
-                    "Seasonal commerce peaks (Black Friday, holiday season)",
-                    "Expansion into new geographic markets"
-                ],
-                "decision_makers": [
-                    "CMO / VP Marketing",
-                    "Head of Digital Marketing",
-                    "Head of E-commerce",
-                    "Head of Performance Marketing",
-                    "VP Retail Media (for retailers)",
-                    "Chief Revenue Officer"
-                ],
-                "sales_cycle_estimate": "15-30 days for self-service onboarding, 30-90 days for enterprise managed service deals",
-                "ideal_customer_characteristics": [
-                    "E-commerce business with USD 50 million+ in online revenue",
-                    "Retailer with significant online traffic seeking to monetize via retail media",
-                    "Brand with active digital marketing budget of USD 500K+ annually",
-                    "Company operating in multiple European or global markets",
-                    "Data-mature organization with first-party data assets",
-                    "Performance-focused marketing team measuring ROAS",
-                    "Retailer or marketplace with 1 million+ monthly visitors",
-                    "Brand seeking to diversify beyond Google and Meta walled gardens",
-                    "Organization ready to invest in commerce media as a strategy",
-                    "Company with product catalog of 1,000+ SKUs"
-                ],
-                "anti_icp_signals": [
-                    "Small business with less than USD 5 million online revenue (insufficient scale)",
-                    "Company with no e-commerce presence or digital storefront",
-                    "Brand exclusively advertising on social media with no interest in open internet",
-                    "Organization without tracking or measurement infrastructure",
-                    "Company in heavily regulated industry prohibiting personalized advertising",
-                    "Business with very small product catalog (fewer than 50 SKUs)",
-                    "Organization unwilling to share first-party data for targeting"
-                ],
-                "expansion_opportunities": [
-                    "Retail media network expansion to mid-market retailers globally",
-                    "Commerce media for connected TV and streaming",
-                    "AI-powered creative optimization",
-                    "Expansion into offline-to-online attribution",
-                    "Privacy-safe clean room partnerships"
-                ],
-                "industry_trends": [
-                    "Retail media as third wave of digital advertising",
-                    "Cookie deprecation accelerating first-party data strategies",
-                    "Commerce media convergence (on-site + off-site)",
-                    "AI-driven creative and bidding optimization",
-                    "Privacy-enhancing technologies (clean rooms, federated learning)"
-                ]
-            }
-        },
-        "en": {
-            "pt": {
-                "market_size_estimate": "Mercado de publicidade digital global: aproximadamente USD 680 bilhões (2024). Mercado de mídia de varejo: aproximadamente USD 140 bilhões. Mercado abordável de mídia de comércio: aproximadamente USD 200 bilhões.",
-                "growth_trend": "Mídia de varejo crescendo a 20-25% anualmente, impulsionada pela monetização de dados de primeira parte dos varejistas, a depreciação de cookies impulsionando as marcas para direcionamento baseado no comércio e a penetração crescente do comércio eletrônico globalmente",
-                "likely_competitors": [
-                    "The Trade Desk - principal DSP independente para publicidade programática",
-                    "Google Ads / DV360 - jardim murado dominante com alcance maciço",
-                    "Meta Ads - maior plataforma de publicidade de comércio social",
-                    "Amazon Advertising - maior rede de mídia de varejo globalmente",
-                    "CitrusAd (Epsilon) - tecnologia de mídia de varejo para varejistas",
-                    "PromoteIQ (Microsoft) - plataforma de mídia de varejo",
-                    "Moloco - publicidade de desempenho alimentada por IA"
-                ],
-                "competitive_advantages": [
-                    "Maior conjunto de dados de comércio aberto do mundo (4 bilhões de SKUs de produtos)",
-                    "Herança profunda de IA e aprendizado de máquina desde 2005",
-                    "Presença forte em mídia de varejo para varejistas de mercado médio",
-                    "Raízes europeias fornecendo abordagem GDPR-first",
-                    "Plataforma de mídia de comércio multi-canal (internet aberta + mídia de varejo)",
-                    "Soluções de dados de primeira parte para a era pós-cookie"
-                ],
-                "market_challenges": [
-                    "Depreciação de cookies e regulamentação de privacidade reduzindo a eficácia do retargeting",
-                    "Concorrência de jardins murados (Google, Meta, Amazon)",
-                    "Internalização de capacidades de ad tech pelos varejistas",
-                    "Percepção do mercado ainda ligada ao negócio de retargeting legado",
-                    "Pressão sobre margens devido ao aumento dos custos de dados e infraestrutura"
-                ],
-                "customer_pain_points": [
-                    "ROAS em declínio em canais de retargeting tradicionais",
-                    "Dificuldade em medir resultados de comércio multi-canal",
-                    "Paisagem de mídia de varejo fragmentada, exigindo múltiplas plataformas",
-                    "Complexidade da regulamentação de privacidade em diferentes mercados (GDPR, CCPA)",
-                    "Depreciação de cookies ameaçando estratégias de direcionamento existentes",
-                    "Necessidade de ativar dados de primeira parte sem complexidade técnica"
-                ],
-                "buying_triggers": [
-                    "Lançamento de canal de comércio eletrônico ou DTC que necessita de aquisição de clientes",
-                    "Depreciação de cookies forçando a mudança para novas abordagens de direcionamento",
-                    "Varejista lançando rede de mídia de varejo para monetizar dados de primeira parte",
-                    "Realocação do orçamento de marketing de desempenho de mídia social para internet aberta",
-                    "Picos de comércio sazonal (Sexta-feira Negra, temporada de festas)",
-                    "Expansão para novos mercados geográficos"
-                ],
-                "decision_makers": [
-                    "CMO / VP Marketing",
-                    "Chefe de Marketing Digital",
-                    "Chefe de Comércio Eletrônico",
-                    "Chefe de Marketing de Desempenho",
-                    "VP de Mídia de Varejo (para varejistas)",
-                    "Diretor de Receita"
-                ],
-                "sales_cycle_estimate": "15-30 dias para integração de auto-serviço, 30-90 dias para acordos de serviço gerenciado de empresa",
-                "ideal_customer_characteristics": [
-                    "Negócio de comércio eletrônico com receita online de USD 50 milhões+",
-                    "Varejista com tráfego online significativo buscando monetizar via mídia de varejo",
-                    "Marca com orçamento de marketing digital ativo de USD 500K+ anualmente",
-                    "Empresa que opera em vários mercados europeus ou globais",
-                    "Organização madura em dados com ativos de dados de primeira parte",
-                    "Equipe de marketing focada em desempenho que mede ROAS",
-                    "Varejista ou marketplace com 1 milhão+ de visitantes mensais",
-                    "Marca buscando diversificar além dos jardins murados do Google e Meta",
-                    "Organização pronta para investir em mídia de comércio como estratégia",
-                    "Empresa com catálogo de produtos de 1.000+ SKUs"
-                ],
-                "anti_icp_signals": [
-                    "Pequena empresa com receita online inferior a USD 5 milhões (escala insuficiente)",
-                    "Empresa sem presença de comércio eletrônico ou loja digital",
-                    "Marca que anuncia exclusivamente em mídia social sem interesse em internet aberta",
-                    "Organização sem infraestrutura de rastreamento ou medição",
-                    "Empresa em indústria altamente regulamentada que proíbe publicidade personalizada",
-                    "Negócio com catálogo de produtos muito pequeno (menos de 50 SKUs)",
-                    "Organização que não está disposta a compartilhar dados de primeira parte para direcionamento"
-                ],
-                "expansion_opportunities": [
-                    "Expansão da rede de mídia de varejo para varejistas de mercado médio globalmente",
-                    "Mídia de comércio para TV conectada e streaming",
-                    "Otimização de criativos alimentada por IA",
-                    "Expansão para atribuição offline-para-online",
-                    "Parcerias de sala limpa de privacidade"
-                ],
-                "industry_trends": [
-                    "Mídia de varejo como terceira onda de publicidade digital",
-                    "Depreciação de cookies acelerando estratégias de dados de primeira parte",
-                    "Convergência de mídia de comércio (on-site + off-site)",
-                    "Otimização de criativos e licitação alimentada por IA",
-                    "Tecnologias de privacidade (salas limpas, aprendizado federado)"
-                ]
-            },
-            "en": {
-                "market_size_estimate": "Global digital advertising market: approximately USD 680 billion (2024). Retail media market: approximately USD 140 billion. Commerce media addressable market: approximately USD 200 billion.",
-                "growth_trend": "Retail media growing at 20-25% annually, driven by retailer first-party data monetization, cookie deprecation pushing brands to commerce-based targeting, and increasing e-commerce penetration globally",
-                "likely_competitors": [
-                    "The Trade Desk - leading independent DSP for programmatic advertising",
-                    "Google Ads / DV360 - dominant walled garden with massive reach",
-                    "Meta Ads - largest social commerce advertising platform",
-                    "Amazon Advertising - largest retail media network globally",
-                    "CitrusAd (Epsilon) - retail media technology for retailers",
-                    "PromoteIQ (Microsoft) - retail media platform",
-                    "Moloco - AI-powered performance advertising"
-                ],
-                "competitive_advantages": [
-                    "World's largest open commerce dataset (4 billion product SKUs)",
-                    "Deep AI and machine learning heritage since 2005",
-                    "Strong presence in retail media for mid-market retailers",
-                    "European roots providing GDPR-first approach",
-                    "Cross-channel commerce media platform (open internet + retail media)",
-                    "First-party data solutions for post-cookie era"
-                ],
-                "market_challenges": [
-                    "Cookie deprecation and privacy regulation reducing retargeting effectiveness",
-                    "Competition from walled gardens (Google, Meta, Amazon)",
-                    "Retailer in-housing of ad tech capabilities",
-                    "Market perception still tied to legacy retargeting business",
-                    "Margin pressure from increasing data and infrastructure costs"
-                ],
-                "customer_pain_points": [
-                    "Declining ROAS on traditional retargeting channels",
-                    "Difficulty measuring cross-channel commerce outcomes",
-                    "Fragmented retail media landscape requiring multiple platforms",
-                    "Privacy regulation complexity across markets (GDPR, CCPA)",
-                    "Cookie deprecation threatening existing targeting strategies",
-                    "Need to activate first-party data without technical complexity"
-                ],
-                "buying_triggers": [
-                    "Launch of e-commerce or DTC channel needing customer acquisition",
-                    "Cookie deprecation forcing shift to new targeting approaches",
-                    "Retailer launching retail media network to monetize first-party data",
-                    "Performance marketing budget reallocation from social to open internet",
-                    "Seasonal commerce peaks (Black Friday, holiday season)",
-                    "Expansion into new geographic markets"
-                ],
-                "decision_makers": [
-                    "CMO / VP Marketing",
-                    "Head of Digital Marketing",
-                    "Head of E-commerce",
-                    "Head of Performance Marketing",
-                    "VP Retail Media (for retailers)",
-                    "Chief Revenue Officer"
-                ],
-                "sales_cycle_estimate": "15-30 days for self-service onboarding, 30-90 days for enterprise managed service deals",
-                "ideal_customer_characteristics": [
-                    "E-commerce business with USD 50 million+ in online revenue",
-                    "Retailer with significant online traffic seeking to monetize via retail media",
-                    "Brand with active digital marketing budget of USD 500K+ annually",
-                    "Company operating in multiple European or global markets",
-                    "Data-mature organization with first-party data assets",
-                    "Performance-focused marketing team measuring ROAS",
-                    "Retailer or marketplace with 1 million+ monthly visitors",
-                    "Brand seeking to diversify beyond Google and Meta walled gardens",
-                    "Organization ready to invest in commerce media as a strategy",
-                    "Company with product catalog of 1,000+ SKUs"
-                ],
-                "anti_icp_signals": [
-                    "Small business with less than USD 5 million online revenue (insufficient scale)",
-                    "Company with no e-commerce presence or digital storefront",
-                    "Brand exclusively advertising on social media with no interest in open internet",
-                    "Organization without tracking or measurement infrastructure",
-                    "Company in heavily regulated industry prohibiting personalized advertising",
-                    "Business with very small product catalog (fewer than 50 SKUs)",
-                    "Organization unwilling to share first-party data for targeting"
-                ],
-                "expansion_opportunities": [
-                    "Retail media network expansion to mid-market retailers globally",
-                    "Commerce media for connected TV and streaming",
-                    "AI-powered creative optimization",
-                    "Expansion into offline-to-online attribution",
-                    "Privacy-safe clean room partnerships"
-                ],
-                "industry_trends": [
-                    "Retail media as third wave of digital advertising",
-                    "Cookie deprecation accelerating first-party data strategies",
-                    "Commerce media convergence (on-site + off-site)",
-                    "AI-driven creative and bidding optimization",
-                    "Privacy-enhancing technologies (clean rooms, federated learning)"
-                ]
-            }
-        }
+    "en": {
+      "company_name": "Criteo",
+      "tagline": "The Commerce Media Company",
+      "description": "Criteo is a global commerce media company that enables marketers and media owners to drive better commerce outcomes through its Commerce Media Platform. Leveraging AI-powered technology and the world's largest open commerce dataset, Criteo delivers personalized advertising across the open internet, retail media networks, and performance marketing channels. The company serves over 22,000 advertisers globally.",
+      "industry": "Technology",
+      "sub_industry": "Digital Advertising / Commerce Media / AdTech",
+      "business_model": "B2B SaaS + Performance-based (CPC/CPM)",
+      "products": [
+        "Commerce Media Platform",
+        "Criteo Retail Media (for retailers)",
+        "Criteo Marketing Solutions (for brands)",
+        "Commerce Growth (customer acquisition)",
+        "Commerce Max (DSP for retail media)",
+        "Criteo AI Engine (predictive bidding)",
+        "Criteo Shopper Graph (identity resolution)",
+        "Commerce Grid (SSP for publishers)"
+      ],
+      "features": [
+        "AI-powered product recommendations",
+        "Cross-device identity resolution",
+        "First-party data onboarding and activation",
+        "Retail media network monetization",
+        "Dynamic creative optimization",
+        "Real-time bidding and programmatic buying",
+        "Privacy-by-design measurement",
+        "Cookieless targeting capabilities"
+      ],
+      "target_segments": [
+        "E-commerce retailers and marketplaces",
+        "Direct-to-consumer brands",
+        "Consumer packaged goods companies",
+        "Travel and hospitality companies",
+        "Financial services (credit cards, insurance)",
+        "Automotive dealerships and OEMs",
+        "Classified and marketplace platforms",
+        "Large publishers and media owners"
+      ],
+      "use_cases": [
+        "Retargeting and customer re-engagement",
+        "New customer acquisition for e-commerce",
+        "Retail media monetization for retailers",
+        "Performance marketing and ROAS optimization",
+        "First-party data activation in post-cookie world",
+        "Omnichannel commerce advertising"
+      ],
+      "technologies": [
+        "Hadoop/Spark (big data)",
+        "Python",
+        "Java",
+        "Machine Learning / Deep Learning",
+        "Real-time bidding infrastructure",
+        "Kubernetes",
+        "Ceph",
+        "Custom AI recommendation engine"
+      ],
+      "pricing_model": "Performance-based (CPC/CPM) + self-service platform fees + managed service engagements + retail media revenue share",
+      "company_size_signals": "3,500+ employees, 22,000+ advertisers, operations in 30+ countries. Annual revenue of approximately USD 1.9 billion (2024). Listed on NASDAQ (CRTO).",
+      "founded_year": "2005",
+      "headquarters": "Paris, France",
+      "geographic_reach": [
+        "France (headquarters)",
+        "United States",
+        "United Kingdom",
+        "Germany",
+        "Japan",
+        "South Korea",
+        "Brazil",
+        "Australia",
+        "India"
+      ],
+      "certifications": [
+        "ISO 27001",
+        "SOC 2 Type II",
+        "GDPR Compliance",
+        "IAB TCF 2.0 Certified",
+        "TAG Certified Against Fraud"
+      ],
+      "partnerships": [
+        "Meta",
+        "Google",
+        "Amazon",
+        "The Trade Desk",
+        "LiveRamp",
+        "Shopify",
+        "Magento/Adobe Commerce",
+        "Salesforce Commerce Cloud"
+      ],
+      "social_proof": [
+        "Fnac Darty",
+        "Decathlon",
+        "Macy's",
+        "Best Buy",
+        "Rakuten",
+        "Sephora",
+        "Carrefour"
+      ],
+      "hiring_signals": [
+        "Machine learning engineers",
+        "Data scientists",
+        "Full-stack engineers",
+        "Product managers",
+        "Ad tech specialists",
+        "Sales executives",
+        "Privacy engineers"
+      ],
+      "content_themes": [
+        "Commerce media as the next wave of digital advertising",
+        "Post-cookie advertising solutions",
+        "Retail media network growth",
+        "AI-driven commerce outcomes",
+        "First-party data strategies"
+      ],
+      "tone_of_voice": "Data-driven, innovative, performance-oriented, transparent"
+    }
+  },
+  "market": {
+    "pt": {
+      "market_size_estimate": "Mercado de publicidade digital global: aproximadamente USD 680 bilhões (2024). Mercado de mídia de varejo: aproximadamente USD 140 bilhões. Mercado abordável de mídia de comércio: aproximadamente USD 200 bilhões.",
+      "growth_trend": "Mídia de varejo crescendo a 20-25% anualmente, impulsionada pela monetização de dados de primeira parte dos varejistas, a depreciação de cookies impulsionando as marcas para direcionamento baseado no comércio e a penetração crescente do comércio eletrônico globalmente",
+      "likely_competitors": [
+        "The Trade Desk - principal DSP independente para publicidade programática",
+        "Google Ads / DV360 - jardim murado dominante com alcance maciço",
+        "Meta Ads - maior plataforma de publicidade de comércio social",
+        "Amazon Advertising - maior rede de mídia de varejo globalmente",
+        "CitrusAd (Epsilon) - tecnologia de mídia de varejo para varejistas",
+        "PromoteIQ (Microsoft) - plataforma de mídia de varejo",
+        "Moloco - publicidade de desempenho alimentada por IA"
+      ],
+      "competitive_advantages": [
+        "Maior conjunto de dados de comércio aberto do mundo (4 bilhões de SKUs de produtos)",
+        "Herança profunda de IA e aprendizado de máquina desde 2005",
+        "Presença forte em mídia de varejo para varejistas de mercado médio",
+        "Raízes europeias fornecendo abordagem GDPR-first",
+        "Plataforma de mídia de comércio multi-canal (internet aberta + mídia de varejo)",
+        "Soluções de dados de primeira parte para a era pós-cookie"
+      ],
+      "market_challenges": [
+        "Depreciação de cookies e regulamentação de privacidade reduzindo a eficácia do retargeting",
+        "Concorrência de jardins murados (Google, Meta, Amazon)",
+        "Internalização de capacidades de ad tech pelos varejistas",
+        "Percepção do mercado ainda ligada ao negócio de retargeting legado",
+        "Pressão sobre margens devido ao aumento dos custos de dados e infraestrutura"
+      ],
+      "customer_pain_points": [
+        "ROAS em declínio em canais de retargeting tradicionais",
+        "Dificuldade em medir resultados de comércio multi-canal",
+        "Paisagem de mídia de varejo fragmentada, exigindo múltiplas plataformas",
+        "Complexidade da regulamentação de privacidade em diferentes mercados (GDPR, CCPA)",
+        "Depreciação de cookies ameaçando estratégias de direcionamento existentes",
+        "Necessidade de ativar dados de primeira parte sem complexidade técnica"
+      ],
+      "buying_triggers": [
+        "Lançamento de canal de comércio eletrônico ou DTC que necessita de aquisição de clientes",
+        "Depreciação de cookies forçando a mudança para novas abordagens de direcionamento",
+        "Varejista lançando rede de mídia de varejo para monetizar dados de primeira parte",
+        "Realocação do orçamento de marketing de desempenho de mídia social para internet aberta",
+        "Picos de comércio sazonal (Sexta-feira Negra, temporada de festas)",
+        "Expansão para novos mercados geográficos"
+      ],
+      "decision_makers": [
+        "CMO / VP Marketing",
+        "Chefe de Marketing Digital",
+        "Chefe de Comércio Eletrônico",
+        "Chefe de Marketing de Desempenho",
+        "VP de Mídia de Varejo (para varejistas)",
+        "Diretor de Receita"
+      ],
+      "sales_cycle_estimate": "15-30 dias para integração de auto-serviço, 30-90 dias para acordos de serviço gerenciado de empresa",
+      "ideal_customer_characteristics": [
+        "Negócio de comércio eletrônico com receita online de USD 50 milhões+",
+        "Varejista com tráfego online significativo buscando monetizar via mídia de varejo",
+        "Marca com orçamento de marketing digital ativo de USD 500K+ anualmente",
+        "Empresa que opera em vários mercados europeus ou globais",
+        "Organização madura em dados com ativos de dados de primeira parte",
+        "Equipe de marketing focada em desempenho que mede ROAS",
+        "Varejista ou marketplace com 1 milhão+ de visitantes mensais",
+        "Marca buscando diversificar além dos jardins murados do Google e Meta",
+        "Organização pronta para investir em mídia de comércio como estratégia",
+        "Empresa com catálogo de produtos de 1.000+ SKUs"
+      ],
+      "anti_icp_signals": [
+        "Pequena empresa com receita online inferior a USD 5 milhões (escala insuficiente)",
+        "Empresa sem presença de comércio eletrônico ou loja digital",
+        "Marca que anuncia exclusivamente em mídia social sem interesse em internet aberta",
+        "Organização sem infraestrutura de rastreamento ou medição",
+        "Empresa em indústria altamente regulamentada que proíbe publicidade personalizada",
+        "Negócio com catálogo de produtos muito pequeno (menos de 50 SKUs)",
+        "Organização que não está disposta a compartilhar dados de primeira parte para direcionamento"
+      ],
+      "expansion_opportunities": [
+        "Expansão da rede de mídia de varejo para varejistas de mercado médio globalmente",
+        "Mídia de comércio para TV conectada e streaming",
+        "Otimização de criativos alimentada por IA",
+        "Expansão para atribuição offline-para-online",
+        "Parcerias de sala limpa de privacidade"
+      ],
+      "industry_trends": [
+        "Mídia de varejo como terceira onda de publicidade digital",
+        "Depreciação de cookies acelerando estratégias de dados de primeira parte",
+        "Convergência de mídia de comércio (on-site + off-site)",
+        "Otimização de criativos e licitação alimentada por IA",
+        "Tecnologias de privacidade (salas limpas, aprendizado federado)"
+      ]
     },
-    "clients": [
-        {
-            "company_name": "Fnac Darty Group",
-            "industry": "Consumer Electronics Retail",
-            "employee_count": 5500,
-            "annual_revenue_usd": 4200000000,
-            "deal_size_usd": 1800000,
-            "sales_cycle_days": 35,
-            "churned": false,
-            "ltv_usd": 7200000,
-            "nps_score": 9,
-            "tech_stack": "Cloud;GCP;Criteo Retail Media;Custom CMS",
-            "country": "France",
-            "founding_year": 1954
-        },
-        {
-            "company_name": "Zalando Fashion",
-            "industry": "E-commerce / Fashion",
-            "employee_count": 8200,
-            "annual_revenue_usd": 5800000000,
-            "deal_size_usd": 2200000,
-            "sales_cycle_days": 28,
-            "churned": false,
-            "ltv_usd": 11000000,
-            "nps_score": 10,
-            "tech_stack": "Cloud;AWS;Criteo Commerce Max;Kafka",
-            "country": "Germany",
-            "founding_year": 2008
-        },
-        {
-            "company_name": "Leroy Merlin France",
-            "industry": "Home Improvement Retail",
-            "employee_count": 4800,
-            "annual_revenue_usd": 3100000000,
-            "deal_size_usd": 1400000,
-            "sales_cycle_days": 32,
-            "churned": false,
-            "ltv_usd": 5600000,
-            "nps_score": 8,
-            "tech_stack": "Cloud;Azure;Criteo Retail Media;SAP",
-            "country": "France",
-            "founding_year": 1923
-        },
-        {
-            "company_name": "ASOS UK",
-            "industry": "E-commerce / Fashion",
-            "employee_count": 3200,
-            "annual_revenue_usd": 2400000000,
-            "deal_size_usd": 950000,
-            "sales_cycle_days": 25,
-            "churned": false,
-            "ltv_usd": 4750000,
-            "nps_score": 9,
-            "tech_stack": "Cloud;AWS;Criteo Marketing Solutions;Custom",
-            "country": "UK",
-            "founding_year": 2000
-        },
-        {
-            "company_name": "L'Oreal Digital Commerce",
-            "industry": "Beauty & Cosmetics",
-            "employee_count": 6000,
-            "annual_revenue_usd": 3800000000,
-            "deal_size_usd": 1600000,
-            "sales_cycle_days": 40,
-            "churned": false,
-            "ltv_usd": 8000000,
-            "nps_score": 9,
-            "tech_stack": "Cloud;GCP;Criteo Commerce Growth;Salesforce",
-            "country": "France",
-            "founding_year": 1909
-        },
-        {
-            "company_name": "MediaMarktSaturn",
-            "industry": "Consumer Electronics",
-            "employee_count": 7200,
-            "annual_revenue_usd": 4500000000,
-            "deal_size_usd": 1700000,
-            "sales_cycle_days": 38,
-            "churned": false,
-            "ltv_usd": 6800000,
-            "nps_score": 8,
-            "tech_stack": "Cloud;Azure;Criteo Retail Media;SAP",
-            "country": "Germany",
-            "founding_year": 1979
-        },
-        {
-            "company_name": "Booking.com Advertising",
-            "industry": "Travel & Hospitality",
-            "employee_count": 4500,
-            "annual_revenue_usd": 2800000000,
-            "deal_size_usd": 1300000,
-            "sales_cycle_days": 30,
-            "churned": false,
-            "ltv_usd": 6500000,
-            "nps_score": 8,
-            "tech_stack": "Cloud;AWS;Criteo Marketing Solutions;Custom ML",
-            "country": "Netherlands",
-            "founding_year": 1996
-        },
-        {
-            "company_name": "Cdiscount Marketplace",
-            "industry": "E-commerce / General",
-            "employee_count": 2800,
-            "annual_revenue_usd": 1500000000,
-            "deal_size_usd": 850000,
-            "sales_cycle_days": 22,
-            "churned": false,
-            "ltv_usd": 4250000,
-            "nps_score": 10,
-            "tech_stack": "Cloud;GCP;Criteo Retail Media;Custom",
-            "country": "France",
-            "founding_year": 1998
-        },
-        {
-            "company_name": "John Lewis Partnership",
-            "industry": "Department Store Retail",
-            "employee_count": 3600,
-            "annual_revenue_usd": 2200000000,
-            "deal_size_usd": 780000,
-            "sales_cycle_days": 45,
-            "churned": false,
-            "ltv_usd": 3120000,
-            "nps_score": 7,
-            "tech_stack": "Cloud;Azure;Criteo Marketing Solutions;SAP",
-            "country": "UK",
-            "founding_year": 1929
-        },
-        {
-            "company_name": "Decathlon Europe",
-            "industry": "Sporting Goods Retail",
-            "employee_count": 9500,
-            "annual_revenue_usd": 6200000000,
-            "deal_size_usd": 1900000,
-            "sales_cycle_days": 42,
-            "churned": false,
-            "ltv_usd": 7600000,
-            "nps_score": 8,
-            "tech_stack": "Cloud;GCP;Criteo Commerce Max;Custom",
-            "country": "France",
-            "founding_year": 1976
-        },
-        {
-            "company_name": "Bol.com Marketplace",
-            "industry": "E-commerce / General",
-            "employee_count": 2400,
-            "annual_revenue_usd": 1800000000,
-            "deal_size_usd": 920000,
-            "sales_cycle_days": 28,
-            "churned": false,
-            "ltv_usd": 4600000,
-            "nps_score": 9,
-            "tech_stack": "Cloud;AWS;Criteo Retail Media;Kafka",
-            "country": "Netherlands",
-            "founding_year": 1999
-        },
-        {
-            "company_name": "Sephora Digital Europe",
-            "industry": "Beauty Retail",
-            "employee_count": 3100,
-            "annual_revenue_usd": 1600000000,
-            "deal_size_usd": 1100000,
-            "sales_cycle_days": 34,
-            "churned": false,
-            "ltv_usd": 5500000,
-            "nps_score": 9,
-            "tech_stack": "Cloud;Azure;Criteo Commerce Growth;SFCC",
-            "country": "France",
-            "founding_year": 1970
-        },
-        {
-            "company_name": "Otto Group Digital",
-            "industry": "E-commerce / Multi-category",
-            "employee_count": 5200,
-            "annual_revenue_usd": 3400000000,
-            "deal_size_usd": 1500000,
-            "sales_cycle_days": 36,
-            "churned": false,
-            "ltv_usd": 6000000,
-            "nps_score": 8,
-            "tech_stack": "Cloud;AWS;Criteo Retail Media;Custom",
-            "country": "Germany",
-            "founding_year": 1949
-        },
-        {
-            "company_name": "Petit Commerce Lyon",
-            "industry": "Local Retail",
-            "employee_count": 8,
-            "annual_revenue_usd": 600000,
-            "deal_size_usd": 3000,
-            "sales_cycle_days": 70,
-            "churned": true,
-            "ltv_usd": 3000,
-            "nps_score": 3,
-            "tech_stack": "Shopify;Basic;No analytics",
-            "country": "France",
-            "founding_year": 2015
-        },
-        {
-            "company_name": "Kleiner Laden Berlin",
-            "industry": "Specialty Retail",
-            "employee_count": 15,
-            "annual_revenue_usd": 1200000,
-            "deal_size_usd": 5000,
-            "sales_cycle_days": 82,
-            "churned": true,
-            "ltv_usd": 5000,
-            "nps_score": 2,
-            "tech_stack": "WooCommerce;Basic;No tracking",
-            "country": "Germany",
-            "founding_year": 2012
-        },
-        {
-            "company_name": "Cottage Crafts UK",
-            "industry": "Artisan E-commerce",
-            "employee_count": 6,
-            "annual_revenue_usd": 400000,
-            "deal_size_usd": 2500,
-            "sales_cycle_days": 88,
-            "churned": true,
-            "ltv_usd": 2500,
-            "nps_score": 2,
-            "tech_stack": "Etsy;Shopify Basic;No data",
-            "country": "UK",
-            "founding_year": 2017
-        },
-        {
-            "company_name": "Fleuriste en Ligne SAS",
-            "industry": "Floral E-commerce",
-            "employee_count": 20,
-            "annual_revenue_usd": 2000000,
-            "deal_size_usd": 8000,
-            "sales_cycle_days": 75,
-            "churned": true,
-            "ltv_usd": 8000,
-            "nps_score": 4,
-            "tech_stack": "PrestaShop;Basic;Google Analytics",
-            "country": "France",
-            "founding_year": 2010
-        },
-        {
-            "company_name": "Bakker Sportwinkel BV",
-            "industry": "Sports Retail",
-            "employee_count": 30,
-            "annual_revenue_usd": 3500000,
-            "deal_size_usd": 12000,
-            "sales_cycle_days": 65,
-            "churned": true,
-            "ltv_usd": 12000,
-            "nps_score": 5,
-            "tech_stack": "Magento;Basic;Limited tracking",
-            "country": "Netherlands",
-            "founding_year": 2006
-        },
-        {
-            "company_name": "Mode Rapide SARL",
-            "industry": "Fashion Retail",
-            "employee_count": 25,
-            "annual_revenue_usd": 2800000,
-            "deal_size_usd": 9000,
-            "sales_cycle_days": 78,
-            "churned": true,
-            "ltv_usd": 9000,
-            "nps_score": 4,
-            "tech_stack": "Shopify;Basic;Facebook Ads only",
-            "country": "France",
-            "founding_year": 2013
-        },
-        {
-            "company_name": "Fischer Reisen GmbH",
-            "industry": "Travel Agency",
-            "employee_count": 18,
-            "annual_revenue_usd": 1800000,
-            "deal_size_usd": 6000,
-            "sales_cycle_days": 92,
-            "churned": true,
-            "ltv_usd": 6000,
-            "nps_score": 3,
-            "tech_stack": "Legacy;Custom CMS;No programmatic",
-            "country": "Germany",
-            "founding_year": 2004
-        }
-    ]
+    "en": {
+      "market_size_estimate": "Global digital advertising market: approximately USD 680 billion (2024). Retail media market: approximately USD 140 billion. Commerce media addressable market: approximately USD 200 billion.",
+      "growth_trend": "Retail media growing at 20-25% annually, driven by retailer first-party data monetization, cookie deprecation pushing brands to commerce-based targeting, and increasing e-commerce penetration globally",
+      "likely_competitors": [
+        "The Trade Desk - leading independent DSP for programmatic advertising",
+        "Google Ads / DV360 - dominant walled garden with massive reach",
+        "Meta Ads - largest social commerce advertising platform",
+        "Amazon Advertising - largest retail media network globally",
+        "CitrusAd (Epsilon) - retail media technology for retailers",
+        "PromoteIQ (Microsoft) - retail media platform",
+        "Moloco - AI-powered performance advertising"
+      ],
+      "competitive_advantages": [
+        "World's largest open commerce dataset (4 billion product SKUs)",
+        "Deep AI and machine learning heritage since 2005",
+        "Strong presence in retail media for mid-market retailers",
+        "European roots providing GDPR-first approach",
+        "Cross-channel commerce media platform (open internet + retail media)",
+        "First-party data solutions for post-cookie era"
+      ],
+      "market_challenges": [
+        "Cookie deprecation and privacy regulation reducing retargeting effectiveness",
+        "Competition from walled gardens (Google, Meta, Amazon)",
+        "Retailer in-housing of ad tech capabilities",
+        "Market perception still tied to legacy retargeting business",
+        "Margin pressure from increasing data and infrastructure costs"
+      ],
+      "customer_pain_points": [
+        "Declining ROAS on traditional retargeting channels",
+        "Difficulty measuring cross-channel commerce outcomes",
+        "Fragmented retail media landscape requiring multiple platforms",
+        "Privacy regulation complexity across markets (GDPR, CCPA)",
+        "Cookie deprecation threatening existing targeting strategies",
+        "Need to activate first-party data without technical complexity"
+      ],
+      "buying_triggers": [
+        "Launch of e-commerce or DTC channel needing customer acquisition",
+        "Cookie deprecation forcing shift to new targeting approaches",
+        "Retailer launching retail media network to monetize first-party data",
+        "Performance marketing budget reallocation from social to open internet",
+        "Seasonal commerce peaks (Black Friday, holiday season)",
+        "Expansion into new geographic markets"
+      ],
+      "decision_makers": [
+        "CMO / VP Marketing",
+        "Head of Digital Marketing",
+        "Head of E-commerce",
+        "Head of Performance Marketing",
+        "VP Retail Media (for retailers)",
+        "Chief Revenue Officer"
+      ],
+      "sales_cycle_estimate": "15-30 days for self-service onboarding, 30-90 days for enterprise managed service deals",
+      "ideal_customer_characteristics": [
+        "E-commerce business with USD 50 million+ in online revenue",
+        "Retailer with significant online traffic seeking to monetize via retail media",
+        "Brand with active digital marketing budget of USD 500K+ annually",
+        "Company operating in multiple European or global markets",
+        "Data-mature organization with first-party data assets",
+        "Performance-focused marketing team measuring ROAS",
+        "Retailer or marketplace with 1 million+ monthly visitors",
+        "Brand seeking to diversify beyond Google and Meta walled gardens",
+        "Organization ready to invest in commerce media as a strategy",
+        "Company with product catalog of 1,000+ SKUs"
+      ],
+      "anti_icp_signals": [
+        "Small business with less than USD 5 million online revenue (insufficient scale)",
+        "Company with no e-commerce presence or digital storefront",
+        "Brand exclusively advertising on social media with no interest in open internet",
+        "Organization without tracking or measurement infrastructure",
+        "Company in heavily regulated industry prohibiting personalized advertising",
+        "Business with very small product catalog (fewer than 50 SKUs)",
+        "Organization unwilling to share first-party data for targeting"
+      ],
+      "expansion_opportunities": [
+        "Retail media network expansion to mid-market retailers globally",
+        "Commerce media for connected TV and streaming",
+        "AI-powered creative optimization",
+        "Expansion into offline-to-online attribution",
+        "Privacy-safe clean room partnerships"
+      ],
+      "industry_trends": [
+        "Retail media as third wave of digital advertising",
+        "Cookie deprecation accelerating first-party data strategies",
+        "Commerce media convergence (on-site + off-site)",
+        "AI-driven creative and bidding optimization",
+        "Privacy-enhancing technologies (clean rooms, federated learning)"
+      ]
+    }
+  },
+  "clients": [
+    {
+      "company_name": "Carrefour",
+      "industry": "Retail / Supermarkets",
+      "employee_count": 350000,
+      "annual_revenue_usd": 91000000000,
+      "deal_size_usd": 4500000,
+      "sales_cycle_days": 60,
+      "churned": false,
+      "ltv_usd": 27000000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;SAP;Salesforce;Google Ads",
+      "country": "France",
+      "founding_year": 1959
+    },
+    {
+      "company_name": "Fnac Darty",
+      "industry": "Consumer Electronics / Books Retail",
+      "employee_count": 23000,
+      "annual_revenue_usd": 8000000000,
+      "deal_size_usd": 2200000,
+      "sales_cycle_days": 45,
+      "churned": false,
+      "ltv_usd": 13200000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;SAP;Adobe Marketing;Google Ads",
+      "country": "France",
+      "founding_year": 1954
+    },
+    {
+      "company_name": "Best Buy",
+      "industry": "Consumer Electronics Retail",
+      "employee_count": 105000,
+      "annual_revenue_usd": 43000000000,
+      "deal_size_usd": 5800000,
+      "sales_cycle_days": 55,
+      "churned": false,
+      "ltv_usd": 34800000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;Salesforce Marketing;Adobe;Google Ads",
+      "country": "USA",
+      "founding_year": 1966
+    },
+    {
+      "company_name": "Macy's",
+      "industry": "Department Store / Retail",
+      "employee_count": 100000,
+      "annual_revenue_usd": 23000000000,
+      "deal_size_usd": 3800000,
+      "sales_cycle_days": 50,
+      "churned": false,
+      "ltv_usd": 22800000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;Salesforce Marketing;Adobe Commerce;Google",
+      "country": "USA",
+      "founding_year": 1858
+    },
+    {
+      "company_name": "Decathlon",
+      "industry": "Sporting Goods Retail",
+      "employee_count": 100000,
+      "annual_revenue_usd": 15000000000,
+      "deal_size_usd": 2500000,
+      "sales_cycle_days": 45,
+      "churned": false,
+      "ltv_usd": 15000000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Shopping;SAP;Hybris",
+      "country": "France",
+      "founding_year": 1976
+    },
+    {
+      "company_name": "Booking.com",
+      "industry": "Travel / Online Marketplace",
+      "employee_count": 25000,
+      "annual_revenue_usd": 21200000000,
+      "deal_size_usd": 6200000,
+      "sales_cycle_days": 55,
+      "churned": false,
+      "ltv_usd": 37200000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Ads;Salesforce;AWS",
+      "country": "Netherlands",
+      "founding_year": 1996
+    },
+    {
+      "company_name": "Zalando",
+      "industry": "Fashion E-Commerce",
+      "employee_count": 17000,
+      "annual_revenue_usd": 11000000000,
+      "deal_size_usd": 3200000,
+      "sales_cycle_days": 45,
+      "churned": false,
+      "ltv_usd": 19200000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Shopping;SAP;AWS",
+      "country": "Germany",
+      "founding_year": 2008
+    },
+    {
+      "company_name": "Cdiscount (Groupe Casino)",
+      "industry": "E-Commerce / Marketplace",
+      "employee_count": 2000,
+      "annual_revenue_usd": 2200000000,
+      "deal_size_usd": 1200000,
+      "sales_cycle_days": 35,
+      "churned": false,
+      "ltv_usd": 7200000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;Google Ads;SAP;Adobe",
+      "country": "France",
+      "founding_year": 1998
+    },
+    {
+      "company_name": "Target Corporation",
+      "industry": "Retail / Department Store",
+      "employee_count": 440000,
+      "annual_revenue_usd": 109000000000,
+      "deal_size_usd": 7500000,
+      "sales_cycle_days": 60,
+      "churned": true,
+      "ltv_usd": 22500000,
+      "nps_score": 5,
+      "tech_stack": "The Trade Desk (migrated);Google;Salesforce;AWS",
+      "country": "USA",
+      "founding_year": 1902
+    },
+    {
+      "company_name": "Ellos Group",
+      "industry": "Fashion E-Commerce",
+      "employee_count": 1000,
+      "annual_revenue_usd": 350000000,
+      "deal_size_usd": 480000,
+      "sales_cycle_days": 30,
+      "churned": false,
+      "ltv_usd": 2880000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Shopping;Shopify Plus;Klaviyo",
+      "country": "Sweden",
+      "founding_year": 1947
+    },
+    {
+      "company_name": "Etsy",
+      "industry": "Craft E-Commerce / Marketplace",
+      "employee_count": 2600,
+      "annual_revenue_usd": 2800000000,
+      "deal_size_usd": 1800000,
+      "sales_cycle_days": 40,
+      "churned": false,
+      "ltv_usd": 10800000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Ads;AWS;Snowflake",
+      "country": "USA",
+      "founding_year": 2005
+    },
+    {
+      "company_name": "Leroy Merlin",
+      "industry": "Home Improvement Retail",
+      "employee_count": 120000,
+      "annual_revenue_usd": 14000000000,
+      "deal_size_usd": 2800000,
+      "sales_cycle_days": 50,
+      "churned": false,
+      "ltv_usd": 16800000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;SAP Hybris;Google Ads;Adobe",
+      "country": "France",
+      "founding_year": 1923
+    },
+    {
+      "company_name": "Rakuten France",
+      "industry": "E-Commerce / Marketplace",
+      "employee_count": 800,
+      "annual_revenue_usd": 400000000,
+      "deal_size_usd": 680000,
+      "sales_cycle_days": 35,
+      "churned": false,
+      "ltv_usd": 4080000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;Google Shopping;SAP",
+      "country": "Japan",
+      "founding_year": 1997
+    },
+    {
+      "company_name": "La Redoute",
+      "industry": "Fashion / Home E-Commerce",
+      "employee_count": 2000,
+      "annual_revenue_usd": 850000000,
+      "deal_size_usd": 720000,
+      "sales_cycle_days": 35,
+      "churned": false,
+      "ltv_usd": 4320000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Ads;SAP;Salesforce Marketing",
+      "country": "France",
+      "founding_year": 1837
+    },
+    {
+      "company_name": "bonprix (Otto Group)",
+      "industry": "Fashion E-Commerce",
+      "employee_count": 4000,
+      "annual_revenue_usd": 1800000000,
+      "deal_size_usd": 1200000,
+      "sales_cycle_days": 40,
+      "churned": false,
+      "ltv_usd": 7200000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Shopping;SAP;Salesforce Marketing",
+      "country": "Germany",
+      "founding_year": 1986
+    },
+    {
+      "company_name": "Sephora (LVMH)",
+      "industry": "Beauty Retail / E-Commerce",
+      "employee_count": 46000,
+      "annual_revenue_usd": 8000000000,
+      "deal_size_usd": 2800000,
+      "sales_cycle_days": 50,
+      "churned": false,
+      "ltv_usd": 16800000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Adobe Commerce;Salesforce;Google Ads",
+      "country": "France",
+      "founding_year": 1970
+    },
+    {
+      "company_name": "Vente-privee (Veepee)",
+      "industry": "Flash Sales / E-Commerce",
+      "employee_count": 5000,
+      "annual_revenue_usd": 3500000000,
+      "deal_size_usd": 1500000,
+      "sales_cycle_days": 35,
+      "churned": false,
+      "ltv_usd": 9000000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Ads;AWS;Salesforce",
+      "country": "France",
+      "founding_year": 2001
+    },
+    {
+      "company_name": "Kohl's",
+      "industry": "Department Store / Retail",
+      "employee_count": 100000,
+      "annual_revenue_usd": 18000000000,
+      "deal_size_usd": 3200000,
+      "sales_cycle_days": 50,
+      "churned": true,
+      "ltv_usd": 9600000,
+      "nps_score": 4,
+      "tech_stack": "The Trade Desk (migrated);Google DV360;Salesforce",
+      "country": "USA",
+      "founding_year": 1962
+    },
+    {
+      "company_name": "H&M Group",
+      "industry": "Fashion Retail",
+      "employee_count": 150000,
+      "annual_revenue_usd": 23000000000,
+      "deal_size_usd": 3800000,
+      "sales_cycle_days": 55,
+      "churned": false,
+      "ltv_usd": 22800000,
+      "nps_score": 7,
+      "tech_stack": "Criteo;Google Shopping;Salesforce;Adobe",
+      "country": "Sweden",
+      "founding_year": 1947
+    },
+    {
+      "company_name": "IKEA",
+      "industry": "Furniture / Home Retail",
+      "employee_count": 220000,
+      "annual_revenue_usd": 46000000000,
+      "deal_size_usd": 4500000,
+      "sales_cycle_days": 60,
+      "churned": false,
+      "ltv_usd": 27000000,
+      "nps_score": 8,
+      "tech_stack": "Criteo;Google Ads;Salesforce;Adobe Analytics",
+      "country": "Netherlands",
+      "founding_year": 1943
+    }
+  ]
 }

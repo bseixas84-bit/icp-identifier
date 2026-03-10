@@ -1,161 +1,691 @@
 {
-    "url": "nubank.com.br",
-    "dna": {
-        "pt": {
-            "company_name": "Nubank",
-            "tagline": "Reinventando os servicos financeiros",
-            "description": "Maior banco digital do mundo fora da Asia e maior fintech da America Latina. O Nubank atende mais de 100 milhoes de clientes com produtos financeiros 100% digitais, incluindo cartao de credito, conta digital, emprestimos pessoais, seguros, investimentos e solucoes para PMEs atraves do Nubank Empresas.",
-            "industry": "Servicos Financeiros",
-            "sub_industry": "Fintech / Banco Digital",
-            "business_model": "B2C (principal) + B2B (Nubank Empresas) + Marketplace financeiro",
-            "products": ["Cartao de credito Nubank (sem anuidade)", "NuConta (conta digital PF e PJ)", "Emprestimo pessoal", "Nubank Empresas (conta PJ para PMEs)", "NuInvest (plataforma de investimentos)", "Nu Seguros (seguro de vida e residencial)", "NuCripto (compra e venda de criptomoedas)", "Nubank Ultravioleta (cartao premium)", "NuPay (pagamentos online para e-commerces)", "Shopping Nu (cashback em compras)"],
-            "features": ["App 100% digital sem agencia fisica", "Atendimento ao cliente premiado via chat", "Cartao sem anuidade com controle em tempo real", "Rendimento automatico na NuConta (100% CDI)", "Open Finance integrado", "PIX com funcionalidades avancadas", "Limite flexivel de credito com IA", "Programa de recompensas Nubank+"],
-            "target_segments": ["Consumidores brasileiros (classes A, B e C)", "Jovens adultos (18-35 anos) - early adopters", "PMEs e MEIs (Nubank Empresas)", "Profissionais autonomos e freelancers", "E-commerces e marketplaces (NuPay)", "Empresas de tecnologia (parcerias corporativas)", "Investidores pessoa fisica (NuInvest)"],
-            "use_cases": ["Conta digital sem tarifas bancarias", "Cartao de credito com controle total pelo app", "Emprestimos com taxas competitivas", "Gestao financeira de pequenas empresas", "Pagamentos e recebimentos via PIX", "Investimentos em renda fixa e variavel", "Processamento de pagamentos para e-commerce"],
-            "technologies": ["Cloud (AWS - principal provedor)", "Python", "Clojure", "Kotlin", "Scala", "Kafka", "DynamoDB", "Kubernetes", "Machine Learning/IA para credito", "GraphQL", "Datomic", "Flutter (mobile)"],
-            "pricing_model": "Freemium - produtos basicos gratuitos, monetizacao via interchange de cartao, juros de emprestimos, taxas de investimento e assinaturas premium (Nubank+/Ultravioleta)",
-            "company_size_signals": "8.000+ funcionarios, 100+ milhoes de clientes, operacao em Brasil, Mexico e Colombia. Receita anual de US$ 9,8 bilhoes (2024). Listada na NYSE (NU) com valor de mercado de ~US$ 60 bilhoes.",
-            "founded_year": "2013",
-            "headquarters": "Sao Paulo, SP",
-            "geographic_reach": ["Brasil (principal)", "Mexico", "Colombia"],
-            "certifications": ["Licenca de banco comercial (Banco Central do Brasil)", "LGPD Compliance", "PCI DSS (seguranca de cartoes)", "SOC 2 Type II", "ISO 27001"],
-            "partnerships": ["AWS (infraestrutura cloud)", "Mastercard (bandeira de cartao)", "Visa (NuInvest)", "Creditas (credito com garantia)", "Olivia AI (gestao financeira)", "Marketplaces diversos (Shopping Nu)"],
-            "social_proof": ["100+ milhoes de clientes no Brasil", "Maior fintech da America Latina", "NPS acima de 90 (referencia mundial)", "Eleito melhor banco digital por Forbes e Euromoney", "IPO na NYSE em 2021 (maior IPO de fintech da historia)"],
-            "hiring_signals": ["Engenheiros de software (Clojure, Kotlin, Python)", "Data scientists e ML engineers", "Designers de produto (UX/UI)", "Analistas de risco de credito", "Especialistas em compliance e regulacao", "Product managers", "Engenheiros de seguranca"],
-            "content_themes": ["Educacao financeira", "Inclusao bancaria", "Inovacao em servicos financeiros", "Tecnologia e engenharia de software", "Cultura organizacional e diversidade"],
-            "tone_of_voice": "Jovem, acessivel, transparente, desburocratizado, com toque de humor"
-        },
-        "en": {
-            "company_name": "Nubank",
-            "tagline": "Reinventing financial services",
-            "description": "The largest digital bank in the world outside of Asia and the largest fintech in Latin America. Nubank serves more than 100 million customers with 100% digital financial products, including credit cards, digital accounts, personal loans, insurance, investments and SMB solutions through Nubank Empresas.",
-            "industry": "Financial Services",
-            "sub_industry": "Fintech / Digital Bank",
-            "business_model": "B2C (primary) + B2B (Nubank Empresas) + Financial marketplace",
-            "products": ["Nubank credit card (no annual fee)", "NuConta (digital account for individuals and businesses)", "Personal loan", "Nubank Empresas (business account for SMBs)", "NuInvest (investment platform)", "Nu Seguros (life and home insurance)", "NuCripto (cryptocurrency trading)", "Nubank Ultravioleta (premium card)", "NuPay (online payments for e-commerces)", "Shopping Nu (cashback on purchases)"],
-            "features": ["100% digital app with no physical branches", "Award-winning customer service via chat", "No-annual-fee card with real-time controls", "Automatic yield on NuConta (100% CDI)", "Integrated Open Finance", "PIX with advanced features", "Flexible AI-powered credit limits", "Nubank+ rewards program"],
-            "target_segments": ["Brazilian consumers (classes A, B and C)", "Young adults (18-35 years) - early adopters", "SMBs and sole proprietors (Nubank Empresas)", "Freelancers and self-employed professionals", "E-commerces and marketplaces (NuPay)", "Technology companies (corporate partnerships)", "Individual investors (NuInvest)"],
-            "use_cases": ["Digital account with no banking fees", "Credit card with full control via app", "Loans with competitive rates", "Financial management for small businesses", "Payments and receipts via PIX", "Fixed and variable income investments", "Payment processing for e-commerce"],
-            "technologies": ["Cloud (AWS - primary provider)", "Python", "Clojure", "Kotlin", "Scala", "Kafka", "DynamoDB", "Kubernetes", "Machine Learning/AI for credit", "GraphQL", "Datomic", "Flutter (mobile)"],
-            "pricing_model": "Freemium - free basic products, monetization via card interchange, loan interest, investment fees and premium subscriptions (Nubank+/Ultravioleta)",
-            "company_size_signals": "8,000+ employees, 100+ million customers, operations in Brazil, Mexico and Colombia. Annual revenue of US$ 9.8 billion (2024). Listed on NYSE (NU) with market cap of ~US$ 60 billion.",
-            "founded_year": "2013",
-            "headquarters": "Sao Paulo, SP",
-            "geographic_reach": ["Brazil (primary)", "Mexico", "Colombia"],
-            "certifications": ["Commercial bank license (Central Bank of Brazil)", "LGPD Compliance", "PCI DSS (card security)", "SOC 2 Type II", "ISO 27001"],
-            "partnerships": ["AWS (cloud infrastructure)", "Mastercard (card network)", "Visa (NuInvest)", "Creditas (secured credit)", "Olivia AI (financial management)", "Various marketplaces (Shopping Nu)"],
-            "social_proof": ["100+ million customers in Brazil", "Largest fintech in Latin America", "NPS above 90 (world-class benchmark)", "Voted best digital bank by Forbes and Euromoney", "NYSE IPO in 2021 (largest fintech IPO in history)"],
-            "hiring_signals": ["Software engineers (Clojure, Kotlin, Python)", "Data scientists and ML engineers", "Product designers (UX/UI)", "Credit risk analysts", "Compliance and regulation specialists", "Product managers", "Security engineers"],
-            "content_themes": ["Financial education", "Banking inclusion", "Innovation in financial services", "Technology and software engineering", "Organizational culture and diversity"],
-            "tone_of_voice": "Young, accessible, transparent, unbureaucratic, with a touch of humor"
-        }
+  "url": "nubank.com.br",
+  "dna": {
+    "pt": {
+      "company_name": "Nubank",
+      "tagline": "Reinventando os servicos financeiros",
+      "description": "Maior banco digital do mundo fora da Asia e maior fintech da America Latina. O Nubank atende mais de 100 milhoes de clientes com produtos financeiros 100% digitais, incluindo cartao de credito, conta digital, emprestimos pessoais, seguros, investimentos e solucoes para PMEs atraves do Nubank Empresas.",
+      "industry": "Servicos Financeiros",
+      "sub_industry": "Fintech / Banco Digital",
+      "business_model": "B2C (principal) + B2B (Nubank Empresas) + Marketplace financeiro",
+      "products": [
+        "Cartao de credito Nubank (sem anuidade)",
+        "NuConta (conta digital PF e PJ)",
+        "Emprestimo pessoal",
+        "Nubank Empresas (conta PJ para PMEs)",
+        "NuInvest (plataforma de investimentos)",
+        "Nu Seguros (seguro de vida e residencial)",
+        "NuCripto (compra e venda de criptomoedas)",
+        "Nubank Ultravioleta (cartao premium)",
+        "NuPay (pagamentos online para e-commerces)",
+        "Shopping Nu (cashback em compras)"
+      ],
+      "features": [
+        "App 100% digital sem agencia fisica",
+        "Atendimento ao cliente premiado via chat",
+        "Cartao sem anuidade com controle em tempo real",
+        "Rendimento automatico na NuConta (100% CDI)",
+        "Open Finance integrado",
+        "PIX com funcionalidades avancadas",
+        "Limite flexivel de credito com IA",
+        "Programa de recompensas Nubank+"
+      ],
+      "target_segments": [
+        "Consumidores brasileiros (classes A, B e C)",
+        "Jovens adultos (18-35 anos) - early adopters",
+        "PMEs e MEIs (Nubank Empresas)",
+        "Profissionais autonomos e freelancers",
+        "E-commerces e marketplaces (NuPay)",
+        "Empresas de tecnologia (parcerias corporativas)",
+        "Investidores pessoa fisica (NuInvest)"
+      ],
+      "use_cases": [
+        "Conta digital sem tarifas bancarias",
+        "Cartao de credito com controle total pelo app",
+        "Emprestimos com taxas competitivas",
+        "Gestao financeira de pequenas empresas",
+        "Pagamentos e recebimentos via PIX",
+        "Investimentos em renda fixa e variavel",
+        "Processamento de pagamentos para e-commerce"
+      ],
+      "technologies": [
+        "Cloud (AWS - principal provedor)",
+        "Python",
+        "Clojure",
+        "Kotlin",
+        "Scala",
+        "Kafka",
+        "DynamoDB",
+        "Kubernetes",
+        "Machine Learning/IA para credito",
+        "GraphQL",
+        "Datomic",
+        "Flutter (mobile)"
+      ],
+      "pricing_model": "Freemium - produtos basicos gratuitos, monetizacao via interchange de cartao, juros de emprestimos, taxas de investimento e assinaturas premium (Nubank+/Ultravioleta)",
+      "company_size_signals": "8.000+ funcionarios, 100+ milhoes de clientes, operacao em Brasil, Mexico e Colombia. Receita anual de US$ 9,8 bilhoes (2024). Listada na NYSE (NU) com valor de mercado de ~US$ 60 bilhoes.",
+      "founded_year": "2013",
+      "headquarters": "Sao Paulo, SP",
+      "geographic_reach": [
+        "Brasil (principal)",
+        "Mexico",
+        "Colombia"
+      ],
+      "certifications": [
+        "Licenca de banco comercial (Banco Central do Brasil)",
+        "LGPD Compliance",
+        "PCI DSS (seguranca de cartoes)",
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "partnerships": [
+        "AWS (infraestrutura cloud)",
+        "Mastercard (bandeira de cartao)",
+        "Visa (NuInvest)",
+        "Creditas (credito com garantia)",
+        "Olivia AI (gestao financeira)",
+        "Marketplaces diversos (Shopping Nu)"
+      ],
+      "social_proof": [
+        "100+ milhoes de clientes no Brasil",
+        "Maior fintech da America Latina",
+        "NPS acima de 90 (referencia mundial)",
+        "Eleito melhor banco digital por Forbes e Euromoney",
+        "IPO na NYSE em 2021 (maior IPO de fintech da historia)"
+      ],
+      "hiring_signals": [
+        "Engenheiros de software (Clojure, Kotlin, Python)",
+        "Data scientists e ML engineers",
+        "Designers de produto (UX/UI)",
+        "Analistas de risco de credito",
+        "Especialistas em compliance e regulacao",
+        "Product managers",
+        "Engenheiros de seguranca"
+      ],
+      "content_themes": [
+        "Educacao financeira",
+        "Inclusao bancaria",
+        "Inovacao em servicos financeiros",
+        "Tecnologia e engenharia de software",
+        "Cultura organizacional e diversidade"
+      ],
+      "tone_of_voice": "Jovem, acessivel, transparente, desburocratizado, com toque de humor"
     },
-    "market": {
-        "pt": {
-            "market_size_estimate": "Mercado de fintechs no Brasil: ~R$ 200 bilhoes em transacoes (2024). Mercado de servicos financeiros digitais total: ~R$ 800 bilhoes. Mercado de pagamentos digitais: ~R$ 350 bilhoes.",
-            "growth_trend": "Crescente - penetracao de banking digital passando de 60% da populacao adulta, PIX processando 40+ bilhoes de transacoes/ano, Open Finance acelerando competicao, expansao de credito digital para classes C e D",
-            "likely_competitors": [
-                "Banco Inter - Banco digital completo com marketplace e shopping integrado",
-                "C6 Bank - Banco digital com conta global e cartao carbono zero",
-                "PicPay - Super app de pagamentos com banco digital integrado",
-                "Mercado Pago - Fintech do Mercado Livre com credito e conta digital",
-                "Neon - Banco digital focado em classes C e D",
-                "BTG Pactual digital - Plataforma de investimentos e banco digital premium",
-                "Itau (Iti) - Conta digital do maior banco privado do Brasil"
-            ],
-            "competitive_advantages": ["Maior base de clientes de banco digital da America Latina", "NPS consistentemente acima de 90", "Custo de aquisicao de cliente extremamente baixo (boca a boca)", "Stack tecnologica proprietaria e escalavel", "Marca com altissimo reconhecimento e confianca", "Cultura de engenharia de classe mundial"],
-            "market_challenges": ["Concorrencia crescente de bancos tradicionais digitalizando", "Regulacao bancaria em constante evolucao", "Risco de credito em expansao para publicos de menor renda", "Monetizacao de base de clientes que usa apenas produtos gratuitos", "Expansao internacional com diferentes regulacoes"],
-            "customer_pain_points": ["Tarifas abusivas de bancos tradicionais", "Burocracia para abrir contas e obter credito", "Falta de transparencia em taxas e juros", "Atendimento ruim dos bancos tradicionais", "Dificuldade de controle financeiro em tempo real", "PMEs pagando tarifas altas por servicos bancarios basicos"],
-            "buying_triggers": ["Insatisfacao com banco tradicional (tarifas, atendimento)", "Primeiro emprego ou primeiro cartao de credito", "Abertura de empresa (MEI/PME) precisando de conta PJ", "Busca por rendimento melhor que poupanca", "Necessidade de solucao de pagamento para e-commerce", "Recomendacao de amigos ou familia", "Migracao para Open Finance"],
-            "decision_makers": ["Consumidor final (PF)", "Dono de pequeno negocio / MEI", "CFO / Diretor financeiro (parcerias corporativas)", "CTO (integracoes NuPay)", "Head de pagamentos (e-commerces)"],
-            "sales_cycle_estimate": "Instantaneo para PF (self-service via app), 7-30 dias para conta PJ (Nubank Empresas), 30-90 dias para parcerias corporativas e integracoes (NuPay)",
-            "ideal_customer_characteristics": [
-                "Consumidor brasileiro bancarizado ou em processo de bancarizacao",
-                "Pessoa conectada a smartphone com acesso a internet",
-                "PME ou MEI buscando conta empresarial digital sem tarifas",
-                "E-commerce brasileiro precisando de gateway de pagamento competitivo",
-                "Empresa de tecnologia buscando parceria financeira integrada (embedded finance)",
-                "Investidor pessoa fisica buscando plataforma acessivel",
-                "Cliente insatisfeito com bancos tradicionais",
-                "Jovem adulto (18-35) buscando primeiro produto financeiro",
-                "Freelancer ou autonomo precisando de gestao financeira simplificada",
-                "Empresa mid-market buscando solucoes de folha de pagamento e beneficios"
-            ],
-            "anti_icp_signals": [
-                "Grande corporacao com relacionamento consolidado com banco de investimento (JP Morgan, Goldman)",
-                "Empresa que necessita de agencia fisica e gerente presencial",
-                "Cliente sem acesso a smartphone ou internet",
-                "Pessoa que prefere lidar com dinheiro em especie exclusivamente",
-                "Empresa com necessidades complexas de trade finance e cambio internacional",
-                "Corporacao que exige tesouraria sofisticada e cash management enterprise",
-                "Cliente com restricoes severas no Serasa/SPC sem possibilidade de credito"
-            ],
-            "expansion_opportunities": ["Expansao de Nubank Empresas para mid-market", "Embedded finance (NuPay para mais e-commerces)", "Credito consignado e credito com garantia", "Seguros mais sofisticados (auto, saude)", "Marketplace financeiro completo", "Expansao agressiva no Mexico e Colombia"],
-            "industry_trends": ["PIX como padrao de pagamento dominante no Brasil", "Open Finance acelerando portabilidade", "IA generativa para atendimento e analise de credito", "Embedded finance em todo tipo de plataforma", "Regulacao de criptomoedas pelo Banco Central", "Consolidacao do mercado - fintechs menores sendo adquiridas", "Banking as a Service (BaaS) crescendo"]
-        },
-        "en": {
-            "market_size_estimate": "Fintech market in Brazil: ~R$ 200 billion in transactions (2024). Total digital financial services market: ~R$ 800 billion. Digital payments market: ~R$ 350 billion.",
-            "growth_trend": "Growing - digital banking penetration surpassing 60% of the adult population, PIX processing 40+ billion transactions/year, Open Finance accelerating competition, digital credit expanding to lower-income classes C and D",
-            "likely_competitors": [
-                "Banco Inter - Full digital bank with integrated marketplace and shopping",
-                "C6 Bank - Digital bank with global account and carbon-zero card",
-                "PicPay - Payments super app with integrated digital bank",
-                "Mercado Pago - Mercado Livre's fintech with credit and digital account",
-                "Neon - Digital bank focused on lower-income classes C and D",
-                "BTG Pactual digital - Investment platform and premium digital bank",
-                "Itau (Iti) - Digital account from Brazil's largest private bank"
-            ],
-            "competitive_advantages": ["Largest digital bank customer base in Latin America", "NPS consistently above 90", "Extremely low customer acquisition cost (word of mouth)", "Proprietary and scalable technology stack", "Brand with very high recognition and trust", "World-class engineering culture"],
-            "market_challenges": ["Growing competition from traditional banks going digital", "Constantly evolving banking regulation", "Credit risk in expansion to lower-income audiences", "Monetization of customer base that only uses free products", "International expansion with different regulations"],
-            "customer_pain_points": ["Excessive fees from traditional banks", "Bureaucracy to open accounts and obtain credit", "Lack of transparency in rates and interest", "Poor customer service from traditional banks", "Difficulty with real-time financial control", "SMBs paying high fees for basic banking services"],
-            "buying_triggers": ["Dissatisfaction with traditional bank (fees, service)", "First job or first credit card", "Opening a business (sole proprietor/SMB) needing a business account", "Seeking better returns than savings accounts", "Need for payment solution for e-commerce", "Recommendation from friends or family", "Migration to Open Finance"],
-            "decision_makers": ["End consumer (individual)", "Small business owner / sole proprietor", "CFO / Finance Director (corporate partnerships)", "CTO (NuPay integrations)", "Head of Payments (e-commerces)"],
-            "sales_cycle_estimate": "Instant for individuals (self-service via app), 7-30 days for business accounts (Nubank Empresas), 30-90 days for corporate partnerships and integrations (NuPay)",
-            "ideal_customer_characteristics": [
-                "Brazilian consumer who is banked or in the process of becoming banked",
-                "Smartphone-connected person with internet access",
-                "SMB or sole proprietor seeking a fee-free digital business account",
-                "Brazilian e-commerce needing a competitive payment gateway",
-                "Technology company seeking integrated financial partnership (embedded finance)",
-                "Individual investor seeking an accessible platform",
-                "Customer dissatisfied with traditional banks",
-                "Young adult (18-35) seeking their first financial product",
-                "Freelancer or self-employed person needing simplified financial management",
-                "Mid-market company seeking payroll and benefits solutions"
-            ],
-            "anti_icp_signals": [
-                "Large corporation with established investment bank relationship (JP Morgan, Goldman)",
-                "Company that requires physical branches and in-person account managers",
-                "Customer without smartphone or internet access",
-                "Person who prefers to deal exclusively with cash",
-                "Company with complex trade finance and international exchange needs",
-                "Corporation requiring sophisticated treasury and enterprise cash management",
-                "Customer with severe Serasa/SPC restrictions with no possibility of credit"
-            ],
-            "expansion_opportunities": ["Expansion of Nubank Empresas to mid-market", "Embedded finance (NuPay for more e-commerces)", "Payroll-deducted loans and secured credit", "More sophisticated insurance (auto, health)", "Complete financial marketplace", "Aggressive expansion in Mexico and Colombia"],
-            "industry_trends": ["PIX as dominant payment standard in Brazil", "Open Finance accelerating portability", "Generative AI for customer service and credit analysis", "Embedded finance across all types of platforms", "Cryptocurrency regulation by the Central Bank", "Market consolidation - smaller fintechs being acquired", "Banking as a Service (BaaS) growing"]
-        }
+    "en": {
+      "company_name": "Nubank",
+      "tagline": "Reinventing financial services",
+      "description": "The largest digital bank in the world outside of Asia and the largest fintech in Latin America. Nubank serves more than 100 million customers with 100% digital financial products, including credit cards, digital accounts, personal loans, insurance, investments and SMB solutions through Nubank Empresas.",
+      "industry": "Financial Services",
+      "sub_industry": "Fintech / Digital Bank",
+      "business_model": "B2C (primary) + B2B (Nubank Empresas) + Financial marketplace",
+      "products": [
+        "Nubank credit card (no annual fee)",
+        "NuConta (digital account for individuals and businesses)",
+        "Personal loan",
+        "Nubank Empresas (business account for SMBs)",
+        "NuInvest (investment platform)",
+        "Nu Seguros (life and home insurance)",
+        "NuCripto (cryptocurrency trading)",
+        "Nubank Ultravioleta (premium card)",
+        "NuPay (online payments for e-commerces)",
+        "Shopping Nu (cashback on purchases)"
+      ],
+      "features": [
+        "100% digital app with no physical branches",
+        "Award-winning customer service via chat",
+        "No-annual-fee card with real-time controls",
+        "Automatic yield on NuConta (100% CDI)",
+        "Integrated Open Finance",
+        "PIX with advanced features",
+        "Flexible AI-powered credit limits",
+        "Nubank+ rewards program"
+      ],
+      "target_segments": [
+        "Brazilian consumers (classes A, B and C)",
+        "Young adults (18-35 years) - early adopters",
+        "SMBs and sole proprietors (Nubank Empresas)",
+        "Freelancers and self-employed professionals",
+        "E-commerces and marketplaces (NuPay)",
+        "Technology companies (corporate partnerships)",
+        "Individual investors (NuInvest)"
+      ],
+      "use_cases": [
+        "Digital account with no banking fees",
+        "Credit card with full control via app",
+        "Loans with competitive rates",
+        "Financial management for small businesses",
+        "Payments and receipts via PIX",
+        "Fixed and variable income investments",
+        "Payment processing for e-commerce"
+      ],
+      "technologies": [
+        "Cloud (AWS - primary provider)",
+        "Python",
+        "Clojure",
+        "Kotlin",
+        "Scala",
+        "Kafka",
+        "DynamoDB",
+        "Kubernetes",
+        "Machine Learning/AI for credit",
+        "GraphQL",
+        "Datomic",
+        "Flutter (mobile)"
+      ],
+      "pricing_model": "Freemium - free basic products, monetization via card interchange, loan interest, investment fees and premium subscriptions (Nubank+/Ultravioleta)",
+      "company_size_signals": "8,000+ employees, 100+ million customers, operations in Brazil, Mexico and Colombia. Annual revenue of US$ 9.8 billion (2024). Listed on NYSE (NU) with market cap of ~US$ 60 billion.",
+      "founded_year": "2013",
+      "headquarters": "Sao Paulo, SP",
+      "geographic_reach": [
+        "Brazil (primary)",
+        "Mexico",
+        "Colombia"
+      ],
+      "certifications": [
+        "Commercial bank license (Central Bank of Brazil)",
+        "LGPD Compliance",
+        "PCI DSS (card security)",
+        "SOC 2 Type II",
+        "ISO 27001"
+      ],
+      "partnerships": [
+        "AWS (cloud infrastructure)",
+        "Mastercard (card network)",
+        "Visa (NuInvest)",
+        "Creditas (secured credit)",
+        "Olivia AI (financial management)",
+        "Various marketplaces (Shopping Nu)"
+      ],
+      "social_proof": [
+        "100+ million customers in Brazil",
+        "Largest fintech in Latin America",
+        "NPS above 90 (world-class benchmark)",
+        "Voted best digital bank by Forbes and Euromoney",
+        "NYSE IPO in 2021 (largest fintech IPO in history)"
+      ],
+      "hiring_signals": [
+        "Software engineers (Clojure, Kotlin, Python)",
+        "Data scientists and ML engineers",
+        "Product designers (UX/UI)",
+        "Credit risk analysts",
+        "Compliance and regulation specialists",
+        "Product managers",
+        "Security engineers"
+      ],
+      "content_themes": [
+        "Financial education",
+        "Banking inclusion",
+        "Innovation in financial services",
+        "Technology and software engineering",
+        "Organizational culture and diversity"
+      ],
+      "tone_of_voice": "Young, accessible, transparent, unbureaucratic, with a touch of humor"
+    }
+  },
+  "market": {
+    "pt": {
+      "market_size_estimate": "Mercado de fintechs no Brasil: ~R$ 200 bilhoes em transacoes (2024). Mercado de servicos financeiros digitais total: ~R$ 800 bilhoes. Mercado de pagamentos digitais: ~R$ 350 bilhoes.",
+      "growth_trend": "Crescente - penetracao de banking digital passando de 60% da populacao adulta, PIX processando 40+ bilhoes de transacoes/ano, Open Finance acelerando competicao, expansao de credito digital para classes C e D",
+      "likely_competitors": [
+        "Banco Inter - Banco digital completo com marketplace e shopping integrado",
+        "C6 Bank - Banco digital com conta global e cartao carbono zero",
+        "PicPay - Super app de pagamentos com banco digital integrado",
+        "Mercado Pago - Fintech do Mercado Livre com credito e conta digital",
+        "Neon - Banco digital focado em classes C e D",
+        "BTG Pactual digital - Plataforma de investimentos e banco digital premium",
+        "Itau (Iti) - Conta digital do maior banco privado do Brasil"
+      ],
+      "competitive_advantages": [
+        "Maior base de clientes de banco digital da America Latina",
+        "NPS consistentemente acima de 90",
+        "Custo de aquisicao de cliente extremamente baixo (boca a boca)",
+        "Stack tecnologica proprietaria e escalavel",
+        "Marca com altissimo reconhecimento e confianca",
+        "Cultura de engenharia de classe mundial"
+      ],
+      "market_challenges": [
+        "Concorrencia crescente de bancos tradicionais digitalizando",
+        "Regulacao bancaria em constante evolucao",
+        "Risco de credito em expansao para publicos de menor renda",
+        "Monetizacao de base de clientes que usa apenas produtos gratuitos",
+        "Expansao internacional com diferentes regulacoes"
+      ],
+      "customer_pain_points": [
+        "Tarifas abusivas de bancos tradicionais",
+        "Burocracia para abrir contas e obter credito",
+        "Falta de transparencia em taxas e juros",
+        "Atendimento ruim dos bancos tradicionais",
+        "Dificuldade de controle financeiro em tempo real",
+        "PMEs pagando tarifas altas por servicos bancarios basicos"
+      ],
+      "buying_triggers": [
+        "Insatisfacao com banco tradicional (tarifas, atendimento)",
+        "Primeiro emprego ou primeiro cartao de credito",
+        "Abertura de empresa (MEI/PME) precisando de conta PJ",
+        "Busca por rendimento melhor que poupanca",
+        "Necessidade de solucao de pagamento para e-commerce",
+        "Recomendacao de amigos ou familia",
+        "Migracao para Open Finance"
+      ],
+      "decision_makers": [
+        "Consumidor final (PF)",
+        "Dono de pequeno negocio / MEI",
+        "CFO / Diretor financeiro (parcerias corporativas)",
+        "CTO (integracoes NuPay)",
+        "Head de pagamentos (e-commerces)"
+      ],
+      "sales_cycle_estimate": "Instantaneo para PF (self-service via app), 7-30 dias para conta PJ (Nubank Empresas), 30-90 dias para parcerias corporativas e integracoes (NuPay)",
+      "ideal_customer_characteristics": [
+        "Consumidor brasileiro bancarizado ou em processo de bancarizacao",
+        "Pessoa conectada a smartphone com acesso a internet",
+        "PME ou MEI buscando conta empresarial digital sem tarifas",
+        "E-commerce brasileiro precisando de gateway de pagamento competitivo",
+        "Empresa de tecnologia buscando parceria financeira integrada (embedded finance)",
+        "Investidor pessoa fisica buscando plataforma acessivel",
+        "Cliente insatisfeito com bancos tradicionais",
+        "Jovem adulto (18-35) buscando primeiro produto financeiro",
+        "Freelancer ou autonomo precisando de gestao financeira simplificada",
+        "Empresa mid-market buscando solucoes de folha de pagamento e beneficios"
+      ],
+      "anti_icp_signals": [
+        "Grande corporacao com relacionamento consolidado com banco de investimento (JP Morgan, Goldman)",
+        "Empresa que necessita de agencia fisica e gerente presencial",
+        "Cliente sem acesso a smartphone ou internet",
+        "Pessoa que prefere lidar com dinheiro em especie exclusivamente",
+        "Empresa com necessidades complexas de trade finance e cambio internacional",
+        "Corporacao que exige tesouraria sofisticada e cash management enterprise",
+        "Cliente com restricoes severas no Serasa/SPC sem possibilidade de credito"
+      ],
+      "expansion_opportunities": [
+        "Expansao de Nubank Empresas para mid-market",
+        "Embedded finance (NuPay para mais e-commerces)",
+        "Credito consignado e credito com garantia",
+        "Seguros mais sofisticados (auto, saude)",
+        "Marketplace financeiro completo",
+        "Expansao agressiva no Mexico e Colombia"
+      ],
+      "industry_trends": [
+        "PIX como padrao de pagamento dominante no Brasil",
+        "Open Finance acelerando portabilidade",
+        "IA generativa para atendimento e analise de credito",
+        "Embedded finance em todo tipo de plataforma",
+        "Regulacao de criptomoedas pelo Banco Central",
+        "Consolidacao do mercado - fintechs menores sendo adquiridas",
+        "Banking as a Service (BaaS) crescendo"
+      ]
     },
-    "clients": [
-        {"company_name": "TechFlow Solucoes Digitais", "industry": "Tecnologia", "employee_count": 85, "annual_revenue_usd": 12000000, "deal_size_usd": 48000, "sales_cycle_days": 15, "churned": false, "ltv_usd": 240000, "nps_score": 10, "tech_stack": "Cloud;AWS;React;Node.js;Nubank Empresas", "country": "Brazil", "founding_year": 2018},
-        {"company_name": "Barbearia Clube Premium", "industry": "Servicos Pessoais", "employee_count": 35, "annual_revenue_usd": 2800000, "deal_size_usd": 18000, "sales_cycle_days": 8, "churned": false, "ltv_usd": 90000, "nps_score": 9, "tech_stack": "Cloud;SaaS;PIX;Nubank Empresas", "country": "Brazil", "founding_year": 2019},
-        {"company_name": "Cafe Especial Origens", "industry": "Alimentacao e Bebidas", "employee_count": 22, "annual_revenue_usd": 1500000, "deal_size_usd": 9600, "sales_cycle_days": 5, "churned": false, "ltv_usd": 48000, "nps_score": 10, "tech_stack": "Cloud;iFood;Shopify;Nubank Empresas", "country": "Brazil", "founding_year": 2020},
-        {"company_name": "Movva Educacao Digital", "industry": "EdTech", "employee_count": 120, "annual_revenue_usd": 18000000, "deal_size_usd": 72000, "sales_cycle_days": 22, "churned": false, "ltv_usd": 360000, "nps_score": 9, "tech_stack": "Cloud;AWS;Python;Flutter;NuPay", "country": "Brazil", "founding_year": 2016},
-        {"company_name": "Loja Virtuosa E-commerce", "industry": "E-commerce", "employee_count": 60, "annual_revenue_usd": 25000000, "deal_size_usd": 96000, "sales_cycle_days": 18, "churned": false, "ltv_usd": 480000, "nps_score": 9, "tech_stack": "Cloud;AWS;VTEX;NuPay;PIX", "country": "Brazil", "founding_year": 2017},
-        {"company_name": "Studio Criativo Pixel", "industry": "Design e Marketing", "employee_count": 18, "annual_revenue_usd": 1200000, "deal_size_usd": 7200, "sales_cycle_days": 5, "churned": false, "ltv_usd": 36000, "nps_score": 10, "tech_stack": "Cloud;Figma;Adobe;Nubank Empresas", "country": "Brazil", "founding_year": 2021},
-        {"company_name": "PetVida Veterinaria", "industry": "Saude Animal", "employee_count": 45, "annual_revenue_usd": 4500000, "deal_size_usd": 24000, "sales_cycle_days": 10, "churned": false, "ltv_usd": 120000, "nps_score": 8, "tech_stack": "Cloud;SaaS;PIX;Nubank Empresas", "country": "Brazil", "founding_year": 2015},
-        {"company_name": "Atletica Suplementos", "industry": "Varejo / Saude", "employee_count": 90, "annual_revenue_usd": 15000000, "deal_size_usd": 60000, "sales_cycle_days": 14, "churned": false, "ltv_usd": 300000, "nps_score": 9, "tech_stack": "Cloud;Shopify;AWS;NuPay;PIX", "country": "Brazil", "founding_year": 2014},
-        {"company_name": "Construtora Vertice Nova", "industry": "Construcao Civil", "employee_count": 200, "annual_revenue_usd": 40000000, "deal_size_usd": 120000, "sales_cycle_days": 25, "churned": false, "ltv_usd": 600000, "nps_score": 8, "tech_stack": "Cloud;Azure;SAP;Nubank Empresas", "country": "Brazil", "founding_year": 2008},
-        {"company_name": "Drogaria Popular Mais", "industry": "Varejo Farmaceutico", "employee_count": 150, "annual_revenue_usd": 20000000, "deal_size_usd": 72000, "sales_cycle_days": 12, "churned": false, "ltv_usd": 360000, "nps_score": 8, "tech_stack": "Cloud;SaaS;NuPay;PIX;Maquininha", "country": "Brazil", "founding_year": 2010},
-        {"company_name": "Nexo Contabilidade Digital", "industry": "Contabilidade", "employee_count": 30, "annual_revenue_usd": 2200000, "deal_size_usd": 14400, "sales_cycle_days": 7, "churned": false, "ltv_usd": 72000, "nps_score": 10, "tech_stack": "Cloud;Dominio;Conta Azul;Nubank Empresas", "country": "Brazil", "founding_year": 2019},
-        {"company_name": "FoodTech Delivery Express", "industry": "FoodTech", "employee_count": 70, "annual_revenue_usd": 8000000, "deal_size_usd": 36000, "sales_cycle_days": 12, "churned": false, "ltv_usd": 180000, "nps_score": 9, "tech_stack": "Cloud;AWS;React Native;NuPay;PIX", "country": "Brazil", "founding_year": 2020},
-        {"company_name": "Solar Energy Brasil", "industry": "Energia Renovavel", "employee_count": 110, "annual_revenue_usd": 22000000, "deal_size_usd": 84000, "sales_cycle_days": 20, "churned": false, "ltv_usd": 420000, "nps_score": 8, "tech_stack": "Cloud;Salesforce;AWS;Nubank Empresas", "country": "Brazil", "founding_year": 2016},
-        {"company_name": "Armazem Dona Maria", "industry": "Comercio Varejista", "employee_count": 8, "annual_revenue_usd": 350000, "deal_size_usd": 2400, "sales_cycle_days": 60, "churned": true, "ltv_usd": 2400, "nps_score": 3, "tech_stack": "Legacy;Caderno;Dinheiro;Sem sistema", "country": "Brazil", "founding_year": 2005},
-        {"company_name": "Transportadora Rodoeixo", "industry": "Transporte", "employee_count": 95, "annual_revenue_usd": 9000000, "deal_size_usd": 36000, "sales_cycle_days": 55, "churned": true, "ltv_usd": 36000, "nps_score": 4, "tech_stack": "Legacy;On-premise;Banco tradicional;Boleto", "country": "Brazil", "founding_year": 1997},
-        {"company_name": "Confeccoes Tres Estrelas", "industry": "Textil", "employee_count": 40, "annual_revenue_usd": 3000000, "deal_size_usd": 12000, "sales_cycle_days": 65, "churned": true, "ltv_usd": 12000, "nps_score": 3, "tech_stack": "Legacy;Planilha;Banco tradicional;Cheque", "country": "Brazil", "founding_year": 1992},
-        {"company_name": "Grafica Real Impressoes", "industry": "Grafica", "employee_count": 25, "annual_revenue_usd": 1800000, "deal_size_usd": 7200, "sales_cycle_days": 70, "churned": true, "ltv_usd": 7200, "nps_score": 2, "tech_stack": "Legacy;Windows XP;Excel;Banco tradicional", "country": "Brazil", "founding_year": 1988},
-        {"company_name": "Metalmecanica Pesada Ltda", "industry": "Industria Metalurgica", "employee_count": 180, "annual_revenue_usd": 15000000, "deal_size_usd": 48000, "sales_cycle_days": 75, "churned": true, "ltv_usd": 48000, "nps_score": 4, "tech_stack": "Legacy;On-premise;SAP antigo;Banco corporativo", "country": "Brazil", "founding_year": 1985},
-        {"company_name": "Posto Bandeirante Combustiveis", "industry": "Combustiveis", "employee_count": 15, "annual_revenue_usd": 5000000, "deal_size_usd": 9600, "sales_cycle_days": 58, "churned": true, "ltv_usd": 9600, "nps_score": 3, "tech_stack": "Legacy;TEF antigo;Banco tradicional;Boleto", "country": "Brazil", "founding_year": 2001},
-        {"company_name": "Agropecuaria Sertao Forte", "industry": "Agronegocio", "employee_count": 50, "annual_revenue_usd": 7000000, "deal_size_usd": 18000, "sales_cycle_days": 80, "churned": true, "ltv_usd": 18000, "nps_score": 2, "tech_stack": "Legacy;Sem internet estavel;Banco cooperativa;Dinheiro", "country": "Brazil", "founding_year": 1995}
-    ]
+    "en": {
+      "market_size_estimate": "Fintech market in Brazil: ~R$ 200 billion in transactions (2024). Total digital financial services market: ~R$ 800 billion. Digital payments market: ~R$ 350 billion.",
+      "growth_trend": "Growing - digital banking penetration surpassing 60% of the adult population, PIX processing 40+ billion transactions/year, Open Finance accelerating competition, digital credit expanding to lower-income classes C and D",
+      "likely_competitors": [
+        "Banco Inter - Full digital bank with integrated marketplace and shopping",
+        "C6 Bank - Digital bank with global account and carbon-zero card",
+        "PicPay - Payments super app with integrated digital bank",
+        "Mercado Pago - Mercado Livre's fintech with credit and digital account",
+        "Neon - Digital bank focused on lower-income classes C and D",
+        "BTG Pactual digital - Investment platform and premium digital bank",
+        "Itau (Iti) - Digital account from Brazil's largest private bank"
+      ],
+      "competitive_advantages": [
+        "Largest digital bank customer base in Latin America",
+        "NPS consistently above 90",
+        "Extremely low customer acquisition cost (word of mouth)",
+        "Proprietary and scalable technology stack",
+        "Brand with very high recognition and trust",
+        "World-class engineering culture"
+      ],
+      "market_challenges": [
+        "Growing competition from traditional banks going digital",
+        "Constantly evolving banking regulation",
+        "Credit risk in expansion to lower-income audiences",
+        "Monetization of customer base that only uses free products",
+        "International expansion with different regulations"
+      ],
+      "customer_pain_points": [
+        "Excessive fees from traditional banks",
+        "Bureaucracy to open accounts and obtain credit",
+        "Lack of transparency in rates and interest",
+        "Poor customer service from traditional banks",
+        "Difficulty with real-time financial control",
+        "SMBs paying high fees for basic banking services"
+      ],
+      "buying_triggers": [
+        "Dissatisfaction with traditional bank (fees, service)",
+        "First job or first credit card",
+        "Opening a business (sole proprietor/SMB) needing a business account",
+        "Seeking better returns than savings accounts",
+        "Need for payment solution for e-commerce",
+        "Recommendation from friends or family",
+        "Migration to Open Finance"
+      ],
+      "decision_makers": [
+        "End consumer (individual)",
+        "Small business owner / sole proprietor",
+        "CFO / Finance Director (corporate partnerships)",
+        "CTO (NuPay integrations)",
+        "Head of Payments (e-commerces)"
+      ],
+      "sales_cycle_estimate": "Instant for individuals (self-service via app), 7-30 days for business accounts (Nubank Empresas), 30-90 days for corporate partnerships and integrations (NuPay)",
+      "ideal_customer_characteristics": [
+        "Brazilian consumer who is banked or in the process of becoming banked",
+        "Smartphone-connected person with internet access",
+        "SMB or sole proprietor seeking a fee-free digital business account",
+        "Brazilian e-commerce needing a competitive payment gateway",
+        "Technology company seeking integrated financial partnership (embedded finance)",
+        "Individual investor seeking an accessible platform",
+        "Customer dissatisfied with traditional banks",
+        "Young adult (18-35) seeking their first financial product",
+        "Freelancer or self-employed person needing simplified financial management",
+        "Mid-market company seeking payroll and benefits solutions"
+      ],
+      "anti_icp_signals": [
+        "Large corporation with established investment bank relationship (JP Morgan, Goldman)",
+        "Company that requires physical branches and in-person account managers",
+        "Customer without smartphone or internet access",
+        "Person who prefers to deal exclusively with cash",
+        "Company with complex trade finance and international exchange needs",
+        "Corporation requiring sophisticated treasury and enterprise cash management",
+        "Customer with severe Serasa/SPC restrictions with no possibility of credit"
+      ],
+      "expansion_opportunities": [
+        "Expansion of Nubank Empresas to mid-market",
+        "Embedded finance (NuPay for more e-commerces)",
+        "Payroll-deducted loans and secured credit",
+        "More sophisticated insurance (auto, health)",
+        "Complete financial marketplace",
+        "Aggressive expansion in Mexico and Colombia"
+      ],
+      "industry_trends": [
+        "PIX as dominant payment standard in Brazil",
+        "Open Finance accelerating portability",
+        "Generative AI for customer service and credit analysis",
+        "Embedded finance across all types of platforms",
+        "Cryptocurrency regulation by the Central Bank",
+        "Market consolidation - smaller fintechs being acquired",
+        "Banking as a Service (BaaS) growing"
+      ]
+    }
+  },
+  "clients": [
+    {
+      "company_name": "iFood",
+      "industry": "Food Delivery / Marketplace",
+      "employee_count": 7000,
+      "annual_revenue_usd": 1500000000,
+      "deal_size_usd": 85000,
+      "sales_cycle_days": 20,
+      "churned": false,
+      "ltv_usd": 510000,
+      "nps_score": 9,
+      "tech_stack": "Nubank Empresas;AWS;Datadog;Kotlin",
+      "country": "Brazil",
+      "founding_year": 2011
+    },
+    {
+      "company_name": "Loft (Proptech)",
+      "industry": "Real Estate / Proptech",
+      "employee_count": 1200,
+      "annual_revenue_usd": 180000000,
+      "deal_size_usd": 45000,
+      "sales_cycle_days": 15,
+      "churned": false,
+      "ltv_usd": 270000,
+      "nps_score": 9,
+      "tech_stack": "Nubank;AWS;Stripe;Salesforce",
+      "country": "Brazil",
+      "founding_year": 2018
+    },
+    {
+      "company_name": "GetNinjas",
+      "industry": "Freelance Services Marketplace",
+      "employee_count": 300,
+      "annual_revenue_usd": 25000000,
+      "deal_size_usd": 12000,
+      "sales_cycle_days": 10,
+      "churned": false,
+      "ltv_usd": 72000,
+      "nps_score": 8,
+      "tech_stack": "Nubank PJ;AWS;Stripe",
+      "country": "Brazil",
+      "founding_year": 2012
+    },
+    {
+      "company_name": "Quinto Andar",
+      "industry": "Real Estate / Proptech",
+      "employee_count": 3000,
+      "annual_revenue_usd": 500000000,
+      "deal_size_usd": 68000,
+      "sales_cycle_days": 18,
+      "churned": false,
+      "ltv_usd": 408000,
+      "nps_score": 9,
+      "tech_stack": "Nubank;AWS;Salesforce;Segment",
+      "country": "Brazil",
+      "founding_year": 2013
+    },
+    {
+      "company_name": "Rappi Brasil",
+      "industry": "Super-App / Delivery",
+      "employee_count": 2000,
+      "annual_revenue_usd": 400000000,
+      "deal_size_usd": 55000,
+      "sales_cycle_days": 15,
+      "churned": false,
+      "ltv_usd": 330000,
+      "nps_score": 8,
+      "tech_stack": "Nubank Empresas;AWS;Datadog",
+      "country": "Brazil",
+      "founding_year": 2015
+    },
+    {
+      "company_name": "Creditas",
+      "industry": "Fintech / Credit",
+      "employee_count": 4000,
+      "annual_revenue_usd": 300000000,
+      "deal_size_usd": 72000,
+      "sales_cycle_days": 20,
+      "churned": false,
+      "ltv_usd": 432000,
+      "nps_score": 9,
+      "tech_stack": "Nubank;AWS;Snowflake;Clojure",
+      "country": "Brazil",
+      "founding_year": 2012
+    },
+    {
+      "company_name": "Conta Simples",
+      "industry": "Fintech / B2B Payments",
+      "employee_count": 200,
+      "annual_revenue_usd": 20000000,
+      "deal_size_usd": 18000,
+      "sales_cycle_days": 10,
+      "churned": false,
+      "ltv_usd": 108000,
+      "nps_score": 9,
+      "tech_stack": "Nubank;AWS;Stripe",
+      "country": "Brazil",
+      "founding_year": 2019
+    },
+    {
+      "company_name": "Méliuz",
+      "industry": "E-Commerce / Cashback",
+      "employee_count": 500,
+      "annual_revenue_usd": 80000000,
+      "deal_size_usd": 28000,
+      "sales_cycle_days": 12,
+      "churned": false,
+      "ltv_usd": 168000,
+      "nps_score": 8,
+      "tech_stack": "Nubank PJ;AWS;Google Cloud",
+      "country": "Brazil",
+      "founding_year": 2011
+    },
+    {
+      "company_name": "Gympass (Wellhub)",
+      "industry": "Corporate Wellness",
+      "employee_count": 2000,
+      "annual_revenue_usd": 350000000,
+      "deal_size_usd": 42000,
+      "sales_cycle_days": 15,
+      "churned": false,
+      "ltv_usd": 252000,
+      "nps_score": 8,
+      "tech_stack": "Nubank;AWS;Salesforce;Stripe",
+      "country": "Brazil",
+      "founding_year": 2012
+    },
+    {
+      "company_name": "OLX Brasil",
+      "industry": "Online Classifieds / Marketplace",
+      "employee_count": 1500,
+      "annual_revenue_usd": 200000000,
+      "deal_size_usd": 32000,
+      "sales_cycle_days": 14,
+      "churned": false,
+      "ltv_usd": 192000,
+      "nps_score": 7,
+      "tech_stack": "Nubank PJ;AWS;Google Cloud",
+      "country": "Brazil",
+      "founding_year": 1996
+    },
+    {
+      "company_name": "Loggi",
+      "industry": "Logistics / Last Mile Delivery",
+      "employee_count": 1800,
+      "annual_revenue_usd": 280000000,
+      "deal_size_usd": 38000,
+      "sales_cycle_days": 14,
+      "churned": false,
+      "ltv_usd": 228000,
+      "nps_score": 8,
+      "tech_stack": "Nubank;AWS;Datadog;Python",
+      "country": "Brazil",
+      "founding_year": 2013
+    },
+    {
+      "company_name": "Neon Pagamentos",
+      "industry": "Digital Banking / Fintech",
+      "employee_count": 1000,
+      "annual_revenue_usd": 120000000,
+      "deal_size_usd": 25000,
+      "sales_cycle_days": 12,
+      "churned": true,
+      "ltv_usd": 75000,
+      "nps_score": 5,
+      "tech_stack": "Bradesco Banking API;AWS;Salesforce",
+      "country": "Brazil",
+      "founding_year": 2016
+    },
+    {
+      "company_name": "Olist",
+      "industry": "E-Commerce / Marketplace",
+      "employee_count": 1200,
+      "annual_revenue_usd": 150000000,
+      "deal_size_usd": 22000,
+      "sales_cycle_days": 10,
+      "churned": false,
+      "ltv_usd": 132000,
+      "nps_score": 8,
+      "tech_stack": "Nubank PJ;AWS;Stripe;Shopify",
+      "country": "Brazil",
+      "founding_year": 2015
+    },
+    {
+      "company_name": "Hotmart",
+      "industry": "Digital Products / Edtech",
+      "employee_count": 1500,
+      "annual_revenue_usd": 300000000,
+      "deal_size_usd": 35000,
+      "sales_cycle_days": 12,
+      "churned": false,
+      "ltv_usd": 210000,
+      "nps_score": 8,
+      "tech_stack": "Nubank;AWS;Stripe;Salesforce",
+      "country": "Brazil",
+      "founding_year": 2011
+    },
+    {
+      "company_name": "Zé Delivery (AB InBev)",
+      "industry": "Beverage Delivery / FMCG",
+      "employee_count": 500,
+      "annual_revenue_usd": 200000000,
+      "deal_size_usd": 28000,
+      "sales_cycle_days": 12,
+      "churned": false,
+      "ltv_usd": 168000,
+      "nps_score": 8,
+      "tech_stack": "Nubank PJ;AWS;Google Cloud",
+      "country": "Brazil",
+      "founding_year": 2016
+    },
+    {
+      "company_name": "Vtex",
+      "industry": "E-Commerce Platform / SaaS",
+      "employee_count": 1800,
+      "annual_revenue_usd": 180000000,
+      "deal_size_usd": 32000,
+      "sales_cycle_days": 14,
+      "churned": true,
+      "ltv_usd": 96000,
+      "nps_score": 4,
+      "tech_stack": "Itaú PJ (migrated);AWS;Stripe;Salesforce",
+      "country": "Brazil",
+      "founding_year": 2000
+    },
+    {
+      "company_name": "Movida Rent a Car",
+      "industry": "Car Rental / Mobility",
+      "employee_count": 8000,
+      "annual_revenue_usd": 1100000000,
+      "deal_size_usd": 55000,
+      "sales_cycle_days": 18,
+      "churned": false,
+      "ltv_usd": 330000,
+      "nps_score": 7,
+      "tech_stack": "Nubank;Bradesco;SAP;Oracle",
+      "country": "Brazil",
+      "founding_year": 2006
+    },
+    {
+      "company_name": "Petz",
+      "industry": "Pet Retail / E-Commerce",
+      "employee_count": 6000,
+      "annual_revenue_usd": 700000000,
+      "deal_size_usd": 42000,
+      "sales_cycle_days": 16,
+      "churned": false,
+      "ltv_usd": 252000,
+      "nps_score": 8,
+      "tech_stack": "Nubank PJ;AWS;Salesforce;VTEX",
+      "country": "Brazil",
+      "founding_year": 2002
+    },
+    {
+      "company_name": "Enjoei",
+      "industry": "Recommerce / Fashion Marketplace",
+      "employee_count": 400,
+      "annual_revenue_usd": 45000000,
+      "deal_size_usd": 14000,
+      "sales_cycle_days": 10,
+      "churned": false,
+      "ltv_usd": 84000,
+      "nps_score": 8,
+      "tech_stack": "Nubank;AWS;Stripe",
+      "country": "Brazil",
+      "founding_year": 2009
+    },
+    {
+      "company_name": "Infracommerce",
+      "industry": "E-Commerce Services / Outsourcing",
+      "employee_count": 2500,
+      "annual_revenue_usd": 200000000,
+      "deal_size_usd": 28000,
+      "sales_cycle_days": 14,
+      "churned": false,
+      "ltv_usd": 168000,
+      "nps_score": 7,
+      "tech_stack": "Nubank PJ;Bradesco;AWS;VTEX",
+      "country": "Brazil",
+      "founding_year": 2010
+    }
+  ]
 }
