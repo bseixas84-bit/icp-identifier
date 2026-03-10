@@ -583,15 +583,21 @@ st.markdown("""
     [data-testid="stSidebarCollapseButton"],
     [data-testid="collapsedControl"] { display: none !important; }
 
-    /* ── Sidebar file uploader — compact ── */
+    /* ── Sidebar file uploader — compact, no outer box ── */
     [data-testid="stSidebar"] [data-testid="stFileUploader"] {
-        border: 1px dashed rgba(255,255,255,0.15) !important;
-        border-radius: 10px !important;
+        border: none !important;
         padding: 0 !important;
     }
     [data-testid="stSidebar"] [data-testid="stFileUploader"] section {
-        padding: 10px 12px !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 4px 0 !important;
         min-height: unset !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
     }
     [data-testid="stSidebar"] [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] {
         display: none !important;
@@ -602,15 +608,30 @@ st.markdown("""
         border-radius: 8px !important;
     }
 
+    /* ── Sidebar selectbox — compact ── */
+    [data-testid="stSidebar"] [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+        font-size: 0.75rem !important;
+        min-height: 32px !important;
+        padding: 0 10px !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stSelectbox"] label {
+        font-size: 0.6rem !important;
+        margin-bottom: 4px !important;
+    }
+
     /* ── Sidebar download button — compact ── */
     [data-testid="stSidebar"] [data-testid="stDownloadButton"] button {
-        font-size: 0.72rem !important;
-        padding: 6px 12px !important;
+        font-size: 0.68rem !important;
+        padding: 4px 10px !important;
         border-radius: 8px !important;
         background: rgba(0,0,255,0.12) !important;
         border: 1px solid rgba(0,0,255,0.3) !important;
         color: #6699ff !important;
         font-weight: 500 !important;
+        min-height: unset !important;
+        height: auto !important;
+        line-height: 1.3 !important;
+        white-space: normal !important;
     }
     [data-testid="stSidebar"] [data-testid="stDownloadButton"] button:hover {
         background: rgba(0,0,255,0.22) !important;
