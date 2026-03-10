@@ -1104,9 +1104,8 @@ with st.sidebar:
         prospects_file = prospects_file_raw
 
     # ── Section 4: Security ──
-    with st.container(border=True):
-        with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
-            st.markdown(f"""
+    with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
+        st.markdown(f"""
             <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.7;">
                 <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
                 <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
