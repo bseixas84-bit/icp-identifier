@@ -52,6 +52,18 @@ def _safe(val) -> str:
     return html.escape(str(val))
 
 
+def _fmt(val: float, prefix: str = "") -> str:
+    """Format large numbers with K / M / B suffix."""
+    abs_val = abs(val)
+    if abs_val >= 1_000_000_000:
+        return f"{prefix}{val / 1_000_000_000:.1f}B"
+    if abs_val >= 1_000_000:
+        return f"{prefix}{val / 1_000_000:.1f}M"
+    if abs_val >= 1_000:
+        return f"{prefix}{val / 1_000:.1f}K"
+    return f"{prefix}{val:.0f}"
+
+
 def _validate_url(url: str) -> str | None:
     """Validate URL: must be http(s), no private/loopback IPs (SSRF protection)."""
     if not url:
@@ -571,6 +583,40 @@ st.markdown("""
     [data-testid="stSidebarCollapseButton"],
     [data-testid="collapsedControl"] { display: none !important; }
 
+    /* ── Sidebar file uploader — compact ── */
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] {
+        border: 1px dashed rgba(255,255,255,0.15) !important;
+        border-radius: 10px !important;
+        padding: 0 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] section {
+        padding: 10px 12px !important;
+        min-height: unset !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] {
+        display: none !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stFileUploader"] button {
+        font-size: 0.72rem !important;
+        padding: 6px 14px !important;
+        border-radius: 8px !important;
+    }
+
+    /* ── Sidebar download button — compact ── */
+    [data-testid="stSidebar"] [data-testid="stDownloadButton"] button {
+        font-size: 0.72rem !important;
+        padding: 6px 12px !important;
+        border-radius: 8px !important;
+        background: rgba(0,0,255,0.12) !important;
+        border: 1px solid rgba(0,0,255,0.3) !important;
+        color: #6699ff !important;
+        font-weight: 500 !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stDownloadButton"] button:hover {
+        background: rgba(0,0,255,0.22) !important;
+        color: #ffffff !important;
+    }
+
     /* ── Button Override ── */
     .stButton > button[kind="primary"] {
         background: linear-gradient(135deg, #0000FF, #0033CC) !important;
@@ -987,17 +1033,21 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown(f"### {_t('prospects_label')}")
-    # Prospects template download
+    # Prospects template download — compact row
     _tpl_prospects = Path("data/template_prospects.csv")
-    if _tpl_prospects.exists():
-        st.download_button(
-            label=_t("download_template_prospects"),
-            data=_tpl_prospects.read_bytes(),
-            file_name="icp_prospects_template.csv",
-            mime="text/csv",
-            use_container_width=True,
-        )
-    prospects_file_raw = st.file_uploader(_t("upload_prospects"), type=["csv"], key="prospects")
+    _dl_col, _spacer = st.columns([3, 1])
+    with _dl_col:
+        if _tpl_prospects.exists():
+            st.download_button(
+                label=f"⬇ {_t('download_template_prospects').replace('⬇ ', '')}",
+                data=_tpl_prospects.read_bytes(),
+                file_name="icp_prospects_template.csv",
+                mime="text/csv",
+                use_container_width=True,
+            )
+    prospects_file_raw = st.file_uploader(
+        _t("upload_prospects"), type=["csv"], key="prospects", label_visibility="collapsed"
+    )
     if prospects_file_raw and not _validate_csv(prospects_file_raw):
         prospects_file_raw = None
     prospects_file = prospects_file_raw
@@ -1284,7 +1334,7 @@ if df is not None:
         </div>
         <div class="m-card">
             <div class="m-label">{_t("avg_ltv")}</div>
-            <div class="m-value">${avg_ltv:,.0f}</div>
+            <div class="m-value">{_fmt(avg_ltv, "$")}</div>
         </div>
         {f'<div class="m-card"><div class="m-label">NPS</div><div class="m-value purple">{avg_nps:.1f}</div></div>' if has_nps else ''}
         <div class="m-card">
@@ -1478,7 +1528,7 @@ if df is not None:
                     <div class="m-label">{pct:.0f}% {_t("of_base")}</div>
                     <div style="margin-top:8px; font-size:0.7rem; color:#8892a4; line-height:1.6;">
                         Score: {trow['avg_score']:.0f}/100<br>
-                        LTV: ${trow['avg_ltv']:,.0f}<br>
+                        LTV: {_fmt(trow['avg_ltv'], "$")}<br>
                         {f"NPS: {trow['avg_nps']:.1f} · " if has_nps and trow['avg_nps'] is not None else ""}Churn: {trow['churn_rate']:.0f}%
                     </div>
                 </div>
@@ -1588,7 +1638,7 @@ if df is not None:
                 color="icp_tier", color_discrete_map=TIER_COLORS,
                 title=_t("avg_ltv_per_tier"),
                 labels={"icp_tier": _t("tier_label"), "avg_ltv": _t("avg_ltv_usd")},
-                text=tier_summary["avg_ltv"].apply(lambda x: f"${x:,.0f}"),
+                text=tier_summary["avg_ltv"].apply(lambda x: _fmt(x, "$")),
             )
             fig_tier_ltv.update_layout(height=350, showlegend=False, **neu_chart_layout)
             fig_tier_ltv.update_traces(textposition="outside")
@@ -1632,7 +1682,7 @@ if df is not None:
                         f'Score: <span style="font-weight:700;color:{color};">{row["icp_score"]:.0f}</span>'
                         + (f' · NPS {int(row["nps_score"])}' if has_nps and pd.notna(row.get("nps_score")) else "")
                         + f' · {row["sales_cycle_days"]}d<br>'
-                        f'LTV ${row["ltv_usd"]:,.0f} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
+                        f'LTV {_fmt(row["ltv_usd"], "$")} · ROI {roi:.1f}x · <span style="color:{status_color};font-weight:600;">{status_text}</span>'
                         f'</div></div>',
                         unsafe_allow_html=True,
                     )
@@ -1776,7 +1826,7 @@ if df is not None:
             st.markdown(f"""
             <div class="chart-explain">
                 {_t("ltv_explain")}
-                <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_1", active_ltv=f"{active_ltv:,.0f}", churned_ltv=f"{churned_ltv:,.0f}", ratio=f"{ltv_ratio:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_1", active_ltv=_fmt(active_ltv), churned_ltv=_fmt(churned_ltv), ratio=f"{ltv_ratio:.0f}")}</div>
                 <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_2")}</div>
                 <div class="insight"><div class="insight-dot"></div>{_t("ltv_insight_3")}</div>
             </div>
@@ -1838,7 +1888,7 @@ if df is not None:
             ).sort_values("avg_ltv", ascending=False)
             top3 = top_industries.head(3)
             top3_items = "".join([
-                f'<div class="insight"><div class="insight-dot"></div>{ind} — LTV medio ${row["avg_ltv"]:,.0f}</div>'
+                f'<div class="insight"><div class="insight-dot"></div>{ind} — LTV {_fmt(row["avg_ltv"], "$")}</div>'
                 for ind, row in top3.iterrows()
             ])
 
@@ -1908,7 +1958,7 @@ if df is not None:
             st.markdown(f"""
             <div class="chart-explain">
                 {_t("cohort_explain")}
-                <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_1", band=best_cohort['revenue_band'], ltv=f"{best_cohort['avg_ltv']:,.0f}", retention=f"{best_cohort['retention_rate']:.0f}")}</div>
+                <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_1", band=best_cohort['revenue_band'], ltv=_fmt(best_cohort['avg_ltv']), retention=f"{best_cohort['retention_rate']:.0f}")}</div>
                 <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_2")}</div>
                 <div class="insight"><div class="insight-dot"></div>{_t("cohort_insight_3")}</div>
             </div>
