@@ -596,45 +596,56 @@ st.markdown("""
         background: transparent !important;
         padding: 4px 0 !important;
         min-height: unset !important;
+        display: flex !important;
+        justify-content: center !important;
     }
     [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
         border: none !important;
         background: transparent !important;
         padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
     }
     [data-testid="stSidebar"] [data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"] {
         display: none !important;
     }
     [data-testid="stSidebar"] [data-testid="stFileUploader"] button {
-        font-size: 0.72rem !important;
-        padding: 6px 14px !important;
+        font-size: 0.65rem !important;
+        padding: 5px 16px !important;
         border-radius: 8px !important;
+        height: 28px !important;
+        min-height: unset !important;
     }
 
     /* ── Sidebar selectbox — compact ── */
     [data-testid="stSidebar"] [data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-        font-size: 0.75rem !important;
-        min-height: 32px !important;
-        padding: 0 10px !important;
+        font-size: 0.72rem !important;
+        min-height: 30px !important;
+        padding: 0 8px !important;
         border: 1px solid rgba(255,255,255,0.25) !important;
         border-radius: 8px !important;
+        justify-content: center !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stSelectbox"] [data-testid="stSelectboxVirtualDropdown"] {
+        font-size: 0.72rem !important;
     }
     [data-testid="stSidebar"] [data-testid="stSelectbox"] label {
-        font-size: 0.6rem !important;
-        margin-bottom: 4px !important;
+        font-size: 0.58rem !important;
+        margin-bottom: 2px !important;
+        text-align: center !important;
     }
 
     /* ── Sidebar download button — compact ── */
     [data-testid="stSidebar"] [data-testid="stDownloadButton"] button {
-        font-size: 0.65rem !important;
-        padding: 5px 10px !important;
+        font-size: 0.62rem !important;
+        padding: 4px 10px !important;
         border-radius: 8px !important;
         background: rgba(0,0,255,0.12) !important;
         border: 1px solid rgba(0,0,255,0.3) !important;
         color: #6699ff !important;
         font-weight: 500 !important;
         min-height: unset !important;
-        height: 28px !important;
+        height: 26px !important;
         line-height: 1 !important;
         white-space: nowrap !important;
         text-align: center !important;
@@ -672,13 +683,18 @@ st.markdown("""
         border-radius: 16px !important;
     }
     [data-testid="stSidebar"] .streamlit-expanderHeader {
-        font-size: 0.75rem !important;
+        font-size: 0.62rem !important;
         overflow: visible !important;
         white-space: nowrap !important;
+        padding: 6px 10px !important;
+        min-height: unset !important;
     }
     [data-testid="stSidebar"] .streamlit-expanderHeader p {
-        font-size: 0.75rem !important;
+        font-size: 0.62rem !important;
         overflow: visible !important;
+    }
+    [data-testid="stSidebar"] [data-testid="stExpander"] {
+        border-radius: 8px !important;
     }
 
     /* Empty state */
