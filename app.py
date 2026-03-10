@@ -166,9 +166,19 @@ st.markdown("""
     /* Hide streamlit chrome */
     #MainMenu, footer, header { visibility: hidden; }
     .stDeployButton { display: none; }
+
+    /* Kill element toolbar + hover tooltip completely */
     [data-testid="stElementToolbar"],
     [data-testid="stElementToolbarButton"],
-    [data-testid="stCopyButton"] { display: none !important; }
+    [data-testid="stCopyButton"],
+    [data-testid="stFullScreenFrame"],
+    [class*="ElementToolbar"],
+    [class*="element-toolbar"] { display: none !important; }
+
+    /* Prevent hover events that trigger the toolbar on markdown blocks */
+    .stMain [data-testid="stMarkdownContainer"] { pointer-events: none; }
+    .stMain [data-testid="stMarkdownContainer"] a,
+    .stMain [data-testid="stMarkdownContainer"] button { pointer-events: auto; }
 
     /* ── Top Navbar (brunoseixas.com style) ── */
     .bs-navbar {
