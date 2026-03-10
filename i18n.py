@@ -442,8 +442,8 @@ TRANSLATIONS = {
         "en": "Select a pre-loaded company or upload a CSV",
     },
     "empty_subtitle": {
-        "pt": "Use o menu lateral para escolher uma das 5 empresas com dados completos",
-        "en": "Use the sidebar to choose one of the 5 companies with complete data",
+        "pt": "Selecione uma empresa pré-carregada para explorar o potencial da ferramenta, pesquise uma nova empresa a partir do seu site ou faça upload de um CSV para analisar seus próprios dados.",
+        "en": "Select a pre-loaded company to understand the potential of the tool, research a new one from their website, or upload a CSV to analyze your own data.",
     },
 
     # ── Status ──

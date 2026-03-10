@@ -2118,11 +2118,7 @@ if df is not None:
 else:
     st.markdown(f"""
     <div class="empty-state">
-        <div class="empty-icon">&#127919;</div>
-        <div style="font-size: 1.15rem; color: #e8edf8; font-weight: 600; margin-bottom: 0.5rem;">
-            {_t("empty_title")}
-        </div>
-        <div style="color: #8892a4; font-size: 0.9rem;">
+        <div style="color: #8892a4; font-size: 1rem; line-height: 1.7; max-width: 560px; margin: 0 auto;">
             {_t("empty_subtitle")}
         </div>
     </div>
