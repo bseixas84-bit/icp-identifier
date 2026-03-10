@@ -1474,6 +1474,7 @@ if df is not None:
             <div class="m-value">{avg_cycle:.0f}d</div>
         </div>
     </div>
+    {"" if customers_file or use_sample else f'''<div style="margin:-8px 0 20px 0;padding:8px 14px;border-radius:10px;background:rgba(245,158,11,0.07);border-left:3px solid #f59e0b;font-size:0.68rem;color:#92400e;line-height:1.5;">⚠️ {_t("demo_data_disclaimer")}</div>'''}
     """, unsafe_allow_html=True)
 
     # ── Shared chart layout ──
