@@ -119,7 +119,7 @@ if CACHE_DIR.exists():
 
 # ── Dark Theme CSS ──
 st.markdown("""
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
     :root {
         --neu-bg: #0f1220;
@@ -255,46 +255,41 @@ st.markdown("""
     /* ── Header ── */
     .header-container {
         text-align: center;
-        padding: 1rem 0 1.5rem 0;
+        padding: 2.5rem 0 2rem 0;
         margin-bottom: 1.5rem;
     }
-    .header-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 16px;
-        border-radius: 50px;
-        background: #0f1220;
-        border: 1px solid rgba(255,255,255,0.08);
-        margin-bottom: 1.25rem;
-        font-size: 0.7rem;
-        font-weight: 500;
-        color: #8892a4;
+    .header-pre-label {
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.25em;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-    .header-badge .pulse-dot {
-        width: 8px; height: 8px;
-        border-radius: 50%;
-        background: #22c55e;
-        animation: pulse-glow 2s ease-in-out infinite;
-    }
-    @keyframes pulse-glow {
-        0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
-        50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+        color: #8892a4;
+        margin-bottom: 1rem;
     }
     .header-container h1 {
-        font-size: 3rem;
-        font-weight: 800;
+        font-size: clamp(3.5rem, 8vw, 6.5rem);
+        font-weight: 900;
         color: #ffffff;
         letter-spacing: -0.04em;
         text-transform: uppercase;
         margin: 0;
+        line-height: 1;
+    }
+    .header-container h1 .header-dot {
+        color: #0000FF;
+    }
+    .header-accent-line {
+        width: 56px;
+        height: 3px;
+        background: #0000FF;
+        margin: 1.25rem auto 1.5rem auto;
+        border-radius: 2px;
     }
     .header-container p {
         color: #8892a4;
         font-size: 1rem;
-        margin: 0.5rem 0 0 0;
+        margin: 0;
+        letter-spacing: 0.01em;
     }
 
     /* ── Metric Cards ── */
@@ -844,7 +839,9 @@ st.markdown("""
 # ── Header ──
 st.markdown(f"""
 <div class="header-container">
-    <h1>{_t("header_title")}</h1>
+    <div class="header-pre-label">ICP Tool</div>
+    <h1>{_t("header_title")}<span class="header-dot">.</span></h1>
+    <div class="header-accent-line"></div>
     <p>{_t("header_subtitle")}</p>
 </div>
 """, unsafe_allow_html=True)
