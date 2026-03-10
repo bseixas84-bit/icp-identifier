@@ -1438,14 +1438,17 @@ elif use_sample:
     df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
 
 if df is not None:
+    # True only when user uploaded their own CSV — NPS + cycle are trustworthy
+    _csv_uploaded = bool(customers_file)
+
     # ── Detect optional columns ──
-    has_nps = "nps_score" in df.columns and df["nps_score"].notna().any()
+    has_nps = _csv_uploaded and "nps_score" in df.columns and df["nps_score"].notna().any()
 
     # ── Metrics ──
     churn_rate = df["churned"].mean() * 100
     avg_ltv = df["ltv_usd"].mean()
     avg_nps = df["nps_score"].mean() if has_nps else None
-    avg_cycle = df["sales_cycle_days"].mean()
+    avg_cycle = df["sales_cycle_days"].mean() if _csv_uploaded else None
     active = len(df[~df["churned"]])
     total_revenue = df["annual_revenue_usd"].sum()
     avg_deal = df["deal_size_usd"].mean()
@@ -1469,12 +1472,9 @@ if df is not None:
             <div class="m-value">{_fmt(avg_ltv, "$")}</div>
         </div>
         {f'<div class="m-card"><div class="m-label">NPS</div><div class="m-value purple">{avg_nps:.1f}</div></div>' if has_nps else ''}
-        <div class="m-card">
-            <div class="m-label">{_t("avg_cycle")}</div>
-            <div class="m-value">{avg_cycle:.0f}d</div>
-        </div>
+        {f'<div class="m-card"><div class="m-label">{_t("avg_cycle")}</div><div class="m-value">{avg_cycle:.0f}d</div></div>' if avg_cycle is not None else ''}
     </div>
-    {"" if customers_file or use_sample else f'''<div style="margin:-8px 0 20px 0;padding:8px 14px;border-radius:10px;background:rgba(245,158,11,0.07);border-left:3px solid #f59e0b;font-size:0.68rem;color:#92400e;line-height:1.5;">⚠️ {_t("demo_data_disclaimer")}</div>'''}
+    {"" if _csv_uploaded else f'''<div style="margin:-8px 0 20px 0;padding:8px 14px;border-radius:10px;background:rgba(245,158,11,0.07);border-left:3px solid #f59e0b;font-size:0.68rem;color:#92400e;line-height:1.5;">⚠️ {_t("demo_data_disclaimer")}</div>'''}
     """, unsafe_allow_html=True)
 
     # ── Shared chart layout ──
