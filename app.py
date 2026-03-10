@@ -613,6 +613,8 @@ st.markdown("""
         font-size: 0.75rem !important;
         min-height: 32px !important;
         padding: 0 10px !important;
+        border: 1px solid rgba(255,255,255,0.25) !important;
+        border-radius: 8px !important;
     }
     [data-testid="stSidebar"] [data-testid="stSelectbox"] label {
         font-size: 0.6rem !important;
