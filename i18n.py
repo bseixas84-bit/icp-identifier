@@ -424,6 +424,7 @@ TRANSLATIONS = {
     # ── CSV Templates ──
     "download_template_customers": {"pt": "⬇ Baixar template de clientes (CSV)", "en": "⬇ Download customer template (CSV)"},
     "download_template_prospects": {"pt": "⬇ Template Prospects CSV", "en": "⬇ Prospect Template CSV"},
+    "missing_columns": {"pt": "CSV inválido — colunas obrigatórias ausentes: {cols}", "en": "Invalid CSV — missing required columns: {cols}"},
 
     # ── Beta / Suggestions ──
     "beta_badge": {"pt": "Versão Beta — Protótipo", "en": "Beta Version — Prototype"},

@@ -95,6 +95,30 @@ def _validate_csv(uploaded_file) -> bool:
         return False
     return True
 
+
+REQUIRED_CUSTOMER_COLS = {
+    "company_name", "industry", "employee_count", "annual_revenue_usd",
+    "founding_year", "tech_stack", "deal_size_usd", "ltv_usd",
+    "sales_cycle_days", "churned",
+}
+REQUIRED_PROSPECT_COLS = {
+    "company_name", "industry", "employee_count", "annual_revenue_usd",
+    "founding_year", "tech_stack",
+}
+
+
+def _validate_columns(df: pd.DataFrame, required: set) -> list[str]:
+    """Return list of missing required column names."""
+    return sorted(required - set(df.columns))
+
+
+def _sanitize_df(df: pd.DataFrame) -> pd.DataFrame:
+    """Strip spreadsheet formula-injection prefixes from all string cells."""
+    for col in df.select_dtypes(include="object").columns:
+        df[col] = df[col].astype(str).str.replace(r"^[=+\-@|]", "'", regex=True)
+    return df
+
+
 # ── Load cached companies ──
 CACHE_DIR = Path("data/cache")
 CACHED_COMPANIES = {}
@@ -1393,7 +1417,13 @@ if "intel_dna" in st.session_state:
 df = None
 if customers_file:
     df = pd.read_csv(customers_file)
-    df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
+    missing = _validate_columns(df, REQUIRED_CUSTOMER_COLS)
+    if missing:
+        st.error(_t("missing_columns", cols=", ".join(missing)))
+        df = None
+    else:
+        df = _sanitize_df(df)
+        df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
 elif "generated_clients" in st.session_state:
     df = st.session_state["generated_clients"]
 elif use_sample:
@@ -2219,11 +2249,17 @@ if df is not None:
 
         if prospects_file:
             prospects_df = pd.read_csv(prospects_file)
+            missing_p = _validate_columns(prospects_df, REQUIRED_PROSPECT_COLS)
+            if missing_p:
+                st.error(_t("missing_columns", cols=", ".join(missing_p)))
+                prospects_df = None
+            else:
+                prospects_df = _sanitize_df(prospects_df)
         else:
             st.info(_t("no_prospects"))
             prospects_df = df.copy()
 
-        if st.button(_t("score_prospects_btn"), type="primary", use_container_width=True):
+        if prospects_df is not None and st.button(_t("score_prospects_btn"), type="primary", use_container_width=True):
             with st.spinner(_t("scoring_prospects")):
                 scored = score_prospects(icp, prospects_df, api_key, lang=st.session_state.get("_lang", "en"))
                 st.session_state["scored"] = scored
