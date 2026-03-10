@@ -844,13 +844,7 @@ st.markdown("""
 st.markdown("""
 <div class="bs-navbar">
     <a href="https://brunoseixas.com" class="bs-logo" target="_blank"><span class="plus">+</span>Bruno Seixas</a>
-    <nav>
-        <a href="https://brunoseixas.com/#about" target="_blank">About</a>
-        <a href="https://brunoseixas.com/#services" target="_blank">Services</a>
-        <a href="https://brunoseixas.com/#case-studies" target="_blank">Case Studies</a>
-        <a href="https://brunoseixas.com/#contact" target="_blank">Contact</a>
-        <a href="https://brunoseixas.com/#contact" target="_blank" class="bs-cta">Get in Touch</a>
-    </nav>
+    <a href="https://brunoseixas.com/#contact" target="_blank" class="bs-cta">Get in Touch</a>
 </div>
 <div class="navbar-spacer"></div>
 """, unsafe_allow_html=True)
