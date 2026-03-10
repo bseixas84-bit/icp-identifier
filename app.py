@@ -2138,28 +2138,28 @@ if df is not None:
             # Industries
             st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("ideal_industries")}</div>', unsafe_allow_html=True)
             for ind in icp.ideal_industries:
-                st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{ind}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{html.escape(str(ind))}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
             # Profile
             st.markdown(f"""
             <div class="detail-group">
                 <div class="dg-title">{_t("profile")}</div>
-                <div class="detail-item"><div class="di-dot"></div>{_t("employees")}: {icp.ideal_employee_range}</div>
-                <div class="detail-item"><div class="di-dot"></div>{_t("revenue_label").title()}: {icp.ideal_revenue_range}</div>
-                <div class="detail-item"><div class="di-dot"></div>{_t("age_years")}: {icp.ideal_company_age}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("employees")}: {html.escape(str(icp.ideal_employee_range))}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("revenue_label").title()}: {html.escape(str(icp.ideal_revenue_range))}</div>
+                <div class="detail-item"><div class="di-dot"></div>{_t("age_years")}: {html.escape(str(icp.ideal_company_age))}</div>
             </div>
             """, unsafe_allow_html=True)
 
             # Tech
             st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("tech_signals")}</div>', unsafe_allow_html=True)
             for sig in icp.ideal_tech_signals:
-                st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{sig}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="detail-item"><div class="di-dot"></div>{html.escape(str(sig))}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
             # Key patterns
             st.markdown(f'<div class="detail-group"><div class="dg-title">{_t("key_patterns")}</div>', unsafe_allow_html=True)
-            pills = "".join(f'<span class="pattern-pill">{p}</span>' for p in icp.key_patterns)
+            pills = "".join(f'<span class="pattern-pill">{html.escape(str(p))}</span>' for p in icp.key_patterns)
             st.markdown(pills, unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
@@ -2174,7 +2174,7 @@ if df is not None:
 
             st.markdown(f'<div class="detail-group"><div class="dg-title" style="color:#ef4444;">{_t("warning_signals")}</div>', unsafe_allow_html=True)
             for sig in icp.anti_icp_signals:
-                st.markdown(f'<div class="alert-item"><div class="alert-dot"></div>{sig}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="alert-item"><div class="alert-dot"></div>{html.escape(str(sig))}</div>', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
 
         # ── Beta Disclaimer ──
