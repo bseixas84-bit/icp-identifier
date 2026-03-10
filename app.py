@@ -166,6 +166,7 @@ st.markdown("""
     /* Hide streamlit chrome */
     #MainMenu, footer, header { visibility: hidden; }
     .stDeployButton { display: none; }
+    [data-testid="stElementToolbar"] { display: none !important; }
 
     /* ── Top Navbar (brunoseixas.com style) ── */
     .bs-navbar {
