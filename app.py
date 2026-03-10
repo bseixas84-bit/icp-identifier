@@ -975,6 +975,11 @@ st.markdown("""
         border-radius: 14px !important;
         margin-bottom: 8px !important;
     }
+    /* Reduce internal padding Streamlit adds inside border containers */
+    [data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] > div > [data-testid="stVerticalBlock"] {
+        gap: 0rem !important;
+        padding-top: 0 !important;
+    }
     .sb-section-header {
         display: flex;
         align-items: center;
@@ -984,8 +989,8 @@ st.markdown("""
         text-transform: uppercase;
         letter-spacing: 0.2em;
         color: #8892a4;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
+        margin-bottom: 6px;
+        padding-bottom: 6px;
         border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .sb-bar {
