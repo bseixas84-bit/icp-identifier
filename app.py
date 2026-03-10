@@ -888,6 +888,35 @@ st.markdown("""
         background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(239,68,68,0.05));
         color: #ef4444;
     }
+
+    /* ── Sidebar Section Cards ── */
+    [data-testid="stSidebar"] [data-testid="stVerticalBlockBorderWrapper"] {
+        background: #0f1220 !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 14px !important;
+        margin-bottom: 8px !important;
+    }
+    .sb-section-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.58rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #8892a4;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .sb-bar {
+        display: inline-block;
+        width: 3px;
+        height: 12px;
+        background: #0000FF;
+        border-radius: 2px;
+        flex-shrink: 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -906,44 +935,21 @@ st.markdown(f"""
 api_key = os.getenv("GROQ_API_KEY", "")
 
 with st.sidebar:
-    # ── Language toggle (pills) ──
-    _lang_map = {"🇧🇷 PT-BR": "pt", "🇺🇸 EN": "en"}
-    _lang_default = "🇧🇷 PT-BR" if L == "pt" else "🇺🇸 EN"
-    _lang_pick = st.pills(
-        _t("language"), options=list(_lang_map.keys()),
-        default=_lang_default, key="lang_pills",
-    )
-    if _lang_pick and _lang_map[_lang_pick] != L:
-        st.session_state["_lang"] = _lang_map[_lang_pick]
-        st.query_params["lang"] = _lang_map[_lang_pick]
-        st.rerun()
-
-    st.markdown(f"### {_t('data_source')}")
-
-    # ── Data source toggle (pills) ──
-    if "_data_source" not in st.session_state:
-        st.session_state["_data_source"] = "preloaded"
-
-    _ds_map = {
-        f"📦 {_t('preloaded_company')}": "preloaded",
-        f"🔍 {_t('research_new')}": "research",
-        f"📄 {_t('upload_csv')}": "csv",
-    }
-    _ds_reverse = {v: k for k, v in _ds_map.items()}
-    _ds_default = _ds_reverse[st.session_state["_data_source"]]
-    _ds_pick = st.pills(
-        "", options=list(_ds_map.keys()),
-        default=_ds_default, key="ds_pills",
-    )
-    if _ds_pick:
-        new_ds = _ds_map[_ds_pick]
-        if new_ds != st.session_state["_data_source"]:
-            st.session_state["_data_source"] = new_ds
+    # ── Section 1: Language ──
+    with st.container(border=True):
+        st.markdown(f'<div class="sb-section-header"><span class="sb-bar"></span>{_t("language").upper()}</div>', unsafe_allow_html=True)
+        _lang_map = {"🇧🇷 PT-BR": "pt", "🇺🇸 EN": "en"}
+        _lang_default = "🇧🇷 PT-BR" if L == "pt" else "🇺🇸 EN"
+        _lang_pick = st.pills(
+            "", options=list(_lang_map.keys()),
+            default=_lang_default, key="lang_pills",
+        )
+        if _lang_pick and _lang_map[_lang_pick] != L:
+            st.session_state["_lang"] = _lang_map[_lang_pick]
+            st.query_params["lang"] = _lang_map[_lang_pick]
             st.rerun()
 
-    data_source_key = st.session_state["_data_source"]
-
-    # ── Option 1: Pre-loaded cache ──
+    # ── Section 2: Data Source ──
     selected_cached = _t("select_placeholder")
     company_url = ""
     research_btn = False
@@ -951,139 +957,163 @@ with st.sidebar:
     use_sample = False
     prospects_file = None
 
-    if data_source_key == "preloaded":
-        cached_labels = list(CACHED_COMPANIES.keys())
-        selected_cached = st.selectbox(
-            _t("instant_loading"),
-            options=[_t("select_placeholder")] + cached_labels,
-            key="cached_select",
-            help=_t("instant_help"),
+    if "_data_source" not in st.session_state:
+        st.session_state["_data_source"] = "preloaded"
+
+    with st.container(border=True):
+        st.markdown(f'<div class="sb-section-header"><span class="sb-bar"></span>{_t("data_source").upper()}</div>', unsafe_allow_html=True)
+        _ds_map = {
+            f"📦 {_t('preloaded_company')}": "preloaded",
+            f"🔍 {_t('research_new')}": "research",
+            f"📄 {_t('upload_csv')}": "csv",
+        }
+        _ds_reverse = {v: k for k, v in _ds_map.items()}
+        _ds_default = _ds_reverse[st.session_state["_data_source"]]
+        _ds_pick = st.pills(
+            "", options=list(_ds_map.keys()),
+            default=_ds_default, key="ds_pills",
         )
+        if _ds_pick:
+            new_ds = _ds_map[_ds_pick]
+            if new_ds != st.session_state["_data_source"]:
+                st.session_state["_data_source"] = new_ds
+                st.rerun()
 
-        if selected_cached != _t("select_placeholder"):
-            cache_data = CACHED_COMPANIES[selected_cached]
-            if st.session_state.get("_loaded_cache") != selected_cached or st.session_state.get("_loaded_lang") != L:
-                for key in ["icp", "scored"]:
-                    st.session_state.pop(key, None)
-                # Support bilingual cache: dna/market can be {"pt":{...},"en":{...}} or flat dict
-                raw_dna = cache_data["dna"]
-                raw_market = cache_data["market"]
-                st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if "pt" in raw_dna and "en" in raw_dna else raw_dna
-                st.session_state["intel_market"] = raw_market.get(L, raw_market) if "pt" in raw_market and "en" in raw_market else raw_market
-                clients_df = pd.DataFrame(cache_data["clients"])
-                clients_df["churned"] = clients_df["churned"].apply(
-                    lambda x: str(x).strip().lower() in ("true", "1", "yes")
+        data_source_key = st.session_state["_data_source"]
+
+        # ── Option 1: Pre-loaded cache ──
+        if data_source_key == "preloaded":
+            cached_labels = list(CACHED_COMPANIES.keys())
+            selected_cached = st.selectbox(
+                _t("instant_loading"),
+                options=[_t("select_placeholder")] + cached_labels,
+                key="cached_select",
+                help=_t("instant_help"),
+            )
+
+            if selected_cached != _t("select_placeholder"):
+                cache_data = CACHED_COMPANIES[selected_cached]
+                if st.session_state.get("_loaded_cache") != selected_cached or st.session_state.get("_loaded_lang") != L:
+                    for key in ["icp", "scored"]:
+                        st.session_state.pop(key, None)
+                    # Support bilingual cache: dna/market can be {"pt":{...},"en":{...}} or flat dict
+                    raw_dna = cache_data["dna"]
+                    raw_market = cache_data["market"]
+                    st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if "pt" in raw_dna and "en" in raw_dna else raw_dna
+                    st.session_state["intel_market"] = raw_market.get(L, raw_market) if "pt" in raw_market and "en" in raw_market else raw_market
+                    clients_df = pd.DataFrame(cache_data["clients"])
+                    clients_df["churned"] = clients_df["churned"].apply(
+                        lambda x: str(x).strip().lower() in ("true", "1", "yes")
+                    )
+                    st.session_state["generated_clients"] = clients_df
+                    st.session_state["intel_dossier"] = ""
+                    st.session_state["intel_dossier_path"] = ""
+                    st.session_state["company_source"] = None
+                    st.session_state["_loaded_cache"] = selected_cached
+                    st.session_state["_loaded_lang"] = L
+
+                st.markdown(f"""
+                <div class="instant-badge">{_t("preloaded_data")}</div>
+                <div style="padding:10px 12px; border-radius:12px;
+                    background: rgba(255,255,255,0.03);
+                    border: 1px solid rgba(255,255,255,0.06);
+                    font-size:0.75rem; color:#cbd5e1; line-height:1.6;">
+                    <strong style="color:#0000FF;">{selected_cached}</strong><br>
+                    DNA + {'Mercado' if L == 'pt' else 'Market'} + {len(cache_data['clients'])} {_t("customers").lower()}<br>
+                    <span style="color:#64748b; font-size:0.65rem;">{_t("source_cache")}</span>
+                </div>
+                <div style="margin-top:8px;padding:8px 12px;border-radius:10px;
+                    background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;
+                    font-size:0.68rem;color:#92400e;line-height:1.5;">
+                    ⚠️ {_t("demo_data_disclaimer")}
+                </div>
+                """, unsafe_allow_html=True)
+
+        # ── Option 2: Research new company ──
+        elif data_source_key == "research":
+            company_url = st.text_input(_t("type_url"), placeholder=_t("url_placeholder"))
+
+            # Validate URL for SSRF
+            if company_url:
+                validated = _validate_url(company_url)
+                if not validated:
+                    st.warning(_t("url_invalid"))
+                    company_url = ""
+                else:
+                    company_url = validated
+
+            research_btn = st.button(_t("research_btn"), type="primary", use_container_width=True, key="research")
+
+        # ── Option 3: Upload CSV ──
+        elif data_source_key == "csv":
+            _tpl_customers = Path("data/template_customers.csv")
+            if _tpl_customers.exists():
+                st.download_button(
+                    label=_t("download_template_customers"),
+                    data=_tpl_customers.read_bytes(),
+                    file_name="icp_customers_template.csv",
+                    mime="text/csv",
+                    use_container_width=True,
                 )
-                st.session_state["generated_clients"] = clients_df
-                st.session_state["intel_dossier"] = ""
-                st.session_state["intel_dossier_path"] = ""
-                st.session_state["company_source"] = None
-                st.session_state["_loaded_cache"] = selected_cached
-                st.session_state["_loaded_lang"] = L
+            customers_file_raw = st.file_uploader(_t("upload_customers"), type=["csv"], key="customers")
+            if customers_file_raw and not _validate_csv(customers_file_raw):
+                customers_file_raw = None
+            customers_file = customers_file_raw
+            use_sample = st.checkbox(_t("use_sample"), value=False)
 
+    # ── Section 3: Prospects ──
+    with st.container(border=True):
+        st.markdown(f'<div class="sb-section-header"><span class="sb-bar"></span>{_t("prospects_label").upper()}</div>', unsafe_allow_html=True)
+        _tpl_prospects = Path("data/template_prospects.csv")
+        _dl_col, _spacer = st.columns([3, 1])
+        with _dl_col:
+            if _tpl_prospects.exists():
+                st.download_button(
+                    label=f"⬇ {_t('download_template_prospects').replace('⬇ ', '')}",
+                    data=_tpl_prospects.read_bytes(),
+                    file_name="icp_prospects_template.csv",
+                    mime="text/csv",
+                    use_container_width=True,
+                )
+        prospects_file_raw = st.file_uploader(
+            _t("upload_prospects"), type=["csv"], key="prospects", label_visibility="collapsed"
+        )
+        if prospects_file_raw and not _validate_csv(prospects_file_raw):
+            prospects_file_raw = None
+        prospects_file = prospects_file_raw
+
+    # ── Section 4: Security ──
+    with st.container(border=True):
+        with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
             st.markdown(f"""
-            <div class="instant-badge">{_t("preloaded_data")}</div>
-            <div style="padding:10px 12px; border-radius:12px;
-                background: rgba(255,255,255,0.03);
-                border: 1px solid rgba(255,255,255,0.06);
-                font-size:0.75rem; color:#cbd5e1; line-height:1.6;">
-                <strong style="color:#0000FF;">{selected_cached}</strong><br>
-                DNA + {'Mercado' if L == 'pt' else 'Market'} + {len(cache_data['clients'])} {_t("customers").lower()}<br>
-                <span style="color:#64748b; font-size:0.65rem;">{_t("source_cache")}</span>
-            </div>
-            <div style="margin-top:8px;padding:8px 12px;border-radius:10px;
-                background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;
-                font-size:0.68rem;color:#92400e;line-height:1.5;">
-                ⚠️ {_t("demo_data_disclaimer")}
+            <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.7;">
+                <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
+                <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_no_storage")}</span>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_no_logs")}</span>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_ssrf")}</span>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_xss")}</span>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_csv_limit")}</span>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:8px;">
+                    <span style="color:#22c55e;font-size:0.9rem;">✓</span>
+                    <span>{_t("security_session")}</span>
+                </div>
             </div>
             """, unsafe_allow_html=True)
-
-    # ── Option 2: Research new company ──
-    elif data_source_key == "research":
-        company_url = st.text_input(_t("type_url"), placeholder=_t("url_placeholder"))
-
-        # Validate URL for SSRF
-        if company_url:
-            validated = _validate_url(company_url)
-            if not validated:
-                st.warning(_t("url_invalid"))
-                company_url = ""
-            else:
-                company_url = validated
-
-        research_btn = st.button(_t("research_btn"), type="primary", use_container_width=True, key="research")
-
-    # ── Option 3: Upload CSV ──
-    elif data_source_key == "csv":
-        # Template download
-        _tpl_customers = Path("data/template_customers.csv")
-        if _tpl_customers.exists():
-            st.download_button(
-                label=_t("download_template_customers"),
-                data=_tpl_customers.read_bytes(),
-                file_name="icp_customers_template.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
-        customers_file_raw = st.file_uploader(_t("upload_customers"), type=["csv"], key="customers")
-        if customers_file_raw and not _validate_csv(customers_file_raw):
-            customers_file_raw = None
-        customers_file = customers_file_raw
-        use_sample = st.checkbox(_t("use_sample"), value=False)
-
-    st.markdown("---")
-    st.markdown(f"### {_t('prospects_label')}")
-    # Prospects template download — compact row
-    _tpl_prospects = Path("data/template_prospects.csv")
-    _dl_col, _spacer = st.columns([3, 1])
-    with _dl_col:
-        if _tpl_prospects.exists():
-            st.download_button(
-                label=f"⬇ {_t('download_template_prospects').replace('⬇ ', '')}",
-                data=_tpl_prospects.read_bytes(),
-                file_name="icp_prospects_template.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
-    prospects_file_raw = st.file_uploader(
-        _t("upload_prospects"), type=["csv"], key="prospects", label_visibility="collapsed"
-    )
-    if prospects_file_raw and not _validate_csv(prospects_file_raw):
-        prospects_file_raw = None
-    prospects_file = prospects_file_raw
-
-    # ── Security info ──
-    st.markdown("---")
-    with st.expander(_t('security_badge'), expanded=False, icon="🔒"):
-        st.markdown(f"""
-        <div style="font-size:0.78rem;color:#cbd5e1;line-height:1.7;">
-            <div style="font-weight:700;color:var(--primary);font-size:0.8rem;margin-bottom:8px;">{_t("security_title")}</div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_no_storage")}</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_no_logs")}</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_ssrf")}</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_xss")}</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_csv_limit")}</span>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px;">
-                <span style="color:#22c55e;font-size:0.9rem;">✓</span>
-                <span>{_t("security_session")}</span>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
 
 # ── Company Research ──
 # ── Intelligence Pipeline ──
