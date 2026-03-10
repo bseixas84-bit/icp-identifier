@@ -623,17 +623,20 @@ st.markdown("""
 
     /* ── Sidebar download button — compact ── */
     [data-testid="stSidebar"] [data-testid="stDownloadButton"] button {
-        font-size: 0.68rem !important;
-        padding: 4px 10px !important;
+        font-size: 0.65rem !important;
+        padding: 5px 10px !important;
         border-radius: 8px !important;
         background: rgba(0,0,255,0.12) !important;
         border: 1px solid rgba(0,0,255,0.3) !important;
         color: #6699ff !important;
         font-weight: 500 !important;
         min-height: unset !important;
-        height: auto !important;
-        line-height: 1.3 !important;
-        white-space: normal !important;
+        height: 28px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+        justify-content: center !important;
+        width: 100% !important;
     }
     [data-testid="stSidebar"] [data-testid="stDownloadButton"] button:hover {
         background: rgba(0,0,255,0.22) !important;
@@ -1973,7 +1976,6 @@ if df is not None:
             <div class="chart-explain">
                 {_t("tech_explain")}
                 <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_1", cloud=f"{cloud_churn:.0f}", legacy=f"{legacy_churn:.0f}")}</div>
-                <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_2", cloud_nps=f"{cloud_nps:.1f}", legacy_nps=f"{legacy_nps:.1f}")}</div>
                 <div class="insight"><div class="insight-dot"></div>{_t("tech_insight_3")}</div>
             </div>
             """, unsafe_allow_html=True)

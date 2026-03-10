@@ -423,7 +423,7 @@ TRANSLATIONS = {
 
     # ── CSV Templates ──
     "download_template_customers": {"pt": "⬇ Baixar template de clientes (CSV)", "en": "⬇ Download customer template (CSV)"},
-    "download_template_prospects": {"pt": "⬇ Baixar template de prospects (CSV)", "en": "⬇ Download prospect template (CSV)"},
+    "download_template_prospects": {"pt": "⬇ Template Prospects CSV", "en": "⬇ Prospect Template CSV"},
 
     # ── Beta / Suggestions ──
     "beta_badge": {"pt": "Versão Beta — Protótipo", "en": "Beta Version — Prototype"},
