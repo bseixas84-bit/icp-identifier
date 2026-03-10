@@ -567,12 +567,9 @@ st.markdown("""
         letter-spacing: 0.1em !important;
     }
 
-    /* ── Always show sidebar toggle button ── */
-    [data-testid="collapsedControl"] {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
+    /* Sidebar always visible — remove collapse/expand controls entirely */
+    [data-testid="stSidebarCollapseButton"],
+    [data-testid="collapsedControl"] { display: none !important; }
 
     /* ── Button Override ── */
     .stButton > button[kind="primary"] {
