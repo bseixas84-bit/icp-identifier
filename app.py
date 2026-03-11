@@ -1046,8 +1046,9 @@ with st.sidebar:
         _lang_map = {"🇧🇷 PT-BR": "pt", "🇺🇸 EN": "en"}
         _lang_default = "🇧🇷 PT-BR" if L == "pt" else "🇺🇸 EN"
         _lang_pick = st.pills(
-            "", options=list(_lang_map.keys()),
+            _t("language"), options=list(_lang_map.keys()),
             default=_lang_default, key="lang_pills",
+            label_visibility="collapsed",
         )
         if _lang_pick and _lang_map[_lang_pick] != L:
             st.session_state["_lang"] = _lang_map[_lang_pick]
@@ -1074,8 +1075,9 @@ with st.sidebar:
         _ds_reverse = {v: k for k, v in _ds_map.items()}
         _ds_default = _ds_reverse[st.session_state["_data_source"]]
         _ds_pick = st.pills(
-            "", options=list(_ds_map.keys()),
+            _t("data_source"), options=list(_ds_map.keys()),
             default=_ds_default, key="ds_pills",
+            label_visibility="collapsed",
         )
         if _ds_pick:
             new_ds = _ds_map[_ds_pick]
