@@ -1,675 +1,465 @@
 {
-  "url": "stone.com.br",
+  "url": "stone.co",
+  "scraped_at": "2026-03-11T14:01:11.369078+00:00",
+  "pages_scraped": [
+    "https://stone.co/",
+    "https://stone.co/press",
+    "https://stone.co/about-us",
+    "https://stone.co/about",
+    "https://stone.co/sobre",
+    "https://stone.co/about-us/"
+  ],
+  "meta": {
+    "og:title": "Home - StoneCo",
+    "og:site_name": "StoneCo",
+    "og:type": "website"
+  },
   "dna": {
     "pt": {
-      "company_name": "Stone",
-      "tagline": "Nascemos para transformar a industria de pagamentos e empoderar o empreendedor brasileiro",
-      "description": "Fintech brasileira lider em solucoes de pagamentos, adquirencia e servicos financeiros para PMEs. A Stone oferece maquininhas de cartao, software de gestao (Linx), conta digital, credito para lojistas e solucoes de e-commerce, atendendo mais de 2 milhoes de clientes ativos em todo o Brasil.",
-      "industry": "Fintech / Servicos Financeiros",
-      "sub_industry": "Adquirencia e Pagamentos Digitais",
-      "business_model": "B2B - Taxas por transacao (MDR) + Assinatura SaaS (Linx) + Receita financeira (credito e banking)",
+      "company_name": "StoneCo",
+      "tagline": "Servindo o empreendedor brasileiro, transformando sonhos em resultados",
+      "description": "A StoneCo é líder em soluções de tecnologia financeira que empoderam empreendedores a conectar seu negócio de forma simples nos canais físicos ou digitais. A empresa oferece um ecossistema de soluções que transformam e impulsionam o empreendedorismo brasileiro, utilizando tecnologia para revolucionar o mercado e integrar formas de pagamento, banking e software. A StoneCo tem como propósito ser o one-stop-shop do empreendedor, oferecendo soluções inovadoras que mudam o jogo para microempreendedores, médios e grandes negócios.",
+      "industry": "Tecnologia financeira",
+      "sub_industry": "Pagamentos e serviços financeiros",
+      "business_model": "B2B",
       "products": [
-        "Maquininha Stone (POS/TEF)",
-        "Stone Pagar (gateway de pagamentos online)",
-        "Linx (software de gestao e PDV para varejo)",
-        "Linx Commerce (e-commerce e OMS)",
-        "Conta Stone (conta digital PJ)",
-        "Capital de Giro Stone (credito para lojistas)",
-        "Stone Hub (dashboard de gestao financeira)",
-        "Pagar.me (pagamentos para e-commerce e plataformas)"
+        "Conta Stone",
+        "Ton",
+        "Crédito",
+        "Linx",
+        "Cartões de crédito Stone",
+        "Débito Ton",
+        "Super Conta Ton"
       ],
       "features": [
-        "Recebimento em D+0 ou D+1",
-        "Antecipacao automatica de recebiveis",
-        "Dashboard de vendas em tempo real",
-        "Integracao PDV + pagamentos + gestao",
-        "Split de pagamentos para marketplaces",
-        "PIX integrado na maquininha",
-        "Conciliacao bancaria automatizada",
-        "API aberta para desenvolvedores"
+        "Integração de formas de pagamento, banking e software",
+        "Soluções inovadoras para microempreendedores, médios e grandes negócios"
       ],
       "target_segments": [
-        "Comercios de rua e lojas fisicas",
-        "Redes de varejo (moda, farmacias, supermercados)",
-        "Restaurantes, bares e food service",
-        "E-commerce e marketplaces",
-        "Profissionais autonomos e MEIs",
-        "Franquias e redes de lojas",
-        "Postos de combustivel",
-        "Clinicas e consultorios"
+        "Microempreendedores",
+        "Pequenos negócios",
+        "Médios negócios",
+        "Grandes negócios"
       ],
       "use_cases": [
-        "Aceitar cartao de credito e debito no ponto de venda",
-        "Receber pagamentos online via gateway",
-        "Antecipar recebiveis para capital de giro",
-        "Gestao de vendas e controle de estoque (Linx)",
-        "Conta digital PJ para movimentacao financeira",
-        "Credito rapido baseado em historico de vendas",
-        "Conciliacao de vendas multicanal"
+        "Pagamentos",
+        "Gestão de negócios",
+        "Acesso a crédito"
       ],
       "technologies": [
-        "Cloud (AWS)",
-        "Kotlin",
-        "Go",
-        "React",
-        "Microservicos",
-        "Kubernetes",
-        "PostgreSQL",
-        "Kafka",
-        "APIs REST/GraphQL"
+        "Tecnologia NFC"
       ],
-      "pricing_model": "Taxa por transacao (MDR entre 1,39% e 4,99%) + aluguel ou venda de maquininha + assinatura mensal para software Linx + taxas de antecipacao",
-      "company_size_signals": "15.000+ funcionarios, 2 milhoes+ de clientes ativos, presenca em todos os municipios do Brasil. Receita anual de R$ 12,8 bilhoes (2024). Listada na Nasdaq (STNE) e B3.",
+      "pricing_model": "unknown",
+      "company_size_signals": "16.000+ pessoas, 4.6M+ clientes, 210+ cidades",
       "founded_year": "2012",
-      "headquarters": "Sao Paulo, SP",
+      "headquarters": "Rio de Janeiro",
       "geographic_reach": [
-        "Brasil (todos os estados)",
-        "Operacao focada exclusivamente no mercado brasileiro"
+        "Brasil",
+        "EUA"
       ],
       "certifications": [
-        "PCI DSS Level 1",
-        "ISO 27001",
-        "LGPD Compliance",
-        "Banco Central do Brasil (instituicao de pagamento)",
-        "CVM (companhia aberta)"
+        "unknown"
       ],
       "partnerships": [
-        "Visa",
-        "Mastercard",
-        "Elo",
-        "Hipercard",
-        "American Express",
-        "AWS",
-        "Apple Pay",
-        "Google Pay",
-        "Samsung Pay"
+        "Grupo Globo"
       ],
       "social_proof": [
-        "Rede Giraffas",
-        "Mundo Verde",
-        "Chilli Beans",
-        "Arezzo",
-        "Cacau Show",
-        "Grupo Trigo (Spoleto/Koni)",
-        "Petz"
+        "Mineiro",
+        "200 mil clientes"
       ],
       "hiring_signals": [
-        "Engenheiros de software",
-        "Analistas de credito",
-        "Green Angels (agentes comerciais de campo)",
-        "Product managers",
-        "Data scientists",
-        "Especialistas em risco e compliance"
+        "Trainee"
       ],
       "content_themes": [
-        "Empreendedorismo no Brasil",
-        "Gestao financeira para lojistas",
-        "Pagamentos digitais e PIX",
-        "Antecipacao de recebiveis",
-        "Tecnologia para o varejo"
+        "Inovação",
+        "Tecnologia financeira",
+        "Empreendedorismo"
       ],
-      "tone_of_voice": "Proximo, direto, empreendedor - linguagem acessivel voltada ao lojista brasileiro"
+      "tone_of_voice": "Profissional e inovador",
+      "sources": {
+        "company_name": "https://stone.co/",
+        "tagline": "https://stone.co/",
+        "description": "https://stone.co/sobre",
+        "industry": "https://stone.co/sobre",
+        "sub_industry": "https://stone.co/sobre",
+        "business_model": "https://stone.co/sobre",
+        "products": "https://stone.co/sobre",
+        "features": "https://stone.co/sobre",
+        "target_segments": "https://stone.co/sobre",
+        "use_cases": "https://stone.co/sobre",
+        "technologies": "https://stone.co/sobre",
+        "company_size_signals": "https://stone.co/sobre",
+        "founded_year": "https://stone.co/sobre",
+        "headquarters": "https://stone.co/sobre",
+        "geographic_reach": "https://stone.co/sobre",
+        "partnerships": "https://stone.co/sobre",
+        "social_proof": "https://stone.co/sobre",
+        "hiring_signals": "https://stone.co/press",
+        "content_themes": "https://stone.co/sobre"
+      }
     },
     "en": {
-      "company_name": "Stone",
-      "tagline": "We were born to transform the payments industry and empower the Brazilian entrepreneur",
-      "description": "Brazilian fintech leader in payment solutions, acquiring and financial services for SMEs. Stone offers card machines, management software (Linx), digital accounts, credit for merchants and e-commerce solutions, serving over 2 million active customers across Brazil.",
-      "industry": "Fintech / Financial Services",
-      "sub_industry": "Acquiring and Digital Payments",
-      "business_model": "B2B - Transaction fees (MDR) + SaaS subscription (Linx) + Financial revenue (credit and banking)",
+      "company_name": "StoneCo",
+      "tagline": "Servindo o empreendedor brasileiro, transformando sonhos em resultados.",
+      "description": "StoneCo is a leader in financial technology solutions that empower entrepreneurs to connect their business in a simple way, both physically and digitally. The company's culture is centered on the customer, and it has been empowering businesses of all sizes since 2012. StoneCo offers a range of products and services, including payment solutions, banking, and software, to help businesses grow and succeed.",
+      "industry": "Financial Technology",
+      "sub_industry": "Payments and Banking",
+      "business_model": "B2B",
       "products": [
-        "Stone Card Machine (POS/TEF)",
-        "Stone Pay (online payment gateway)",
-        "Linx (retail management and PDV software)",
-        "Linx Commerce (e-commerce and OMS)",
-        "Stone Account (digital account for businesses)",
-        "Stone Working Capital (credit for merchants)",
-        "Stone Hub (financial management dashboard)",
-        "Pagar.me (payments for e-commerce and platforms)"
+        "Conta Stone",
+        "Ton",
+        "Crédito",
+        "Linx",
+        "Tap Ton",
+        "Pix",
+        "Cartões de crédito Stone",
+        "Débito Ton",
+        "Super Conta Ton"
       ],
       "features": [
-        "Receipt in D+0 or D+1",
-        "Automatic receipt anticipation",
-        "Real-time sales dashboard",
-        "PDV + payments + management integration",
-        "Payment split for marketplaces",
-        "Integrated PIX on card machines",
-        "Automated bank reconciliation",
-        "Open API for developers"
+        "Payment processing",
+        "Banking services",
+        "Software solutions",
+        "Integration with other services"
       ],
       "target_segments": [
-        "Street shops and physical stores",
-        "Retail networks (fashion, pharmacies, supermarkets)",
-        "Restaurants, bars and food service",
-        "E-commerce and marketplaces",
-        "Autonomous professionals and micro-entrepreneurs",
-        "Franchises and store networks",
-        "Gas stations",
-        "Clinics and offices"
+        "Microempreendedores",
+        "Pequenos negócios",
+        "Médios negócios",
+        "Grandes negócios"
       ],
       "use_cases": [
-        "Accepting credit and debit cards at the point of sale",
-        "Receiving online payments via gateway",
-        "Anticipating receipts for working capital",
-        "Sales management and inventory control (Linx)",
-        "Digital business account for financial transactions",
-        "Quick credit based on sales history",
-        "Multichannel sales reconciliation"
+        "Pagamentos em bares e restaurantes",
+        "Vendas em lojas"
       ],
       "technologies": [
-        "Cloud (AWS)",
-        "Kotlin",
-        "Go",
-        "React",
-        "Microservices",
-        "Kubernetes",
-        "PostgreSQL",
-        "Kafka",
-        "REST/GraphQL APIs"
+        "NFC"
       ],
-      "pricing_model": "Transaction fee (MDR between 1.39% and 4.99%) + card machine rental or sale + monthly subscription for Linx software + anticipation fees",
-      "company_size_signals": "15,000+ employees, 2 million+ active customers, presence in all Brazilian municipalities. Annual revenue of R$ 12.8 billion (2024). Listed on Nasdaq (STNE) and B3.",
+      "pricing_model": "unknown",
+      "company_size_signals": "16.000+ pessoas",
       "founded_year": "2012",
-      "headquarters": "Sao Paulo, SP",
+      "headquarters": "Rio de Janeiro",
       "geographic_reach": [
-        "Brazil (all states)",
-        "Operation focused exclusively on the Brazilian market"
+        "Brasil",
+        "EUA"
       ],
-      "certifications": [
-        "PCI DSS Level 1",
-        "ISO 27001",
-        "LGPD Compliance",
-        "Central Bank of Brazil (payment institution)",
-        "CVM (public company)"
-      ],
+      "certifications": "unknown",
       "partnerships": [
-        "Visa",
-        "Mastercard",
-        "Elo",
-        "Hipercard",
-        "American Express",
-        "AWS",
-        "Apple Pay",
-        "Google Pay",
-        "Samsung Pay"
+        "Grupo Globo"
       ],
       "social_proof": [
-        "Giraffas Network",
-        "Mundo Verde",
-        "Chilli Beans",
-        "Arezzo",
-        "Cacau Show",
-        "Trigo Group (Spoleto/Koni)",
-        "Petz"
+        "Mineiro"
       ],
       "hiring_signals": [
-        "Software engineers",
-        "Credit analysts",
-        "Green Angels (field sales agents)",
-        "Product managers",
-        "Data scientists",
-        "Risk and compliance specialists"
+        "Trainee"
       ],
       "content_themes": [
-        "Entrepreneurship in Brazil",
-        "Financial management for merchants",
-        "Digital payments and PIX",
-        "Receipt anticipation",
-        "Technology for retail"
+        "Empreendedorismo",
+        "Tecnologia financeira",
+        "Pagamentos",
+        "Banking"
       ],
-      "tone_of_voice": "Close, direct, entrepreneurial - accessible language focused on the Brazilian merchant"
+      "tone_of_voice": "Professional",
+      "sources": {
+        "company_name": "https://stone.co/",
+        "tagline": "https://stone.co/",
+        "description": "https://stone.co/about-us",
+        "industry": "https://stone.co/about-us",
+        "sub_industry": "https://stone.co/about-us",
+        "business_model": "https://stone.co/about-us",
+        "products": "https://stone.co/about-us",
+        "features": "https://stone.co/about-us",
+        "target_segments": "https://stone.co/about-us",
+        "use_cases": "https://stone.co/press",
+        "technologies": "https://stone.co/about-us",
+        "pricing_model": "Not mentioned",
+        "company_size_signals": "https://stone.co/about-us",
+        "founded_year": "https://stone.co/about-us",
+        "headquarters": "https://stone.co/about-us",
+        "geographic_reach": "https://stone.co/about-us",
+        "certifications": "Not mentioned",
+        "partnerships": "https://stone.co/about-us",
+        "social_proof": "https://stone.co/about-us",
+        "hiring_signals": "https://stone.co/press",
+        "content_themes": "https://stone.co/press",
+        "tone_of_voice": "https://stone.co/about-us"
+      }
     }
   },
   "market": {
     "pt": {
-      "market_size_estimate": "Mercado de adquirencia no Brasil: ~R$ 3,5 trilhoes em volume transacionado (2024). Receita do setor de meios de pagamento: ~R$ 65 bilhoes. Mercado de software para varejo (Linx): ~R$ 8 bilhoes.",
-      "growth_trend": "Crescente - penetracao de cartao e PIX acelerada (+18% ao ano em volume), bancarizacao de PMEs, digitalizacao do varejo fisico, credito embedded finance em expansao",
+      "market_size_estimate": {
+        "text": "O mercado de tecnologia financeira no Brasil está em crescimento, com uma estimativa de valor de mercado de R$ 100 bilhões",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "A StoneCo está crescendo rapidamente, com um aumento de 23% no lucro do 1º tri e uma expansão de seus serviços para novos mercados",
+        "source_url": "https://stone.co/press",
+        "confidence": "inferred"
+      },
       "likely_competitors": [
-        "Cielo - Maior adquirente do Brasil, ligada ao Bradesco e Banco do Brasil",
-        "Rede (Itau) - Adquirente do grupo Itau Unibanco, forte em grandes contas",
-        "PagSeguro (PagBank) - Forte em MEIs e autonomos, banco digital integrado",
-        "Getnet (Santander) - Adquirente do Santander, crescendo em PMEs",
-        "SumUp - Maquininhas de baixo custo para microempreendedores",
-        "Mercado Pago - Solucao de pagamentos do Mercado Livre, forte em e-commerce",
-        "InfinitePay - Fintech com taxas agressivas e conta digital",
-        "Ton (Stone) - Sub-marca da propria Stone para MEIs e autonomos"
+        {
+          "text": "PagSeguro - uma empresa de pagamento online",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Mercado Pago - uma empresa de pagamento online",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "competitive_advantages": [
-        "Atendimento humano e proximo (Green Angels - agentes de campo)",
-        "Tecnologia proprietaria de ponta a ponta (hardware + software)",
-        "Linx como plataforma de gestao integrada ao pagamento",
-        "Antecipacao de recebiveis com taxas competitivas",
-        "Modelo de distribuicao hibrida (digital + campo)",
-        "Plataforma completa: pagamento + banking + credito + software"
+        {
+          "text": "A StoneCo tem uma cultura centrada no cliente e oferece soluções inovadoras para empreendedores",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        },
+        {
+          "text": "A empresa tem uma ampla gama de produtos e serviços, incluindo Conta Stone, Ton, Crédito, Linx, Cartões de crédito Stone, Débito Ton e Super Conta Ton",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        }
       ],
       "market_challenges": [
-        "Compressao de MDR (taxas cada vez menores)",
-        "Concorrencia agressiva de bancos tradicionais com adquirentes proprias",
-        "PIX gratuito reduzindo receita em debito",
-        "Inadimplencia em operacoes de credito",
-        "Regulacao crescente do Banco Central",
-        "Custo alto de aquisicao de clientes (CAC) no segmento de MEIs"
+        {
+          "text": "A concorrência no mercado de tecnologia financeira é intensa",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "A regulamentação do mercado de pagamentos pode ser um desafio para a StoneCo",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "customer_pain_points": [
-        "Taxas altas e pouco transparentes dos adquirentes tradicionais",
-        "Demora no recebimento de vendas no cartao (D+30)",
-        "Dificuldade de conciliar vendas de multiplos canais",
-        "Falta de acesso a credito formal para pequenos comercios",
-        "Sistemas de PDV desconectados do meio de pagamento",
-        "Atendimento ruim e impessoal das grandes adquirentes",
-        "Gestao financeira manual e desorganizada"
+        {
+          "text": "Os empreendedores brasileiros enfrentam dificuldades para acessar serviços financeiros",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Os empreendedores precisam de soluções inovadoras e personalizadas para gerenciar seus negócios",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "buying_triggers": [
-        "Abertura de novo comercio ou ponto de venda",
-        "Insatisfacao com taxas ou atendimento da adquirente atual",
-        "Necessidade de antecipar recebiveis para capital de giro",
-        "Expansao para e-commerce ou venda multicanal",
-        "Troca de sistema de PDV ou gestao",
-        "Necessidade de credito rapido para estoque ou reforma",
-        "Migracao de boleto/dinheiro para cartao e PIX"
+        {
+          "text": "A necessidade de acessar serviços financeiros mais rápidos e seguros",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "A busca por soluções inovadoras e personalizadas para gerenciar negócios",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "decision_makers": [
-        "Dono do comercio / Proprietario",
-        "Gerente financeiro",
-        "Diretor de operacoes (em redes)",
-        "CFO (em empresas maiores)",
-        "Gerente de TI (para integracoes)"
+        {
+          "text": "Os empreendedores e donos de negócios são os principais tomadores de decisão",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Os gestores financeiros e contábeis também podem influenciar as decisões de compra",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
-      "sales_cycle_estimate": "1-7 dias para MEIs e pequenos comercios, 15-45 dias para redes de varejo, 60-120 dias para grandes contas enterprise (Linx)",
+      "sales_cycle_estimate": {
+        "text": "O ciclo de vendas pode levar de 3 a 6 meses, dependendo da complexidade do produto ou serviço",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "Comercio brasileiro com faturamento mensal acima de R$ 30 mil",
-        "Loja fisica com volume de vendas no cartao relevante",
-        "Rede de varejo com 5 a 200 lojas buscando padronizacao",
-        "E-commerce com GMV acima de R$ 100 mil/mes",
-        "Restaurante ou food service com alto giro de transacoes",
-        "Comercio que precisa de antecipacao de recebiveis frequente",
-        "Empresa que busca integrar PDV, pagamentos e gestao financeira",
-        "Lojista insatisfeito com atendimento ou taxas do adquirente atual",
-        "Franquia em expansao que precisa de solucao padronizada",
-        "Comercio que aceita predominantemente cartao e PIX (baixo uso de dinheiro)"
+        {
+          "text": "Empreendedores e donos de negócios de pequeno e médio porte",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Empresas que buscam soluções inovadoras e personalizadas para gerenciar seus negócios",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "anti_icp_signals": [
-        "Comercio que opera quase exclusivamente com dinheiro vivo",
-        "MEI com faturamento abaixo de R$ 5 mil/mes (margens instaveis)",
-        "Empresa em recuperacao judicial ou com restritivos graves no credito",
-        "Negocio informal sem CNPJ ativo",
-        "Grande corporacao com contrato exclusivo com banco proprio",
-        "Comercio em zona com conectividade de internet muito precaria",
-        "Empresa que nao aceita cartao e nao planeja aceitar"
+        {
+          "text": "Empresas que não buscam soluções inovadoras ou personalizadas",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Empresas que não têm necessidade de acessar serviços financeiros mais rápidos e seguros",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "expansion_opportunities": [
-        "Credito embedded (emprestimos baseados em fluxo de vendas)",
-        "Banking as a Service para PMEs",
-        "Software de gestao integrado (Linx) como diferencial competitivo",
-        "Verticalizacao em food service e farmacia",
-        "PIX parcelado e novas modalidades de pagamento",
-        "Internacionalizacao para America Latina"
+        {
+          "text": "A expansão para novos mercados, como o mercado de pagamentos móveis",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "A oferta de novos produtos e serviços, como soluções de gestão de negócios",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "industry_trends": [
-        "PIX como meio de pagamento dominante",
-        "Embedded finance e banking integrado",
-        "Open finance e portabilidade de recebiveis",
-        "IA para analise de credito e prevencao a fraude",
-        "Consolidacao de adquirentes e fintechs",
-        "Tap to phone (celular como maquininha)",
-        "Super apps financeiros para PMEs"
+        {
+          "text": "O crescimento do mercado de tecnologia financeira no Brasil",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "A adoção de soluções de pagamento móvel e online",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ]
     },
     "en": {
-      "market_size_estimate": "Acquisition market in Brazil: ~R$ 3.5 trillion in transaction volume (2024). Revenue from the payment means sector: ~R$ 65 billion. Retail software market (Linx): ~R$ 8 billion.",
-      "growth_trend": "Increasing - accelerated card and PIX penetration (+18% per year in volume), SME banking, physical retail digitalization, embedded finance credit expansion",
+      "market_size_estimate": {
+        "text": "The market size of the financial technology industry in Brazil is estimated to be growing rapidly, with a potential value of over $10 billion",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "The company is experiencing a growth trend, with a 23% increase in profit in the first quarter and a 26.9% increase in the second quarter",
+        "source_url": "https://stone.co/press",
+        "confidence": "scraped"
+      },
       "likely_competitors": [
-        "Cielo - Largest acquirer in Brazil, linked to Bradesco and Banco do Brasil",
-        "Rede (Itau) - Acquirer of the Itau Unibanco group, strong in large accounts",
-        "PagSeguro (PagBank) - Strong in MEIs and autonomous, integrated digital bank",
-        "Getnet (Santander) - Acquirer of Santander, growing in SMEs",
-        "SumUp - Low-cost machines for micro-entrepreneurs",
-        "Mercado Pago - Payment solution from Mercado Livre, strong in e-commerce",
-        "InfinitePay - Fintech with aggressive rates and digital account",
-        "Ton (Stone) - Sub-brand of Stone itself for MEIs and autonomous"
+        {
+          "text": "Visa and Mastercard",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Other fintech companies in Brazil",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "competitive_advantages": [
-        "Human and close service (Green Angels - field agents)",
-        "End-to-end proprietary technology (hardware + software)",
-        "Linx as an integrated management platform for payment",
-        "Competitive receivables anticipation",
-        "Hybrid distribution model (digital + field)",
-        "Complete platform: payment + banking + credit + software"
+        {
+          "text": "Focus on customer service and user experience",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Innovative solutions and products, such as Conta Stone and Ton",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        }
       ],
       "market_challenges": [
-        "MDR compression (lower and lower rates)",
-        "Aggressive competition from traditional banks with their own acquirers",
-        "Free PIX reducing debit revenue",
-        "Credit operation default",
-        "Increasing regulation from the Central Bank",
-        "High customer acquisition cost (CAC) in the MEI segment"
+        {
+          "text": "Competition from established players in the market",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Regulatory challenges and changes in the market",
+          "source_url": "https://stone.co/press",
+          "confidence": "scraped"
+        }
       ],
       "customer_pain_points": [
-        "High and non-transparent rates from traditional acquirers",
-        "Delay in receiving card sales (D+30)",
-        "Difficulty in reconciling sales from multiple channels",
-        "Lack of access to formal credit for small businesses",
-        "PDV systems disconnected from the payment means",
-        "Poor and impersonal service from large acquirers",
-        "Manual and disorganized financial management"
+        {
+          "text": "Difficulty in accessing financial services and products",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "High fees and charges for financial services",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "buying_triggers": [
-        "Opening of a new business or point of sale",
-        "Dissatisfaction with rates or service from the current acquirer",
-        "Need to anticipate receivables for working capital",
-        "Expansion to e-commerce or multi-channel sales",
-        "Change of PDV or management system",
-        "Need for quick credit for stock or renovation",
-        "Migration from check/cash to card and PIX"
+        {
+          "text": "Need for convenient and accessible financial services",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Desire for innovative and user-friendly products",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "decision_makers": [
-        "Business owner / Owner",
-        "Financial manager",
-        "Operations director (in networks)",
-        "CFO (in larger companies)",
-        "IT manager (for integrations)"
+        {
+          "text": "Small business owners and entrepreneurs",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Financial managers and directors of medium and large businesses",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
-      "sales_cycle_estimate": "1-7 days for MEIs and small businesses, 15-45 days for retail networks, 60-120 days for large enterprise accounts (Linx)",
+      "sales_cycle_estimate": {
+        "text": "The sales cycle is estimated to be around 3-6 months, depending on the complexity of the sale and the decision-making process of the customer",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "Brazilian business with monthly revenue above R$ 30,000",
-        "Physical store with relevant card sales volume",
-        "Retail network with 5 to 200 stores seeking standardization",
-        "E-commerce with GMV above R$ 100,000/month",
-        "Restaurant or food service with high transaction volume",
-        "Business that needs frequent receivables anticipation",
-        "Company seeking to integrate PDV, payments, and financial management",
-        "Merchant dissatisfied with service or rates from current acquirer",
-        "Expanding franchise seeking standardized solution",
-        "Business that predominantly accepts card and PIX (low cash usage)"
+        {
+          "text": "Small and medium-sized businesses, as well as microentrepreneurs",
+          "source_url": "https://stone.co/about-us",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Businesses looking for innovative and convenient financial services",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "anti_icp_signals": [
-        "Business operating almost exclusively with cash",
-        "MEI with monthly revenue below R$ 5,000 (unstable margins)",
-        "Company in judicial recovery or with severe credit restrictions",
-        "Informal business without active CNPJ",
-        "Large corporation with exclusive contract with its own bank",
-        "Business in an area with very poor internet connectivity",
-        "Company that does not accept cards and does not plan to"
+        {
+          "text": "High levels of debt or financial instability",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Lack of transparency or unclear business practices",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "expansion_opportunities": [
-        "Embedded credit (loans based on sales flow)",
-        "Banking as a Service for SMEs",
-        "Integrated management software (Linx) as a competitive differentiator",
-        "Verticalization in food service and pharmacy",
-        "PIX installment and new payment modalities",
-        "Internationalization to Latin America"
+        {
+          "text": "Expansion into new markets and regions in Brazil",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Development of new products and services to meet the needs of existing customers",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "industry_trends": [
-        "PIX as the dominant payment method",
-        "Embedded finance and integrated banking",
-        "Open finance and portability of receivables",
-        "AI for credit analysis and fraud prevention",
-        "Consolidation of acquirers and fintechs",
-        "Tap to phone (cell phone as a machine)",
-        "Financial super apps for SMEs"
+        {
+          "text": "Increasing demand for digital and online financial services",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Growing importance of fintech companies in the Brazilian market",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ]
     }
-  },
-  "clients": [
-    {
-      "company_name": "Bibi Calçados",
-      "industry": "Footwear Retail",
-      "employee_count": 2000,
-      "annual_revenue_usd": 200000000,
-      "deal_size_usd": 95000,
-      "sales_cycle_days": 20,
-      "churned": false,
-      "ltv_usd": 570000,
-      "tech_stack": "Stone;SAP;TOTVS;AWS",
-      "country": "Brazil",
-      "founding_year": 1949
-    },
-    {
-      "company_name": "Riachuelo (Grupo Guararapes)",
-      "industry": "Fashion Retail",
-      "employee_count": 30000,
-      "annual_revenue_usd": 3000000000,
-      "deal_size_usd": 2200000,
-      "sales_cycle_days": 45,
-      "churned": false,
-      "ltv_usd": 13200000,
-      "tech_stack": "Stone;SAP;Oracle;Boa Compra",
-      "country": "Brazil",
-      "founding_year": 1947
-    },
-    {
-      "company_name": "Arezzo&Co",
-      "industry": "Fashion / Footwear Retail",
-      "employee_count": 7500,
-      "annual_revenue_usd": 1200000000,
-      "deal_size_usd": 680000,
-      "sales_cycle_days": 30,
-      "churned": false,
-      "ltv_usd": 4080000,
-      "tech_stack": "Stone;TOTVS;SAP;AWS",
-      "country": "Brazil",
-      "founding_year": 1972
-    },
-    {
-      "company_name": "Grupo GPS (Facility Services)",
-      "industry": "Facility Services / Cleaning",
-      "employee_count": 90000,
-      "annual_revenue_usd": 2500000000,
-      "deal_size_usd": 1500000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 9000000,
-      "tech_stack": "Stone;TOTVS;SAP;Oracle",
-      "country": "Brazil",
-      "founding_year": 1992
-    },
-    {
-      "company_name": "Carrefour Brasil",
-      "industry": "Retail / Supermarkets",
-      "employee_count": 85000,
-      "annual_revenue_usd": 17000000000,
-      "deal_size_usd": 3500000,
-      "sales_cycle_days": 60,
-      "churned": false,
-      "ltv_usd": 21000000,
-      "tech_stack": "Stone;Cielo;SAP;Oracle",
-      "country": "Brazil",
-      "founding_year": 1975
-    },
-    {
-      "company_name": "Centauro",
-      "industry": "Sporting Goods Retail",
-      "employee_count": 4800,
-      "annual_revenue_usd": 1100000000,
-      "deal_size_usd": 580000,
-      "sales_cycle_days": 25,
-      "churned": false,
-      "ltv_usd": 3480000,
-      "tech_stack": "Stone;TOTVS;AWS;Google Cloud",
-      "country": "Brazil",
-      "founding_year": 1981
-    },
-    {
-      "company_name": "Chilli Beans",
-      "industry": "Fashion Accessories / Retail",
-      "employee_count": 3000,
-      "annual_revenue_usd": 250000000,
-      "deal_size_usd": 180000,
-      "sales_cycle_days": 18,
-      "churned": false,
-      "ltv_usd": 1080000,
-      "tech_stack": "Stone;TOTVS;AWS",
-      "country": "Brazil",
-      "founding_year": 1997
-    },
-    {
-      "company_name": "Multicoisas",
-      "industry": "Home Improvement Retail",
-      "employee_count": 2500,
-      "annual_revenue_usd": 300000000,
-      "deal_size_usd": 150000,
-      "sales_cycle_days": 20,
-      "churned": false,
-      "ltv_usd": 900000,
-      "tech_stack": "Stone;TOTVS;Microsoft",
-      "country": "Brazil",
-      "founding_year": 1996
-    },
-    {
-      "company_name": "Tok&Stok",
-      "industry": "Furniture / Home Decor Retail",
-      "employee_count": 3500,
-      "annual_revenue_usd": 500000000,
-      "deal_size_usd": 280000,
-      "sales_cycle_days": 25,
-      "churned": false,
-      "ltv_usd": 1680000,
-      "tech_stack": "Stone;SAP;Oracle;TOTVS",
-      "country": "Brazil",
-      "founding_year": 1978
-    },
-    {
-      "company_name": "Grupo Movida",
-      "industry": "Car Rental / Mobility",
-      "employee_count": 8000,
-      "annual_revenue_usd": 1100000000,
-      "deal_size_usd": 620000,
-      "sales_cycle_days": 30,
-      "churned": false,
-      "ltv_usd": 3720000,
-      "tech_stack": "Stone;TOTVS;SAP;Microsoft",
-      "country": "Brazil",
-      "founding_year": 2006
-    },
-    {
-      "company_name": "Localfrio (Logística Frigorificada)",
-      "industry": "Cold Chain Logistics",
-      "employee_count": 2500,
-      "annual_revenue_usd": 250000000,
-      "deal_size_usd": 120000,
-      "sales_cycle_days": 22,
-      "churned": false,
-      "ltv_usd": 720000,
-      "tech_stack": "Stone;TOTVS;Oracle",
-      "country": "Brazil",
-      "founding_year": 1972
-    },
-    {
-      "company_name": "Drogaria Nissei",
-      "industry": "Pharmacy / Retail",
-      "employee_count": 7000,
-      "annual_revenue_usd": 900000000,
-      "deal_size_usd": 380000,
-      "sales_cycle_days": 25,
-      "churned": false,
-      "ltv_usd": 2280000,
-      "tech_stack": "Stone;TOTVS;SAP",
-      "country": "Brazil",
-      "founding_year": 1972
-    },
-    {
-      "company_name": "Cielo",
-      "industry": "Payment Processing / Fintech",
-      "employee_count": 4000,
-      "annual_revenue_usd": 1500000000,
-      "deal_size_usd": 0,
-      "sales_cycle_days": 0,
-      "churned": true,
-      "ltv_usd": 0,
-      "tech_stack": "Proprietary processing;Mastercard;Visa",
-      "country": "Brazil",
-      "founding_year": 1995
-    },
-    {
-      "company_name": "Localiza Rent a Car",
-      "industry": "Car Rental / Mobility",
-      "employee_count": 18000,
-      "annual_revenue_usd": 4800000000,
-      "deal_size_usd": 1800000,
-      "sales_cycle_days": 35,
-      "churned": true,
-      "ltv_usd": 5400000,
-      "tech_stack": "Cielo (migrated);SAP;Oracle",
-      "country": "Brazil",
-      "founding_year": 1973
-    },
-    {
-      "company_name": "Grupo Pão de Açúcar (GPA)",
-      "industry": "Supermarkets / Retail",
-      "employee_count": 74000,
-      "annual_revenue_usd": 8500000000,
-      "deal_size_usd": 3200000,
-      "sales_cycle_days": 55,
-      "churned": false,
-      "ltv_usd": 19200000,
-      "tech_stack": "Stone;Cielo;SAP;Oracle",
-      "country": "Brazil",
-      "founding_year": 1948
-    },
-    {
-      "company_name": "Le Biscuit",
-      "industry": "Gifting / Home Goods Retail",
-      "employee_count": 4000,
-      "annual_revenue_usd": 400000000,
-      "deal_size_usd": 180000,
-      "sales_cycle_days": 20,
-      "churned": false,
-      "ltv_usd": 1080000,
-      "tech_stack": "Stone;TOTVS;Microsoft",
-      "country": "Brazil",
-      "founding_year": 1987
-    },
-    {
-      "company_name": "Spoleto Restaurantes",
-      "industry": "Food Service / Restaurants",
-      "employee_count": 3000,
-      "annual_revenue_usd": 150000000,
-      "deal_size_usd": 95000,
-      "sales_cycle_days": 15,
-      "churned": false,
-      "ltv_usd": 570000,
-      "tech_stack": "Stone;Oracle Food & Beverage;TOTVS",
-      "country": "Brazil",
-      "founding_year": 2000
-    },
-    {
-      "company_name": "BR Distribuidora (Vibra Energia)",
-      "industry": "Fuel Distribution / Energy",
-      "employee_count": 7000,
-      "annual_revenue_usd": 25000000000,
-      "deal_size_usd": 2500000,
-      "sales_cycle_days": 50,
-      "churned": false,
-      "ltv_usd": 15000000,
-      "tech_stack": "Stone;SAP;Oracle;TOTVS",
-      "country": "Brazil",
-      "founding_year": 1971
-    },
-    {
-      "company_name": "Grupo Sabin (Diagnósticos)",
-      "industry": "Healthcare / Diagnostics",
-      "employee_count": 12000,
-      "annual_revenue_usd": 800000000,
-      "deal_size_usd": 380000,
-      "sales_cycle_days": 28,
-      "churned": false,
-      "ltv_usd": 2280000,
-      "tech_stack": "Stone;TOTVS Saúde;Oracle",
-      "country": "Brazil",
-      "founding_year": 1984
-    },
-    {
-      "company_name": "Bob's (Grupo Multi)",
-      "industry": "Fast Food / Restaurants",
-      "employee_count": 5000,
-      "annual_revenue_usd": 400000000,
-      "deal_size_usd": 185000,
-      "sales_cycle_days": 18,
-      "churned": false,
-      "ltv_usd": 1110000,
-      "tech_stack": "Stone;Oracle F&B;TOTVS",
-      "country": "Brazil",
-      "founding_year": 1952
-    }
-  ]
+  }
 }

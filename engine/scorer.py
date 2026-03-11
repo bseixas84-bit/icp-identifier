@@ -1,7 +1,11 @@
 import json
+import os
 from openai import OpenAI
 import pandas as pd
 from .models import ICPProfile, ScoredProspect
+
+LLM_BASE_URL = os.environ.get("LLM_BASE_URL", "https://api.groq.com/openai/v1")
+LLM_MODEL = os.environ.get("LLM_MODEL", "llama-3.3-70b-versatile")
 
 
 SCORING_PROMPT = """You are an expert B2B sales strategist.
@@ -44,10 +48,10 @@ def score_prospects(
     icp_dict = icp.model_dump()
     del icp_dict["raw_analysis"]
 
-    client = OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
+    client = OpenAI(api_key=api_key, base_url=LLM_BASE_URL)
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=LLM_MODEL,
         messages=[
             {
                 "role": "user",

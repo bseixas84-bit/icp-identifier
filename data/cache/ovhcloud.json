@@ -1,681 +1,468 @@
 {
   "url": "ovhcloud.com",
+  "scraped_at": "2026-03-11T14:03:32.477592+00:00",
+  "pages_scraped": [
+    "https://ovhcloud.com/"
+  ],
+  "meta": {
+    "meta_description": "OVHcloud c'est plus de 80 services au meilleur ratio performance/prix, ouverts et réversibles : noms de domaine, vps, serveurs dédiés, cloud IaaS & PaaS",
+    "og:title": "OVHcloud",
+    "og:site_name": "OVHcloud"
+  },
   "dna": {
     "pt": {
       "company_name": "OVHcloud",
-      "tagline": "Liberdade para inovar",
-      "description": "OVHcloud é um provedor líder de infraestrutura de nuvem europeia, oferecendo nuvem pública, nuvem privada, servidores de metal nu, hospedagem web e serviços de domínio. Com um modelo verticalmente integrado (próprios centros de dados, tecnologia de refrigeração e fabricação de servidores), OVHcloud fornece uma alternativa aos hyperscalers dos EUA com um forte foco na soberania de dados europeia, conformidade com o GDPR e preços competitivos. A empresa opera 40+ centros de dados em 4 continentes.",
-      "industry": "Tecnologia",
-      "sub_industry": "Infraestrutura de Nuvem / IaaS / PaaS / Hospedagem Web",
-      "business_model": "B2B IaaS/PaaS (pagamento por uso + assinatura)",
+      "tagline": "unknown",
+      "description": "A OVHcloud é uma empresa de cloud computing que oferece uma variedade de serviços, incluindo servidores dedicados, VPS, cloud público e privado, além de soluções de armazenamento e backup. A empresa se destaca por sua abordagem de cloud livre, durável e de confiança, com uma infraestrutura global e uma rede de datacenters em todo o mundo.",
+      "industry": "Tecnologia da Informação",
+      "sub_industry": "Cloud Computing",
+      "business_model": "B2B",
       "products": [
-        "Nuvem Pública (baseada em OpenStack IaaS)",
-        "Nuvem Privada Hospedada (VMware/Nutanix)",
-        "Servidores de Metal Nu (dedicados)",
-        "VPS (Servidores Privados Virtuais)",
-        "Nuvem Web (hospedagem, domínios, e-mail)",
-        "Kubernetes Gerenciado",
-        "Treinamento e Implantação de IA da OVHcloud",
-        "Armazenamento de Objetos (compatível com S3)",
-        "Bancos de Dados Gerenciados",
-        "Serviços de Rede (vRack, Balanceador de Carga)"
+        "Servidores dedicados",
+        "VPS",
+        "Cloud público",
+        "Cloud privado",
+        "Soluções de armazenamento",
+        "Soluções de backup",
+        "Managed ClickHouse",
+        "Backup Agent"
       ],
       "features": [
-        "Soberania de dados europeia e conformidade com o GDPR",
-        "Infraestrutura verticalmente integrada (própria refrigeração, servidores, centros de dados)",
-        "Preços previsíveis sem taxas de saída",
-        "Nuvem pública baseada em OpenStack",
-        "Proteção anti-DDoS incluída",
-        "Ofertas qualificadas SecNumCloud",
-        "Centros de dados neutros em carbono (refrigeração por água)",
-        "Gerenciamento de infraestrutura de API em primeiro lugar"
+        "Desempenho de até 15% melhor com CPUs AMD EPYC 4005",
+        "Banda larga pública de até 3 Gbit/s",
+        "Configuração total do servidor",
+        "Eficácia energética otimizada com resfriamento líquido",
+        "Escalabilidade instantânea",
+        "Conectividade nativa com pipelines e dashboards BI",
+        "Custos transparentes com backups e tráfego incluídos"
       ],
       "target_segments": [
-        "Pequenas e médias empresas europeias",
-        "Agências web e startups de SaaS",
-        "Plataformas de comércio eletrônico",
-        "Organizações governamentais e do setor público",
-        "Serviços de saúde e financeiros (indústrias regulamentadas)",
-        "Empresas de jogos e plataformas de streaming",
-        "Startups de IA/ML e laboratórios de pesquisa",
-        "Fornecedores de serviços gerenciados e integradores de sistemas"
+        "PME",
+        "Empresas de todos os tamanhos"
       ],
       "use_cases": [
-        "Hospedagem e escalonamento de aplicações web",
-        "Nuvem privada para cargas de trabalho regulamentadas",
-        "Servidores de metal nu para computação de alto desempenho",
-        "Treinamento e inferência de modelos de IA",
-        "Recuperação de desastres e backup",
-        "Implantação de microsserviços baseada em Kubernetes"
+        "Desenvolvimento de plataformas de big data e analytics",
+        "Criação de sites e lojas online",
+        "Referenciamento local e e-reputação"
       ],
       "technologies": [
-        "OpenStack",
-        "VMware",
-        "Nutanix",
-        "Kubernetes",
-        "Terraform",
-        "Ansible",
-        "Armazenamento compatível com S3",
-        "API da OVHcloud",
-        "Monitoramento Grafana/Prometheus"
+        "AMD EPYC 4005",
+        "Liquid cooling",
+        "ClickHouse",
+        "VMware"
       ],
-      "pricing_model": "Preços por hora/mês com pagamento por uso + descontos de uso comprometido + preços fixos de servidores dedicados",
-      "company_size_signals": "2.400+ funcionários, 1,6 milhão+ clientes em todo o mundo, 40+ centros de dados em 4 continentes. Receita anual de aproximadamente EUR 900 milhões (2024). Listada na Euronext Paris.",
-      "founded_year": "1999",
-      "headquarters": "Roubaix, França",
+      "pricing_model": "Pay-as-you-go",
+      "company_size_signals": "1,6 milhão de clientes",
+      "founded_year": "unknown",
+      "headquarters": "unknown",
       "geographic_reach": [
-        "França (sede)",
-        "Alemanha",
-        "Reino Unido",
-        "Polônia",
-        "Canadá",
-        "Singapura",
-        "Austrália",
-        "Estados Unidos"
+        "França",
+        " Mundo todo"
       ],
       "certifications": [
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "SOC 1/2",
-        "SecNumCloud (ANSSI)",
-        "HDS (Hospedagem de Dados de Saúde)",
-        "Conformidade com o GDPR",
-        "PCI DSS"
+        "unknown"
       ],
       "partnerships": [
-        "VMware",
-        "Nutanix",
-        "HashiCorp",
-        "Datadog",
-        "Veeam",
-        "Plesk/cPanel",
-        "NVIDIA (IA)"
+        "unknown"
       ],
       "social_proof": [
-        "BlaBlaCar",
-        "Deezer",
-        "Le Monde",
-        "Dailymotion",
-        "OBS (Orange Business Services)",
-        "Ministério da Educação da França",
-        "CERN"
+        "1,6 milhão de clientes"
       ],
-      "hiring_signals": [
-        "Engenheiros de nuvem",
-        "Engenheiros SRE/DevOps",
-        "Engenheiros de rede",
-        "Técnicos de centros de dados",
-        "Desenvolvedores Go/Python",
-        "Gerentes de produtos",
-        "Engenheiros de segurança"
-      ],
+      "hiring_signals": "unknown",
       "content_themes": [
-        "Soberania de nuvem europeia",
-        "Nuvem reversível e aberta",
-        "Infraestrutura de nuvem sustentável",
-        "Alternativa aos hyperscalers dos EUA",
-        "Democratização da IA"
+        "Cloud computing",
+        "Servidores dedicados",
+        "VPS",
+        "Cloud público",
+        "Cloud privado"
       ],
-      "tone_of_voice": "Direto, técnico, focado na soberania, orientado à comunidade"
+      "tone_of_voice": "Profissional",
+      "sources": {
+        "company_name": "https://ovhcloud.com/",
+        "description": "https://ovhcloud.com/",
+        "products": "https://ovhcloud.com/",
+        "features": "https://ovhcloud.com/",
+        "target_segments": "https://ovhcloud.com/",
+        "use_cases": "https://ovhcloud.com/",
+        "technologies": "https://ovhcloud.com/",
+        "pricing_model": "https://ovhcloud.com/",
+        "company_size_signals": "https://ovhcloud.com/",
+        "geographic_reach": "https://ovhcloud.com/",
+        "social_proof": "https://ovhcloud.com/"
+      }
     },
     "en": {
       "company_name": "OVHcloud",
-      "tagline": "Freedom to innovate",
-      "description": "OVHcloud is a leading European cloud infrastructure provider offering public cloud, private cloud, bare metal servers, web hosting, and domain services. With a vertically integrated model (own data centers, cooling technology, and server manufacturing), OVHcloud provides an alternative to US hyperscalers with a strong focus on European data sovereignty, GDPR compliance, and competitive pricing. The company operates 40+ data centers across 4 continents.",
-      "industry": "Technology",
-      "sub_industry": "Cloud Infrastructure / IaaS / PaaS / Web Hosting",
-      "business_model": "B2B IaaS/PaaS (pay-as-you-go + subscription)",
+      "tagline": "unknown",
+      "description": "OVHcloud is a cloud computing company that offers a range of services, including web hosting, dedicated servers, public cloud, and more. They provide a reversible cloud with open interoperability, respect for standards, and no bandwidth costs. They also offer a hybrid cloud that combines private, public, bare metal, and web hosting for optimal adaptability. The company prioritizes data protection, sustainability, and transparency in their operations.",
+      "industry": "Cloud Computing",
+      "sub_industry": "Web Hosting and Cloud Services",
+      "business_model": "B2B",
       "products": [
-        "Public Cloud (OpenStack-based IaaS)",
-        "Hosted Private Cloud (VMware/Nutanix)",
-        "Bare Metal Servers (dedicated)",
-        "VPS (Virtual Private Servers)",
-        "Web Cloud (hosting, domains, email)",
+        "Dedicated Servers",
+        "Public Cloud",
+        "VPS",
+        "Managed ClickHouse",
+        "Backup Agent",
+        "Domain Names",
+        "Object Storage",
         "Managed Kubernetes",
-        "OVHcloud AI Training & Deploy",
-        "Object Storage (S3-compatible)",
-        "Managed Databases",
-        "Network Services (vRack, Load Balancer)"
+        "Managed Databases"
       ],
       "features": [
-        "European data sovereignty and GDPR compliance",
-        "Vertically integrated infrastructure (own cooling, servers, DCs)",
-        "Predictable pricing with no egress fees",
-        "OpenStack-based public cloud",
-        "Anti-DDoS protection included",
-        "SecNumCloud-qualified offerings",
-        "Carbon-neutral data centers (water cooling)",
-        "API-first infrastructure management"
+        "High performance",
+        "Scalability",
+        "Security",
+        "Data protection",
+        "Sustainability",
+        "Transparency",
+        "Reversibility",
+        "Hybrid cloud",
+        "Open interoperability"
       ],
       "target_segments": [
-        "European SMBs and mid-market companies",
-        "Web agencies and SaaS startups",
-        "E-commerce platforms",
-        "Government and public sector organizations",
-        "Healthcare and financial services (regulated industries)",
-        "Gaming companies and streaming platforms",
-        "AI/ML startups and research labs",
-        "Managed service providers and system integrators"
+        "PME (Small and Medium-sized Enterprises)",
+        "Enterprises"
       ],
       "use_cases": [
-        "Web application hosting and scaling",
-        "Private cloud for regulated workloads",
-        "Bare metal servers for high-performance computing",
-        "AI model training and inference",
-        "Disaster recovery and backup",
-        "Kubernetes-based microservices deployment"
+        "Deploying a big data and analytics platform",
+        "Creating a website or online store",
+        "Managing email and telephone services",
+        "Connecting and securing internet access"
       ],
       "technologies": [
-        "OpenStack",
+        "AMD EPYC",
+        "Liquid cooling",
         "VMware",
-        "Nutanix",
         "Kubernetes",
         "Terraform",
-        "Ansible",
-        "S3-compatible storage",
-        "OVHcloud API",
-        "Grafana/Prometheus monitoring"
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB"
       ],
-      "pricing_model": "Pay-as-you-go hourly/monthly pricing with no egress fees + committed use discounts + flat-rate dedicated server pricing",
-      "company_size_signals": "2,400+ employees, 1.6 million+ customers worldwide, 40+ data centers in 4 continents. Annual revenue of approximately EUR 900 million (2024). Listed on Euronext Paris.",
-      "founded_year": "1999",
-      "headquarters": "Roubaix, France",
+      "pricing_model": "Pay-as-you-go",
+      "company_size_signals": "1.6 million clients",
+      "founded_year": "unknown",
+      "headquarters": "unknown",
       "geographic_reach": [
-        "France (headquarters)",
-        "Germany",
-        "United Kingdom",
-        "Poland",
-        "Canada",
-        "Singapore",
-        "Australia",
-        "United States"
+        "France",
+        "Global (46 datacenters on 4 continents)"
       ],
-      "certifications": [
-        "ISO 27001",
-        "ISO 27017",
-        "ISO 27018",
-        "SOC 1/2",
-        "SecNumCloud (ANSSI)",
-        "HDS (Health Data Hosting)",
-        "GDPR Compliance",
-        "PCI DSS"
-      ],
-      "partnerships": [
-        "VMware",
-        "Nutanix",
-        "HashiCorp",
-        "Datadog",
-        "Veeam",
-        "Plesk/cPanel",
-        "NVIDIA (AI)"
-      ],
-      "social_proof": [
-        "BlaBlaCar",
-        "Deezer",
-        "Le Monde",
-        "Dailymotion",
-        "OBS (Orange Business Services)",
-        "French Ministry of Education",
-        "CERN"
-      ],
-      "hiring_signals": [
-        "Cloud engineers",
-        "SRE/DevOps engineers",
-        "Network engineers",
-        "Data center technicians",
-        "Go/Python developers",
-        "Product managers",
-        "Security engineers"
-      ],
+      "certifications": "unknown",
+      "partnerships": "unknown",
+      "social_proof": "1.6 million clients",
+      "hiring_signals": "unknown",
       "content_themes": [
-        "European cloud sovereignty",
-        "Reversible and open cloud",
-        "Sustainable cloud infrastructure",
-        "Alternative to US hyperscalers",
-        "AI democratization"
+        "Cloud computing",
+        "Web hosting",
+        "Data protection",
+        "Sustainability"
       ],
-      "tone_of_voice": "Straightforward, technical, sovereignty-focused, community-oriented"
+      "tone_of_voice": "professional",
+      "sources": {
+        "company_name": "https://ovhcloud.com/",
+        "description": "https://ovhcloud.com/",
+        "products": "https://ovhcloud.com/",
+        "features": "https://ovhcloud.com/",
+        "target_segments": "https://ovhcloud.com/",
+        "use_cases": "https://ovhcloud.com/",
+        "technologies": "https://ovhcloud.com/",
+        "pricing_model": "https://ovhcloud.com/",
+        "company_size_signals": "https://ovhcloud.com/",
+        "geographic_reach": "https://ovhcloud.com/",
+        "social_proof": "https://ovhcloud.com/"
+      }
     }
   },
   "market": {
     "pt": {
-      "market_size_estimate": "Mercado de infraestrutura de nuvem europeu: aproximadamente 60 bilhões de euros (2024). Mercado global de IaaS: aproximadamente 150 bilhões de dólares. Segmento de nuvem soberana europeu: aproximadamente 10 bilhões de euros e crescendo rapidamente.",
-      "growth_trend": "Crescendo a 15-20% anualmente na Europa, impulsionado por requisitos de soberania de dados (EUCS, NIS2), aplicação da GDPR, repatriação de nuvem de hyperscalers dos EUA e demanda por infraestrutura de AI. Qualificação SecNumCloud abrindo contratos governamentais.",
+      "market_size_estimate": {
+        "text": "O mercado de cloud computing está em constante crescimento, com uma estimativa de valor de mercado de cerca de R$ 1 trilhão até 2025",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "O crescimento do mercado de cloud computing é impulsionado pela demanda por soluções de armazenamento e processamento de dados em nuvem",
+        "source_url": null,
+        "confidence": "inferred"
+      },
       "likely_competitors": [
-        "AWS - nuvem global dominante com a mais ampla carteira de serviços",
-        "Microsoft Azure - forte posição de empresa via integração com o Office 365",
-        "Google Cloud Platform - forte em dados/AI e Kubernetes",
-        "Hetzner - concorrente alemão com preços muito agressivos em servidor físico",
-        "Scaleway (Iliad Group) - concorrente de nuvem francesa visando desenvolvedores",
-        "Ionos (United Internet) - concorrente de nuvem e hospedagem alemão",
-        "Deutsche Telekom T-Systems - nuvem soberana para empresas alemãs"
+        {
+          "text": "Amazon Web Services (AWS) - provedor de serviços de cloud computing",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Microsoft Azure - plataforma de cloud computing da Microsoft",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Google Cloud Platform (GCP) - plataforma de cloud computing da Google",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "competitive_advantages": [
-        "Modelo verticalmente integrado que permite preços 30-50% mais baixos do que os hyperscalers",
-        "Soberania de dados europeus e qualificação SecNumCloud",
-        "Sem taxas de saída (ao contrário de AWS/Azure/GCP)",
-        "Próprios centros de dados com tecnologia de refrigeração por água proprietária",
-        "Baseado em OpenStack, evitando bloqueio de fornecedor",
-        "Oferta forte de servidor físico e dedicado"
+        {
+          "text": "OVHcloud oferece uma solução de cloud computing segura e escalável, com uma infraestrutura global e um modelo de negócios B2B",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "A empresa possui uma infraestrutura de datacenters em todo o mundo, com capacidade de processamento e armazenamento de dados em grande escala",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        }
       ],
       "market_challenges": [
-        "Catálogo de serviços menor em comparação com AWS/Azure/GCP",
-        "Força de vendas de empresa limitada vs. máquinas de marketing de hyperscalers",
-        "Percepção de marca como empresa de hospedagem em vez de nuvem de empresa",
-        "Impacto do incêndio no centro de dados de Estrasburgo em 2021 na confiança",
-        "Concorrência com a camada gratuita de hyperscalers e créditos de startup"
+        {
+          "text": "A concorrência no mercado de cloud computing é intensa, com muitos provedores de serviços de cloud computing",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "A segurança dos dados é um desafio importante para as empresas de cloud computing, pois os dados dos clientes precisam ser protegidos contra acessos não autorizados",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "customer_pain_points": [
-        "Custos de nuvem aumentando imprevisivelmente com taxas de saída de hyperscalers",
-        "Preocupações com soberania de dados e conformidade com a GDPR com provedores de nuvem dos EUA",
-        "Bloqueio de fornecedor com serviços de nuvem proprietários",
-        "Necessidade de desempenho dedicado/físico com flexibilidade de nuvem",
-        "Complexidade de gerenciamento de multi-nuvem",
-        "Falta de infraestrutura de AI/GPU acessível na Europa"
+        {
+          "text": "As empresas precisam de soluções de armazenamento e processamento de dados em nuvem seguras e escaláveis",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "As empresas precisam de ajuda para migrar seus dados e aplicativos para a nuvem de forma segura e eficiente",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "buying_triggers": [
-        "Mandato de soberania de dados de reguladores ou conselho",
-        "Iniciativa de otimização de custos de nuvem (fugindo do choque da fatura de hyperscalers)",
-        "Necessidade de hospedagem qualificada SecNumCloud ou HDS",
-        "Lançamento de operações europeias que exigem infraestrutura compatível com a GDPR",
-        "Projeto de AI/ML que precisa de servidores GPU a um custo razoável",
-        "Repatriação de hyperscalers devido a bloqueio ou preocupações de custo"
+        {
+          "text": "A necessidade de escalar a capacidade de processamento e armazenamento de dados",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "A necessidade de melhorar a segurança dos dados e aplicativos",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "decision_makers": [
-        "CTO / VP de Engenharia",
-        "Chefe de Infraestrutura / Nuvem",
-        "CISO (para nuvem soberana)",
-        "CIO",
-        "Líder de DevOps / Líder de Equipe de Plataforma",
-        "DPO (Oficial de Proteção de Dados)"
+        {
+          "text": "Diretores de TI",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Gerentes de projetos",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
-      "sales_cycle_estimate": "7-21 dias para autoatendimento e PME, 30-90 dias para negócios de nuvem privada gerenciada e acordos de empresa",
+      "sales_cycle_estimate": {
+        "text": "O ciclo de vendas para soluções de cloud computing pode levar de algumas semanas a vários meses",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "Empresa europeia com 50-5.000 funcionários",
-        "Orçamento anual de infraestrutura de TI de 50.000-5.000.000 de euros",
-        "Valoriza a soberania de dados e a hospedagem europeia",
-        "Equipe técnica capaz de gerenciar infraestrutura de nuvem",
-        "Opera em setor regulamentado (saúde, finanças, setor público)",
-        "Executa cargas de trabalho que se beneficiam de servidores dedicados ou físicos",
-        "Consciente do custo, mas necessita de confiabilidade de nível de empresa",
-        "Amigável à código aberto (OpenStack, Kubernetes, Linux)",
-        "Plataforma de SaaS ou web em crescimento que precisa de hospedagem escalável",
-        "Organização que busca reduzir a dependência de hyperscalers"
+        {
+          "text": "Empresas de todos os tamanhos que precisam de soluções de armazenamento e processamento de dados em nuvem",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Empresas que valorizam a segurança e a escalabilidade dos dados",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "anti_icp_signals": [
-        "Empresa de empresa profundamente enraizada no ecossistema AWS/Azure sem motivação para mudar",
-        "Empresa que exige 100+ serviços de nuvem gerenciados (serviços sem servidor, ML como serviço, etc.)",
-        "Organização sem pessoal técnico para gerenciar infraestrutura",
-        "Empresa apenas dos EUA sem requisitos de dados europeus",
-        "Startup em busca de créditos de camada gratuita e programas de incubação extensivos",
-        "Empresa que precisa de presença de borda global em 50+ regiões",
-        "Organização que exige PaaS totalmente gerenciado com zero esforço de DevOps"
+        {
+          "text": "Empresas que não têm necessidade de soluções de armazenamento e processamento de dados em nuvem",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Empresas que já têm uma solução de cloud computing implementada",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "expansion_opportunities": [
-        "Ofertas SecNumCloud para governo francês e da UE",
-        "Nuvem de AI/GPU para o ecossistema de AI europeu",
-        "Parcerias de nuvem soberana com empresas europeias",
-        "Expansão de serviços gerenciados de Kubernetes e PaaS",
-        "Computação de borda para aplicações de IoT e 5G"
+        {
+          "text": "Desenvolver soluções de cloud computing para setores específicos, como saúde e finanças",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Expandir a presença global da OVHcloud, especialmente em mercados emergentes",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "industry_trends": [
-        "Regulamentações de soberania de nuvem europeia (EUCS, NIS2, DORA)",
-        "Estratégias de repatriação de nuvem e multi-nuvem",
-        "Demanda por infraestrutura de AI explodindo",
-        "Centros de dados de nuvem sustentáveis e verdes",
-        "Alternativas de nuvem de código aberto a serviços proprietários"
+        {
+          "text": "O crescimento do uso de inteligência artificial e machine learning em soluções de cloud computing",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "A importância da segurança dos dados e da conformidade com regulamentações de privacidade de dados",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ]
     },
     "en": {
-      "market_size_estimate": "European cloud infrastructure market: approximately EUR 60 billion (2024). Global IaaS market: approximately USD 150 billion. European sovereign cloud segment: approximately EUR 10 billion and growing rapidly.",
-      "growth_trend": "Growing at 15-20% annually in Europe, driven by data sovereignty requirements (EUCS, NIS2), GDPR enforcement, cloud repatriation from US hyperscalers, and AI infrastructure demand. SecNumCloud qualification opening government contracts.",
+      "market_size_estimate": {
+        "text": "The global cloud computing market size is estimated to be around $500 billion",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "The cloud computing market is expected to grow due to increasing demand for cloud services",
+        "source_url": null,
+        "confidence": "inferred"
+      },
       "likely_competitors": [
-        "AWS - dominant global cloud with broadest service portfolio",
-        "Microsoft Azure - strong enterprise position via Office 365 integration",
-        "Google Cloud Platform - strong in data/AI and Kubernetes",
-        "Hetzner - German competitor with very aggressive pricing on bare metal",
-        "Scaleway (Iliad Group) - French cloud competitor targeting developers",
-        "Ionos (United Internet) - German cloud and hosting competitor",
-        "Deutsche Telekom T-Systems - sovereign cloud for German enterprises"
+        {
+          "text": "AWS - Amazon Web Services",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Microsoft Azure",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Google Cloud Platform",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "competitive_advantages": [
-        "Vertically integrated model enabling 30-50% lower pricing than hyperscalers",
-        "European data sovereignty and SecNumCloud qualification",
-        "No egress fees (unlike AWS/Azure/GCP)",
-        "Own data centers with proprietary water-cooling technology",
-        "OpenStack-based avoiding vendor lock-in",
-        "Strong bare metal and dedicated server offering"
+        {
+          "text": "OVHcloud offers a reversible cloud with no bandwidth costs, even for data recovery",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "OVHcloud provides a hybrid cloud solution, combining private, public, bare metal, and web services",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "OVHcloud has a strong focus on data protection and security, with high standards for data protection",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        }
       ],
       "market_challenges": [
-        "Smaller service catalog compared to AWS/Azure/GCP",
-        "Limited enterprise sales force vs. hyperscaler go-to-market machines",
-        "Brand perception as hosting company rather than enterprise cloud",
-        "2021 Strasbourg data center fire impact on trust",
-        "Competing with hyperscaler free tier and startup credits"
+        {
+          "text": "Increasing competition in the cloud computing market",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Security and data protection concerns",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "customer_pain_points": [
-        "Cloud costs escalating unpredictably with hyperscaler egress fees",
-        "Data sovereignty and GDPR compliance concerns with US cloud providers",
-        "Vendor lock-in with proprietary cloud services",
-        "Need for dedicated/bare metal performance at cloud flexibility",
-        "Complexity of multi-cloud management",
-        "Lack of affordable AI/GPU infrastructure in Europe"
+        {
+          "text": "High costs for cloud services",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Difficulty in migrating to the cloud",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "buying_triggers": [
-        "Data sovereignty mandate from regulators or board",
-        "Cloud cost optimization initiative (escaping hyperscaler bill shock)",
-        "Need for SecNumCloud or HDS-qualified hosting",
-        "Launch of European operations requiring GDPR-compliant infrastructure",
-        "AI/ML project needing GPU servers at reasonable cost",
-        "Repatriation from hyperscaler due to lock-in or cost concerns"
+        {
+          "text": "Need for scalability and flexibility in cloud services",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": " Desire for cost-effective cloud solutions",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "decision_makers": [
-        "CTO / VP Engineering",
-        "Head of Infrastructure / Cloud",
-        "CISO (for sovereign cloud)",
-        "CIO",
-        "DevOps Lead / Platform Team Lead",
-        "DPO (Data Protection Officer)"
+        {
+          "text": "IT managers and directors",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Cloud architects and engineers",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
-      "sales_cycle_estimate": "7-21 days for self-service and SMB, 30-90 days for managed private cloud and enterprise deals",
+      "sales_cycle_estimate": {
+        "text": "The sales cycle for cloud services can range from a few weeks to several months",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "European company with 50-5,000 employees",
-        "Annual IT infrastructure budget of EUR 50K-5M",
-        "Values data sovereignty and European hosting",
-        "Technical team capable of managing cloud infrastructure",
-        "Operates in regulated industry (healthcare, finance, public sector)",
-        "Running workloads that benefit from dedicated or bare metal servers",
-        "Cost-conscious but needing enterprise-grade reliability",
-        "Open-source friendly (OpenStack, Kubernetes, Linux)",
-        "Growing SaaS or web platform needing scalable hosting",
-        "Organization looking to reduce hyperscaler dependency"
+        {
+          "text": "Small and medium-sized enterprises (SMEs) and large enterprises",
+          "source_url": "https://ovhcloud.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Companies with high data protection and security requirements",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "anti_icp_signals": [
-        "Enterprise deeply embedded in AWS/Azure ecosystem with no motivation to change",
-        "Company requiring 100+ managed cloud services (serverless, ML-as-a-service, etc.)",
-        "Organization without technical staff to manage infrastructure",
-        "US-only company with no European data requirements",
-        "Startup seeking extensive free-tier credits and incubation programs",
-        "Company needing global edge presence in 50+ regions",
-        "Organization requiring fully managed PaaS with zero DevOps effort"
+        {
+          "text": "Lack of budget for cloud services",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Existing contracts with other cloud providers",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "expansion_opportunities": [
-        "SecNumCloud offerings for French and EU government",
-        "AI/GPU cloud for European AI ecosystem",
-        "Sovereign cloud partnerships with European enterprises",
-        "Managed Kubernetes and PaaS services expansion",
-        "Edge computing for IoT and 5G applications"
+        {
+          "text": "Expanding into new markets, such as Asia-Pacific and Latin America",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Developing new cloud services, such as artificial intelligence and machine learning",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "industry_trends": [
-        "European cloud sovereignty regulations (EUCS, NIS2, DORA)",
-        "Cloud repatriation and multi-cloud strategies",
-        "AI infrastructure demand explosion",
-        "Sustainable and green cloud data centers",
-        "Open-source cloud alternatives to proprietary services"
+        {
+          "text": "Increasing adoption of hybrid cloud solutions",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Growing demand for cloud services with high security and data protection standards",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ]
     }
-  },
-  "clients": [
-    {
-      "company_name": "Alcatel-Lucent Enterprise (ALE)",
-      "industry": "Enterprise Networking / Telecommunications",
-      "employee_count": 3000,
-      "annual_revenue_usd": 800000000,
-      "deal_size_usd": 1800000,
-      "sales_cycle_days": 75,
-      "churned": false,
-      "ltv_usd": 10800000,
-      "tech_stack": "OVHcloud;Kubernetes;OpenStack;VMware",
-      "country": "France",
-      "founding_year": 2014
-    },
-    {
-      "company_name": "Carrefour",
-      "industry": "Retail / Supermarkets",
-      "employee_count": 350000,
-      "annual_revenue_usd": 91000000000,
-      "deal_size_usd": 4500000,
-      "sales_cycle_days": 90,
-      "churned": false,
-      "ltv_usd": 27000000,
-      "tech_stack": "OVHcloud;SAP;Oracle;Microsoft Azure (hybrid)",
-      "country": "France",
-      "founding_year": 1959
-    },
-    {
-      "company_name": "Christian Dior (LVMH)",
-      "industry": "Luxury Fashion / Beauty",
-      "employee_count": 15000,
-      "annual_revenue_usd": 9000000000,
-      "deal_size_usd": 2200000,
-      "sales_cycle_days": 80,
-      "churned": false,
-      "ltv_usd": 13200000,
-      "tech_stack": "OVHcloud;SAP;Salesforce;Adobe Commerce",
-      "country": "France",
-      "founding_year": 1946
-    },
-    {
-      "company_name": "Vinci Concessions",
-      "industry": "Infrastructure / Concessions",
-      "employee_count": 120000,
-      "annual_revenue_usd": 59000000000,
-      "deal_size_usd": 3800000,
-      "sales_cycle_days": 100,
-      "churned": false,
-      "ltv_usd": 22800000,
-      "tech_stack": "OVHcloud;SAP;Microsoft;IBM",
-      "country": "France",
-      "founding_year": 1899
-    },
-    {
-      "company_name": "Axa",
-      "industry": "Insurance / Financial Services",
-      "employee_count": 147000,
-      "annual_revenue_usd": 102000000000,
-      "deal_size_usd": 5500000,
-      "sales_cycle_days": 110,
-      "churned": false,
-      "ltv_usd": 33000000,
-      "tech_stack": "OVHcloud;SAP;Salesforce;Microsoft Azure (hybrid)",
-      "country": "France",
-      "founding_year": 1817
-    },
-    {
-      "company_name": "Deezer",
-      "industry": "Music Streaming",
-      "employee_count": 700,
-      "annual_revenue_usd": 490000000,
-      "deal_size_usd": 850000,
-      "sales_cycle_days": 45,
-      "churned": false,
-      "ltv_usd": 5100000,
-      "tech_stack": "OVHcloud;Kubernetes;Kafka;PostgreSQL",
-      "country": "France",
-      "founding_year": 2007
-    },
-    {
-      "company_name": "BlaBlaCar",
-      "industry": "Ride Sharing / Mobility",
-      "employee_count": 700,
-      "annual_revenue_usd": 200000000,
-      "deal_size_usd": 680000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 4080000,
-      "tech_stack": "OVHcloud;AWS (hybrid);Kubernetes;Python",
-      "country": "France",
-      "founding_year": 2006
-    },
-    {
-      "company_name": "Le Monde",
-      "industry": "Media / Publishing",
-      "employee_count": 1000,
-      "annual_revenue_usd": 250000000,
-      "deal_size_usd": 320000,
-      "sales_cycle_days": 35,
-      "churned": false,
-      "ltv_usd": 1920000,
-      "tech_stack": "OVHcloud;Kubernetes;WordPress;PostgreSQL",
-      "country": "France",
-      "founding_year": 1944
-    },
-    {
-      "company_name": "Dailymotion (Vivendi)",
-      "industry": "Video Streaming / Media",
-      "employee_count": 300,
-      "annual_revenue_usd": 100000000,
-      "deal_size_usd": 480000,
-      "sales_cycle_days": 35,
-      "churned": false,
-      "ltv_usd": 2880000,
-      "tech_stack": "OVHcloud;CDN;Kubernetes;React",
-      "country": "France",
-      "founding_year": 2005
-    },
-    {
-      "company_name": "Orange Business",
-      "industry": "Telecommunications / IT Services",
-      "employee_count": 30000,
-      "annual_revenue_usd": 7500000000,
-      "deal_size_usd": 3500000,
-      "sales_cycle_days": 90,
-      "churned": false,
-      "ltv_usd": 21000000,
-      "tech_stack": "OVHcloud;OpenStack;VMware;Cisco",
-      "country": "France",
-      "founding_year": 1994
-    },
-    {
-      "company_name": "Société Générale",
-      "industry": "Banking / Financial Services",
-      "employee_count": 117000,
-      "annual_revenue_usd": 28000000000,
-      "deal_size_usd": 4800000,
-      "sales_cycle_days": 110,
-      "churned": true,
-      "ltv_usd": 14400000,
-      "tech_stack": "AWS (migrated);Microsoft Azure;IBM;Oracle",
-      "country": "France",
-      "founding_year": 1864
-    },
-    {
-      "company_name": "Fnac Darty",
-      "industry": "Consumer Electronics Retail",
-      "employee_count": 23000,
-      "annual_revenue_usd": 8000000000,
-      "deal_size_usd": 1500000,
-      "sales_cycle_days": 60,
-      "churned": false,
-      "ltv_usd": 9000000,
-      "tech_stack": "OVHcloud;SAP;Adobe;Criteo",
-      "country": "France",
-      "founding_year": 1954
-    },
-    {
-      "company_name": "Veolia",
-      "industry": "Environmental Services / Utilities",
-      "employee_count": 220000,
-      "annual_revenue_usd": 42000000000,
-      "deal_size_usd": 3200000,
-      "sales_cycle_days": 95,
-      "churned": false,
-      "ltv_usd": 19200000,
-      "tech_stack": "OVHcloud;SAP;Microsoft Azure (hybrid);IBM",
-      "country": "France",
-      "founding_year": 1853
-    },
-    {
-      "company_name": "La Poste Group",
-      "industry": "Postal Services / Logistics",
-      "employee_count": 238000,
-      "annual_revenue_usd": 37000000000,
-      "deal_size_usd": 5500000,
-      "sales_cycle_days": 120,
-      "churned": false,
-      "ltv_usd": 33000000,
-      "tech_stack": "OVHcloud;IBM;Microsoft;Oracle",
-      "country": "France",
-      "founding_year": 1991
-    },
-    {
-      "company_name": "Capgemini",
-      "industry": "IT Services / Consulting",
-      "employee_count": 360000,
-      "annual_revenue_usd": 22000000000,
-      "deal_size_usd": 2800000,
-      "sales_cycle_days": 75,
-      "churned": false,
-      "ltv_usd": 16800000,
-      "tech_stack": "OVHcloud;AWS;Microsoft Azure;Google Cloud",
-      "country": "France",
-      "founding_year": 1967
-    },
-    {
-      "company_name": "Atos",
-      "industry": "IT Services / Digital Transformation",
-      "employee_count": 82000,
-      "annual_revenue_usd": 11000000000,
-      "deal_size_usd": 2200000,
-      "sales_cycle_days": 80,
-      "churned": false,
-      "ltv_usd": 13200000,
-      "tech_stack": "OVHcloud;IBM;Microsoft Azure;Google Cloud",
-      "country": "France",
-      "founding_year": 1997
-    },
-    {
-      "company_name": "SFR (Altice)",
-      "industry": "Telecommunications",
-      "employee_count": 16000,
-      "annual_revenue_usd": 13000000000,
-      "deal_size_usd": 3800000,
-      "sales_cycle_days": 90,
-      "churned": true,
-      "ltv_usd": 11400000,
-      "tech_stack": "AWS (migrated);Microsoft Azure;Cisco;VMware",
-      "country": "France",
-      "founding_year": 1987
-    },
-    {
-      "company_name": "Thales Group",
-      "industry": "Defense / Electronics",
-      "employee_count": 77000,
-      "annual_revenue_usd": 18700000000,
-      "deal_size_usd": 2800000,
-      "sales_cycle_days": 90,
-      "churned": false,
-      "ltv_usd": 16800000,
-      "tech_stack": "OVHcloud;IBM;Microsoft;AWS (hybrid)",
-      "country": "France",
-      "founding_year": 1893
-    },
-    {
-      "company_name": "Total Energies (Digital)",
-      "industry": "Oil & Gas / Energy",
-      "employee_count": 105000,
-      "annual_revenue_usd": 237000000000,
-      "deal_size_usd": 4200000,
-      "sales_cycle_days": 100,
-      "churned": false,
-      "ltv_usd": 25200000,
-      "tech_stack": "OVHcloud;AWS (hybrid);SAP;Microsoft",
-      "country": "France",
-      "founding_year": 1924
-    },
-    {
-      "company_name": "Euronext",
-      "industry": "Stock Exchange / Financial Markets",
-      "employee_count": 2500,
-      "annual_revenue_usd": 1400000000,
-      "deal_size_usd": 3500000,
-      "sales_cycle_days": 120,
-      "churned": false,
-      "ltv_usd": 21000000,
-      "tech_stack": "OVHcloud;IBM;Nasdaq Technology;Oracle",
-      "country": "France",
-      "founding_year": 2000
-    }
-  ]
+  }
 }

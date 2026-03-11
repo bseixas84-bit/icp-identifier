@@ -17,10 +17,10 @@ TRANSLATIONS = {
     "research_new": {"pt": "Pesquisar nova empresa", "en": "Research new company"},
     "upload_csv": {"pt": "Upload CSV", "en": "Upload CSV"},
     "instant_loading": {"pt": "Carregamento instantâneo", "en": "Instant loading"},
-    "instant_help": {"pt": "Dados completos pré-analisados. Carregamento imediato.", "en": "Complete pre-analyzed data. Instant loading."},
-    "preloaded_data": {"pt": "Dados pré-carregados", "en": "Pre-loaded data"},
-    "source_cache": {"pt": "Fonte: Cache local + IA (Llama 3.3 70B)", "en": "Source: Local cache + AI (Llama 3.3 70B)"},
-    "b3_companies": {"pt": "Empresas B3 (exemplos)", "en": "B3 Companies (examples)"},
+    "instant_help": {"pt": "Dados reais pré-analisados via scraping. Carregamento imediato.", "en": "Real pre-analyzed data via scraping. Instant loading."},
+    "preloaded_data": {"pt": "Dados reais (scraping)", "en": "Real data (scraping)"},
+    "source_cache": {"pt": "Fonte: Scraping real do site + IA (Llama 3.3 70B)", "en": "Source: Real website scraping + AI (Llama 3.3 70B)"},
+    "showcase_companies": {"pt": "Empresas showcase", "en": "Showcase companies"},
     "select_placeholder": {"pt": "Selecionar...", "en": "Select..."},
     "type_url": {"pt": "Ou digite uma URL", "en": "Or enter a URL"},
     "url_placeholder": {"pt": "exemplo.com.br", "en": "example.com"},
@@ -30,7 +30,6 @@ TRANSLATIONS = {
     "founded_in": {"pt": "Fundada em", "en": "Founded in"},
     "source_label": {"pt": "Fonte", "en": "Source"},
     "upload_customers": {"pt": "Upload CSV de clientes", "en": "Upload customer CSV"},
-    "use_sample": {"pt": "Usar dados de exemplo", "en": "Use sample data"},
     "prospects_label": {"pt": "Prospects", "en": "Prospects"},
     "upload_prospects": {"pt": "Upload CSV de prospects", "en": "Upload prospect CSV"},
     "url_invalid": {"pt": "URL inválida ou bloqueada (IPs privados/locais não são permitidos).", "en": "Invalid or blocked URL (private/local IPs are not allowed)."},
@@ -44,8 +43,7 @@ TRANSLATIONS = {
     "phase_1": {"pt": "Discovery", "en": "Discovery"},
     "phase_2": {"pt": "Company DNA", "en": "Company DNA"},
     "phase_3": {"pt": "Market Intel", "en": "Market Intel"},
-    "phase_4": {"pt": "Client Generation", "en": "Client Generation"},
-    "phase_5": {"pt": "Dossier", "en": "Dossier"},
+    "phase_4": {"pt": "Dossier", "en": "Dossier"},
 
     # ── Company DNA Card ──
     "products_services": {"pt": "Produtos & Serviços", "en": "Products & Services"},
@@ -201,10 +199,6 @@ TRANSLATIONS = {
     },
 
     "churn_by_cycle": {"pt": "Churn por Ciclo de Vendas", "en": "Churn Rate by Sales Cycle"},
-    "demo_data_disclaimer": {
-        "pt": "Dados demo — as métricas de clientes são estimativas ilustrativas. NPS não está incluído por questões de integridade metodológica.",
-        "en": "Demo data — client metrics are estimates for illustration only. NPS is excluded for methodological integrity.",
-    },
 
     # ── Finance Tab ──
     "ltv_per_customer": {"pt": "LTV por Cliente", "en": "LTV per Customer"},
@@ -447,6 +441,26 @@ TRANSLATIONS = {
         "pt": "Selecione uma empresa pré-carregada para explorar o potencial da ferramenta, pesquise uma nova empresa a partir do seu site ou faça upload de um CSV para analisar seus próprios dados.",
         "en": "Select a pre-loaded company to understand the potential of the tool, research a new one from their website, or upload a CSV to analyze your own data.",
     },
+
+    # ── ICP Insights (non-CSV mode) ──
+    "icp_insights_title": {"pt": "ICP Insights", "en": "ICP Insights"},
+    "icp_insights_subtitle": {
+        "pt": "Análise baseada em dados reais do site da empresa",
+        "en": "Analysis based on real data from the company website",
+    },
+    "csv_unlock_title": {
+        "pt": "Desbloqueie a análise completa",
+        "en": "Unlock full analysis",
+    },
+    "csv_unlock_desc": {
+        "pt": "Faça upload do seu CSV de clientes para acessar dashboards estatísticos, ICP Tiers, análise financeira, scoring de prospects e mais.",
+        "en": "Upload your customer CSV to access statistical dashboards, ICP Tiers, financial analysis, prospect scoring and more.",
+    },
+    "confidence_scraped": {"pt": "verificado", "en": "verified"},
+    "confidence_inferred": {"pt": "inferido", "en": "inferred"},
+    "confidence_llm_estimate": {"pt": "estimativa IA", "en": "AI estimate"},
+    "pages_analyzed": {"pt": "páginas analisadas", "en": "pages analyzed"},
+    "scraped_at": {"pt": "Dados coletados em", "en": "Data collected on"},
 
     # ── Status ──
     "ATIVO": {"pt": "ATIVO", "en": "ACTIVE"},

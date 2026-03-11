@@ -1,699 +1,530 @@
 {
   "url": "datadoghq.com",
+  "scraped_at": "2026-03-11T14:05:03.510904+00:00",
+  "pages_scraped": [
+    "https://datadoghq.com/",
+    "https://datadoghq.com/products",
+    "https://datadoghq.com/blog",
+    "https://datadoghq.com/customers",
+    "https://datadoghq.com/careers",
+    "https://datadoghq.com/press",
+    "https://datadoghq.com/case-studies",
+    "https://datadoghq.com/integrations",
+    "https://datadoghq.com/pricing",
+    "https://datadoghq.com/about"
+  ],
+  "meta": {
+    "meta_description": " See inside any stack, any app, at any scale, anywhere. ",
+    "og:title": "Cloud Monitoring as a Service | Datadog",
+    "og:description": "See metrics from all of your apps, tools & services in one place with Datadog’s cloud monitoring as a service solution. Try it for free.",
+    "og:site_name": "Datadog",
+    "og:type": "article",
+    "ld_name": "Datadog",
+    "ld_foundingDate": "2010-10-27",
+    "ld_address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10018",
+      "streetAddress": "620 8th Avenue"
+    },
+    "ld_sameAs": [
+      "https://twitter.com/datadoghq",
+      "www.instagram.com/datadoghq/",
+      "https://en.wikipedia.org/wiki/Datadog",
+      "https://www.facebook.com/datadoghq/",
+      "https://www.linkedin.com/company/datadog",
+      "https://github.com/DataDog",
+      "https://www.youtube.com/channel/UCPO2QgTCReBAThZca6MB9jg"
+    ],
+    "ld_url": "https://www.datadoghq.com/"
+  },
   "dna": {
     "pt": {
       "company_name": "Datadog",
-      "tagline": "Monitoramento e Segurança Modernos",
-      "description": "Datadog é uma plataforma líder de monitoramento e analytics baseada em nuvem para desenvolvedores, equipes de operações de TI e usuários de negócios. A empresa fornece observabilidade ponta a ponta em infraestrutura, aplicações, logs e segurança, permitindo que organizações monitorem, solucionem problemas e otimizem seus ambientes em escala de nuvem. Fundada em 2010 e listada na NASDAQ (DDOG), a Datadog atende mais de 27.000 clientes em todo o mundo com uma abordagem de plataforma unificada para observabilidade.",
+      "tagline": "Veja dentro de qualquer pilha, qualquer aplicativo, em qualquer escala, em qualquer lugar.",
+      "description": "A Datadog é uma plataforma de monitoramento de nuvem que fornece visibilidade e insights sobre o desempenho de aplicativos e infraestrutura. A empresa oferece uma variedade de produtos e serviços para ajudar as organizações a monitorar e otimizar seus sistemas. Com uma abordagem baseada em nuvem, a Datadog ajuda as empresas a migrar para a nuvem e a garantir a segurança e a conformidade de seus sistemas.",
       "industry": "Tecnologia",
-      "sub_industry": "Infraestrutura de Nuvem / Observabilidade",
-      "business_model": "B2B SaaS (Assinatura / Baseado em Uso)",
+      "sub_industry": "Monitoramento de nuvem e segurança",
+      "business_model": "SaaS",
       "products": [
-        "Monitoramento de Infraestrutura (hosts, containers, serverless)",
-        "APM e Distributed Tracing (desempenho de aplicações)",
-        "Gestão de Logs (analytics e arquivamento de logs)",
-        "Real User Monitoring (desempenho do frontend)",
-        "Monitoramento Sintético (testes proativos de disponibilidade)",
-        "Gestão de Segurança em Nuvem (CSPM e CWPP)",
-        "Gestão de Segurança de Aplicações (detecção de ameaças em runtime)",
-        "Monitoramento de Banco de Dados (insights de desempenho de consultas)",
-        "Monitoramento de Desempenho de Rede (visibilidade em nível de fluxo)",
-        "Visibilidade de CI (desempenho de pipeline e testes)",
-        "Gestão de Custos de Nuvem (analytics de otimização de custos)",
-        "Automação de Fluxos de Trabalho (automação de resposta a incidentes)"
+        "Infrastructure Monitoring",
+        "Application Performance Monitoring",
+        "Log Management",
+        "Security Monitoring",
+        "Network Monitoring",
+        "Synthetic Monitoring",
+        "Real User Monitoring"
       ],
       "features": [
-        "Plataforma de observabilidade unificada com mais de 700 integrações",
-        "Detecção de anomalias e análise de causa raiz com IA",
-        "Dashboards personalizados e alertas em tempo real",
-        "Distributed tracing com mapas de serviço automáticos",
-        "Correlação full-stack entre métricas, traces e logs",
-        "Controle de acesso baseado em função e SSO",
-        "Watchdog AI para insights automatizados",
-        "Controles flexíveis de retenção de dados e conformidade"
+        "Monitoramento de infraestrutura",
+        "Análise de desempenho de aplicativos",
+        "Gerenciamento de logs",
+        "Monitoramento de segurança",
+        "Análise de tráfego de rede",
+        "Monitoramento sintético",
+        "Monitoramento de usuários reais"
       ],
       "target_segments": [
-        "Empresas de tecnologia cloud-native",
-        "Equipes empresariais de DevOps e SRE",
-        "Organizações de engenharia de médio porte (200-2.000 funcionários)",
-        "Serviços financeiros com infraestrutura em tempo real",
-        "E-commerce e varejo com plataformas de alto tráfego",
-        "Empresas de tecnologia em saúde",
-        "Empresas de SaaS e plataformas",
-        "Serviços de mídia e streaming"
+        "Empresas de tecnologia",
+        "Empresas de finanças",
+        "Empresas de saúde",
+        "Empresas de varejo",
+        "Empresas de governo",
+        "Empresas de educação"
       ],
       "use_cases": [
-        "Monitoramento e alertas de infraestrutura full-stack",
-        "Solução de problemas e otimização de desempenho de aplicações",
-        "Agregação e analytics centralizados de logs",
-        "Monitoramento e validação de migração para nuvem",
-        "Gestão de postura de segurança e detecção de ameaças",
-        "Otimização de desempenho de pipeline de CI/CD",
-        "Gestão de custos e otimização de gastos em nuvem",
-        "Gestão e automação de resposta a incidentes"
+        "Migração para a nuvem",
+        "Consolidação de monitoramento",
+        "Monitoramento de segurança",
+        "Otimização de desempenho de aplicativos",
+        "Análise de tráfego de rede"
       ],
       "technologies": [
-        "Go (linguagem principal do backend)",
-        "Python",
-        "React (frontend)",
-        "Kafka",
-        "Elasticsearch",
-        "Cassandra",
-        "AWS/GCP/Azure (multi-cloud)",
+        "Nuvem",
         "Kubernetes",
-        "gRPC",
-        "Banco de dados de séries temporais customizado"
+        "Docker",
+        "AWS",
+        "Azure",
+        "Google Cloud"
       ],
-      "pricing_model": "Precificação por host, por GB ou por evento dependendo do produto. Infraestrutura a partir de $15/host/mês, APM a $31/host/mês, Gestão de Logs a $0,10/GB ingerido. Descontos por volume para compromissos anuais.",
-      "company_size_signals": "Mais de 6.800 funcionários, mais de 27.000 clientes, escritórios em 12 países. Receita anual de $2,13 bilhões (FY2023). Valor de mercado ~$40 bilhões.",
+      "pricing_model": "unknown",
+      "company_size_signals": "unknown",
       "founded_year": "2010",
-      "headquarters": "Nova York, NY",
+      "headquarters": "Nova York, EUA",
       "geographic_reach": [
-        "Estados Unidos (principal)",
-        "Reino Unido",
-        "França",
-        "Alemanha",
-        "Irlanda",
-        "Japão",
-        "Austrália",
-        "Singapura",
-        "Canadá",
-        "Coreia do Sul"
+        "EUA",
+        "Europa",
+        "Ásia"
       ],
       "certifications": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "HIPAA",
-        "FedRAMP (Moderate)",
-        "Conformidade GDPR",
-        "PCI DSS",
-        "CSA STAR"
+        "unknown"
       ],
       "partnerships": [
-        "AWS (Advanced Technology Partner)",
-        "Microsoft Azure",
-        "Google Cloud Platform",
-        "Red Hat",
-        "Salesforce (MuleSoft)",
-        "ServiceNow",
-        "PagerDuty",
-        "Slack"
+        "AWS",
+        "Azure",
+        "Google Cloud"
       ],
       "social_proof": [
-        "Samsung",
-        "Peloton",
-        "Whole Foods",
-        "Comcast",
-        "Nasdaq",
-        "21st Century Fox",
-        "Toyota",
-        "Airbnb"
+        "Logos de clientes",
+        "Depoimentos de clientes"
       ],
       "hiring_signals": [
-        "Engenheiros de backend (Go)",
-        "Engenheiros de confiabilidade de sites",
-        "Engenheiros de aprendizado de máquina",
-        "Engenheiros de segurança",
-        "Engenheiros de soluções",
-        "Gerentes de produto",
-        "Advogados de desenvolvedores",
-        "Engenheiros de plataforma de dados"
+        "Engenheiros de software",
+        "Especialistas em segurança"
       ],
       "content_themes": [
-        "Observabilidade unificada para ambientes cloud-native",
-        "Análise de causa raiz e detecção de anomalias com IA",
-        "Segurança shift-left e DevSecOps",
-        "Otimização de custos de nuvem e FinOps",
-        "Engenharia de plataforma e produtividade do desenvolvedor"
+        "Monitoramento de nuvem",
+        "Segurança",
+        "Desempenho de aplicativos",
+        "Migração para a nuvem"
       ],
-      "tone_of_voice": "Técnico, focado no desenvolvedor, pragmático, orientado à comunidade"
+      "tone_of_voice": "Profissional",
+      "sources": {
+        "company_name": "https://datadoghq.com/",
+        "description": "https://datadoghq.com/",
+        "products": "https://datadoghq.com/products",
+        "features": "https://datadoghq.com/products",
+        "target_segments": "https://datadoghq.com/customers",
+        "use_cases": "https://datadoghq.com/use-cases",
+        "technologies": "https://datadoghq.com/integrations",
+        "founded_year": "https://datadoghq.com/about",
+        "headquarters": "https://datadoghq.com/about",
+        "geographic_reach": "https://datadoghq.com/about",
+        "partnerships": "https://datadoghq.com/partners",
+        "social_proof": "https://datadoghq.com/customers",
+        "hiring_signals": "https://datadoghq.com/careers",
+        "content_themes": "https://datadoghq.com/blog"
+      }
     },
     "en": {
       "company_name": "Datadog",
-      "tagline": "Modern Monitoring & Security",
-      "description": "Datadog is a leading cloud-based monitoring and analytics platform for developers, IT operations teams, and business users. The company provides end-to-end observability across infrastructure, applications, logs, and security, enabling organizations to monitor, troubleshoot, and optimize their cloud-scale environments. Founded in 2010 and publicly traded on NASDAQ (DDOG), Datadog serves over 27,000 customers worldwide with a unified platform approach to observability.",
+      "tagline": "See inside any stack, any app, at any scale, anywhere",
+      "description": "Datadog is a cloud monitoring as a service solution that provides metrics from all of your apps, tools, and services in one place. The platform offers a range of products and features for infrastructure and application monitoring, security, and digital experience. Datadog aims to provide visibility across systems, apps, and services, enabling customers to monitor, troubleshoot, and optimize application performance.",
       "industry": "Technology",
-      "sub_industry": "Cloud Infrastructure / Observability",
-      "business_model": "B2B SaaS (Subscription / Usage-Based)",
+      "sub_industry": "Cloud Monitoring and Security",
+      "business_model": "SaaS",
       "products": [
-        "Infrastructure Monitoring (hosts, containers, serverless)",
-        "APM & Distributed Tracing (application performance)",
-        "Log Management (log analytics & archival)",
-        "Real User Monitoring (frontend performance)",
-        "Synthetic Monitoring (proactive uptime testing)",
-        "Cloud Security Management (CSPM & CWPP)",
-        "Application Security Management (runtime threat detection)",
-        "Database Monitoring (query performance insights)",
-        "Network Performance Monitoring (flow-level visibility)",
-        "CI Visibility (pipeline and test performance)",
-        "Cloud Cost Management (cost optimization analytics)",
-        "Workflow Automation (incident response automation)"
+        "Infrastructure Monitoring",
+        "Application Performance Monitoring",
+        "Security Monitoring",
+        "Network Monitoring",
+        "Synthetic Monitoring",
+        "Real User Monitoring",
+        "Serverless",
+        "Cloud Cost Management",
+        "Cloudcraft",
+        "Storage Management"
       ],
       "features": [
-        "Unified observability platform with 700+ integrations",
-        "AI-powered anomaly detection and root cause analysis",
-        "Custom dashboards and real-time alerting",
-        "Distributed tracing with automatic service maps",
-        "Full-stack correlation across metrics, traces, and logs",
-        "Role-based access control and SSO",
-        "Watchdog AI for automated insights",
-        "Flexible data retention and compliance controls"
+        "Metrics",
+        "Container Monitoring",
+        "Kubernetes Autoscaling",
+        "Log Management",
+        "Sensitive Data Scanner",
+        "Audit Trail",
+        "Observability Pipelines",
+        "Code Security",
+        "Software Composition Analysis",
+        "Static Code Analysis (SAST)",
+        "Runtime Code Analysis (IAST)"
       ],
       "target_segments": [
-        "Cloud-native technology companies",
-        "Enterprise DevOps and SRE teams",
-        "Mid-market engineering organizations (200-2,000 employees)",
-        "Financial services with real-time infrastructure",
-        "E-commerce and retail with high-traffic platforms",
-        "Healthcare technology companies",
-        "SaaS and platform companies",
-        "Media and streaming services"
+        "Financial Services",
+        "Manufacturing & Logistics",
+        "Healthcare/Life Sciences",
+        "Retail/E-Commerce",
+        "Government",
+        "Education",
+        "Media & Entertainment",
+        "Technology",
+        "Gaming"
       ],
       "use_cases": [
-        "Full-stack infrastructure monitoring and alerting",
-        "Application performance troubleshooting and optimization",
-        "Centralized log aggregation and analytics",
-        "Cloud migration monitoring and validation",
-        "Security posture management and threat detection",
-        "CI/CD pipeline performance optimization",
-        "Cost management and cloud spend optimization",
-        "Incident management and response automation"
+        "Application Security",
+        "Cloud Migration",
+        "Monitoring Consolidation",
+        "Unified Commerce Monitoring",
+        "SOAR",
+        "DevOps",
+        "FinOps",
+        "Shift-Left Testing",
+        "Digital Experience Monitoring",
+        "Security Analytics",
+        "Compliance for CIS Benchmarks",
+        "Hybrid Cloud Monitoring",
+        "IoT Monitoring",
+        "Real-Time BI",
+        "On-Premises Monitoring",
+        "Log Analysis & Correlation",
+        "CNAPP"
       ],
       "technologies": [
-        "Go (primary backend language)",
-        "Python",
-        "React (frontend)",
-        "Kafka",
-        "Elasticsearch",
-        "Cassandra",
-        "AWS/GCP/Azure (multi-cloud)",
+        "Amazon Web Services",
+        "Azure",
+        "Google Cloud",
+        "Oracle Cloud",
         "Kubernetes",
-        "gRPC",
-        "Custom time-series database"
+        "Red Hat OpenShift",
+        "Pivotal Platform",
+        "OpenAI",
+        "SAP",
+        "OpenTelemetry"
       ],
-      "pricing_model": "Per-host, per-GB, or per-event pricing depending on product. Infrastructure starts at $15/host/month, APM at $31/host/month, Log Management at $0.10/GB ingested. Volume discounts for annual commitments.",
-      "company_size_signals": "6,800+ employees, 27,000+ customers, offices in 12 countries. Annual revenue of $2.13 billion (FY2023). Market cap ~$40 billion.",
+      "pricing_model": "unknown",
+      "company_size_signals": "unknown",
       "founded_year": "2010",
-      "headquarters": "New York, NY",
+      "headquarters": "New York, NY, US",
       "geographic_reach": [
-        "United States (primary)",
-        "United Kingdom",
-        "France",
-        "Germany",
-        "Ireland",
-        "Japan",
-        "Australia",
-        "Singapore",
-        "Canada",
-        "South Korea"
+        "US"
       ],
-      "certifications": [
-        "SOC 2 Type II",
-        "ISO 27001",
-        "HIPAA",
-        "FedRAMP (Moderate)",
-        "GDPR Compliance",
-        "PCI DSS",
-        "CSA STAR"
-      ],
-      "partnerships": [
-        "AWS (Advanced Technology Partner)",
-        "Microsoft Azure",
-        "Google Cloud Platform",
-        "Red Hat",
-        "Salesforce (MuleSoft)",
-        "ServiceNow",
-        "PagerDuty",
-        "Slack"
-      ],
-      "social_proof": [
-        "Samsung",
-        "Peloton",
-        "Whole Foods",
-        "Comcast",
-        "Nasdaq",
-        "21st Century Fox",
-        "Toyota",
-        "Airbnb"
-      ],
-      "hiring_signals": [
-        "Backend engineers (Go)",
-        "Site reliability engineers",
-        "Machine learning engineers",
-        "Security engineers",
-        "Solutions engineers",
-        "Product managers",
-        "Developer advocates",
-        "Data platform engineers"
-      ],
+      "certifications": "unknown",
+      "partnerships": "unknown",
+      "social_proof": "Thousands of customers",
+      "hiring_signals": "Join Our Pack",
       "content_themes": [
-        "Unified observability for cloud-native environments",
-        "AI-driven root cause analysis and anomaly detection",
-        "Shift-left security and DevSecOps",
-        "Cloud cost optimization and FinOps",
-        "Platform engineering and developer productivity"
+        "Security",
+        "DevSecOps",
+        "Cloud Migration",
+        "Monitoring Consolidation",
+        "Digital Experience Monitoring"
       ],
-      "tone_of_voice": "Technical, developer-first, pragmatic, community-oriented"
+      "tone_of_voice": "Professional, Technical",
+      "sources": {
+        "company_name": "https://datadoghq.com/",
+        "tagline": "https://datadoghq.com/",
+        "description": "https://datadoghq.com/",
+        "industry": "https://datadoghq.com/",
+        "sub_industry": "https://datadoghq.com/",
+        "business_model": "https://datadoghq.com/",
+        "products": "https://datadoghq.com/products",
+        "features": "https://datadoghq.com/products",
+        "target_segments": "https://datadoghq.com/",
+        "use_cases": "https://datadoghq.com/",
+        "technologies": "https://datadoghq.com/",
+        "founded_year": "https://datadoghq.com/",
+        "headquarters": "https://datadoghq.com/",
+        "social_proof": "https://datadoghq.com/",
+        "hiring_signals": "https://datadoghq.com/careers",
+        "content_themes": "https://datadoghq.com/blog"
+      }
     }
   },
   "market": {
     "pt": {
-      "market_size_estimate": "Mercado global de observabilidade e monitoramento: ~$55 bilhões (2024). Sub-segmento de APM e monitoramento de infraestrutura: ~$18 bilhões.",
-      "growth_trend": "Crescimento forte - migração para nuvem e adoção de microsserviços impulsionando demanda, integração de IA/ML permitindo monitoramento proativo, segurança shift-left criando novos segmentos de mercado, CAGR estimado de 14% até 2030",
+      "market_size_estimate": {
+        "text": "O mercado de monitoramento de nuvem e segurança está em constante crescimento, com uma estimativa de tamanho de mercado de cerca de R$ 10 bilhões",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "O crescimento do mercado de monitoramento de nuvem e segurança é impulsionado pela adoção de tecnologias em nuvem e a necessidade de segurança cibernética",
+        "source_url": null,
+        "confidence": "inferred"
+      },
       "likely_competitors": [
-        "Splunk (Cisco) - forte em gestão de logs e SIEM para equipes de segurança empresarial",
-        "New Relic - observabilidade full-stack com precificação baseada em consumo",
-        "Dynatrace - APM empresarial com IA e instrumentação automática",
-        "Elastic - stack de busca e observabilidade open-source",
-        "Grafana Labs - dashboarding e visualização de métricas open-source",
-        "AWS CloudWatch - monitoramento nativo para ambientes exclusivamente AWS",
-        "Sumo Logic - analytics de dados de máquina cloud-native"
+        {
+          "text": "New Relic - empresa de monitoramento de aplicativos",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Splunk - empresa de gerenciamento de logs e segurança",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Dynatrace - empresa de monitoramento de aplicativos e infraestrutura",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "competitive_advantages": [
-        "Plataforma unificada mais abrangente cobrindo infra, APM, logs, segurança e custos em um só lugar",
-        "Mais de 700 integrações prontas com dashboards pré-configurados",
-        "Watchdog AI para detecção automática de anomalias e correlação",
-        "Experiência focada no desenvolvedor com rápido tempo de retorno",
-        "Forte suporte multi-cloud e híbrido"
+        {
+          "text": "Datadog oferece uma plataforma de monitoramento de nuvem e segurança completa e integrada",
+          "source_url": "https://datadoghq.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "A empresa tem uma forte presença no mercado de tecnologia e uma base de clientes estabelecida",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "market_challenges": [
-        "Volumes crescentes de dados aumentando custos para clientes",
-        "Alternativas open-source (OpenTelemetry, Grafana) ganhando adoção",
-        "Pressão de consolidação de fornecedores com provedores de nuvem construindo ferramentas nativas",
-        "Modelo de precificação complexo criando preocupações com contas inesperadas",
-        "Mercado de segurança empresarial altamente competitivo com incumbentes estabelecidos"
+        {
+          "text": "A concorrência no mercado de monitoramento de nuvem e segurança é intensa",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "A adoção de tecnologias em nuvem e a necessidade de segurança cibernética podem ser desafios para as empresas",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "customer_pain_points": [
-        "Ferramentas de monitoramento isoladas criando pontos cegos em toda a stack",
-        "Dificuldade em correlacionar métricas, traces e logs durante incidentes",
-        "Tempo médio de resolução (MTTR) lento para problemas em produção",
-        "Custos imprevisíveis de infraestrutura em nuvem",
-        "Falta de visibilidade em workloads containerizados e serverless",
-        "Vulnerabilidades de segurança ocultas no comportamento de runtime das aplicações"
+        {
+          "text": "Dificuldade em monitorar e gerenciar a infraestrutura e os aplicativos em nuvem",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Necessidade de melhorar a segurança cibernética e proteger contra ameaças",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "buying_triggers": [
-        "Projeto de migração para nuvem ou expansão multi-cloud",
-        "Adoção de microsserviços ou Kubernetes criando lacunas de observabilidade",
-        "Grande incidente em produção expondo pontos cegos no monitoramento",
-        "Transformação DevOps e formação de equipe SRE",
-        "Consolidação de múltiplas ferramentas pontuais de monitoramento",
-        "Requisito de conformidade exigindo trilhas de auditoria abrangentes"
+        {
+          "text": "Necessidade de melhorar a eficiência e a escalabilidade da infraestrutura e dos aplicativos",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Necessidade de melhorar a segurança cibernética e proteger contra ameaças",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "decision_makers": [
-        "VP de Engenharia",
-        "CTO",
-        "Diretor de SRE/DevOps",
-        "CIO",
-        "VP de Infraestrutura",
-        "Chief Information Security Officer (CISO)",
-        "Líder de Engenharia de Plataforma"
+        {
+          "text": "Diretores de TI e segurança cibernética",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Gerentes de operações e infraestrutura",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
-      "sales_cycle_estimate": "14-30 dias para médio porte, 2-4 meses para empresas, 6-12 meses para implantações em larga escala empresarial",
+      "sales_cycle_estimate": {
+        "text": "O ciclo de vendas pode levar de 3 a 6 meses",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "Empresa cloud-native ou em migração para nuvem com mais de 100 engenheiros",
-        "Receita anual entre $20M e $5B",
-        "Executa workloads em AWS, Azure ou GCP (ou multi-cloud)",
-        "Utiliza containers, Kubernetes ou arquiteturas serverless",
-        "Possui equipe de DevOps ou SRE responsável por uptime e confiabilidade",
-        "Atualmente usando ferramentas de monitoramento fragmentadas entre equipes",
-        "Experiencia incidentes frequentes ou MTTR lento",
-        "Possui orçamento para ferramentas de desenvolvedor e observabilidade de infraestrutura",
-        "Opera serviços digitais em tempo real ou de alto tráfego",
-        "Planeja deslocar segurança para a esquerda no ciclo de desenvolvimento"
+        {
+          "text": "Empresas de tecnologia e financeiras que utilizam tecnologias em nuvem",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Empresas que valorizam a segurança cibernética e a eficiência da infraestrutura e dos aplicativos",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "anti_icp_signals": [
-        "Empresa executando apenas infraestrutura on-premise sem planos de nuvem",
-        "Equipe muito pequena com menos de 5 engenheiros (necessidades de monitoramento limitadas)",
-        "Organização profundamente comprometida com ferramentas exclusivamente open-source (Prometheus/Grafana)",
-        "Empresa sem função de desenvolvimento de software ou operações de TI",
-        "Empresa com requisitos rígidos de residência de dados em regiões não suportadas",
-        "Organização sem disposição para investir em monitoramento além de ferramentas nativas gratuitas de nuvem",
-        "Website estático ou aplicação simples sem infraestrutura complexa"
+        {
+          "text": "Empresas que não utilizam tecnologias em nuvem ou não valorizam a segurança cibernética",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "expansion_opportunities": [
-        "Observabilidade com IA e análise de causa raiz com LLM",
-        "Expansão do portfólio de segurança (SIEM, SOAR)",
-        "Gestão de custos de nuvem e plataforma FinOps",
-        "Analytics de CI/CD e experiência do desenvolvedor",
-        "Observabilidade de IoT e edge"
+        {
+          "text": "Expansão para mercados emergentes e desenvolvimento de novos produtos e serviços",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "industry_trends": [
-        "OpenTelemetry se tornando padrão para instrumentação",
-        "Convergência de observabilidade e segurança (DevSecOps)",
-        "Copilotos de IA para investigação e resolução de incidentes",
-        "Integração de FinOps com dados de observabilidade",
-        "Engenharia de plataforma impulsionando adoção centralizada de observabilidade"
+        {
+          "text": "Adoção de tecnologias em nuvem e segurança cibernética",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Desenvolvimento de soluções de monitoramento e segurança para IoT e dispositivos móveis",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ]
     },
     "en": {
-      "market_size_estimate": "Global observability and monitoring market: ~$55 billion (2024). APM and infrastructure monitoring sub-segment: ~$18 billion.",
-      "growth_trend": "Strong growth - cloud migration and microservices adoption driving demand, AI/ML integration enabling proactive monitoring, shift-left security creating new market segments, estimated CAGR of 14% through 2030",
+      "market_size_estimate": {
+        "text": "The cloud monitoring and security market is expected to grow significantly, driven by the increasing adoption of cloud services and the need for robust security and monitoring solutions.",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
+      "growth_trend": {
+        "text": "The market is expected to grow rapidly, driven by the increasing demand for cloud-based services and the need for advanced security and monitoring solutions.",
+        "source_url": null,
+        "confidence": "inferred"
+      },
       "likely_competitors": [
-        "Splunk (Cisco) - strong in log management and SIEM for enterprise security teams",
-        "New Relic - full-stack observability with consumption-based pricing",
-        "Dynatrace - AI-powered enterprise APM with automatic instrumentation",
-        "Elastic - open-source search and observability stack",
-        "Grafana Labs - open-source dashboarding and metrics visualization",
-        "AWS CloudWatch - native monitoring for AWS-only environments",
-        "Sumo Logic - cloud-native machine data analytics"
+        {
+          "text": "New Relic - a leading provider of application performance monitoring and analytics solutions",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Splunk - a leading provider of security, monitoring, and analytics solutions",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Dynatrace - a leading provider of application performance monitoring and analytics solutions",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "competitive_advantages": [
-        "Broadest unified platform covering infra, APM, logs, security, and cost in one place",
-        "700+ turnkey integrations with out-of-the-box dashboards",
-        "Watchdog AI for automatic anomaly detection and correlation",
-        "Developer-first experience with fast time-to-value",
-        "Strong multi-cloud and hybrid support"
+        {
+          "text": "Datadog's platform provides real-time visibility into cloud-based applications and infrastructure, enabling customers to quickly identify and resolve issues.",
+          "source_url": "https://datadoghq.com/",
+          "confidence": "scraped"
+        },
+        {
+          "text": "Datadog's AI-powered observability and security capabilities provide advanced insights and automation, enabling customers to improve their security and monitoring posture.",
+          "source_url": "https://datadoghq.com/",
+          "confidence": "scraped"
+        }
       ],
       "market_challenges": [
-        "Rising data volumes increasing customer costs",
-        "Open-source alternatives (OpenTelemetry, Grafana) gaining adoption",
-        "Vendor consolidation pressure from cloud providers building native tools",
-        "Complex pricing model creating bill-shock concerns",
-        "Enterprise security market highly competitive with established incumbents"
+        {
+          "text": "The increasing complexity of cloud-based applications and infrastructure, making it challenging for customers to monitor and secure their environments.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "The need for advanced security and monitoring solutions, driven by the increasing threat of cyber-attacks and data breaches.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "customer_pain_points": [
-        "Siloed monitoring tools creating blind spots across the stack",
-        "Difficulty correlating metrics, traces, and logs during incidents",
-        "Slow mean-time-to-resolution (MTTR) for production issues",
-        "Unpredictable cloud infrastructure costs",
-        "Lack of visibility into containerized and serverless workloads",
-        "Security vulnerabilities hidden in application runtime behavior"
+        {
+          "text": "Difficulty in monitoring and securing cloud-based applications and infrastructure, due to the complexity and scale of these environments.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "The need for real-time visibility and advanced analytics to quickly identify and resolve issues, and to improve overall security and monitoring posture.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "buying_triggers": [
-        "Cloud migration or multi-cloud expansion project",
-        "Microservices or Kubernetes adoption creating observability gaps",
-        "Major production outage exposing monitoring blind spots",
-        "DevOps transformation and SRE team formation",
-        "Consolidation of multiple point monitoring tools",
-        "Compliance requirement mandating comprehensive audit trails"
+        {
+          "text": "The need for advanced security and monitoring solutions, driven by the increasing threat of cyber-attacks and data breaches.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "The desire to improve overall security and monitoring posture, and to reduce the risk of downtime and data loss.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "decision_makers": [
-        "VP of Engineering",
-        "CTO",
-        "Director of SRE/DevOps",
-        "CIO",
-        "VP of Infrastructure",
-        "Chief Information Security Officer (CISO)",
-        "Platform Engineering Lead"
+        {
+          "text": "IT and security professionals, responsible for monitoring and securing cloud-based applications and infrastructure.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "DevOps and engineering teams, responsible for developing and deploying cloud-based applications.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
-      "sales_cycle_estimate": "14-30 days for mid-market, 2-4 months for enterprise, 6-12 months for large enterprise-wide rollouts",
+      "sales_cycle_estimate": {
+        "text": "The sales cycle is expected to be moderate to long, due to the complexity of the solutions and the need for evaluation and testing.",
+        "source_url": null,
+        "confidence": "llm_estimate"
+      },
       "ideal_customer_characteristics": [
-        "Cloud-native or cloud-migrating company with 100+ engineers",
-        "Annual revenue between $20M and $5B",
-        "Runs workloads on AWS, Azure, or GCP (or multi-cloud)",
-        "Uses containers, Kubernetes, or serverless architectures",
-        "Has a DevOps or SRE team responsible for uptime and reliability",
-        "Currently using fragmented monitoring tools across teams",
-        "Experiences frequent incidents or slow MTTR",
-        "Has budget for developer tooling and infrastructure observability",
-        "Operates real-time or high-traffic digital services",
-        "Plans to shift security left into the development lifecycle"
+        {
+          "text": "Large to medium-sized enterprises, with complex cloud-based applications and infrastructure.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Organizations with a strong focus on security and monitoring, and a desire to improve their overall security and monitoring posture.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "anti_icp_signals": [
-        "Company running only on-premise infrastructure with no cloud plans",
-        "Very small team with fewer than 5 engineers (limited monitoring needs)",
-        "Organization deeply committed to open-source-only tooling (Prometheus/Grafana)",
-        "Business with no software development or IT operations function",
-        "Company with strict data residency requirements in unsupported regions",
-        "Organization unwilling to invest in monitoring beyond free cloud-native tools",
-        "Static website or simple application with no complex infrastructure"
+        {
+          "text": "Lack of budget or resources to invest in advanced security and monitoring solutions.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Satisfaction with current security and monitoring solutions, and a lack of desire to change or upgrade.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ],
       "expansion_opportunities": [
-        "AI-powered observability with LLM-driven root cause analysis",
-        "Security product suite expansion (SIEM, SOAR)",
-        "Cloud cost management and FinOps platform",
-        "CI/CD and developer experience analytics",
-        "IoT and edge observability"
+        {
+          "text": "Expansion into new markets, such as Asia-Pacific and Latin America, where cloud adoption is increasing rapidly.",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        },
+        {
+          "text": "Development of new solutions and features, such as advanced AI and machine learning capabilities, to address emerging customer needs.",
+          "source_url": null,
+          "confidence": "llm_estimate"
+        }
       ],
       "industry_trends": [
-        "OpenTelemetry becoming the standard for instrumentation",
-        "Convergence of observability and security (DevSecOps)",
-        "AI copilots for incident investigation and resolution",
-        "FinOps integration with observability data",
-        "Platform engineering driving centralized observability adoption"
+        {
+          "text": "Increasing adoption of cloud-based services, driven by the need for scalability, flexibility, and cost savings.",
+          "source_url": null,
+          "confidence": "inferred"
+        },
+        {
+          "text": "Growing demand for advanced security and monitoring solutions, driven by the increasing threat of cyber-attacks and data breaches.",
+          "source_url": null,
+          "confidence": "inferred"
+        }
       ]
     }
-  },
-  "clients": [
-    {
-      "company_name": "HashiCorp",
-      "industry": "Cloud Infrastructure / DevOps",
-      "employee_count": 2400,
-      "annual_revenue_usd": 600000000,
-      "deal_size_usd": 380000,
-      "sales_cycle_days": 45,
-      "churned": false,
-      "ltv_usd": 2280000,
-      "tech_stack": "Datadog;AWS;Terraform;Kubernetes",
-      "country": "USA",
-      "founding_year": 2012
-    },
-    {
-      "company_name": "Mercado Libre",
-      "industry": "E-Commerce / Fintech",
-      "employee_count": 50000,
-      "annual_revenue_usd": 14500000000,
-      "deal_size_usd": 2800000,
-      "sales_cycle_days": 75,
-      "churned": false,
-      "ltv_usd": 16800000,
-      "tech_stack": "Datadog;AWS;Google Cloud;Kafka",
-      "country": "Argentina",
-      "founding_year": 1999
-    },
-    {
-      "company_name": "Nasdaq",
-      "industry": "Financial Services / Technology",
-      "employee_count": 7500,
-      "annual_revenue_usd": 3600000000,
-      "deal_size_usd": 1900000,
-      "sales_cycle_days": 90,
-      "churned": false,
-      "ltv_usd": 11400000,
-      "tech_stack": "Datadog;AWS;Kafka;Splunk",
-      "country": "USA",
-      "founding_year": 1971
-    },
-    {
-      "company_name": "Wayfair",
-      "industry": "E-Commerce / Home Goods",
-      "employee_count": 15000,
-      "annual_revenue_usd": 12000000000,
-      "deal_size_usd": 1400000,
-      "sales_cycle_days": 60,
-      "churned": false,
-      "ltv_usd": 8400000,
-      "tech_stack": "Datadog;Google Cloud;Kubernetes;Kafka",
-      "country": "USA",
-      "founding_year": 2002
-    },
-    {
-      "company_name": "Samsung Electronics",
-      "industry": "Consumer Electronics / Technology",
-      "employee_count": 267000,
-      "annual_revenue_usd": 224000000000,
-      "deal_size_usd": 4200000,
-      "sales_cycle_days": 120,
-      "churned": false,
-      "ltv_usd": 25200000,
-      "tech_stack": "Datadog;AWS;Kubernetes;Terraform",
-      "country": "South Korea",
-      "founding_year": 1969
-    },
-    {
-      "company_name": "Glovo",
-      "industry": "On-Demand Delivery",
-      "employee_count": 3000,
-      "annual_revenue_usd": 850000000,
-      "deal_size_usd": 420000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 2520000,
-      "tech_stack": "Datadog;Google Cloud;Kubernetes;Golang",
-      "country": "Spain",
-      "founding_year": 2015
-    },
-    {
-      "company_name": "DreamWorks Animation",
-      "industry": "Animation / Entertainment",
-      "employee_count": 3000,
-      "annual_revenue_usd": 900000000,
-      "deal_size_usd": 580000,
-      "sales_cycle_days": 55,
-      "churned": false,
-      "ltv_usd": 3480000,
-      "tech_stack": "Datadog;AWS;Kubernetes;Python",
-      "country": "USA",
-      "founding_year": 1994
-    },
-    {
-      "company_name": "Mercedes-Benz",
-      "industry": "Automotive",
-      "employee_count": 168000,
-      "annual_revenue_usd": 153000000000,
-      "deal_size_usd": 3500000,
-      "sales_cycle_days": 95,
-      "churned": false,
-      "ltv_usd": 21000000,
-      "tech_stack": "Datadog;Microsoft Azure;Kubernetes;Terraform",
-      "country": "Germany",
-      "founding_year": 1926
-    },
-    {
-      "company_name": "Peloton",
-      "industry": "Fitness Technology",
-      "employee_count": 5500,
-      "annual_revenue_usd": 2700000000,
-      "deal_size_usd": 650000,
-      "sales_cycle_days": 45,
-      "churned": false,
-      "ltv_usd": 3900000,
-      "tech_stack": "Datadog;AWS;Kafka;Kubernetes",
-      "country": "USA",
-      "founding_year": 2012
-    },
-    {
-      "company_name": "Zendesk",
-      "industry": "Customer Service Software",
-      "employee_count": 6500,
-      "annual_revenue_usd": 1700000000,
-      "deal_size_usd": 520000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 3120000,
-      "tech_stack": "Datadog;AWS;Kubernetes;Golang",
-      "country": "USA",
-      "founding_year": 2007
-    },
-    {
-      "company_name": "Forbes",
-      "industry": "Media / Publishing",
-      "employee_count": 1000,
-      "annual_revenue_usd": 475000000,
-      "deal_size_usd": 180000,
-      "sales_cycle_days": 35,
-      "churned": false,
-      "ltv_usd": 1080000,
-      "tech_stack": "Datadog;AWS;React;WordPress",
-      "country": "USA",
-      "founding_year": 1917
-    },
-    {
-      "company_name": "Shopify",
-      "industry": "E-Commerce Platform",
-      "employee_count": 11600,
-      "annual_revenue_usd": 7100000000,
-      "deal_size_usd": 1800000,
-      "sales_cycle_days": 55,
-      "churned": false,
-      "ltv_usd": 10800000,
-      "tech_stack": "Datadog;Google Cloud;Kubernetes;Ruby on Rails",
-      "country": "Canada",
-      "founding_year": 2006
-    },
-    {
-      "company_name": "Twilio",
-      "industry": "Cloud Communications",
-      "employee_count": 8000,
-      "annual_revenue_usd": 4200000000,
-      "deal_size_usd": 780000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 4680000,
-      "tech_stack": "Datadog;AWS;Golang;Kubernetes",
-      "country": "USA",
-      "founding_year": 2008
-    },
-    {
-      "company_name": "New Relic",
-      "industry": "Observability / SaaS",
-      "employee_count": 2500,
-      "annual_revenue_usd": 980000000,
-      "deal_size_usd": 420000,
-      "sales_cycle_days": 35,
-      "churned": true,
-      "ltv_usd": 1260000,
-      "tech_stack": "New Relic (self-monitoring);AWS;Kubernetes",
-      "country": "USA",
-      "founding_year": 2008
-    },
-    {
-      "company_name": "Atlassian",
-      "industry": "Collaboration Software",
-      "employee_count": 11000,
-      "annual_revenue_usd": 4400000000,
-      "deal_size_usd": 920000,
-      "sales_cycle_days": 50,
-      "churned": false,
-      "ltv_usd": 5520000,
-      "tech_stack": "Datadog;AWS;Kubernetes;Terraform",
-      "country": "Australia",
-      "founding_year": 2002
-    },
-    {
-      "company_name": "Conde Nast",
-      "industry": "Media / Publishing",
-      "employee_count": 6000,
-      "annual_revenue_usd": 2000000000,
-      "deal_size_usd": 480000,
-      "sales_cycle_days": 45,
-      "churned": true,
-      "ltv_usd": 1440000,
-      "tech_stack": "Dynatrace (migrated);AWS;React;Python",
-      "country": "USA",
-      "founding_year": 1909
-    },
-    {
-      "company_name": "Rappi",
-      "industry": "Super-App / Delivery",
-      "employee_count": 4500,
-      "annual_revenue_usd": 1100000000,
-      "deal_size_usd": 380000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 2280000,
-      "tech_stack": "Datadog;AWS;Golang;Kubernetes",
-      "country": "Colombia",
-      "founding_year": 2015
-    },
-    {
-      "company_name": "Nubank",
-      "industry": "Digital Banking / Fintech",
-      "employee_count": 10000,
-      "annual_revenue_usd": 2900000000,
-      "deal_size_usd": 1200000,
-      "sales_cycle_days": 55,
-      "churned": false,
-      "ltv_usd": 7200000,
-      "tech_stack": "Datadog;AWS;Clojure;Kubernetes",
-      "country": "Brazil",
-      "founding_year": 2013
-    },
-    {
-      "company_name": "iFood",
-      "industry": "Food Delivery / Marketplace",
-      "employee_count": 7000,
-      "annual_revenue_usd": 1500000000,
-      "deal_size_usd": 520000,
-      "sales_cycle_days": 40,
-      "churned": false,
-      "ltv_usd": 3120000,
-      "tech_stack": "Datadog;AWS;Kotlin;Kubernetes",
-      "country": "Brazil",
-      "founding_year": 2011
-    },
-    {
-      "company_name": "SolarWinds",
-      "industry": "IT Management Software",
-      "employee_count": 2600,
-      "annual_revenue_usd": 730000000,
-      "deal_size_usd": 280000,
-      "sales_cycle_days": 35,
-      "churned": true,
-      "ltv_usd": 840000,
-      "tech_stack": "New Relic (migrated);AWS;Python;Terraform",
-      "country": "USA",
-      "founding_year": 1999
-    }
-  ]
+  }
 }

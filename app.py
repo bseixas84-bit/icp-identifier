@@ -1037,7 +1037,7 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ── Sidebar ──
-api_key = os.getenv("GROQ_API_KEY", "")
+api_key = os.getenv("LLM_API_KEY", "") or os.getenv("GROQ_API_KEY", "")
 
 with st.sidebar:
     # ── Section 1: Language ──
@@ -1059,7 +1059,6 @@ with st.sidebar:
     company_url = ""
     research_btn = False
     customers_file = None
-    use_sample = False
     prospects_file = None
 
     if "_data_source" not in st.session_state:
@@ -1104,30 +1103,26 @@ with st.sidebar:
                 # Always sync dna/market with current language on every render
                 st.session_state["intel_dna"] = raw_dna.get(L, raw_dna) if ("pt" in raw_dna and "en" in raw_dna) else raw_dna
                 st.session_state["intel_market"] = raw_market.get(L, raw_market) if ("pt" in raw_market and "en" in raw_market) else raw_market
+                st.session_state["intel_pages_scraped"] = cache_data.get("pages_scraped", [])
+                st.session_state["intel_scraped_at"] = cache_data.get("scraped_at", "")
 
                 company_changed = st.session_state.get("_loaded_cache") != selected_cached
                 lang_changed = st.session_state.get("_loaded_lang") != L
 
                 if company_changed:
-                    # Full reset when company switches
                     for key in ["icp", "scored"]:
                         st.session_state.pop(key, None)
-                    clients_df = pd.DataFrame(cache_data["clients"])
-                    clients_df["churned"] = clients_df["churned"].apply(
-                        lambda x: str(x).strip().lower() in ("true", "1", "yes")
-                    )
-                    st.session_state["generated_clients"] = clients_df
                     st.session_state["intel_dossier"] = ""
-                    st.session_state["intel_dossier_path"] = ""
                     st.session_state["company_source"] = None
                     st.session_state["_loaded_cache"] = selected_cached
                 elif lang_changed:
-                    # Clear AI results so they regenerate in the new language
                     for key in ["icp", "scored"]:
                         st.session_state.pop(key, None)
 
                 st.session_state["_loaded_lang"] = L
 
+                scraped_at = cache_data.get("scraped_at", "")
+                pages_count = len(cache_data.get("pages_scraped", []))
                 st.markdown(f"""
                 <div class="instant-badge">{_t("preloaded_data")}</div>
                 <div style="padding:10px 12px; border-radius:12px;
@@ -1135,13 +1130,9 @@ with st.sidebar:
                     border: 1px solid rgba(255,255,255,0.06);
                     font-size:0.75rem; color:#cbd5e1; line-height:1.6;">
                     <strong style="color:#0000FF;">{selected_cached}</strong><br>
-                    DNA + {'Mercado' if L == 'pt' else 'Market'} + {len(cache_data['clients'])} {_t("customers").lower()}<br>
+                    DNA + {'Mercado' if L == 'pt' else 'Market'} · {pages_count} {_t("pages_analyzed")}<br>
                     <span style="color:#64748b; font-size:0.65rem;">{_t("source_cache")}</span>
-                </div>
-                <div style="margin-top:8px;padding:8px 12px;border-radius:10px;
-                    background:rgba(245,158,11,0.08);border-left:3px solid #f59e0b;
-                    font-size:0.68rem;color:#92400e;line-height:1.5;">
-                    ⚠️ {_t("demo_data_disclaimer")}
+                    {f'<br><span style="color:#64748b; font-size:0.6rem;">{_t("scraped_at")}: {scraped_at[:10]}</span>' if scraped_at else ''}
                 </div>
                 """, unsafe_allow_html=True)
 
@@ -1175,7 +1166,6 @@ with st.sidebar:
             if customers_file_raw and not _validate_csv(customers_file_raw):
                 customers_file_raw = None
             customers_file = customers_file_raw
-            use_sample = st.checkbox(_t("use_sample"), value=False)
 
     # ── Section 3: Prospects ──
     with st.container(border=True):
@@ -1237,7 +1227,6 @@ PHASE_NAMES = {
     2: _t("phase_2"),
     3: _t("phase_3"),
     4: _t("phase_4"),
-    5: _t("phase_5"),
 }
 
 if research_btn and company_url:
@@ -1245,16 +1234,16 @@ if research_btn and company_url:
         st.error(_t("configure_api"))
     else:
         # Clear previous state
-        for key in ["icp", "scored", "generated_clients", "intel_dna", "intel_market", "intel_dossier", "intel_dossier_path", "_loaded_cache"]:
+        for key in ["icp", "scored", "intel_dna", "intel_market", "intel_dossier", "_loaded_cache"]:
             st.session_state.pop(key, None)
 
         # Progress UI
         progress_placeholder = st.empty()
-        phases_status = {i: ("pending", "") for i in range(1, 6)}
+        phases_status = {i: ("pending", "") for i in range(1, 5)}
 
         def render_progress(phases):
             rows = ""
-            for i in range(1, 6):
+            for i in range(1, 5):
                 state, msg = phases[i]
                 rows += f"""
                 <div class="phase-row">
@@ -1267,7 +1256,6 @@ if research_btn and company_url:
             return f'<div class="pipeline-container"><div class="pipeline-title">{_t("pipeline_title")}</div>{rows}</div>'
 
         def on_progress(phase, name, status):
-            # Mark previous phases as done
             for i in range(1, phase):
                 if phases_status[i][0] != "done":
                     phases_status[i] = ("done", phases_status[i][1])
@@ -1275,21 +1263,17 @@ if research_btn and company_url:
             progress_placeholder.markdown(render_progress(phases_status), unsafe_allow_html=True)
 
         try:
-            dna, market, gen_df, dossier_path, dossier_md = run_intelligence_pipeline(
+            dna, market, dossier_md = run_intelligence_pipeline(
                 company_url, api_key, progress_callback=on_progress,
                 lang=st.session_state.get("_lang", "en")
             )
-            # Mark all done
-            for i in range(1, 6):
+            for i in range(1, 5):
                 phases_status[i] = ("done", phases_status[i][1])
             progress_placeholder.markdown(render_progress(phases_status), unsafe_allow_html=True)
 
-            # Store in session
             st.session_state["intel_dna"] = dna
             st.session_state["intel_market"] = market
-            st.session_state["generated_clients"] = gen_df
             st.session_state["intel_dossier"] = dossier_md
-            st.session_state["intel_dossier_path"] = dossier_path
             st.session_state["company_source"] = None
 
         except Exception as e:
@@ -1300,7 +1284,6 @@ if "intel_dna" in st.session_state:
     dna = st.session_state["intel_dna"]
     market = st.session_state["intel_market"]
     dossier_md = st.session_state.get("intel_dossier", "")
-    dossier_path = st.session_state.get("intel_dossier_path", "")
 
     name = dna.get("company_name", "Empresa")
     initial = name[0].upper() if name else "?"
@@ -1314,10 +1297,25 @@ if "intel_dna" in st.session_state:
 
     # Build tag helpers
     def tags(items, cls="cc-tag"):
-        return "".join(f'<span class="{cls}">{i}</span>' for i in (items or []))
+        return "".join(f'<span class="{cls}">{_safe(i) if isinstance(i, str) else _safe(i.get("text", str(i)))}</span>' for i in (items or []))
+
+    def _claim_html(claim):
+        """Render a CitedClaim dict or plain string as HTML."""
+        if isinstance(claim, dict) and "text" in claim:
+            text = _safe(claim["text"])
+            url = claim.get("source_url")
+            conf = claim.get("confidence", "inferred")
+            badge_colors = {"scraped": "#22c55e", "inferred": "#f59e0b", "llm_estimate": "#8892a4"}
+            badge_labels = {"scraped": _t("confidence_scraped"), "inferred": _t("confidence_inferred"), "llm_estimate": _t("confidence_llm_estimate")}
+            color = badge_colors.get(conf, "#8892a4")
+            label = badge_labels.get(conf, conf)
+            badge = f' <span style="font-size:0.6rem;padding:2px 6px;border-radius:50px;background:{color}20;color:{color};font-weight:600;text-transform:uppercase;letter-spacing:0.04em;">{label}</span>'
+            link = f' <a href="{url}" target="_blank" style="color:#6699ff;font-size:0.7rem;">↗</a>' if url else ""
+            return f"{text}{badge}{link}"
+        return _safe(str(claim))
 
     def bullets(items):
-        return "".join(f'<div class="cc-list-item"><div class="cc-bullet"></div>{i}</div>' for i in (items or []))
+        return "".join(f'<div class="cc-list-item"><div class="cc-bullet"></div>{_claim_html(i)}</div>' for i in (items or []))
 
     # ── Company DNA Card (split into smaller chunks to avoid Streamlit HTML truncation) ──
     products_html = tags(dna.get('products', [])[:8])
@@ -1453,28 +1451,80 @@ if customers_file:
         df = _sanitize_df(df)
         df = _clean_df(df)
         df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
-elif "generated_clients" in st.session_state:
-    df = _clean_df(st.session_state["generated_clients"].copy())
-elif use_sample:
-    df = pd.read_csv("data/sample.csv")
-    df = _clean_df(df)
-    df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
+
+# ── ICP Insights section (when company selected but no CSV) ──
+if df is None and "intel_market" in st.session_state:
+    market = st.session_state["intel_market"]
+
+    st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("icp_insights_title")}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="font-size:0.78rem;color:#64748b;margin-bottom:1rem;">{_t("icp_insights_subtitle")}</div>', unsafe_allow_html=True)
+
+    ins_col1, ins_col2 = st.columns(2)
+
+    with ins_col1:
+        st.markdown(f"""
+        <div class="icp-card positive">
+            <div class="card-badge">Ideal Customer Profile</div>
+            <h2>{_t("ideal_customer_chars")}</h2>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown(f'<div class="company-card">{bullets(market.get("ideal_customer_characteristics", []))}</div>', unsafe_allow_html=True)
+
+        st.markdown(f"""
+        <div class="company-card">
+            <div class="cc-section-title">{_t("buying_triggers")}</div>
+            {bullets(market.get('buying_triggers', []))}
+            <div class="cc-section-title" style="margin-top:1rem;">{_t("typical_decision_makers")}</div>
+            {tags(market.get('decision_makers', []))}
+        </div>
+        """, unsafe_allow_html=True)
+
+    with ins_col2:
+        st.markdown(f"""
+        <div class="icp-card negative">
+            <div class="card-badge">Anti-ICP</div>
+            <h2>{_t("anti_icp_signals_title")}</h2>
+        </div>
+        """, unsafe_allow_html=True)
+        st.markdown(f'<div class="company-card">{bullets(market.get("anti_icp_signals", []))}</div>', unsafe_allow_html=True)
+
+        st.markdown(f"""
+        <div class="company-card">
+            <div class="cc-section-title">{_t("competitors_mapped")}</div>
+            {bullets(market.get('likely_competitors', [])[:6])}
+        </div>
+        """, unsafe_allow_html=True)
+
+    # CSV unlock CTA
+    st.markdown(f"""
+    <div style="
+        margin: 2rem 0;
+        padding: 2rem;
+        background: rgba(0,0,255,0.04);
+        border: 1px solid rgba(0,0,255,0.2);
+        border-radius: 20px;
+        text-align: center;
+    ">
+        <div style="font-size:1.5rem;margin-bottom:0.75rem;">📊</div>
+        <div style="font-size:1rem;font-weight:700;color:#e8edf8;margin-bottom:0.5rem;">{_t("csv_unlock_title")}</div>
+        <div style="font-size:0.85rem;color:#8892a4;line-height:1.6;max-width:500px;margin:0 auto;">
+            {_t("csv_unlock_desc")}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 if df is not None:
-    # True only when user uploaded their own CSV — NPS + cycle are trustworthy
-    _csv_uploaded = bool(customers_file)
+    _csv_uploaded = True
 
     # ── Detect optional columns ──
-    # has_nps: show NPS metric in header (conservative — only trusted CSV data)
-    has_nps = _csv_uploaded and "nps_score" in df.columns and df["nps_score"].notna().any()
-    # has_nps_chart: use NPS in charts & scoring (any data that actually has NPS values)
-    has_nps_chart = "nps_score" in df.columns and df["nps_score"].notna().any()
+    has_nps = "nps_score" in df.columns and df["nps_score"].notna().any()
+    has_nps_chart = has_nps
 
     # ── Metrics ──
     churn_rate = df["churned"].mean() * 100
     avg_ltv = df["ltv_usd"].mean()
     avg_nps = df["nps_score"].mean() if has_nps else None
-    avg_cycle = df["sales_cycle_days"].mean() if _csv_uploaded else None
+    avg_cycle = df["sales_cycle_days"].mean()
     active = len(df[~df["churned"]])
     total_revenue = df["annual_revenue_usd"].sum()
     avg_deal = df["deal_size_usd"].mean()
@@ -1498,9 +1548,8 @@ if df is not None:
             <div class="m-value">{_fmt(avg_ltv, "$")}</div>
         </div>
         {f'<div class="m-card"><div class="m-label">NPS</div><div class="m-value purple">{avg_nps:.1f}</div></div>' if has_nps else ''}
-        {f'<div class="m-card"><div class="m-label">{_t("avg_cycle")}</div><div class="m-value">{avg_cycle:.0f}d</div></div>' if avg_cycle is not None else ''}
+        <div class="m-card"><div class="m-label">{_t("avg_cycle")}</div><div class="m-value">{avg_cycle:.0f}d</div></div>
     </div>
-    {"" if _csv_uploaded else f'''<div style="margin:-8px 0 20px 0;padding:8px 14px;border-radius:10px;background:rgba(245,158,11,0.07);border-left:3px solid #f59e0b;font-size:0.68rem;color:#92400e;line-height:1.5;">⚠️ {_t("demo_data_disclaimer")}</div>'''}
     """, unsafe_allow_html=True)
 
     # ── Shared chart layout ──
@@ -2339,7 +2388,7 @@ if df is not None:
                             st.markdown(f"**{_t('risks')}**")
                             for r in row["risk_flags"]:
                                 st.markdown(f"- {r}")
-else:
+elif "intel_dna" not in st.session_state:
     st.markdown(f"""
     <div class="empty-state">
         <div style="color: #8892a4; font-size: 1rem; line-height: 1.7; max-width: 560px; margin: 0 auto;">
