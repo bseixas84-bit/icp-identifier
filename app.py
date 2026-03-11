@@ -119,6 +119,28 @@ def _sanitize_df(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _clean_df(df: pd.DataFrame) -> pd.DataFrame:
+    """Coerce numeric columns to float, strip commas, fill NaN — prevents blank Plotly charts."""
+    numeric_defaults = {
+        "employee_count": 50,
+        "annual_revenue_usd": 1_000_000,
+        "deal_size_usd": 10_000,
+        "ltv_usd": 10_000,
+        "sales_cycle_days": 30,
+        "founding_year": 2015,
+    }
+    for col, default in numeric_defaults.items():
+        if col in df.columns:
+            df[col] = pd.to_numeric(
+                df[col].astype(str).str.replace(r"[\$,]", "", regex=True),
+                errors="coerce",
+            ).fillna(default)
+    # nps_score is optional — coerce but don't fill (preserve missing-ness)
+    if "nps_score" in df.columns:
+        df["nps_score"] = pd.to_numeric(df["nps_score"], errors="coerce")
+    return df
+
+
 # ── Load cached companies ──
 CACHE_DIR = Path("data/cache")
 CACHED_COMPANIES = {}
@@ -1429,11 +1451,13 @@ if customers_file:
         df = None
     else:
         df = _sanitize_df(df)
+        df = _clean_df(df)
         df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
 elif "generated_clients" in st.session_state:
-    df = st.session_state["generated_clients"]
+    df = _clean_df(st.session_state["generated_clients"].copy())
 elif use_sample:
     df = pd.read_csv("data/sample.csv")
+    df = _clean_df(df)
     df["churned"] = df["churned"].apply(lambda x: str(x).lower() in ("true", "1", "yes", "sim"))
 
 if df is not None:
@@ -1481,8 +1505,8 @@ if df is not None:
 
     # ── Shared chart layout ──
     neu_chart_layout = dict(
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="#07090f",
+        plot_bgcolor="#0f1220",
         font=dict(family="Inter", color="#8892a4", size=11),
         title_font=dict(family="Inter", color="#e8edf8", size=13),
         xaxis=dict(
@@ -1497,7 +1521,7 @@ if df is not None:
             tickcolor="rgba(255,255,255,0.08)",
             zerolinecolor="rgba(255,255,255,0.05)",
         ),
-        legend=dict(bgcolor="rgba(0,0,0,0)", font=dict(color="#8892a4")),
+        legend=dict(bgcolor="#07090f", font=dict(color="#8892a4")),
         margin=dict(l=20, r=20, t=40, b=20),
         hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
     )
@@ -1691,7 +1715,7 @@ if df is not None:
                 x=0.5, y=0.5, showarrow=False,
                 font=dict(size=14, color="#e8edf8", family="Inter"),
             )
-            st.plotly_chart(fig_tier_donut, use_container_width=True)
+            st.plotly_chart(fig_tier_donut, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -1744,14 +1768,14 @@ if df is not None:
                     radialaxis=dict(visible=True, range=[0, 10], gridcolor="rgba(255,255,255,0.05)"),
                     bgcolor="rgba(0,0,0,0)",
                 ),
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="#07090f", plot_bgcolor="#0f1220",
                 font=dict(family="Inter", color="#8892a4", size=11),
                 title_font=dict(size=13, color="#e8edf8", family="Inter"),
                 legend=dict(orientation="h", yanchor="bottom", y=-0.15, xanchor="center", x=0.5, font=dict(size=10, color="#8892a4")),
                 margin=dict(l=40, r=40, t=60, b=40),
                 hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
             )
-            st.plotly_chart(fig_radar, use_container_width=True)
+            st.plotly_chart(fig_radar, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -1774,7 +1798,7 @@ if df is not None:
             )
             fig_tier_ltv.update_layout(height=350, showlegend=False, **neu_chart_layout)
             fig_tier_ltv.update_traces(textposition="outside")
-            st.plotly_chart(fig_tier_ltv, use_container_width=True)
+            st.plotly_chart(fig_tier_ltv, use_container_width=True, theme=None, config={"displayModeBar": False})
 
         with tt2_col2:
             fig_tier_cycle = px.bar(
@@ -1786,7 +1810,7 @@ if df is not None:
             )
             fig_tier_cycle.update_layout(height=350, showlegend=False, **neu_chart_layout)
             fig_tier_cycle.update_traces(textposition="outside")
-            st.plotly_chart(fig_tier_cycle, use_container_width=True)
+            st.plotly_chart(fig_tier_cycle, use_container_width=True, theme=None, config={"displayModeBar": False})
 
         # Client list by tier
         st.markdown(f'<div class="s-header"><div class="s-icon"></div>{_t("clients_by_tier")}</div>', unsafe_allow_html=True)
@@ -1861,7 +1885,7 @@ if df is not None:
             )
             fig_health.update_traces(marker=dict(sizemin=10))
             if has_nps_chart:
-                fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(0,0,0,0.15)")
+                fig_health.add_hline(y=6.5, line_dash="dot", line_color="rgba(255,255,255,0.15)")
                 fig_health.add_annotation(x=25, y=9.5, text=_t("ideal_quadrant"), showarrow=False,
                                           font=dict(size=10, color="#0000FF", family="Inter"), opacity=0.6)
                 fig_health.add_annotation(x=80, y=9.5, text=_t("slow_loyal"), showarrow=False,
@@ -1870,9 +1894,9 @@ if df is not None:
                                           font=dict(size=10, color="#f59e0b", family="Inter"), opacity=0.6)
                 fig_health.add_annotation(x=80, y=2.5, text=_t("danger_zone"), showarrow=False,
                                           font=dict(size=10, color="#ef4444", family="Inter"), opacity=0.6)
-            fig_health.add_vline(x=50, line_dash="dot", line_color="rgba(0,0,0,0.15)")
+            fig_health.add_vline(x=50, line_dash="dot", line_color="rgba(255,255,255,0.15)")
             fig_health.update_layout(height=480, **neu_chart_layout)
-            st.plotly_chart(fig_health, use_container_width=True)
+            st.plotly_chart(fig_health, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -1907,7 +1931,7 @@ if df is not None:
                     title=_t("nps_distribution"), barmode="overlay", height=480,
                     xaxis_title=_t("nps_score_label"), yaxis_title=_t("quantity"), **neu_chart_layout,
                 )
-                st.plotly_chart(fig_nps, use_container_width=True)
+                st.plotly_chart(fig_nps, use_container_width=True, theme=None, config={"displayModeBar": False})
 
                 st.markdown(f"""
                 <div class="chart-explain">
@@ -1940,7 +1964,7 @@ if df is not None:
                     xaxis_title=_t("sales_cycle_days"),
                     **neu_chart_layout,
                 )
-                st.plotly_chart(fig_churn_cycle, use_container_width=True)
+                st.plotly_chart(fig_churn_cycle, use_container_width=True, theme=None, config={"displayModeBar": False})
 
     # ── TAB 2: Financial Analysis ──
     with tab_finance:
@@ -1956,7 +1980,7 @@ if df is not None:
             )
             fig_ltv.update_layout(height=520, **neu_chart_layout)
             fig_ltv.update_traces(marker_line_width=0)
-            st.plotly_chart(fig_ltv, use_container_width=True)
+            st.plotly_chart(fig_ltv, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -1979,14 +2003,14 @@ if df is not None:
             for mult, label in [(1, "1x"), (3, "3x"), (5, "5x")]:
                 fig_roi.add_trace(go.Scatter(
                     x=[0, max_deal], y=[0, max_deal * mult],
-                    mode="lines", line=dict(dash="dot", color="rgba(0,0,0,0.1)", width=1),
+                    mode="lines", line=dict(dash="dot", color="rgba(255,255,255,0.15)", width=1),
                     showlegend=False, hoverinfo="skip"
                 ))
                 fig_roi.add_annotation(x=max_deal * 0.95, y=max_deal * mult * 0.95,
                                        text=f"{label} {_t('roi_label')}", showarrow=False,
-                                       font=dict(size=9, color="#64748b"))
+                                       font=dict(size=9, color="#8892a4"))
             fig_roi.update_layout(height=520, **neu_chart_layout)
-            st.plotly_chart(fig_roi, use_container_width=True)
+            st.plotly_chart(fig_roi, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -2016,7 +2040,7 @@ if df is not None:
                 insidetextorientation="radial",
                 marker=dict(line=dict(color="#0c0f1a", width=2)),
             )
-            st.plotly_chart(fig_industry, use_container_width=True)
+            st.plotly_chart(fig_industry, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             top_industries = df[~df["churned"]].groupby("industry").agg(
                 count=("company_name", "count"), avg_ltv=("ltv_usd", "mean")
@@ -2050,7 +2074,7 @@ if df is not None:
                 labels={"tech_class": _t("tech_stack"), "count": _t("customers"), "status": _t("status_label")},
             )
             fig_tech.update_layout(height=480, **neu_chart_layout)
-            st.plotly_chart(fig_tech, use_container_width=True)
+            st.plotly_chart(fig_tech, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -2080,14 +2104,14 @@ if df is not None:
                 yaxis=dict(title=_t("avg_ltv_chart"), gridcolor="rgba(255,255,255,0.05)", linecolor="rgba(255,255,255,0.08)", tickcolor="rgba(255,255,255,0.08)"),
                 yaxis2=dict(title=_t("retention_chart"), overlaying="y", side="right", range=[0, 110], gridcolor="rgba(0,0,0,0)"),
                 xaxis=dict(title=_t("annual_revenue_band"), gridcolor="rgba(255,255,255,0.05)", linecolor="rgba(255,255,255,0.08)", tickcolor="rgba(255,255,255,0.08)"),
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+                paper_bgcolor="#07090f", plot_bgcolor="#0f1220",
                 font=dict(family="Inter", color="#8892a4", size=11),
                 title_font=dict(size=13, color="#e8edf8", family="Inter"),
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(size=11, color="#8892a4")),
                 margin=dict(l=0, r=40, t=40, b=0),
                 hoverlabel=dict(bgcolor="#0f1220", bordercolor="rgba(255,255,255,0.12)", font=dict(color="#e8edf8")),
             )
-            st.plotly_chart(fig_cohort, use_container_width=True)
+            st.plotly_chart(fig_cohort, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -2107,7 +2131,7 @@ if df is not None:
                 labels={"company_age": _t("age_years"), "employee_count": _t("employees"), "churned": _t("churned_label")},
             )
             fig_age.update_layout(height=480, **neu_chart_layout)
-            st.plotly_chart(fig_age, use_container_width=True)
+            st.plotly_chart(fig_age, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             st.markdown(f"""
             <div class="chart-explain">
@@ -2289,7 +2313,7 @@ if df is not None:
             )
             fig_scores.update_layout(height=400, xaxis_tickangle=-45, **neu_chart_layout)
             fig_scores.update_traces(marker_line_width=0)
-            st.plotly_chart(fig_scores, use_container_width=True)
+            st.plotly_chart(fig_scores, use_container_width=True, theme=None, config={"displayModeBar": False})
 
             # Score rows
             for _, row in scored_df.iterrows():
