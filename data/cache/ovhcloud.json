@@ -52,7 +52,9 @@
         "VMware"
       ],
       "pricing_model": "Pay-as-you-go",
-      "company_size_signals": "1,6 milhão de clientes",
+      "company_size_signals": [
+        "1,6 milhão de clientes"
+      ],
       "founded_year": "unknown",
       "headquarters": "unknown",
       "geographic_reach": [
@@ -68,7 +70,9 @@
       "social_proof": [
         "1,6 milhão de clientes"
       ],
-      "hiring_signals": "unknown",
+      "hiring_signals": [
+        "unknown"
+      ],
       "content_themes": [
         "Cloud computing",
         "Servidores dedicados",
@@ -141,17 +145,27 @@
         "MongoDB"
       ],
       "pricing_model": "Pay-as-you-go",
-      "company_size_signals": "1.6 million clients",
+      "company_size_signals": [
+        "1.6 million clients"
+      ],
       "founded_year": "unknown",
       "headquarters": "unknown",
       "geographic_reach": [
         "France",
         "Global (46 datacenters on 4 continents)"
       ],
-      "certifications": "unknown",
-      "partnerships": "unknown",
-      "social_proof": "1.6 million clients",
-      "hiring_signals": "unknown",
+      "certifications": [
+        "unknown"
+      ],
+      "partnerships": [
+        "unknown"
+      ],
+      "social_proof": [
+        "1.6 million clients"
+      ],
+      "hiring_signals": [
+        "unknown"
+      ],
       "content_themes": [
         "Cloud computing",
         "Web hosting",

@@ -90,7 +90,9 @@
         "Google Cloud"
       ],
       "pricing_model": "unknown",
-      "company_size_signals": "unknown",
+      "company_size_signals": [
+        "unknown"
+      ],
       "founded_year": "2010",
       "headquarters": "Nova York, EUA",
       "geographic_reach": [
@@ -213,16 +215,26 @@
         "OpenTelemetry"
       ],
       "pricing_model": "unknown",
-      "company_size_signals": "unknown",
+      "company_size_signals": [
+        "unknown"
+      ],
       "founded_year": "2010",
       "headquarters": "New York, NY, US",
       "geographic_reach": [
         "US"
       ],
-      "certifications": "unknown",
-      "partnerships": "unknown",
-      "social_proof": "Thousands of customers",
-      "hiring_signals": "Join Our Pack",
+      "certifications": [
+        "unknown"
+      ],
+      "partnerships": [
+        "unknown"
+      ],
+      "social_proof": [
+        "Thousands of customers"
+      ],
+      "hiring_signals": [
+        "Join Our Pack"
+      ],
       "content_themes": [
         "Security",
         "DevSecOps",

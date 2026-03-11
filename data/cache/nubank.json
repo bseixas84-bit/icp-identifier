@@ -53,7 +53,9 @@
       ],
       "technologies": [],
       "pricing_model": "Varia de acordo com o produto ou serviço",
-      "company_size_signals": "Não há informações claras sobre o tamanho da empresa",
+      "company_size_signals": [
+        "Não há informações claras sobre o tamanho da empresa"
+      ],
       "founded_year": "Não mencionado",
       "headquarters": "Não mencionado",
       "geographic_reach": [
@@ -146,7 +148,9 @@
         "Internet Banking"
       ],
       "pricing_model": "Varies by product and service",
-      "company_size_signals": "Unknown",
+      "company_size_signals": [
+        "Unknown"
+      ],
       "founded_year": "Unknown",
       "headquarters": "Unknown",
       "geographic_reach": [

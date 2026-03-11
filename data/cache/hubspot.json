@@ -175,7 +175,9 @@
         "2,000+ third-party integrations"
       ],
       "pricing_model": "Unknown",
-      "company_size_signals": "288,000+ customers in over 135 countries",
+      "company_size_signals": [
+        "288,000+ customers in over 135 countries"
+      ],
       "founded_year": "Unknown",
       "headquarters": "Unknown",
       "geographic_reach": [

@@ -73,7 +73,9 @@
         "Programação"
       ],
       "pricing_model": "Desconhecido",
-      "company_size_signals": "A empresa tem uma presença global e uma equipe de especialistas em tecnologia",
+      "company_size_signals": [
+        "A empresa tem uma presença global e uma equipe de especialistas em tecnologia"
+      ],
       "founded_year": "Desconhecido",
       "headquarters": "Desconhecido",
       "geographic_reach": [
@@ -145,16 +147,26 @@
         "Programmatic"
       ],
       "pricing_model": "unknown",
-      "company_size_signals": "unknown",
+      "company_size_signals": [
+        "unknown"
+      ],
       "founded_year": "unknown",
       "headquarters": "unknown",
       "geographic_reach": [
         "20 countries"
       ],
-      "certifications": "unknown",
-      "partnerships": "OpenAI",
-      "social_proof": "unknown",
-      "hiring_signals": "yes, careers page available",
+      "certifications": [
+        "unknown"
+      ],
+      "partnerships": [
+        "OpenAI"
+      ],
+      "social_proof": [
+        "unknown"
+      ],
+      "hiring_signals": [
+        "yes, careers page available"
+      ],
       "content_themes": [
         "Commerce Media",
         "Digital Advertising",

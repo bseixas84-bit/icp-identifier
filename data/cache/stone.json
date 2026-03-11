@@ -50,7 +50,9 @@
         "Tecnologia NFC"
       ],
       "pricing_model": "unknown",
-      "company_size_signals": "16.000+ pessoas, 4.6M+ clientes, 210+ cidades",
+      "company_size_signals": [
+        "16.000+ pessoas, 4.6M+ clientes, 210+ cidades"
+      ],
       "founded_year": "2012",
       "headquarters": "Rio de Janeiro",
       "geographic_reach": [
@@ -136,14 +138,18 @@
         "NFC"
       ],
       "pricing_model": "unknown",
-      "company_size_signals": "16.000+ pessoas",
+      "company_size_signals": [
+        "16.000+ pessoas"
+      ],
       "founded_year": "2012",
       "headquarters": "Rio de Janeiro",
       "geographic_reach": [
         "Brasil",
         "EUA"
       ],
-      "certifications": "unknown",
+      "certifications": [
+        "unknown"
+      ],
       "partnerships": [
         "Grupo Globo"
       ],

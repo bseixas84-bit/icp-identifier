@@ -1298,8 +1298,16 @@ if "intel_dna" in st.session_state:
         source_text = _t("scrape_source")
 
     # Build tag helpers
+    def _ensure_list(items):
+        """Wrap a bare string in a list so bullets/tags never iterate chars."""
+        if items is None:
+            return []
+        if isinstance(items, str):
+            return [items]
+        return items
+
     def tags(items, cls="cc-tag"):
-        return "".join(f'<span class="{cls}">{_safe(i) if isinstance(i, str) else _safe(i.get("text", str(i)))}</span>' for i in (items or []))
+        return "".join(f'<span class="{cls}">{_safe(i) if isinstance(i, str) else _safe(i.get("text", str(i)))}</span>' for i in _ensure_list(items))
 
     def _claim_html(claim):
         """Render a CitedClaim dict or plain string as HTML."""
@@ -1317,7 +1325,7 @@ if "intel_dna" in st.session_state:
         return _safe(str(claim))
 
     def bullets(items):
-        return "".join(f'<div class="cc-list-item"><div class="cc-bullet"></div>{_claim_html(i)}</div>' for i in (items or []))
+        return "".join(f'<div class="cc-list-item"><div class="cc-bullet"></div>{_claim_html(i)}</div>' for i in _ensure_list(items))
 
     # ── Company DNA Card (split into smaller chunks to avoid Streamlit HTML truncation) ──
     products_html = tags(dna.get('products', [])[:8])
